@@ -1,0 +1,21 @@
+{% comment %}
+  There is no basket on this site: the buy box goes straight to checkout.
+  If someone lands on /cart anyway, send them on to checkout (or home if the cart is empty).
+{% endcomment %}
+{%- if cart.item_count > 0 -%}
+  <meta http-equiv="refresh" content="0; url={{ routes.cart_url }}/checkout">
+{%- endif -%}
+<section class="jw-cart-redirect">
+  <div class="jw-wrap jw-narrow">
+    {%- if cart.item_count > 0 -%}
+      <p class="jw-lead">Taking you to the checkout.</p>
+      <a class="jw-btn jw-btn--primary" href="{{ routes.cart_url }}/checkout">Continue to checkout</a>
+    {%- else -%}
+      <p class="jw-lead">Nothing is waiting here. Choose your wrap and you go straight to checkout.</p>
+      <a class="jw-btn jw-btn--primary" href="{{ routes.root_url }}#jw-buy">Choose your wrap</a>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "JW Cart redirect", "tag": "section", "class": "jw-section-cart-redirect", "settings": [], "presets": [{ "name": "JW Cart redirect" }] }
+{% endschema %}

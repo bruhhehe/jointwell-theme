@@ -15,15 +15,23 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
-    </title>
+    {%- liquid
+      assign jw_site = 'Jointwell'
+      if request.page_type == 'index'
+        assign jw_title = 'Jointwell | Cordless heated knee, shoulder and elbow wrap'
+        assign jw_desc = 'A cordless heated wrap with massage for stiff knees, shoulders and elbows. Warmth you set from 45°C to 65°C, held for a full 30 minutes. Free tracked UK delivery. 90-day trial, we pay the return postage.'
+      else
+        assign jw_title = page_title
+        unless jw_title contains jw_site
+          assign jw_title = jw_title | append: ' | ' | append: jw_site
+        endunless
+        assign jw_desc = page_description
+      endif
+    -%}
+    <title>{{ jw_title }}</title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    {% if jw_desc != blank %}
+      <meta name="description" content="{{ jw_desc | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}

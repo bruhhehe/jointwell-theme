@@ -1,6 +1,9 @@
 {% comment %} Jointwell hero. Feeling first, product name last. {% endcomment %}
 {%- liquid
   assign product = section.settings.product
+  if product == blank and section.settings.product_handle != blank
+    assign product = all_products[section.settings.product_handle]
+  endif
   if product != blank
     assign price_text = product.price | money
     assign compare_text = ''
@@ -43,6 +46,9 @@
         <img class="jw-hero__img" src="{{ 'jw-hero.jpg' | asset_url }}" width="1024" height="1024" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
       {%- endif -%}
 
+      {%- assign rq = section.settings.review_quote | default: '' -%}
+      {%- if rq != blank and rq contains 'PLACEHOLDER' -%}{%- assign rq = '' -%}{%- endif -%}
+      {%- if rq != blank -%}
       <aside class="jw-card jw-review-card jw-hero__review" aria-label="Customer review">
         <div class="jw-review-card__head">
           {%- if section.settings.review_photo != blank -%}
@@ -53,7 +59,7 @@
             <p class="jw-review-card__meta"><span class="jw-stars" aria-hidden="true">★★★★★</span> <span class="jw-verified">Verified buyer</span></p>
           </div>
         </div>
-        <blockquote class="jw-review-card__quote">{{ section.settings.review_quote | escape }}</blockquote>
+        <blockquote class="jw-review-card__quote">{{ rq | escape }}</blockquote>
         {%- if section.settings.review_link != blank -%}
           <a class="jw-review-card__link" href="{{ section.settings.review_link }}">Read the verified review</a>
         {%- endif -%}
@@ -61,6 +67,7 @@
           <p class="jw-caption">Photo supplied by customer</p>
         {%- endif -%}
       </aside>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -78,6 +85,7 @@
     { "type": "text", "id": "product_name", "label": "Product name line", "default": "Jointwell heated joint wrap" },
     { "type": "header", "content": "Price and button" },
     { "type": "product", "id": "product", "label": "Product", "info": "When set, the price comes from the product. Otherwise the text below is used." },
+    { "type": "text", "id": "product_handle", "label": "Product handle (fallback)", "default": "jointwell-heated-joint-wrap" },
     { "type": "text", "id": "price_text", "label": "Price (fallback)", "default": "£49.96" },
     { "type": "text", "id": "compare_text", "label": "Was price (fallback)", "default": "£62.45" },
     { "type": "text", "id": "price_note", "label": "Price note", "default": "One payment. Free tracked UK delivery." },
@@ -90,7 +98,7 @@
     { "type": "paragraph", "content": "Use a real, verified review only. Link it to the Judge.me review so the tick can be checked." },
     { "type": "text", "id": "review_name", "label": "First name", "default": "Maggie" },
     { "type": "text", "id": "review_age", "label": "Age", "default": "64" },
-    { "type": "textarea", "id": "review_quote", "label": "Quote", "default": "[PLACEHOLDER: real customer quote from Maggie's verified Judge.me review]" },
+    { "type": "textarea", "id": "review_quote", "label": "Quote", "info": "Paste the exact words from a verified Judge.me review. The card stays hidden until this is filled in." },
     { "type": "image_picker", "id": "review_photo", "label": "Customer's own photo" },
     { "type": "url", "id": "review_link", "label": "Link to the Judge.me review" }
   ],

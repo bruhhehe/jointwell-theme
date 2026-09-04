@@ -20,7 +20,7 @@
             elsif link == blank and block.settings.built_in == 'reviews'
               assign link = '#jw-reviews'
             elsif link == blank and block.settings.built_in == 'returns'
-              assign link = routes.root_url | append: 'policies/refund-policy'
+              assign link = routes.root_url | append: 'pages/returns-policy'
             endif
           -%}
           {%- if link != blank -%}

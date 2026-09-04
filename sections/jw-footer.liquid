@@ -1,0 +1,68 @@
+{% comment %}
+  Jointwell footer. Replaces Dawn's footer: no newsletter, no "Powered by Shopify", no shop name.
+  Brand line, optional UK address, the disclaimer (wording must stay), support line,
+  the footer menu, payment icons and a copyright line.
+{% endcomment %}
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+  assign year = 'now' | date: '%Y'
+-%}
+<footer class="jw-footer">
+  <div class="jw-wrap">
+    <ul class="jw-trust jw-trust--center jw-footer__trust" role="list">
+      <li>Free tracked UK delivery</li>
+      <li>90-day trial, we pay return postage</li>
+      <li>2-year warranty</li>
+      <li>Secure checkout</li>
+      <li>UK support</li>
+    </ul>
+
+    <p class="jw-footnote__brand">{{ section.settings.brand | escape }}</p>
+    {%- if section.settings.address != blank -%}
+      <address class="jw-footnote__address">{{ section.settings.address | escape | newline_to_br }}</address>
+    {%- endif -%}
+    <p class="jw-footnote__disclaimer">{{ section.settings.disclaimer | escape }}</p>
+    {%- if section.settings.support != blank -%}
+      <p class="jw-footnote__support">{{ section.settings.support | escape }}</p>
+    {%- endif -%}
+
+    {%- if menu.links.size > 0 -%}
+      <nav class="jw-footer__nav" aria-label="Footer">
+        <ul class="jw-footer__links" role="list">
+          {%- for link in menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+      <ul class="jw-footer__payments" role="list" aria-label="Payment methods">
+        {%- for type in shop.enabled_payment_types -%}
+          <li>{{ type | payment_type_svg_tag: class: 'jw-footer__payment-icon' }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <p class="jw-footer__copy">&copy; {{ year }} {{ section.settings.copyright | escape }}{% if section.settings.email != blank %} &middot; <a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a>{% endif %}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "JW Footer",
+  "tag": "div",
+  "class": "jw-section-footer",
+  "settings": [
+    { "type": "text", "id": "brand", "label": "Brand line", "default": "Jointwell by Vela Goods, UK" },
+    { "type": "textarea", "id": "address", "label": "UK address", "info": "Shown only when filled in." },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "Jointwell is a heat and massage device for the comfort and relaxation of stiff, tired knees, shoulders and elbows. It is not a medical treatment and does not cure, treat or prevent any disease or condition, including arthritis. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product." },
+    { "type": "text", "id": "support", "label": "Support line", "default": "UK support by email, 2-year warranty on every wrap, 90-day trial with return postage paid." },
+    { "type": "link_list", "id": "menu", "label": "Footer menu", "default": "footer" },
+    { "type": "checkbox", "id": "show_payment_icons", "label": "Show payment icons", "default": true },
+    { "type": "text", "id": "copyright", "label": "Copyright line", "default": "Jointwell \u00b7 velagoods.co.uk" },
+    { "type": "text", "id": "email", "label": "Support email", "default": "support@velagoods.co.uk" }
+  ],
+  "presets": [{ "name": "JW Footer" }]
+}
+{% endschema %}

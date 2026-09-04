@@ -1,0 +1,67 @@
+{% comment %}
+  Jointwell header. Replaces Dawn's header: no search, no account, no basket.
+  Logo left (image if set, otherwise the wordmark), the main menu right.
+  Under 750px the menu sits behind a native <details> toggle, no JavaScript.
+{% endcomment %}
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+  assign cta_link = section.settings.cta_link | default: '/#jw-buy'
+-%}
+<header class="jw-header">
+  <div class="jw-wrap jw-header__inner">
+    <a class="jw-header__logo" href="{{ routes.root_url }}" aria-label="Jointwell, home">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 360 | image_tag: loading: 'eager', class: 'jw-header__logo-img', alt: 'Jointwell', width: section.settings.logo_width }}
+      {%- else -%}
+        <span class="jw-header__wordmark">{{ section.settings.wordmark | escape }}</span>
+      {%- endif -%}
+    </a>
+
+    <nav class="jw-header__nav jw-header__nav--desktop" aria-label="Main">
+      <ul class="jw-header__list" role="list">
+        {%- for link in menu.links -%}
+          <li><a class="jw-header__link{% if link.current %} jw-header__link--current{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    {%- if section.settings.show_cta -%}
+      <a class="jw-btn jw-btn--primary jw-header__cta" href="{{ cta_link }}">{{ section.settings.cta_label | escape }}</a>
+    {%- endif -%}
+
+    <details class="jw-header__mobile">
+      <summary class="jw-header__toggle" aria-label="Menu">
+        <span class="jw-header__burger" aria-hidden="true"></span>
+        <span class="jw-header__toggle-text">Menu</span>
+      </summary>
+      <nav aria-label="Main">
+        <ul class="jw-header__mlist" role="list">
+          {%- for link in menu.links -%}
+            <li><a class="jw-header__mlink" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+          {%- endfor -%}
+          {%- if section.settings.show_cta -%}
+            <li><a class="jw-btn jw-btn--primary jw-btn--block" href="{{ cta_link }}">{{ section.settings.cta_label | escape }}</a></li>
+          {%- endif -%}
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "JW Header",
+  "tag": "div",
+  "class": "jw-section-header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo image", "info": "Leave empty to show the wordmark below." },
+    { "type": "range", "id": "logo_width", "label": "Logo width (px)", "min": 80, "max": 300, "step": 10, "default": 150 },
+    { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Jointwell" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show the buy button in the header", "default": true },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link", "info": "Leave blank to jump to the buy box on the homepage." }
+  ],
+  "presets": [{ "name": "JW Header" }]
+}
+{% endschema %}

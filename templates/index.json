@@ -1,20 +1,18 @@
 {
   "sections": {
-    "jw_announcement": {
-      "type": "jw-announcement",
-      "settings": {}
-    },
-    "jw_header_trust": {
-      "type": "jw-header-trust",
-      "settings": {}
-    },
     "jw_hero": {
       "type": "jw-hero",
-      "settings": {}
+      "settings": {
+        "product": "jointwell-heated-joint-wrap"
+      }
     },
     "jw_offer": {
       "type": "jw-offer",
-      "settings": {},
+      "settings": {
+        "product": "jointwell-heated-joint-wrap",
+        "preselect": 2,
+        "button_label": "Go to secure checkout"
+      },
       "blocks": {
         "tier_1": {
           "type": "tier",
@@ -276,7 +274,9 @@
     },
     "jw_why": {
       "type": "jw-why",
-      "settings": {}
+      "settings": {
+        "signature": ""
+      }
     },
     "jw_timeline": {
       "type": "jw-timeline",
@@ -334,49 +334,56 @@
           "type": "door",
           "settings": {
             "title": "Knee arthritis",
-            "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee."
+            "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee.",
+            "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
           }
         },
         "door_2": {
           "type": "door",
           "settings": {
             "title": "Stiff shoulder",
-            "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder."
+            "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder.",
+            "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
           }
         },
         "door_3": {
           "type": "door",
           "settings": {
             "title": "Tennis elbow",
-            "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap."
+            "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap.",
+            "link": "/blogs/advice/tennis-elbow-from-the-garden"
           }
         },
         "door_4": {
           "type": "door",
           "settings": {
             "title": "After a knee replacement",
-            "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises."
+            "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises.",
+            "link": "/blogs/advice/heat-after-knee-replacement"
           }
         },
         "door_5": {
           "type": "door",
           "settings": {
             "title": "Morning stiffness",
-            "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs."
+            "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs.",
+            "link": "/blogs/advice/morning-stiffness-first-ten-steps"
           }
         },
         "door_6": {
           "type": "door",
           "settings": {
             "title": "Kneeling and gardening",
-            "line": "Down to the beds and back up again. Before you go out, and after you come in."
+            "line": "Down to the beds and back up again. Before you go out, and after you come in.",
+            "link": "/blogs/advice/kneeling-gardening-knees"
           }
         },
         "door_7": {
           "type": "door",
           "settings": {
             "title": "Cold weather aches",
-            "line": "October to March. The wrap goes on with the first cup and the heating stays down."
+            "line": "October to March. The wrap goes on with the first cup and the heating stays down.",
+            "link": "/blogs/advice/cold-weather-joint-aches"
           }
         }
       },
@@ -436,14 +443,16 @@
     },
     "jw_reviews": {
       "type": "jw-reviews",
-      "settings": {},
+      "settings": {
+        "product": "jointwell-heated-joint-wrap"
+      },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
             "name": "Maggie",
             "age": "64",
-            "quote": "[PLACEHOLDER: real customer quote from Maggie's verified Judge.me review]"
+            "quote": ""
           }
         },
         "review_2": {
@@ -451,7 +460,7 @@
           "settings": {
             "name": "Sue",
             "age": "68",
-            "quote": "[PLACEHOLDER: real customer quote from Sue's verified Judge.me review]"
+            "quote": ""
           }
         },
         "review_3": {
@@ -459,7 +468,7 @@
           "settings": {
             "name": "Janet",
             "age": "70",
-            "quote": "[PLACEHOLDER: real customer quote from Janet's verified Judge.me review]"
+            "quote": ""
           }
         }
       },
@@ -579,7 +588,7 @@
           "type": "qa",
           "settings": {
             "question": "How do I charge it, and how long does a charge last?",
-            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. [PLACEHOLDER: charge time and number of 30-minute sessions per charge, from the manual.] The panel shows the battery level.</p>"
+            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. The panel shows the battery level.</p>"
           }
         },
         "qa_9": {
@@ -605,15 +614,9 @@
     "jw_final_cta": {
       "type": "jw-final-cta",
       "settings": {}
-    },
-    "jw_footer_note": {
-      "type": "jw-footer-note",
-      "settings": {}
     }
   },
   "order": [
-    "jw_announcement",
-    "jw_header_trust",
     "jw_hero",
     "jw_offer",
     "jw_problem",
@@ -628,7 +631,6 @@
     "jw_trust",
     "jw_guarantee",
     "jw_faq",
-    "jw_final_cta",
-    "jw_footer_note"
+    "jw_final_cta"
   ]
 }

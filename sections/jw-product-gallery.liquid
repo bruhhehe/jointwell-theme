@@ -1,0 +1,56 @@
+{% comment %}
+  Product page top for the jw template. Replaces Dawn's main-product section, which adds to a basket
+  through JavaScript. Photos left, name, price and description right. The buy box (JW Buy box and stack)
+  sits directly below and goes straight to checkout.
+{% endcomment %}
+{%- liquid
+  assign first = product.featured_media
+  assign v = product.selected_or_first_available_variant
+-%}
+<section class="jw-hero jw-product-top" id="jw-top">
+  <div class="jw-wrap jw-product-top__grid">
+    <div class="jw-product-top__media">
+      {%- if first != blank -%}
+        {{ first | image_url: width: 1200 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200', sizes: '(min-width: 990px) 50vw, 100vw', class: 'jw-product-top__main' }}
+      {%- endif -%}
+      {%- if product.media.size > 1 -%}
+        <ul class="jw-product-top__thumbs" role="list">
+          {%- for media in product.media offset: 1 limit: 9 -%}
+            <li>{{ media | image_url: width: 400 | image_tag: loading: 'lazy', class: 'jw-product-top__thumb' }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+    <div class="jw-product-top__copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="jw-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h1 class="jw-h1">{{ product.title | escape }}</h1>
+      <div class="jw-hero__price" aria-label="Price">
+        {%- if v.compare_at_price > v.price -%}
+          <s class="jw-price__was">{{ v.compare_at_price | money }}</s>
+        {%- endif -%}
+        <span class="jw-price__now">{{ v.price | money }}</span>
+        {%- if section.settings.price_note != blank -%}
+          <span class="jw-price__note">{{ section.settings.price_note | escape }}</span>
+        {%- endif -%}
+      </div>
+      <div class="jw-prose">{{ product.description }}</div>
+      {% render 'jw-cta-strip', link: '#jw-buy', label: section.settings.cta_label %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Product top",
+  "tag": "section",
+  "class": "jw-section-product-top",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small line above the name", "default": "For knees, shoulders and elbows that have got worse over the years" },
+    { "type": "text", "id": "price_note", "label": "Note beside the price", "default": "One payment. Free tracked UK delivery." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Choose your wrap" }
+  ],
+  "presets": [{ "name": "JW Product top" }]
+}
+{% endschema %}

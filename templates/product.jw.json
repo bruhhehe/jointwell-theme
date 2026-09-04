@@ -1,64 +1,50 @@
 {
   "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "title": {
-          "type": "title"
-        },
-        "price": {
-          "type": "price"
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector"
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "description": {
-          "type": "description"
-        }
-      },
-      "block_order": [
-        "title",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description"
-      ],
-      "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_position": "left",
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
-      }
+    "jw_product_top": {
+      "type": "jw-product-gallery",
+      "settings": {}
     },
-    "jw_product_stack": {
-      "type": "jw-product-stack",
-      "settings": {},
+    "jw_offer": {
+      "type": "jw-offer",
+      "settings": {
+        "preselect": 2,
+        "button_label": "Go to secure checkout"
+      },
       "blocks": {
-        "line_1": {
+        "tier_1": {
+          "type": "tier",
+          "settings": {
+            "name": "One wrap",
+            "sub": "Your worst joint",
+            "price": "£49.96",
+            "was": "£62.45",
+            "savings": "",
+            "badge": ""
+          }
+        },
+        "tier_2": {
+          "type": "tier",
+          "settings": {
+            "name": "Two wraps",
+            "sub": "One for each knee",
+            "price": "£71.96",
+            "was": "£89.95",
+            "savings": "Save £27.96 against two at £49.96",
+            "badge": "Most chosen"
+          }
+        },
+        "tier_3": {
+          "type": "tier",
+          "settings": {
+            "name": "Four wraps",
+            "sub": "One for you, one for your sister, two for the family",
+            "price": "£99",
+            "was": "£179.90",
+            "savings": "Save £100.84 against four at £49.96",
+            "badge": "Best value"
+          }
+        },
+        "line_4": {
           "type": "line",
           "settings": {
             "item": "Jointwell heated joint wrap",
@@ -66,7 +52,7 @@
             "pay": "£49.96"
           }
         },
-        "line_2": {
+        "line_5": {
           "type": "line",
           "settings": {
             "item": "Extension strap (shoulder and elbow)",
@@ -74,7 +60,7 @@
             "pay": "Free"
           }
         },
-        "line_3": {
+        "line_6": {
           "type": "line",
           "settings": {
             "item": "USB-C charging cable",
@@ -82,7 +68,7 @@
             "pay": "Free"
           }
         },
-        "line_4": {
+        "line_7": {
           "type": "line",
           "settings": {
             "item": "Mugwort warming sachet",
@@ -90,7 +76,7 @@
             "pay": "Free"
           }
         },
-        "line_5": {
+        "line_8": {
           "type": "line",
           "settings": {
             "item": "Tracked UK delivery",
@@ -98,7 +84,7 @@
             "pay": "Free"
           }
         },
-        "line_6": {
+        "line_9": {
           "type": "line",
           "settings": {
             "item": "90-day trial, return postage paid",
@@ -106,7 +92,7 @@
             "pay": "Free"
           }
         },
-        "line_7": {
+        "line_10": {
           "type": "line",
           "settings": {
             "item": "2-year warranty, UK support",
@@ -116,13 +102,16 @@
         }
       },
       "block_order": [
-        "line_1",
-        "line_2",
-        "line_3",
+        "tier_1",
+        "tier_2",
+        "tier_3",
         "line_4",
         "line_5",
         "line_6",
-        "line_7"
+        "line_7",
+        "line_8",
+        "line_9",
+        "line_10"
       ]
     },
     "jw_timeline": {
@@ -182,7 +171,7 @@
           "settings": {
             "name": "Maggie",
             "age": "64",
-            "quote": "[PLACEHOLDER: real customer quote from Maggie's verified Judge.me review]"
+            "quote": ""
           }
         },
         "review_2": {
@@ -190,7 +179,7 @@
           "settings": {
             "name": "Sue",
             "age": "68",
-            "quote": "[PLACEHOLDER: real customer quote from Sue's verified Judge.me review]"
+            "quote": ""
           }
         },
         "review_3": {
@@ -198,7 +187,7 @@
           "settings": {
             "name": "Janet",
             "age": "70",
-            "quote": "[PLACEHOLDER: real customer quote from Janet's verified Judge.me review]"
+            "quote": ""
           }
         }
       },
@@ -318,7 +307,7 @@
           "type": "qa",
           "settings": {
             "question": "How do I charge it, and how long does a charge last?",
-            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. [PLACEHOLDER: charge time and number of 30-minute sessions per charge, from the manual.] The panel shows the battery level.</p>"
+            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. The panel shows the battery level.</p>"
           }
         },
         "qa_9": {
@@ -343,8 +332,8 @@
     }
   },
   "order": [
-    "main",
-    "jw_product_stack",
+    "jw_product_top",
+    "jw_offer",
     "jw_timeline",
     "jw_reviews",
     "jw_trust",

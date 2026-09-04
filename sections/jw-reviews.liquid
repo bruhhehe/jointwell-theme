@@ -10,6 +10,8 @@
 
     <ul class="jw-reviews__grid" role="list">
       {%- for block in section.blocks -%}
+        {%- assign q = block.settings.quote | default: '' -%}
+        {%- if q == blank or q contains 'PLACEHOLDER' -%}{%- continue -%}{%- endif -%}
         <li class="jw-card jw-review-card" {{ block.shopify_attributes }}>
           <div class="jw-review-card__head">
             {%- if block.settings.photo != blank -%}
@@ -64,7 +66,7 @@
       "settings": [
         { "type": "text", "id": "name", "label": "First name", "default": "Maggie" },
         { "type": "text", "id": "age", "label": "Age", "default": "64" },
-        { "type": "textarea", "id": "quote", "label": "Quote, exactly as written in the review", "default": "[PLACEHOLDER: real customer quote]" },
+        { "type": "textarea", "id": "quote", "label": "Quote, exactly as written in the review", "info": "The card stays hidden until a real quote is pasted here." },
         { "type": "image_picker", "id": "photo", "label": "Customer's own photo" },
         { "type": "url", "id": "link", "label": "Link to the Judge.me review" }
       ]
@@ -74,9 +76,9 @@
     {
       "name": "JW What real buyers say",
       "blocks": [
-        { "type": "review", "settings": { "name": "Maggie", "age": "64", "quote": "[PLACEHOLDER: real customer quote from Maggie's verified Judge.me review]" } },
-        { "type": "review", "settings": { "name": "Sue", "age": "68", "quote": "[PLACEHOLDER: real customer quote from Sue's verified Judge.me review]" } },
-        { "type": "review", "settings": { "name": "Janet", "age": "70", "quote": "[PLACEHOLDER: real customer quote from Janet's verified Judge.me review]" } }
+        { "type": "review", "settings": { "name": "Maggie", "age": "64", "quote": "" } },
+        { "type": "review", "settings": { "name": "Sue", "age": "68", "quote": "" } },
+        { "type": "review", "settings": { "name": "Janet", "age": "70", "quote": "" } }
       ]
     }
   ]
