@@ -1,0 +1,53 @@
+{% comment %} Specifications block. Every line is a checkable fact. Lines left blank in the editor are hidden. {% endcomment %}
+<section class="jw-specs jw-band">
+  <div class="jw-wrap jw-narrow">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead">{{ section.settings.intro | escape }}</p>
+    <dl class="jw-card jw-specs__list">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.value != blank -%}
+          <div class="jw-specs__row" {{ block.shopify_attributes }}>
+            <dt>{{ block.settings.label | escape }}</dt>
+            <dd>{{ block.settings.value | escape }}{% if block.settings.link != blank %} <a href="{{ block.settings.link }}"{% if block.settings.link contains 'jw-ce' or block.settings.link contains '.jpg' or block.settings.link contains '.pdf' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.link_text | default: 'Open' | escape }}</a>{% endif %}</dd>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+      <div class="jw-specs__row">
+        <dt>Safety certificate</dt>
+        <dd>CE tested to the EMC Directive 2014/30/EU by an independent lab, 21 November 2024. Not a medical device and not claimed as one. <a href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener">Open the certificate</a></dd>
+      </div>
+    </dl>
+    {% render 'jw-cta-strip', label: section.settings.cta_label %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "JW Specifications",
+  "tag": "section",
+  "class": "jw-section-specs",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The specifics" },
+    { "type": "text", "id": "intro", "label": "Intro", "default": "Specifics are the trust. Here is everything we can measure." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" }
+  ],
+  "blocks": [
+    { "type": "spec", "name": "Specification", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Weight" },
+      { "type": "text", "id": "value", "label": "Value", "default": "360 g", "info": "Leave blank to hide the line." },
+      { "type": "url", "id": "link", "label": "Link (optional)" },
+      { "type": "text", "id": "link_text", "label": "Link text" }
+    ] }
+  ],
+  "presets": [{ "name": "JW Specifications", "blocks": [
+    { "type": "spec", "settings": { "label": "Size", "value": "46 cm across, 30 cm tall, 55 cm strap span. One size, either side of the body." } },
+    { "type": "spec", "settings": { "label": "Weight", "value": "360 g, about a full mug of tea" } },
+    { "type": "spec", "settings": { "label": "Heat", "value": "Five levels: 45, 50, 55, 60, 65°C, held for the full session" } },
+    { "type": "spec", "settings": { "label": "Massage", "value": "Three vibration strengths: gentle, comfortable, strong" } },
+    { "type": "spec", "settings": { "label": "Session", "value": "30 minutes, then it switches itself off. Cannot be overridden. Screen lock on the panel." } },
+    { "type": "spec", "settings": { "label": "Battery", "value": "3000 mAh, USB-C. Customers tell us about four 30-minute sessions per charge." } },
+    { "type": "spec", "settings": { "label": "Layers", "value": "Windproof outer, infrared heating middle, non-slip inner" } },
+    { "type": "spec", "settings": { "label": "In the box", "value": "Wrap, extension strap, USB-C cable, mugwort sachet" } },
+    { "type": "spec", "settings": { "label": "Where it is made", "value": "", "link_text": "" } }
+  ] }]
+}
+{% endschema %}

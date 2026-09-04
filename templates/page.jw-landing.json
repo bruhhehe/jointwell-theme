@@ -252,6 +252,13 @@
             "question": "What happens if I send it back?",
             "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>"
           }
+        },
+        "qa_who": {
+          "type": "qa",
+          "settings": {
+            "question": "Who shouldn't use it?",
+            "answer": "<p>Anyone who has been told to avoid heat on that joint. If you have diabetes, circulation problems, reduced feeling in your skin, a pacemaker, an unhealed wound or a joint that is hot, red and swollen, talk to your GP before using any heat product. Do not use it while asleep, over broken skin, or on a child. If you are pregnant or under medical care for the joint, ask first. It is a comfort device, not a treatment, and your GP's word beats ours.</p>"
+          }
         }
       },
       "block_order": [
@@ -263,6 +270,7 @@
         "qa_6",
         "qa_7",
         "qa_8",
+        "qa_who",
         "qa_9"
       ]
     }

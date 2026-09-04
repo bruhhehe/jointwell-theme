@@ -4,124 +4,18 @@
       "type": "jw-hero",
       "settings": {
         "product": "jointwell-heated-joint-wrap",
-        "review_name": "Sarah",
-        "review_age": "64",
-        "review_town": "Harrogate",
-        "review_stock": "jw-review-sarah.jpg",
-        "review_quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore.",
-        "review_short": "I set it to 45 and it stays at 45. Half an hour on my shoulder after lunch and I'm not stiff reaching for the top shelf anymore."
+        "reviews_text": "5 customer reviews, with photos",
+        "reviews_link": "/#jw-reviews",
+        "quiz_link": "/pages/is-it-right-for-me",
+        "quiz_label": "Is it right for me? Take the two-minute check",
+        "price_note": "Autumn price until 30 September. Free tracked UK delivery."
       }
     },
-    "jw_offer": {
-      "type": "jw-offer",
+    "jw_proof": {
+      "type": "jw-proof-strip",
       "settings": {
-        "product": "jointwell-heated-joint-wrap",
-        "preselect": 2,
-        "button_label": "Go to secure checkout"
-      },
-      "blocks": {
-        "tier_1": {
-          "type": "tier",
-          "settings": {
-            "name": "One wrap",
-            "sub": "Your worst joint",
-            "price": "£49",
-            "was": "£65",
-            "savings": "",
-            "badge": ""
-          }
-        },
-        "tier_2": {
-          "type": "tier",
-          "settings": {
-            "name": "Two wraps",
-            "sub": "One for each knee",
-            "price": "£69",
-            "was": "£130",
-            "savings": "Save £29 against two at £49",
-            "badge": "Most chosen"
-          }
-        },
-        "tier_3": {
-          "type": "tier",
-          "settings": {
-            "name": "Four wraps",
-            "sub": "One for you, one for your sister, two for the family",
-            "price": "£99",
-            "was": "£260",
-            "savings": "Save £97 against four at £49",
-            "badge": "Best value"
-          }
-        },
-        "line_4": {
-          "type": "line",
-          "settings": {
-            "item": "Jointwell heated joint wrap",
-            "worth": "£65",
-            "pay": "£49"
-          }
-        },
-        "line_5": {
-          "type": "line",
-          "settings": {
-            "item": "Extension strap (shoulder and elbow)",
-            "worth": "£9",
-            "pay": "Free"
-          }
-        },
-        "line_6": {
-          "type": "line",
-          "settings": {
-            "item": "USB-C charging cable",
-            "worth": "£6",
-            "pay": "Free"
-          }
-        },
-        "line_7": {
-          "type": "line",
-          "settings": {
-            "item": "Mugwort warming sachet",
-            "worth": "£4",
-            "pay": "Free"
-          }
-        },
-        "line_8": {
-          "type": "line",
-          "settings": {
-            "item": "Tracked UK delivery",
-            "worth": "£4.95",
-            "pay": "Free"
-          }
-        },
-        "line_9": {
-          "type": "line",
-          "settings": {
-            "item": "90-day trial, return postage paid",
-            "worth": "",
-            "pay": "Free"
-          }
-        },
-        "line_10": {
-          "type": "line",
-          "settings": {
-            "item": "2-year warranty, UK support",
-            "worth": "",
-            "pay": "Included"
-          }
-        }
-      },
-      "block_order": [
-        "tier_1",
-        "tier_2",
-        "tier_3",
-        "line_4",
-        "line_5",
-        "line_6",
-        "line_7",
-        "line_8",
-        "line_9",
-        "line_10"
-      ]
+        "number_link": "/#jw-reviews"
+      }
     },
     "jw_problem": {
       "type": "jw-problem",
@@ -155,41 +49,46 @@
         "item_3"
       ]
     },
-    "jw_authority": {
-      "type": "jw-authority",
+    "jw_howto": {
+      "type": "jw-how-it-works",
       "settings": {},
       "blocks": {
-        "quote_1": {
-          "type": "quote",
+        "step_1": {
+          "type": "step",
           "settings": {
-            "quote": "Heat applied to the affected area can be very effective in reducing pain.",
-            "who": "NHS"
+            "title": "Strap it on",
+            "text": "Round the knee, or over a shoulder or elbow with the extension strap in the box. Non-slip inner face, so it stays where you put it.",
+            "product_image_index": 1
           }
         },
-        "quote_2": {
-          "type": "quote",
+        "step_2": {
+          "type": "step",
           "settings": {
-            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain.",
-            "who": "Brandon Kambach, MD, orthopaedic surgeon"
+            "title": "Pick a level",
+            "text": "Five heat levels, 45°C to 65°C, and three massage strengths, on a lit panel with big digits. Start at 45 and work up.",
+            "product_image_index": 4
           }
         },
-        "quote_3": {
-          "type": "quote",
+        "step_3": {
+          "type": "step",
           "settings": {
-            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain.",
-            "who": "Hayden N. Box, MD, orthopaedic surgeon"
+            "title": "Thirty minutes, held",
+            "text": "It stays at the level you chose for the full half hour, then switches itself off. Cordless, so the kettle can go on halfway through.",
+            "product_image_index": 8
           }
         }
       },
       "block_order": [
-        "quote_1",
-        "quote_2",
-        "quote_3"
+        "step_1",
+        "step_2",
+        "step_3"
       ]
     },
     "jw_heat_chart": {
       "type": "jw-heat-chart",
-      "settings": {},
+      "settings": {
+        "show_tiles": false
+      },
       "blocks": {
         "feature_1": {
           "type": "feature",
@@ -229,6 +128,86 @@
         "feature_2",
         "feature_3",
         "feature_4"
+      ]
+    },
+    "jw_specs": {
+      "type": "jw-specs",
+      "settings": {},
+      "blocks": {
+        "spec_1": {
+          "type": "spec",
+          "settings": {
+            "label": "Size",
+            "value": "46 cm across, 30 cm tall, 55 cm strap span. One size, either side of the body."
+          }
+        },
+        "spec_2": {
+          "type": "spec",
+          "settings": {
+            "label": "Weight",
+            "value": "360 g, about a full mug of tea"
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "label": "Heat",
+            "value": "Five levels: 45, 50, 55, 60, 65°C, held for the full session"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "label": "Massage",
+            "value": "Three vibration strengths: gentle, comfortable, strong"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "label": "Session",
+            "value": "30 minutes, then it switches itself off. Cannot be overridden. Screen lock on the panel."
+          }
+        },
+        "spec_6": {
+          "type": "spec",
+          "settings": {
+            "label": "Battery",
+            "value": "3000 mAh, USB-C. Customers tell us about four 30-minute sessions per charge."
+          }
+        },
+        "spec_7": {
+          "type": "spec",
+          "settings": {
+            "label": "Layers",
+            "value": "Windproof outer, infrared heating middle, non-slip inner"
+          }
+        },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "In the box",
+            "value": "Wrap, extension strap, USB-C cable, mugwort sachet"
+          }
+        },
+        "spec_9": {
+          "type": "spec",
+          "settings": {
+            "label": "Where it is made",
+            "value": ""
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6",
+        "spec_7",
+        "spec_8",
+        "spec_9"
       ]
     },
     "jw_comparison": {
@@ -283,6 +262,10 @@
       "settings": {
         "signature": "Stan, grandson"
       }
+    },
+    "jw_physio": {
+      "type": "jw-physio",
+      "settings": {}
     },
     "jw_timeline": {
       "type": "jw-timeline",
@@ -401,50 +384,6 @@
         "door_5",
         "door_6",
         "door_7"
-      ]
-    },
-    "jw_photo_grid": {
-      "type": "jw-photo-grid",
-      "settings": {},
-      "blocks": {
-        "photo_1": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-photo-kettle.jpg",
-            "alt": "Woman at the kettle with the wrap on her knee",
-            "caption": "Walk to the kettle wearing it. 360 g, about the weight of a mug of tea."
-          }
-        },
-        "photo_2": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-photo-armchair.jpg",
-            "alt": "Woman reading in an armchair with the wrap on her knee",
-            "caption": "Any chair in the house. No wire to the wall."
-          }
-        },
-        "photo_3": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-photo-floor.jpg",
-            "alt": "Woman on the carpet doing a jigsaw with the wrap on her knee",
-            "caption": "Down on the floor for the jigsaw. And back up again."
-          }
-        },
-        "photo_4": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-photo-elbow.jpg",
-            "alt": "Woman in an armchair with the wrap on her elbow",
-            "caption": "The extension strap takes it up the arm to the elbow."
-          }
-        }
-      },
-      "block_order": [
-        "photo_1",
-        "photo_2",
-        "photo_3",
-        "photo_4"
       ]
     },
     "jw_reviews": {
@@ -632,6 +571,13 @@
             "question": "What happens if I send it back?",
             "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>"
           }
+        },
+        "qa_who": {
+          "type": "qa",
+          "settings": {
+            "question": "Who shouldn't use it?",
+            "answer": "<p>Anyone who has been told to avoid heat on that joint. If you have diabetes, circulation problems, reduced feeling in your skin, a pacemaker, an unhealed wound or a joint that is hot, red and swollen, talk to your GP before using any heat product. Do not use it while asleep, over broken skin, or on a child. If you are pregnant or under medical care for the joint, ask first. It is a comfort device, not a treatment, and your GP's word beats ours.</p>"
+          }
         }
       },
       "block_order": [
@@ -643,6 +589,7 @@
         "qa_6",
         "qa_7",
         "qa_8",
+        "qa_who",
         "qa_9"
       ]
     },
@@ -653,15 +600,16 @@
   },
   "order": [
     "jw_hero",
-    "jw_offer",
+    "jw_proof",
     "jw_problem",
-    "jw_authority",
+    "jw_howto",
     "jw_heat_chart",
+    "jw_specs",
     "jw_comparison",
     "jw_why",
+    "jw_physio",
     "jw_timeline",
     "jw_doorways",
-    "jw_photo_grid",
     "jw_reviews",
     "jw_trust",
     "jw_guarantee",

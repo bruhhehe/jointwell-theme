@@ -1,0 +1,34 @@
+{% comment %} A named physiotherapist's review, with HCPC number and disclosure. Stays hidden until a real name and quote are entered. {% endcomment %}
+{%- if section.settings.name != blank and section.settings.quote != blank -%}
+<section class="jw-physio">
+  <div class="jw-wrap jw-narrow">
+    <p class="jw-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <div class="jw-card jw-physio__card">
+      {%- if section.settings.photo != blank -%}
+        {{ section.settings.photo | image_url: width: 300 | image_tag: loading: 'lazy', class: 'jw-physio__photo', alt: section.settings.name }}
+      {%- endif -%}
+      <blockquote class="jw-physio__quote">{{ section.settings.quote | escape }}</blockquote>
+      <p class="jw-physio__who"><strong>{{ section.settings.name | escape }}</strong>{% if section.settings.title != blank %}, {{ section.settings.title | escape }}{% endif %}{% if section.settings.hcpc != blank %}<br><span class="jw-caption">HCPC registration {{ section.settings.hcpc | escape }}</span>{% endif %}</p>
+      <p class="jw-caption">{{ section.settings.disclosure | escape }}</p>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+{
+  "name": "JW Physio's review",
+  "tag": "section",
+  "class": "jw-section-physio",
+  "settings": [
+    { "type": "paragraph", "content": "Hidden until a real name and quote are entered. Under the CAP Code the physio must have used the product, the quote must be their words, and any payment must be disclosed." },
+    { "type": "text", "id": "eyebrow", "label": "Small line", "default": "A physiotherapist's view" },
+    { "type": "text", "id": "name", "label": "Full name" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Chartered physiotherapist" },
+    { "type": "text", "id": "hcpc", "label": "HCPC number" },
+    { "type": "textarea", "id": "quote", "label": "Their words, exactly" },
+    { "type": "image_picker", "id": "photo", "label": "Photo" },
+    { "type": "text", "id": "disclosure", "label": "Disclosure", "default": "We sent a wrap to try. No payment was made for this review." }
+  ],
+  "presets": [{ "name": "JW Physio's review" }]
+}
+{% endschema %}

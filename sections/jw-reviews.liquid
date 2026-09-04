@@ -8,6 +8,21 @@
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
 
+    {%- if section.settings.video_url != blank -%}
+      <figure class="jw-card jw-reviews__video">
+        {%- assign vu = section.settings.video_url -%}
+        {%- if vu contains 'youtube.com' or vu contains 'youtu.be' -%}
+          {%- assign vid = vu | split: 'v=' | last | split: '&' | first | split: '/' | last -%}
+          <iframe class="jw-reviews__frame" src="https://www.youtube-nocookie.com/embed/{{ vid }}" title="{{ section.settings.video_title | escape }}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        {%- elsif vu contains 'vimeo.com' -%}
+          {%- assign vid = vu | split: '/' | last -%}
+          <iframe class="jw-reviews__frame" src="https://player.vimeo.com/video/{{ vid }}?dnt=1" title="{{ section.settings.video_title | escape }}" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+        {%- else -%}
+          <video class="jw-reviews__frame" controls preload="metadata" src="{{ vu }}"{% if section.settings.video_poster != blank %} poster="{{ section.settings.video_poster | image_url: width: 1200 }}"{% endif %}></video>
+        {%- endif -%}
+        <figcaption class="jw-body"><strong>{{ section.settings.video_title | escape }}</strong>{% if section.settings.video_caption != blank %} {{ section.settings.video_caption | escape }}{% endif %}</figcaption>
+      </figure>
+    {%- endif -%}
     <ul class="jw-reviews__grid" role="list">
       {%- for block in section.blocks -%}
         {%- assign q = block.settings.quote | default: '' -%}
@@ -52,6 +67,11 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "What real buyers say" },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Customers in their own words, with the photos they sent us. We hold the order record for every one, and we do not edit them." },
     { "type": "product", "id": "product", "label": "Product for the Judge.me widget" },
+    { "type": "header", "content": "Video testimonial (hidden until a link is set)" },
+    { "type": "text", "id": "video_url", "label": "Video link", "info": "YouTube, Vimeo or a direct MP4 link. A real customer, with their permission." },
+    { "type": "text", "id": "video_title", "label": "Who is in it", "default": "Name, age, town" },
+    { "type": "text", "id": "video_caption", "label": "One line under the video" },
+    { "type": "image_picker", "id": "video_poster", "label": "Poster frame (MP4 only)" },
     { "type": "checkbox", "id": "show_widget", "label": "Show the full Judge.me review widget", "default": false, "info": "Only switch on once the Judge.me app is installed." },
     { "type": "text", "id": "widget_title", "label": "Widget title", "default": "All verified reviews" },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },

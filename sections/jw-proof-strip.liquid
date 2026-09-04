@@ -1,0 +1,32 @@
+{% comment %} Proof strip under the hero: CE badge (opens the certificate), a checkable number, warranty, company number. Items with nothing to show are hidden. {% endcomment %}
+<section class="jw-proof">
+  <div class="jw-wrap">
+    <ul class="jw-proof__list" role="list">
+      <li><a class="jw-proof__item jw-proof__badge" href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener"><span class="jw-proof__mark">CE</span><span>{{ section.settings.ce_text | escape }}<br><span class="jw-caption">Open the certificate</span></span></a></li>
+      {%- if section.settings.number_text != blank -%}
+        <li><a class="jw-proof__item" href="{{ section.settings.number_link | default: '#jw-reviews' }}"><span class="jw-proof__big">{{ section.settings.number_big | escape }}</span><span>{{ section.settings.number_text | escape }}</span></a></li>
+      {%- endif -%}
+      <li><a class="jw-proof__item" href="{{ routes.root_url }}pages/returns-policy"><span class="jw-proof__big">2 yr</span><span>{{ section.settings.warranty_text | escape }}</span></a></li>
+      {%- if section.settings.company_number != blank -%}
+        <li><span class="jw-proof__item"><span class="jw-proof__big">UK</span><span>{{ section.settings.company_text | escape }}<br><span class="jw-caption">Company number {{ section.settings.company_number | escape }}</span></span></span></li>
+      {%- endif -%}
+    </ul>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "JW Proof strip",
+  "tag": "section",
+  "class": "jw-section-proof",
+  "settings": [
+    { "type": "text", "id": "ce_text", "label": "CE line", "default": "CE tested (EMC), independent lab, November 2024" },
+    { "type": "text", "id": "number_big", "label": "The number", "default": "5" },
+    { "type": "text", "id": "number_text", "label": "What the number is", "default": "customer reviews on this page, with photos", "info": "Leave blank to hide. Never a number you cannot show." },
+    { "type": "url", "id": "number_link", "label": "Number link" },
+    { "type": "text", "id": "warranty_text", "label": "Warranty line", "default": "warranty, UK support, replacement not repair" },
+    { "type": "text", "id": "company_text", "label": "Company line", "default": "Vela Goods, registered in the UK" },
+    { "type": "text", "id": "company_number", "label": "Company number", "info": "Leave blank to hide until you have it." }
+  ],
+  "presets": [{ "name": "JW Proof strip" }]
+}
+{% endschema %}

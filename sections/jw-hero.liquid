@@ -16,16 +16,44 @@
   endif
   assign cta_link = section.settings.cta_link
 -%}
-<section class="jw-hero" id="jw-top">
+<section class="jw-hero jw-hero--product" id="jw-top">
   <div class="jw-wrap jw-hero__grid">
+    <div class="jw-hero__media jw-hero__media--product">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 48vw, 100vw', class: 'jw-hero__img', alt: section.settings.image_alt }}
+      {%- elsif product != blank and product.featured_image != blank -%}
+        {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 48vw, 100vw', class: 'jw-hero__img', alt: product.featured_image.alt | default: section.settings.image_alt }}
+      {%- else -%}
+        <img class="jw-hero__img" src="{{ 'jw-hero.jpg' | asset_url }}" width="1024" height="1024" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
+      {%- endif -%}
+      {%- if product != blank and product.images.size > 1 -%}
+        <ul class="jw-hero__thumbs" role="list">
+          {%- for img in product.images offset: 1 limit: 4 -%}
+            <li>{{ img | image_url: width: 300 | image_tag: loading: 'lazy', class: 'jw-hero__thumb', alt: img.alt }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
     <div class="jw-hero__copy">
       {%- if section.settings.eyebrow != blank -%}
         <p class="jw-eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
       <h1 class="jw-h1">{{ section.settings.heading | escape }}</h1>
       <p class="jw-lead">{{ section.settings.subline | escape }}</p>
-      <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
 
+      <ul class="jw-hero__ticks" role="list">
+        <li>{{ section.settings.tick_1 | escape }}</li>
+        <li>{{ section.settings.tick_2 | escape }}</li>
+        <li>{{ section.settings.tick_3 | escape }}</li>
+      </ul>
+
+      <a class="jw-hero__reviews" href="{{ section.settings.reviews_link | default: '#jw-reviews' }}">
+        <span class="jw-stars" aria-hidden="true">★★★★★</span>
+        <span>{{ section.settings.reviews_text | escape }}</span>
+      </a>
+
+      <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
       <div class="jw-hero__price" aria-label="Price">
         {%- if compare_text != blank -%}
           <s class="jw-price__was">{{ compare_text }}</s>
@@ -36,39 +64,23 @@
         {%- endif -%}
       </div>
 
-      {% render 'jw-cta-strip', link: cta_link, label: section.settings.cta_label %}
-    </div>
+      <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
+      <ul class="jw-trust" role="list">
+        <li>90-day trial, we pay return postage</li>
+        <li>2-year UK warranty</li>
+        <li>Free tracked delivery</li>
+      </ul>
 
-    <div class="jw-hero__media">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 50vw, 100vw', class: 'jw-hero__img', alt: section.settings.image_alt }}
-      {%- else -%}
-        <img class="jw-hero__img" src="{{ 'jw-hero.jpg' | asset_url }}" width="1024" height="1024" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
+      {%- if shop.enabled_payment_types.size > 0 -%}
+        <ul class="jw-hero__payments" role="list" aria-label="Payment methods">
+          {%- for type in shop.enabled_payment_types -%}
+            <li>{{ type | payment_type_svg_tag: class: 'jw-hero__payment-icon' }}</li>
+          {%- endfor -%}
+        </ul>
       {%- endif -%}
 
-      {%- assign rq = section.settings.review_short | default: '' -%}
-      {%- if rq == blank -%}
-        {%- assign rq = section.settings.review_quote | default: '' | split: '. ' | first -%}
-      {%- endif -%}
-      {%- if rq != blank and rq contains 'PLACEHOLDER' -%}{%- assign rq = '' -%}{%- endif -%}
-      {%- if rq != blank -%}
-      <aside class="jw-card jw-review-card jw-hero__review" aria-label="Customer review">
-        <div class="jw-review-card__head">
-          {%- if section.settings.review_photo != blank -%}
-            {{ section.settings.review_photo | image_url: width: 160 | image_tag: loading: 'lazy', class: 'jw-review-card__photo', alt: section.settings.review_name }}
-          {%- elsif section.settings.review_stock != blank -%}
-            <img class="jw-review-card__photo" src="{{ section.settings.review_stock | asset_url }}" width="120" height="120" loading="lazy" alt="{{ section.settings.review_name | escape }}, photo supplied by customer">
-          {%- endif -%}
-          <div>
-            <p class="jw-review-card__name">{{ section.settings.review_name | escape }}{% if section.settings.review_age != blank %}, {{ section.settings.review_age | escape }}{% endif %}{% if section.settings.review_town != blank %}, {{ section.settings.review_town | escape }}{% endif %}</p>
-            <p class="jw-review-card__meta"><span class="jw-stars" aria-hidden="true">★★★★★</span> <span class="jw-verified">Verified buyer</span></p>
-          </div>
-        </div>
-        <blockquote class="jw-review-card__quote">{{ rq | escape }}</blockquote>
-        {%- if section.settings.review_link != blank -%}
-          <a class="jw-review-card__link" href="{{ section.settings.review_link }}">Read the verified review</a>
-        {%- endif -%}
-      </aside>
+      {%- if section.settings.quiz_link != blank -%}
+        <a class="jw-hero__quiz" href="{{ section.settings.quiz_link }}">{{ section.settings.quiz_label | escape }}</a>
       {%- endif -%}
     </div>
   </div>
@@ -85,6 +97,16 @@
     { "type": "text", "id": "heading", "label": "Headline", "default": "Get down on the floor with the grandchildren. And get back up again." },
     { "type": "textarea", "id": "subline", "label": "Sub-line", "default": "A cordless heated wrap with massage for knees, shoulders and elbows. Made for knees, shoulders and elbows that have got worse over the years. Try it for 90 days on your worst joint. If it does not help, we pay the postage back." },
     { "type": "text", "id": "product_name", "label": "Product name line", "default": "Jointwell heated joint wrap" },
+    { "type": "header", "content": "Three ticks" },
+    { "type": "text", "id": "tick_1", "label": "Tick 1", "default": "Heat held for a full 30 minutes, 45 to 65°C" },
+    { "type": "text", "id": "tick_2", "label": "Tick 2", "default": "Three massage strengths, running alongside" },
+    { "type": "text", "id": "tick_3", "label": "Tick 3", "default": "Switches itself off. Cordless, 360 g" },
+    { "type": "header", "content": "Review line" },
+    { "type": "text", "id": "reviews_text", "label": "Review count line", "default": "5 customer reviews, with photos", "info": "Only write a number you can show on the page." },
+    { "type": "url", "id": "reviews_link", "label": "Review link" },
+    { "type": "header", "content": "Quiz link" },
+    { "type": "text", "id": "quiz_label", "label": "Quiz link text", "default": "Is it right for me? Take the two-minute check" },
+    { "type": "url", "id": "quiz_link", "label": "Quiz link" },
     { "type": "header", "content": "Price and button" },
     { "type": "product", "id": "product", "label": "Product", "info": "When set, the price comes from the product. Otherwise the text below is used." },
     { "type": "text", "id": "product_handle", "label": "Product handle (fallback)", "default": "jointwell-heated-joint-wrap" },

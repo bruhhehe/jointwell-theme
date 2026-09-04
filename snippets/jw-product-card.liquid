@@ -1,0 +1,36 @@
+{% comment %}
+  The repeated buying element: product photo, price, three ticks, button. Every repetition is a place to buy.
+  Usage: {% render 'jw-product-card', label: 'Try it for 90 days' %}
+{% endcomment %}
+{%- liquid
+  assign p = all_products['jointwell-heated-joint-wrap']
+  assign card_label = label | default: 'Try it for 90 days'
+  if template.name == 'index' or template.name == 'product' or template.suffix == 'jw-landing'
+    assign card_link = '#jw-buy'
+  else
+    assign card_link = routes.root_url | append: '#jw-buy'
+  endif
+-%}
+{%- if p != blank -%}
+<aside class="jw-pcard" aria-label="Jointwell heated joint wrap, buy">
+  <a class="jw-pcard__media" href="{{ card_link }}" tabindex="-1" aria-hidden="true">
+    {%- if p.featured_image != blank -%}
+      {{ p.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'jw-pcard__img', alt: p.title, widths: '200, 300, 400', sizes: '160px' }}
+    {%- endif -%}
+  </a>
+  <div class="jw-pcard__body">
+    <p class="jw-pcard__name">{{ p.title | escape }}</p>
+    <p class="jw-pcard__price">
+      {%- if p.compare_at_price > p.price -%}<s class="jw-price__was">{{ p.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+      <span class="jw-price__now">{{ p.price | money_without_trailing_zeros }}</span>
+      <span class="jw-pcard__note">Free tracked UK delivery</span>
+    </p>
+    <ul class="jw-trust" role="list">
+      <li>Heat held for 30 minutes, 45 to 65°C</li>
+      <li>Three massage strengths</li>
+      <li>90-day trial, we pay return postage</li>
+    </ul>
+    <a class="jw-btn jw-btn--primary jw-pcard__btn" href="{{ card_link }}">{{ card_label | escape }}</a>
+  </div>
+</aside>
+{%- endif -%}

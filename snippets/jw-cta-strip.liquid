@@ -19,6 +19,9 @@
   assign trust_2 = trust_2 | default: '2-year UK warranty'
   assign trust_3 = trust_3 | default: 'Free tracked delivery'
 -%}
+{%- if style != 'strip' and template.name != 'article' -%}
+  {%- render 'jw-product-card', label: cta_label -%}
+{%- else -%}
 <div class="jw-cta-strip">
   <a class="jw-btn jw-btn--primary" href="{{ cta_link }}">{{ cta_label }}</a>
   <ul class="jw-trust" role="list">
@@ -27,3 +30,4 @@
     <li>{{ trust_3 }}</li>
   </ul>
 </div>
+{%- endif -%}

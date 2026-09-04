@@ -45,6 +45,7 @@
 
   {%- if section.blocks.size > 0 -%}
     <div class="jw-wrap">
+      {%- if section.settings.show_tiles -%}
       <ul class="jw-features" role="list">
         {%- for block in section.blocks -%}
           <li class="jw-card jw-feature" {{ block.shopify_attributes }}>
@@ -58,6 +59,7 @@
           </li>
         {%- endfor -%}
       </ul>
+      {%- endif -%}
     </div>
   {%- endif -%}
 
@@ -72,6 +74,7 @@
   "tag": "section",
   "class": "jw-section-chart",
   "settings": [
+    { "type": "checkbox", "id": "show_tiles", "label": "Show the four feature tiles", "default": false },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Your wheat bag lasts ten minutes. Your knee hurts all day." },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Anything you heat in a microwave is hottest the moment you pick it up and cooler every minute after. Jointwell holds the level you choose, from 45°C to 65°C, for a full thirty minutes, then switches itself off." },
     { "type": "text", "id": "caption", "label": "Chart caption", "default": "The wheat bag line is a typical curve, not a lab result. Boil your own hot water bottle and put a hand on it at twenty minutes. You will not need us to tell you what you find." },

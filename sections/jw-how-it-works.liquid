@@ -1,0 +1,48 @@
+{% comment %} The mechanism in three product photos: strap on, pick a level, thirty minutes. The heat curve section follows this one. {% endcomment %}
+{%- assign p = all_products['jointwell-heated-joint-wrap'] -%}
+<section class="jw-howto" id="jw-how">
+  <div class="jw-wrap">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+    <ol class="jw-howto__steps" role="list">
+      {%- for block in section.blocks -%}
+        <li class="jw-card jw-howto__step" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'jw-howto__img', alt: block.settings.title }}
+          {%- elsif p != blank and p.images[block.settings.product_image_index] != blank -%}
+            {{ p.images[block.settings.product_image_index] | image_url: width: 800 | image_tag: loading: 'lazy', class: 'jw-howto__img', alt: block.settings.title }}
+          {%- endif -%}
+          <p class="jw-howto__num" aria-hidden="true">{{ forloop.index }}</p>
+          <h3 class="jw-h3">{{ block.settings.title | escape }}</h3>
+          <p class="jw-body">{{ block.settings.text | escape }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+    {% render 'jw-cta-strip', label: section.settings.cta_label %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "JW How it works",
+  "tag": "section",
+  "class": "jw-section-howto",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How it works" },
+    { "type": "text", "id": "intro", "label": "Intro", "default": "Three steps, no app, no wire. The whole thing runs off one button and a number you can read across the room." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "limit": 3, "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Strap it on" },
+      { "type": "textarea", "id": "text", "label": "Text", "default": "Round the knee, or over a shoulder or elbow with the extension strap in the box. Non-slip inner face, so it stays where you put it." },
+      { "type": "image_picker", "id": "image", "label": "Photo" },
+      { "type": "range", "id": "product_image_index", "label": "Or use product photo number", "min": 0, "max": 9, "step": 1, "default": 1 }
+    ] }
+  ],
+  "presets": [{ "name": "JW How it works", "blocks": [
+    { "type": "step", "settings": { "title": "Strap it on", "text": "Round the knee, or over a shoulder or elbow with the extension strap in the box. Non-slip inner face, so it stays where you put it.", "product_image_index": 1 } },
+    { "type": "step", "settings": { "title": "Pick a level", "text": "Five heat levels, 45°C to 65°C, and three massage strengths, on a lit panel with big digits. Start at 45 and work up.", "product_image_index": 4 } },
+    { "type": "step", "settings": { "title": "Thirty minutes, held", "text": "It stays at the level you chose for the full half hour, then switches itself off. Cordless, so the kettle can go on halfway through.", "product_image_index": 8 } }
+  ] }]
+}
+{% endschema %}

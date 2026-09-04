@@ -324,3 +324,80 @@ body { padding-bottom: 80px; }
 .jw-landing__img { width: 100%; height: auto; border-radius: var(--jw-radius); aspect-ratio: 1 / 1; object-fit: cover; }
 .jw-landing .rte p { font-size: 18px; line-height: 1.55; color: var(--jw-text); margin: 0 0 1em; }
 @media (min-width: 990px) { .jw-landing__grid { grid-template-columns: 3fr 2fr; align-items: start; } }
+
+/* ---------- Product-first hero ---------- */
+.jw-hero--product .jw-hero__grid { gap: 24px; }
+.jw-hero__media--product { order: -1; }
+.jw-hero__thumbs { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.jw-hero__thumb { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--jw-border); background: #fff; }
+.jw-hero__ticks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; font-size: 18px; }
+.jw-hero__ticks li::before { content: "\2713\00a0"; color: var(--jw-good); font-weight: 700; }
+.jw-hero__reviews { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; color: var(--jw-text); text-decoration: underline; text-underline-offset: 3px; font-size: 18px; }
+.jw-hero__btn { margin: 8px 0 12px; }
+.jw-hero__payments { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.jw-hero__payment-icon { width: 38px; height: 24px; }
+.jw-hero__quiz { display: inline-flex; align-items: center; min-height: 48px; margin-top: 8px; color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; font-size: 18px; font-weight: 700; }
+@media (min-width: 990px) { .jw-hero--product .jw-hero__grid { grid-template-columns: 0.95fr 1.05fr; } .jw-hero__media--product { order: 0; } }
+
+/* ---------- Product card (the repeated buying element) ---------- */
+.jw-pcard { margin-top: 24px; background: var(--jw-card); border: 2px solid var(--jw-accent); border-radius: var(--jw-radius); box-shadow: var(--jw-shadow); display: grid; gap: 16px; padding: 16px; box-sizing: border-box; font-family: var(--jw-font); }
+.jw-pcard__media { display: block; }
+.jw-pcard__img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--jw-border); }
+.jw-pcard__name { margin: 0 0 4px; font-weight: 700; font-size: 18px; color: var(--jw-text); }
+.jw-pcard__price { margin: 0 0 10px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.jw-pcard__price .jw-price__now { font-size: 26px; }
+.jw-pcard__note { font-size: 16px; color: var(--jw-muted); }
+.jw-pcard .jw-trust { flex-direction: column; gap: 6px; margin-bottom: 12px; font-size: 16px; }
+.jw-pcard__btn { width: 100%; }
+@media (min-width: 750px) { .jw-pcard { grid-template-columns: 160px 1fr; align-items: center; max-width: 640px; } .jw-pcard__btn { width: auto; min-width: 240px; } }
+
+/* ---------- Proof strip ---------- */
+.jw-proof { background: var(--jw-bg-alt); border-top: 1px solid var(--jw-border); border-bottom: 1px solid var(--jw-border); padding: 16px 0; font-family: var(--jw-font); }
+.jw-proof__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.jw-proof__item { display: flex; align-items: center; gap: 12px; min-height: 48px; color: var(--jw-text); text-decoration: none; font-size: 16px; line-height: 1.35; }
+a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:first-child { background: var(--jw-accent-dark); }
+.jw-proof__mark, .jw-proof__big { flex: none; display: inline-flex; align-items: center; justify-content: center; min-width: 56px; height: 48px; padding: 0 10px; border-radius: 8px; background: var(--jw-accent); color: #fff; font-weight: 700; font-size: 20px; letter-spacing: 0.02em; }
+.jw-proof__mark { font-size: 22px; }
+@media (min-width: 750px) { .jw-proof__list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 990px) { .jw-proof__list { grid-template-columns: repeat(4, 1fr); } }
+
+/* ---------- How it works ---------- */
+.jw-howto { padding: var(--jw-section) 0; font-family: var(--jw-font); color: var(--jw-text); }
+.jw-howto__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; counter-reset: step; }
+.jw-howto__step { position: relative; padding: 0 0 20px; overflow: hidden; }
+.jw-howto__img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+.jw-howto__num { position: absolute; top: 12px; left: 12px; margin: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--jw-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 22px; }
+.jw-howto__step .jw-h3, .jw-howto__step .jw-body { margin-left: 20px; margin-right: 20px; }
+.jw-howto__step .jw-h3 { margin-top: 16px; }
+@media (min-width: 750px) { .jw-howto__steps { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Specs ---------- */
+.jw-specs { padding: var(--jw-section) 0; font-family: var(--jw-font); color: var(--jw-text); }
+.jw-specs__list { margin: 0 0 8px; padding: 8px 20px; }
+.jw-specs__row { display: grid; gap: 4px; padding: 14px 0; border-bottom: 1px solid var(--jw-border); font-size: 18px; line-height: 1.5; }
+.jw-specs__row:last-child { border-bottom: 0; }
+.jw-specs__row dt { font-weight: 700; margin: 0; }
+.jw-specs__row dd { margin: 0; }
+.jw-specs__row a { color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 750px) { .jw-specs__row { grid-template-columns: 180px 1fr; gap: 16px; } }
+
+/* ---------- Physio ---------- */
+.jw-physio { padding: var(--jw-section) 0; font-family: var(--jw-font); color: var(--jw-text); }
+.jw-physio__card { display: grid; gap: 16px; }
+.jw-physio__photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+.jw-physio__quote { margin: 0; font-size: 20px; line-height: 1.5; }
+.jw-physio__quote::before { content: "\201C"; } .jw-physio__quote::after { content: "\201D"; }
+.jw-physio__who { margin: 0; font-size: 18px; }
+
+/* ---------- Video testimonial ---------- */
+.jw-reviews__video { margin: 0 0 24px; padding: 0; overflow: hidden; }
+.jw-reviews__frame { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; background: #000; }
+.jw-reviews__video figcaption { margin: 12px 20px 16px; }
+
+/* ---------- Quiz ---------- */
+.jw-quiz { padding: var(--jw-section) 0; font-family: var(--jw-font); color: var(--jw-text); }
+.jw-quiz__q { border: 0; padding: 0; margin: 0 0 20px; }
+.jw-quiz__q legend { padding: 0; margin-bottom: 8px; }
+.jw-quiz__opt { display: flex; align-items: center; gap: 12px; min-height: 48px; font-size: 18px; cursor: pointer; }
+.jw-quiz__opt input { width: 24px; height: 24px; accent-color: var(--jw-accent); }
+.jw-quiz__result { margin-top: 24px; }

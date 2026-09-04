@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "jw_quiz": {
+      "type": "jw-quiz",
+      "settings": {}
+    },
+    "jw_guarantee": {
+      "type": "jw-guarantee",
+      "settings": {}
+    }
+  },
+  "order": [
+    "jw_quiz",
+    "jw_guarantee"
+  ]
+}
