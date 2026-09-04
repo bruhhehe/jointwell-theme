@@ -1,0 +1,21 @@
+{% comment %}
+  Jointwell CTA + trust strip. Rendered after every major homepage section.
+  Usage: {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  Falls back to the global product link stored in the theme editor on the hero section
+  (settings are read per-section so each can be overridden).
+{% endcomment %}
+{%- liquid
+  assign cta_label = label | default: 'Try it for 90 days'
+  assign cta_link = link | default: '#jw-buy'
+  assign trust_1 = trust_1 | default: '90-day trial, we pay return postage'
+  assign trust_2 = trust_2 | default: '2-year UK warranty'
+  assign trust_3 = trust_3 | default: 'Free tracked delivery'
+-%}
+<div class="jw-cta-strip">
+  <a class="jw-btn jw-btn--primary" href="{{ cta_link }}">{{ cta_label }}</a>
+  <ul class="jw-trust" role="list">
+    <li>{{ trust_1 }}</li>
+    <li>{{ trust_2 }}</li>
+    <li>{{ trust_3 }}</li>
+  </ul>
+</div>
