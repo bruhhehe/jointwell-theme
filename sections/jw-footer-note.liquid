@@ -1,0 +1,31 @@
+{% comment %}
+  Sits directly above the Dawn footer. Brand line, UK address, disclaimer.
+  The disclaimer wording must stay: it is the footer statement the site already carries.
+{% endcomment %}
+<section class="jw-footnote">
+  <div class="jw-wrap">
+    <p class="jw-footnote__brand">{{ section.settings.brand | escape }}</p>
+    {%- if section.settings.address != blank -%}
+      <address class="jw-footnote__address">{{ section.settings.address | escape | newline_to_br }}</address>
+    {%- endif -%}
+    <p class="jw-footnote__disclaimer">{{ section.settings.disclaimer | escape }}</p>
+    {%- if section.settings.support != blank -%}
+      <p class="jw-footnote__support">{{ section.settings.support | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Footer note",
+  "tag": "section",
+  "class": "jw-section-footnote",
+  "settings": [
+    { "type": "text", "id": "brand", "label": "Brand line", "default": "Jointwell by Vela Goods, UK" },
+    { "type": "textarea", "id": "address", "label": "UK address", "default": "[PLACEHOLDER: Vela Goods, street, town, postcode, United Kingdom]" },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "Jointwell is a heat and massage device for the comfort and relaxation of stiff, tired knees, shoulders and elbows. It is not a medical treatment and does not cure, treat or prevent any disease or condition, including arthritis. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product." },
+    { "type": "text", "id": "support", "label": "Support line", "default": "UK support by email, 2-year warranty on every wrap, 90-day trial with return postage paid." }
+  ],
+  "presets": [{ "name": "JW Footer note" }]
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+{% comment %}
+  Comparison: Jointwell / wheat bag / physio. Three cards side by side on desktop,
+  stacked on mobile. No horizontal scrolling anywhere.
+{% endcomment %}
+<section class="jw-compare">
+  <div class="jw-wrap">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+    <div class="jw-compare__grid">
+      {%- for block in section.blocks -%}
+        <article class="jw-card jw-compare__card {% if block.settings.highlight %}jw-compare__card--hi{% endif %}" {{ block.shopify_attributes }}>
+          <h3 class="jw-h3">{{ block.settings.title | escape }}</h3>
+          <dl class="jw-compare__rows">
+            <div><dt>Heat</dt><dd>{{ block.settings.heat | escape }}</dd></div>
+            <div><dt>Massage</dt><dd>{{ block.settings.massage | escape }}</dd></div>
+            <div><dt>Stays put</dt><dd>{{ block.settings.fit | escape }}</dd></div>
+            <div><dt>Effort</dt><dd>{{ block.settings.effort | escape }}</dd></div>
+            <div><dt>Cost</dt><dd>{{ block.settings.cost | escape }}</dd></div>
+          </dl>
+        </article>
+      {%- endfor -%}
+    </div>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Comparison",
+  "tag": "section",
+  "class": "jw-section-compare",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What the physio does with her hands for £50 a visit, in your armchair for £49.96 once" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "A fair comparison. The physio is worth every penny for the things only a physio can do. This is about the other 29 days of the month." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Jointwell" },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight this column", "default": false },
+        { "type": "text", "id": "heat", "label": "Heat", "default": "45 to 65°C, held for 30 minutes" },
+        { "type": "text", "id": "massage", "label": "Massage", "default": "Three strengths" },
+        { "type": "text", "id": "fit", "label": "Stays put", "default": "Strapped on, any chair in the house" },
+        { "type": "text", "id": "effort", "label": "Effort", "default": "Half an hour with your morning tea" },
+        { "type": "text", "id": "cost", "label": "Cost", "default": "£49.96 once" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Comparison",
+      "blocks": [
+        { "type": "column", "settings": { "title": "Jointwell", "highlight": true, "heat": "45 to 65°C, held for 30 minutes", "massage": "Three strengths", "fit": "Strapped on, any chair in the house", "effort": "Half an hour with your morning tea", "cost": "£49.96 once" } },
+        { "type": "column", "settings": { "title": "Wheat bag", "highlight": false, "heat": "Hottest at the start, then fading", "massage": "None", "fit": "Slides off", "effort": "Back to the microwave, again", "cost": "£8 to £15 once" } },
+        { "type": "column", "settings": { "title": "Physio", "highlight": false, "heat": "Sometimes, for a few minutes", "massage": "Hands-on, the best there is", "fit": "Not applicable", "effort": "Travel, waiting room, weeks between visits", "cost": "£40 to £70 every visit" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,59 @@
+{% comment %}
+  Condition doorways. One wrap, seven ways in. Each links to its Advice (Journal) article.
+  Set the links once the articles are published. Until then they jump to the buy box.
+{% endcomment %}
+<section class="jw-doorways jw-band">
+  <div class="jw-wrap">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+    <ul class="jw-doorways__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <a class="jw-card jw-door" href="{{ block.settings.link | default: '#jw-buy' }}">
+            <span class="jw-door__title">{{ block.settings.title | escape }}</span>
+            <span class="jw-door__line">{{ block.settings.line | escape }}</span>
+            <span class="jw-door__more">Read more</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Condition doorways",
+  "tag": "section",
+  "class": "jw-section-doorways",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Which joint runs your day?" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Same wrap, different mornings. Pick the one that sounds like yours." }
+  ],
+  "blocks": [
+    {
+      "type": "door",
+      "name": "Doorway",
+      "limit": 8,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Knee arthritis" },
+        { "type": "text", "id": "line", "label": "One line", "default": "Wear and tear, the GP says. Here is what the morning half hour looks like on a knee." },
+        { "type": "url", "id": "link", "label": "Link to the Advice article" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Condition doorways",
+      "blocks": [
+        { "type": "door", "settings": { "title": "Knee arthritis", "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee." } },
+        { "type": "door", "settings": { "title": "Stiff shoulder", "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder." } },
+        { "type": "door", "settings": { "title": "Tennis elbow", "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap." } },
+        { "type": "door", "settings": { "title": "After a knee replacement", "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises." } },
+        { "type": "door", "settings": { "title": "Morning stiffness", "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs." } },
+        { "type": "door", "settings": { "title": "Kneeling and gardening", "line": "Down to the beds and back up again. Before you go out, and after you come in." } },
+        { "type": "door", "settings": { "title": "Cold weather aches", "line": "October to March. The wrap goes on with the first cup and the heating stays down." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,52 @@
+{% comment %} "That's not on you". The named enemy, and the reader forgiven. {% endcomment %}
+<section class="jw-problem jw-band">
+  <div class="jw-wrap jw-narrow">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <ul class="jw-problem__list" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.lead | escape }}</strong>
+          {% if block.settings.rest != blank %}<span>{{ block.settings.rest | escape }}</span>{% endif %}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <p class="jw-lead jw-problem__turn">{{ section.settings.turn | escape }}</p>
+    <p class="jw-body">{{ section.settings.body | escape }}</p>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW That's not on you",
+  "tag": "section",
+  "class": "jw-section-problem",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "You have tried everything. That's not on you." },
+    { "type": "textarea", "id": "turn", "label": "The turn", "default": "None of them failed because your joints are too far gone. They gave you a moment of ease and then took it back." },
+    { "type": "textarea", "id": "body", "label": "Body", "default": "What you were missing was warmth that stays at the level you choose for a full half hour, with massage alongside it, on a wrap that stays put while you drink your tea. That is the whole idea." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Thing you tried",
+      "settings": [
+        { "type": "text", "id": "lead", "label": "Bold lead", "default": "The wheat bag helps for ten minutes." },
+        { "type": "text", "id": "rest", "label": "Rest of the line", "default": "Then it goes cold and you are back at the microwave for the fourth time tonight." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW That's not on you",
+      "blocks": [
+        { "type": "item", "settings": { "lead": "The wheat bag helps for ten minutes.", "rest": "Then it goes cold and you are back at the microwave for the fourth time tonight." } },
+        { "type": "item", "settings": { "lead": "The pills work until they wear off.", "rest": "" } },
+        { "type": "item", "settings": { "lead": "The physio helps for a few days.", "rest": "Then the stiffness comes back, £50 a visit, next appointment three weeks off." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

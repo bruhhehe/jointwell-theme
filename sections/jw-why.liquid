@@ -1,0 +1,54 @@
+{% comment %}
+  "Why Jointwell exists". First person, signed with a first name only.
+  Constraint 8: never imply the wrap got grandad walking. Physio and doctors did.
+  The word "cancer" must not appear here or anywhere on the site.
+  No photo, surname or personal details of the owner.
+{% endcomment %}
+<section class="jw-why jw-band" id="jw-why">
+  <div class="jw-wrap jw-why__grid">
+    <div class="jw-why__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '400, 700, 1000', sizes: '(min-width: 990px) 40vw, 100vw', class: 'jw-why__img', alt: section.settings.image_alt }}
+      {%- else -%}
+        {%- comment -%} Fallback is the wrap on the table with a mug: honest until a real photo of grandad is chosen. {%- endcomment -%}
+        <img class="jw-why__img" src="{{ 'jw-wrap-mug.jpg' | asset_url }}" width="1024" height="1024" alt="The Jointwell wrap on a kitchen table next to a mug of tea" loading="lazy">
+      {%- endif -%}
+      {%- if section.settings.image_caption != blank -%}
+        <p class="jw-caption">{{ section.settings.image_caption | escape }}</p>
+      {%- endif -%}
+    </div>
+    <div class="jw-why__copy">
+      <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+      <div class="jw-prose">
+        {{ section.settings.story }}
+      </div>
+      <p class="jw-why__sign">{{ section.settings.signature | escape }}</p>
+      {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Why Jointwell exists",
+  "tag": "section",
+  "class": "jw-section-why",
+  "settings": [
+    { "type": "paragraph", "content": "Rules for this section: the wrap did not get grandad walking, the physios and doctors did, and the text must say so plainly. No surname, no photo of you." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why Jointwell exists" },
+    {
+      "type": "richtext",
+      "id": "story",
+      "label": "Story",
+      "default": "<p>A few years ago my grandad stopped walking. His joints had got so bad that he was in bed most of the day and the stairs might as well have been a mountain.</p><p>He got back on his feet. That was the physios and the doctors, months of it, and I want to be clear about that, because a heated wrap did not do it and I am not going to pretend it did.</p><p>What I saw during those months was the hour before the physio arrived. First thing, joints cold, everything stiff, and a wheat bag going round the microwave for the third time. That was the bit nobody was treating, and it was the bit that decided whether the rest of the day went well.</p><p>So I went looking for something for that hour. Warmth that stayed warm, that he could strap on at the table and forget about, with a bit of massage, and that he could not leave running by accident. Jointwell is what I found and had tested.</p><p>It is for the mornings. It is not a cure and it will not replace your physio. If it does for your knee what it did for his hour before breakfast, keep it. If it does not, post it back and we will pay the postage.</p>"
+    },
+    { "type": "text", "id": "signature", "label": "Signature", "default": "[FIRST NAME], grandson" },
+    { "type": "image_picker", "id": "image", "label": "Photo (4:5)" },
+    { "type": "text", "id": "image_alt", "label": "Photo description for screen readers", "default": "My grandad at his kitchen table with the wrap on his knee" },
+    { "type": "text", "id": "image_caption", "label": "Caption under the photo" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "JW Why Jointwell exists" }]
+}
+{% endschema %}

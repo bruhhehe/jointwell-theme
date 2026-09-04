@@ -1,0 +1,67 @@
+{% comment %}
+  FAQ. Native details/summary, full-width tap targets, no JavaScript needed.
+  Existing questions kept, trial length updated to 90 days, plus three new ones.
+{% endcomment %}
+<section class="jw-faq" id="jw-faq">
+  <div class="jw-wrap jw-narrow">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <div class="jw-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="jw-faq__item" {{ block.shopify_attributes }}{% if forloop.first and section.settings.open_first %} open{% endif %}>
+          <summary class="jw-faq__q">
+            <span>{{ block.settings.question | escape }}</span>
+            <span class="jw-faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="jw-faq__a jw-prose">
+            {{ block.settings.answer }}
+            {%- if block.settings.show_fit_image -%}
+              <img src="{{ 'jw-dimensions.jpg' | asset_url }}" width="700" height="700" loading="lazy" alt="The wrap measures 46 cm across with a 55 cm strap span" class="jw-faq__img">
+            {%- endif -%}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Questions",
+  "tag": "section",
+  "class": "jw-section-faq",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Questions people ask before they buy" },
+    { "type": "checkbox", "id": "open_first", "label": "Open the first question by default", "default": false },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" },
+        { "type": "checkbox", "id": "show_fit_image", "label": "Show the size diagram under this answer", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Questions",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "Isn't this just a heating pad with extra steps?", "answer": "<p>A heating pad gives you heat that fades, or heat that ties you to a wall socket. Jointwell holds whichever of the five levels you pick, 45°C to 65°C, for a full 30 minutes. It adds vibration massage at three strengths, straps on so it stays put, and runs cordless in any chair in the house.</p>" } },
+        { "type": "qa", "settings": { "question": "Will it work for me? My joints have been like this a long time.", "answer": "<p>It isn't a cure and we won't pretend otherwise. Nobody can promise what it will do for your joint. What we can promise is warmth at the level you choose, held for thirty minutes, with massage alongside it. The 90-day trial is there so your own knee gets the deciding vote rather than our copy.</p>" } },
+        { "type": "qa", "settings": { "question": "Will it fit me?", "answer": "<p>One size, 46 cm across and 30 cm tall, with a 55 cm strap span. It fits either knee, and the extension strap in the box takes it round a shoulder or up an arm to the elbow. If it doesn't fit you, the 90-day trial covers a full refund and we pay the return postage.</p>", "show_fit_image": true } },
+        { "type": "qa", "settings": { "question": "Is it safe? Will it burn me?", "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>" } },
+        { "type": "qa", "settings": { "question": "When will it arrive?", "answer": "<p>Most orders leave us within 1 to 3 working days and arrive 4 to 8 days after that, so allow up to a fortnight. Every order is tracked and you'll get the number by email.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I know this isn't another Facebook gadget?", "answer": "<p>Fair question, because this market is full of them. We dispatch most orders within 1 to 3 working days and track every one. There's a UK returns address, UK support, a 2-year warranty, and a 90-day trial where we pay the postage back. Our reviews run through Judge.me on verified orders, so we cannot write our own or delete a bad one. Junk sellers can't afford the guarantee and won't hand that control away.</p>" } },
+        { "type": "qa", "settings": { "question": "Can I use it after a knee replacement?", "answer": "<p>Ask your surgeon or physio first, and follow what they say. Many people are told heat is fine once the wound has fully healed, but that is their call, not ours. If they say yes, most people use it as the warm half hour before their exercises.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I charge it, and how long does a charge last?", "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. [PLACEHOLDER: charge time and number of 30-minute sessions per charge, from the manual.] The panel shows the battery level.</p>" } },
+        { "type": "qa", "settings": { "question": "What happens if I send it back?", "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,55 @@
+{% comment %}
+  Slim trust strip that sits directly under the Dawn header.
+  Shows a live Judge.me count and average (the "All reviews text" widget) with a
+  written fallback that is shown until Judge.me renders, so the line never reads as empty.
+  The nav itself is a Shopify navigation menu: rename it in Online Store > Navigation.
+{% endcomment %}
+<div class="jw-header-trust">
+  <div class="jw-wrap jw-header-trust__inner">
+    <a class="jw-header-trust__brand" href="{{ routes.root_url }}">{{ section.settings.brand_line | escape }}</a>
+    <a class="jw-header-trust__reviews" href="{{ section.settings.reviews_link | default: '#jw-reviews' }}">
+      <span class="jw-stars" aria-hidden="true">★★★★★</span>
+      {%- if section.settings.show_judgeme -%}
+        <span class="jdgm-widget jdgm-all-reviews-text"></span>
+      {%- endif -%}
+      <span class="jw-header-trust__fallback">{{ section.settings.fallback_text | escape }}</span>
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "JW Header trust line",
+  "tag": "section",
+  "class": "jw-section-header-trust",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_line",
+      "label": "Brand line",
+      "default": "Jointwell by Vela Goods, UK"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_judgeme",
+      "label": "Show live Judge.me count and average",
+      "default": true,
+      "info": "Needs the Judge.me app installed. The line below is shown as well, so update it now and then to match."
+    },
+    {
+      "type": "text",
+      "id": "fallback_text",
+      "label": "Written count (fallback)",
+      "default": "Verified reviews collected by Judge.me",
+      "info": "Replace with the real figure once you have it, for example '4.8 from 41 verified reviews'. Never guess a number."
+    },
+    {
+      "type": "url",
+      "id": "reviews_link",
+      "label": "Reviews link",
+      "info": "Leave blank to jump to the reviews section on this page."
+    }
+  ],
+  "presets": [{ "name": "JW Header trust line" }]
+}
+{% endschema %}

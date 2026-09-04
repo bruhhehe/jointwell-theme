@@ -1,0 +1,121 @@
+{% comment %}
+  Heat over 30 minutes: wheat bag fades, Jointwell holds. Inline SVG, scales with the column.
+  The wheat bag curve is illustrative. The section says so and invites the reader to test it herself.
+{% endcomment %}
+<section class="jw-chart jw-band">
+  <div class="jw-wrap jw-narrow">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead">{{ section.settings.intro | escape }}</p>
+
+    <figure class="jw-card jw-chart__fig">
+      <svg viewBox="0 0 640 380" role="img" aria-labelledby="jw-chart-title jw-chart-desc" class="jw-chart__svg">
+        <title id="jw-chart-title">Warmth over thirty minutes</title>
+        <desc id="jw-chart-desc">A wheat bag starts hot and drops to lukewarm within about fifteen minutes. Jointwell stays at the level you set for the full thirty minutes.</desc>
+        <!-- axes -->
+        <line x1="70" y1="40" x2="70" y2="300" stroke="currentColor" stroke-width="2"/>
+        <line x1="70" y1="300" x2="600" y2="300" stroke="currentColor" stroke-width="2"/>
+        <!-- y labels -->
+        <text x="60" y="66" text-anchor="end" font-size="18">65°C</text>
+        <text x="60" y="166" text-anchor="end" font-size="18">50°C</text>
+        <text x="60" y="266" text-anchor="end" font-size="18">35°C</text>
+        <!-- x labels -->
+        <text x="70" y="330" text-anchor="middle" font-size="18">0 min</text>
+        <text x="335" y="330" text-anchor="middle" font-size="18">15 min</text>
+        <text x="600" y="330" text-anchor="middle" font-size="18">30 min</text>
+        <text x="335" y="365" text-anchor="middle" font-size="18" fill="currentColor">Minutes on the knee</text>
+        <!-- gridlines -->
+        <line x1="70" y1="60" x2="600" y2="60" stroke="currentColor" stroke-opacity="0.15"/>
+        <line x1="70" y1="160" x2="600" y2="160" stroke="currentColor" stroke-opacity="0.15"/>
+        <line x1="70" y1="260" x2="600" y2="260" stroke="currentColor" stroke-opacity="0.15"/>
+        <!-- wheat bag: hot at the start, fading -->
+        <path d="M70 70 C 150 120, 220 230, 335 262 S 520 285, 600 290" fill="none" stroke="var(--jw-warn)" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 8"/>
+        <!-- jointwell: held at the chosen level -->
+        <path d="M70 120 L 600 120" fill="none" stroke="var(--jw-accent)" stroke-width="6" stroke-linecap="round"/>
+        <!-- legend -->
+        <line x1="90" y1="20" x2="130" y2="20" stroke="var(--jw-accent)" stroke-width="6" stroke-linecap="round"/>
+        <text x="140" y="26" font-size="18">Jointwell, level you set</text>
+        <line x1="370" y1="20" x2="410" y2="20" stroke="var(--jw-warn)" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"/>
+        <text x="420" y="26" font-size="18">Wheat bag</text>
+      </svg>
+      <figcaption class="jw-caption">{{ section.settings.caption | escape }}</figcaption>
+    </figure>
+
+    <p class="jw-body">{{ section.settings.body | escape }}</p>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="jw-wrap">
+      <ul class="jw-features" role="list">
+        {%- for block in section.blocks -%}
+          <li class="jw-card jw-feature" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 700 | image_tag: loading: 'lazy', class: 'jw-feature__img', alt: block.settings.title }}
+            {%- elsif block.settings.stock != 'none' -%}
+              <img class="jw-feature__img" src="{{ block.settings.stock | asset_url }}" width="700" height="700" loading="lazy" alt="">
+            {%- endif -%}
+            <h3 class="jw-h3">{{ block.settings.title | escape }}</h3>
+            <p class="jw-body">{{ block.settings.text | escape }}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+
+  <div class="jw-wrap jw-narrow">
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Heat chart",
+  "tag": "section",
+  "class": "jw-section-chart",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Your wheat bag lasts ten minutes. Your knee hurts all day." },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Anything you heat in a microwave is hottest the moment you pick it up and cooler every minute after. Jointwell holds the level you choose, from 45°C to 65°C, for a full thirty minutes, then switches itself off." },
+    { "type": "text", "id": "caption", "label": "Chart caption", "default": "The wheat bag line is a typical curve, not a lab result. Boil your own hot water bottle and put a hand on it at twenty minutes. You will not need us to tell you what you find." },
+    { "type": "textarea", "id": "body", "label": "Body under the chart", "default": "Five heat levels. Three massage strengths. 360 g, so it does not drag on the knee. Charged over USB-C with the same cable as your phone. A 30-minute timer, so it cannot be left running." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature tile",
+      "limit": 4,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (square)", "info": "Leave empty to use a built-in photo." },
+        {
+          "type": "select",
+          "id": "stock",
+          "label": "Built-in photo",
+          "default": "jw-feature-heat.jpg",
+          "options": [
+            { "value": "jw-feature-heat.jpg", "label": "Five heat levels" },
+            { "value": "jw-feature-massage.jpg", "label": "Three massage strengths" },
+            { "value": "jw-feature-timer.jpg", "label": "Switches off at 30 minutes" },
+            { "value": "jw-feature-joints.jpg", "label": "Knee, shoulder or elbow" },
+            { "value": "jw-wrap-mug.jpg", "label": "360 g, cordless" },
+            { "value": "jw-strap.jpg", "label": "Adjustable strap" },
+            { "value": "none", "label": "No photo" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Five heat levels, held" },
+        { "type": "text", "id": "text", "label": "One line", "default": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Heat chart",
+      "blocks": [
+        { "type": "feature", "settings": { "stock": "jw-feature-heat.jpg", "title": "Five heat levels, held", "text": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes." } },
+        { "type": "feature", "settings": { "stock": "jw-feature-massage.jpg", "title": "Three massage strengths", "text": "Gentle, comfortable or strong. Chosen on a lit panel you can read without glasses." } },
+        { "type": "feature", "settings": { "stock": "jw-feature-timer.jpg", "title": "Switches itself off at 30 minutes", "text": "Every time. Start at 45°C and work up." } },
+        { "type": "feature", "settings": { "stock": "jw-feature-joints.jpg", "title": "Knee, shoulder or elbow", "text": "One wrap, one size. The extension strap in the box takes it round a shoulder." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

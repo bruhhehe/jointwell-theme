@@ -1,0 +1,84 @@
+{% comment %}
+  "What real buyers say". Three cards linked to their Judge.me reviews, then the full Judge.me widget.
+  Only real, verified reviews go here. Placeholders are marked and must be replaced before launch.
+{% endcomment %}
+{%- assign product = section.settings.product -%}
+<section class="jw-reviews jw-band" id="jw-reviews">
+  <div class="jw-wrap">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+
+    <ul class="jw-reviews__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="jw-card jw-review-card" {{ block.shopify_attributes }}>
+          <div class="jw-review-card__head">
+            {%- if block.settings.photo != blank -%}
+              {{ block.settings.photo | image_url: width: 160 | image_tag: loading: 'lazy', class: 'jw-review-card__photo', alt: block.settings.name }}
+            {%- endif -%}
+            <div>
+              <p class="jw-review-card__name">{{ block.settings.name | escape }}{% if block.settings.age != blank %}, {{ block.settings.age | escape }}{% endif %}</p>
+              <p class="jw-review-card__meta"><span class="jw-stars" aria-hidden="true">★★★★★</span> <span class="jw-verified">Verified buyer</span></p>
+            </div>
+          </div>
+          <blockquote class="jw-review-card__quote">{{ block.settings.quote | escape }}</blockquote>
+          {%- if block.settings.link != blank -%}
+            <a class="jw-review-card__link" href="{{ block.settings.link }}">Read the verified review</a>
+          {%- endif -%}
+          {%- if block.settings.photo != blank -%}
+            <p class="jw-caption">Photo supplied by customer</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    {%- if section.settings.show_widget -%}
+      <div class="jw-reviews__widget">
+        <h3 class="jw-h3">{{ section.settings.widget_title | escape }}</h3>
+        <div class="jdgm-widget jdgm-review-widget"{% if product != blank %} data-product-id="{{ product.id }}"{% endif %}></div>
+      </div>
+    {%- endif -%}
+
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW What real buyers say",
+  "tag": "section",
+  "class": "jw-section-reviews",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What real buyers say" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Collected by Judge.me from verified orders. We cannot write them, edit them or delete the bad ones. Each card links to the review it came from." },
+    { "type": "product", "id": "product", "label": "Product for the Judge.me widget" },
+    { "type": "checkbox", "id": "show_widget", "label": "Show the full Judge.me review widget", "default": true },
+    { "type": "text", "id": "widget_title", "label": "Widget title", "default": "All verified reviews" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review card",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "name", "label": "First name", "default": "Maggie" },
+        { "type": "text", "id": "age", "label": "Age", "default": "64" },
+        { "type": "textarea", "id": "quote", "label": "Quote, exactly as written in the review", "default": "[PLACEHOLDER: real customer quote]" },
+        { "type": "image_picker", "id": "photo", "label": "Customer's own photo" },
+        { "type": "url", "id": "link", "label": "Link to the Judge.me review" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW What real buyers say",
+      "blocks": [
+        { "type": "review", "settings": { "name": "Maggie", "age": "64", "quote": "[PLACEHOLDER: real customer quote from Maggie's verified Judge.me review]" } },
+        { "type": "review", "settings": { "name": "Sue", "age": "68", "quote": "[PLACEHOLDER: real customer quote from Sue's verified Judge.me review]" } },
+        { "type": "review", "settings": { "name": "Janet", "age": "70", "quote": "[PLACEHOLDER: real customer quote from Janet's verified Judge.me review]" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

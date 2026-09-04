@@ -1,0 +1,88 @@
+{% comment %}
+  "We are the ones selling it." Existing copy kept verbatim, with the trial length updated to 90 days.
+  Do not rewrite this section. It is the most trust-building copy on the site.
+{% endcomment %}
+<section class="jw-trust-section">
+  <div class="jw-wrap jw-narrow">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <div class="jw-prose">
+      {{ section.settings.intro }}
+    </div>
+    <ul class="jw-checks" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <strong>{{ block.settings.lead | escape }}</strong>
+          <span>{{ block.settings.text | escape }}</span>
+          {%- liquid
+            assign link = block.settings.link
+            if link == blank and block.settings.built_in == 'ce'
+              assign link = 'jw-ce-certificate.jpg' | asset_url
+            elsif link == blank and block.settings.built_in == 'reviews'
+              assign link = '#jw-reviews'
+            elsif link == blank and block.settings.built_in == 'returns'
+              assign link = routes.root_url | append: 'policies/refund-policy'
+            endif
+          -%}
+          {%- if link != blank -%}
+            <a href="{{ link }}"{% if block.settings.new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.link_text | default: 'See it' | escape }}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <div class="jw-prose">
+      {{ section.settings.outro }}
+    </div>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW We are the sellers",
+  "tag": "section",
+  "class": "jw-section-trust",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "We are the ones selling it. So don't take our word for any of it." },
+    { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>Everything above this line was written by us. That makes all of it worth less than it should be, and you are right to knock some off for the fact that we want your money.</p><p>So here are the parts you can check without us:</p>" },
+    { "type": "richtext", "id": "outro", "label": "Closing", "default": "<p>What counts is what you think after a month of wearing it.</p><p>That is what the ninety days are for. You do not have to decide whether we are telling the truth. You have to decide whether it is worth half an hour of your morning to find out, when finding out costs you nothing.</p>" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Find out for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "check",
+      "name": "Thing you can check",
+      "settings": [
+        { "type": "text", "id": "lead", "label": "Bold lead", "default": "The heat timings." },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Boil your own hot water bottle. Put a hand on it after twenty minutes and again after thirty. You will not need us to tell you what you find." },
+        {
+          "type": "select",
+          "id": "built_in",
+          "label": "Built-in link",
+          "default": "none",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "ce", "label": "CE certificate image in the theme" },
+            { "value": "returns", "label": "Refund policy page" },
+            { "value": "reviews", "label": "Reviews section on this page" }
+          ]
+        },
+        { "type": "url", "id": "link", "label": "Link (overrides the built-in link)" },
+        { "type": "text", "id": "link_text", "label": "Link text", "default": "See it" },
+        { "type": "checkbox", "id": "new_tab", "label": "Open link in a new tab", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW We are the sellers",
+      "blocks": [
+        { "type": "check", "settings": { "lead": "The heat timings.", "text": "Boil your own hot water bottle. Put a hand on it after twenty minutes and again after thirty. You will not need us to tell you what you find." } },
+        { "type": "check", "settings": { "lead": "The certificate.", "text": "Our CE test document is linked here. It covers electrical safety. It does not say this is a medical device, and we are not going to imply that it does.", "link_text": "Open the CE certificate", "built_in": "ce" } },
+        { "type": "check", "settings": { "lead": "The returns.", "text": "Read the policy. We pay the postage back. A company that expected most people to send it back could not afford to write that.", "link_text": "Read the returns policy", "built_in": "returns", "new_tab": false } },
+        { "type": "check", "settings": { "lead": "Our reviews.", "text": "They are collected by Judge.me from verified orders, which means we cannot write them, edit them or delete the bad ones. That is worth more to you than anything we could say here.", "link_text": "Read the reviews", "built_in": "reviews", "new_tab": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}

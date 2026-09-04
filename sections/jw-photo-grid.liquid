@@ -1,0 +1,78 @@
+{% comment %}
+  Real-home photo grid. Women aged 55 to 70 only, daylight, real rooms, no studio white.
+  Each block uses a photo from the theme editor, or one of the built-in Jointwell photos in assets/.
+{% endcomment %}
+<section class="jw-photos">
+  <div class="jw-wrap">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    <ul class="jw-photos__grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="jw-photos__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 25vw, 50vw', class: 'jw-photos__img', alt: block.settings.alt }}
+          {%- elsif block.settings.stock != 'none' -%}
+            <img class="jw-photos__img" src="{{ block.settings.stock | asset_url }}" width="900" height="900" loading="lazy" alt="{{ block.settings.alt | escape }}">
+          {%- else -%}
+            <div class="jw-placeholder jw-photos__img" role="img" aria-label="Photo placeholder"><span>{{ block.settings.alt | escape }}</span></div>
+          {%- endif -%}
+          {%- if block.settings.caption != blank -%}
+            <p class="jw-caption">{{ block.settings.caption | escape }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Real-home photos",
+  "tag": "section",
+  "class": "jw-section-photos",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "In real kitchens, on real knees" }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "limit": 4,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (square)", "info": "Leave empty to use one of the built-in photos below." },
+        {
+          "type": "select",
+          "id": "stock",
+          "label": "Built-in photo",
+          "default": "jw-photo-kettle.jpg",
+          "options": [
+            { "value": "jw-photo-kettle.jpg", "label": "At the kettle, wrap on knee" },
+            { "value": "jw-photo-armchair.jpg", "label": "Armchair, reading, wrap on knee" },
+            { "value": "jw-photo-floor.jpg", "label": "On the floor with a jigsaw" },
+            { "value": "jw-photo-garden.jpg", "label": "Kitchen table, garden behind" },
+            { "value": "jw-photo-bed.jpg", "label": "Reading in bed" },
+            { "value": "jw-photo-elbow.jpg", "label": "Wrap on the elbow" },
+            { "value": "jw-photo-radiator.jpg", "label": "Armchair by the radiator" },
+            { "value": "jw-photo-bothknees.jpg", "label": "Two wraps, both knees" },
+            { "value": "none", "label": "None (show a placeholder)" }
+          ]
+        },
+        { "type": "text", "id": "alt", "label": "Description for screen readers", "default": "Woman wearing the Jointwell wrap on her knee at the kitchen table" },
+        { "type": "text", "id": "caption", "label": "Caption (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Real-home photos",
+      "blocks": [
+        { "type": "photo", "settings": { "stock": "jw-photo-kettle.jpg", "alt": "Woman at the kettle with the wrap on her knee", "caption": "Walk to the kettle wearing it. 360 g, about the weight of a mug of tea." } },
+        { "type": "photo", "settings": { "stock": "jw-photo-armchair.jpg", "alt": "Woman reading in an armchair with the wrap on her knee", "caption": "Any chair in the house. No wire to the wall." } },
+        { "type": "photo", "settings": { "stock": "jw-photo-floor.jpg", "alt": "Woman on the carpet doing a jigsaw with the wrap on her knee", "caption": "Down on the floor for the jigsaw. And back up again." } },
+        { "type": "photo", "settings": { "stock": "jw-photo-elbow.jpg", "alt": "Woman in an armchair with the wrap on her elbow", "caption": "The extension strap takes it up the arm to the elbow." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
