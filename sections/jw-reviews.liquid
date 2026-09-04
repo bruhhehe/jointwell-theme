@@ -28,9 +28,6 @@
           {%- if block.settings.link != blank -%}
             <a class="jw-review-card__link" href="{{ block.settings.link }}">Read the verified review</a>
           {%- endif -%}
-          {%- if block.settings.photo != blank or block.settings.stock != blank -%}
-            <p class="jw-caption">Photo supplied by customer</p>
-          {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>

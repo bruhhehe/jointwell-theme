@@ -64,8 +64,8 @@
 .jw-hero__review { margin-top: 16px; }
 @media (min-width: 990px) {
   .jw-hero__grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
-  .jw-hero__review { position: absolute; left: -24px; bottom: -24px; max-width: 300px; padding: 16px; }
-  .jw-hero__media { padding-bottom: 0; margin-bottom: 40px; }
+  .jw-hero__review { position: absolute; left: -24px; top: 16px; max-width: 280px; padding: 14px; }
+  .jw-hero__media { padding-bottom: 0; }
   .jw-hero__review .jw-review-card__photo { width: 56px; height: 56px; }
   .jw-hero__review .jw-review-card__quote { font-size: var(--jw-fs-caption); line-height: 1.45; margin-bottom: 8px; border: 0; padding: 0; }
   .jw-hero__review .jw-review-card__head { margin-bottom: 8px; gap: 10px; }
