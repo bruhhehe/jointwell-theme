@@ -19,6 +19,13 @@
   if product != blank and product.available
     assign has_product = true
   endif
+  comment
+    The tier copy and the stack table are written for the wrap. Any other product uses its own variant names.
+  endcomment
+  assign is_wrap = true
+  if has_product and product.handle != 'jointwell-heated-joint-wrap'
+    assign is_wrap = false
+  endif
   assign tier_blocks = section.blocks | where: 'type', 'tier'
   assign stack_blocks = section.blocks | where: 'type', 'line'
   assign preselect = section.settings.preselect | default: 2
@@ -76,6 +83,19 @@
                 if idx == preselect
                   assign checked = 'checked'
                 endif
+                assign tier_name = block.settings.name
+                assign tier_sub = block.settings.sub
+                assign tier_savings = block.settings.savings
+                assign tier_badge = block.settings.badge
+                if is_wrap == false and v
+                  assign tier_name = v.title
+                  if tier_name == 'Default Title'
+                    assign tier_name = product.title
+                  endif
+                  assign tier_sub = ''
+                  assign tier_savings = ''
+                  assign tier_badge = ''
+                endif
                 assign price_now = block.settings.price
                 assign price_was = block.settings.was
                 if has_product and v
@@ -87,24 +107,24 @@
                   endif
                 endif
               -%}
-              <label class="jw-tier {% if block.settings.badge != blank %}jw-tier--badged{% endif %}" {{ block.shopify_attributes }}>
+              <label class="jw-tier {% if tier_badge != blank %}jw-tier--badged{% endif %}" {{ block.shopify_attributes }}>
                 {%- if has_product and variant_id != blank -%}
                   <input type="radio" name="id" value="{{ variant_id }}" {{ checked }}>
                 {%- else -%}
                   <input type="radio" name="jw-tier" value="{{ idx }}" {{ checked }}>
                 {%- endif -%}
                 <span class="jw-tier__body">
-                  {%- if block.settings.badge != blank -%}
-                    <span class="jw-tier__badge">{{ block.settings.badge | escape }}</span>
+                  {%- if tier_badge != blank -%}
+                    <span class="jw-tier__badge">{{ tier_badge | escape }}</span>
                   {%- endif -%}
-                  <span class="jw-tier__name">{{ block.settings.name | escape }}</span>
-                  <span class="jw-tier__sub">{{ block.settings.sub | escape }}</span>
+                  <span class="jw-tier__name">{{ tier_name | escape }}</span>
+                  {%- if tier_sub != blank -%}<span class="jw-tier__sub">{{ tier_sub | escape }}</span>{%- endif -%}
                   <span class="jw-tier__price">
                     {%- if price_was != blank -%}<s class="jw-price__was">{{ price_was }}</s>{%- endif -%}
                     <span class="jw-price__now">{{ price_now }}</span>
                   </span>
-                  {%- if block.settings.savings != blank -%}
-                    <span class="jw-tier__savings">{{ block.settings.savings | escape }}</span>
+                  {%- if tier_savings != blank -%}
+                    <span class="jw-tier__savings">{{ tier_savings | escape }}</span>
                   {%- endif -%}
                 </span>
               </label>
@@ -129,6 +149,7 @@
         {%- endif -%}
       </div>
 
+      {%- if is_wrap -%}
       <div class="jw-offer__stack jw-card">
         {%- if section.settings.show_box_image -%}
           <img class="jw-offer__box" src="{{ 'jw-box.jpg' | asset_url }}" width="503" height="497" loading="lazy" alt="What comes in the box: the wrap, the extension strap, the USB-C cable and the manual">
@@ -160,6 +181,7 @@
           <p class="jw-caption">{{ section.settings.stack_note | escape }}</p>
         {%- endif -%}
       </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
