@@ -5,10 +5,10 @@
     assign product = all_products[section.settings.product_handle]
   endif
   if product != blank
-    assign price_text = product.price | money
+    assign price_text = product.price | money_without_trailing_zeros
     assign compare_text = ''
     if product.compare_at_price > product.price
-      assign compare_text = product.compare_at_price | money
+      assign compare_text = product.compare_at_price | money_without_trailing_zeros
     endif
   else
     assign price_text = section.settings.price_text
@@ -88,8 +88,8 @@
     { "type": "header", "content": "Price and button" },
     { "type": "product", "id": "product", "label": "Product", "info": "When set, the price comes from the product. Otherwise the text below is used." },
     { "type": "text", "id": "product_handle", "label": "Product handle (fallback)", "default": "jointwell-heated-joint-wrap" },
-    { "type": "text", "id": "price_text", "label": "Price (fallback)", "default": "£49.96" },
-    { "type": "text", "id": "compare_text", "label": "Was price (fallback)", "default": "£62.45" },
+    { "type": "text", "id": "price_text", "label": "Price (fallback)", "default": "£49" },
+    { "type": "text", "id": "compare_text", "label": "Was price (fallback)", "default": "£65" },
     { "type": "text", "id": "price_note", "label": "Price note", "default": "One payment. Free tracked UK delivery." },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link", "info": "Leave blank to jump to the buy box below." },

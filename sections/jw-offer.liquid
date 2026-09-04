@@ -99,9 +99,9 @@
                 assign price_now = block.settings.price
                 assign price_was = block.settings.was
                 if has_product and v
-                  assign price_now = v.price | money
+                  assign price_now = v.price | money_without_trailing_zeros
                   if v.compare_at_price > v.price
-                    assign price_was = v.compare_at_price | money
+                    assign price_was = v.compare_at_price | money_without_trailing_zeros
                   else
                     assign price_was = ''
                   endif
@@ -217,10 +217,10 @@
     { "type": "text", "id": "button_note", "label": "Line under the button", "default": "Straight to checkout. No account needed, no basket to manage." },
     { "type": "header", "content": "Offer stack" },
     { "type": "checkbox", "id": "show_box_image", "label": "Show the photo of what is in the box", "default": true },
-    { "type": "text", "id": "stack_title", "label": "Stack title", "default": "What you get for £49.96" },
+    { "type": "text", "id": "stack_title", "label": "Stack title", "default": "What you get for £49" },
     { "type": "text", "id": "total_label", "label": "Total row label", "default": "Total" },
-    { "type": "text", "id": "total_worth", "label": "Total worth", "default": "£86.40" },
-    { "type": "text", "id": "total_pay", "label": "Total you pay", "default": "£49.96" },
+    { "type": "text", "id": "total_worth", "label": "Total worth", "default": "£88.95" },
+    { "type": "text", "id": "total_pay", "label": "Total you pay", "default": "£49" },
     { "type": "text", "id": "stack_note", "label": "Small note under the stack", "default": "Values are what each item costs bought separately. Nothing here is a limited-time trick." }
   ],
   "blocks": [
@@ -231,9 +231,9 @@
       "settings": [
         { "type": "text", "id": "name", "label": "Name", "default": "Two wraps" },
         { "type": "text", "id": "sub", "label": "Second line", "default": "One for each knee" },
-        { "type": "text", "id": "price", "label": "Price", "default": "£71.96" },
-        { "type": "text", "id": "was", "label": "Was price", "default": "£89.95" },
-        { "type": "text", "id": "savings", "label": "Savings line", "default": "Save £27.96 against two at £49.96" },
+        { "type": "text", "id": "price", "label": "Price", "default": "£69" },
+        { "type": "text", "id": "was", "label": "Was price", "default": "£130" },
+        { "type": "text", "id": "savings", "label": "Savings line", "default": "Save £29 against two at £49" },
         { "type": "text", "id": "badge", "label": "Badge (for example Most chosen)" },
         { "type": "text", "id": "variant_id", "label": "Variant ID (optional)", "info": "Leave blank to use the product's variants in order." }
       ]
@@ -252,10 +252,10 @@
     {
       "name": "JW Buy box and stack",
       "blocks": [
-        { "type": "tier", "settings": { "name": "One wrap", "sub": "Your worst joint", "price": "£49.96", "was": "£62.45", "savings": "", "badge": "" } },
-        { "type": "tier", "settings": { "name": "Two wraps", "sub": "One for each knee", "price": "£71.96", "was": "£89.95", "savings": "Save £27.96 against two at £49.96", "badge": "Most chosen" } },
-        { "type": "tier", "settings": { "name": "Four wraps", "sub": "One for you, one for your sister, two for the family", "price": "£99", "was": "£179.90", "savings": "Save £100.84 against four at £49.96", "badge": "Best value" } },
-        { "type": "line", "settings": { "item": "Jointwell heated joint wrap", "worth": "£62.45", "pay": "£49.96" } },
+        { "type": "tier", "settings": { "name": "One wrap", "sub": "Your worst joint", "price": "£49", "was": "£65", "savings": "", "badge": "" } },
+        { "type": "tier", "settings": { "name": "Two wraps", "sub": "One for each knee", "price": "£69", "was": "£130", "savings": "Save £29 against two at £49", "badge": "Most chosen" } },
+        { "type": "tier", "settings": { "name": "Four wraps", "sub": "One for you, one for your sister, two for the family", "price": "£99", "was": "£260", "savings": "Save £97 against four at £49", "badge": "Best value" } },
+        { "type": "line", "settings": { "item": "Jointwell heated joint wrap", "worth": "£65", "pay": "£49" } },
         { "type": "line", "settings": { "item": "Extension strap (shoulder and elbow)", "worth": "£9", "pay": "Free" } },
         { "type": "line", "settings": { "item": "USB-C charging cable", "worth": "£6", "pay": "Free" } },
         { "type": "line", "settings": { "item": "Mugwort warming sachet", "worth": "£4", "pay": "Free" } },

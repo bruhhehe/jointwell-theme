@@ -1,0 +1,32 @@
+{% comment %} Landing page top for the seven "Which joint runs your day?" pages: headline, ~200 words, photo, then the buy box below. {% endcomment %}
+<section class="jw-landing" id="jw-top">
+  <div class="jw-wrap jw-landing__grid">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}<p class="jw-eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      <h1 class="jw-h1">{{ page.title | escape }}</h1>
+      <div class="rte jw-prose">{{ page.content }}</div>
+      {% render 'jw-cta-strip', link: '#jw-buy', label: section.settings.cta_label %}
+    </div>
+    <div>
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'eager', class: 'jw-landing__img', alt: page.title }}
+      {%- else -%}
+        <img class="jw-landing__img" src="{{ section.settings.stock | default: 'jw-photo-kettle.jpg' | asset_url }}" width="1024" height="1024" alt="" loading="eager">
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "JW Landing page",
+  "tag": "section",
+  "class": "jw-section-landing",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Small line above the headline", "default": "For knees, shoulders and elbows that have got worse over the years" },
+    { "type": "image_picker", "id": "image", "label": "Photo" },
+    { "type": "select", "id": "stock", "label": "Built-in photo", "options": [ { "value": "jw-photo-kettle.jpg", "label": "Kettle" }, { "value": "jw-photo-armchair.jpg", "label": "Armchair" }, { "value": "jw-photo-floor.jpg", "label": "Floor, jigsaw" }, { "value": "jw-photo-elbow.jpg", "label": "Elbow" }, { "value": "jw-photo-garden.jpg", "label": "Garden" }, { "value": "jw-photo-bed.jpg", "label": "Bed" }, { "value": "jw-photo-radiator.jpg", "label": "Radiator" }, { "value": "jw-photo-bothknees.jpg", "label": "Both knees" } ], "default": "jw-photo-kettle.jpg" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" }
+  ],
+  "presets": [{ "name": "JW Landing page" }]
+}
+{% endschema %}

@@ -25,7 +25,7 @@
           <tr>
             <th scope="row">{{ section.settings.total_label | escape }}</th>
             <td>{{ section.settings.total_worth | escape }}</td>
-            <td class="jw-stack__pay">{% if section.settings.use_product_price and product %}{{ product.selected_or_first_available_variant.price | money }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</td>
+            <td class="jw-stack__pay">{% if section.settings.use_product_price and product %}{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</td>
           </tr>
         </tfoot>
       </table>
@@ -49,9 +49,9 @@
   "settings": [
     { "type": "text", "id": "title", "label": "Title", "default": "What you get" },
     { "type": "text", "id": "total_label", "label": "Total row label", "default": "Total" },
-    { "type": "text", "id": "total_worth", "label": "Total worth", "default": "£86.40" },
+    { "type": "text", "id": "total_worth", "label": "Total worth", "default": "£88.95" },
     { "type": "checkbox", "id": "use_product_price", "label": "Use the product's price for 'you pay'", "default": true },
-    { "type": "text", "id": "total_pay", "label": "Total you pay (if not using product price)", "default": "£49.96" },
+    { "type": "text", "id": "total_pay", "label": "Total you pay (if not using product price)", "default": "£49" },
     { "type": "text", "id": "note", "label": "Note", "default": "Values are what each item costs bought separately." },
     { "type": "text", "id": "trust_1", "label": "Trust line 1", "default": "90-day trial, we pay return postage" },
     { "type": "text", "id": "trust_2", "label": "Trust line 2", "default": "2-year UK warranty" },
@@ -72,7 +72,7 @@
     {
       "name": "JW Product offer stack",
       "blocks": [
-        { "type": "line", "settings": { "item": "Jointwell heated joint wrap", "worth": "£62.45", "pay": "£49.96" } },
+        { "type": "line", "settings": { "item": "Jointwell heated joint wrap", "worth": "£65", "pay": "£49" } },
         { "type": "line", "settings": { "item": "Extension strap (shoulder and elbow)", "worth": "£9", "pay": "Free" } },
         { "type": "line", "settings": { "item": "USB-C charging cable", "worth": "£6", "pay": "Free" } },
         { "type": "line", "settings": { "item": "Mugwort warming sachet", "worth": "£4", "pay": "Free" } },

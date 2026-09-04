@@ -4,7 +4,10 @@
   "sections": {
     "jw_announcement": {
       "type": "jw-announcement",
-      "settings": {}
+      "settings": {
+        "text": "Autumn price: \u00a349 a wrap until 30 September. Free tracked UK delivery. 90-day trial, we pay the return postage.",
+        "link": "/#jw-buy"
+      }
     },
     "jw_header": {
       "type": "jw-header",

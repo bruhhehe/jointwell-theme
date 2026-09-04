@@ -28,9 +28,9 @@
       <h1 class="jw-h1">{{ product.title | escape }}</h1>
       <div class="jw-hero__price" aria-label="Price">
         {%- if v.compare_at_price > v.price -%}
-          <s class="jw-price__was">{{ v.compare_at_price | money }}</s>
+          <s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>
         {%- endif -%}
-        <span class="jw-price__now">{{ v.price | money }}</span>
+        <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
         {%- if section.settings.price_note != blank -%}
           <span class="jw-price__note">{{ section.settings.price_note | escape }}</span>
         {%- endif -%}

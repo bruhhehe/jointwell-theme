@@ -25,8 +25,8 @@
           "settings": {
             "name": "One wrap",
             "sub": "Your worst joint",
-            "price": "£49.96",
-            "was": "£62.45",
+            "price": "£49",
+            "was": "£65",
             "savings": "",
             "badge": ""
           }
@@ -36,9 +36,9 @@
           "settings": {
             "name": "Two wraps",
             "sub": "One for each knee",
-            "price": "£71.96",
-            "was": "£89.95",
-            "savings": "Save £27.96 against two at £49.96",
+            "price": "£69",
+            "was": "£130",
+            "savings": "Save £29 against two at £49",
             "badge": "Most chosen"
           }
         },
@@ -48,8 +48,8 @@
             "name": "Four wraps",
             "sub": "One for you, one for your sister, two for the family",
             "price": "£99",
-            "was": "£179.90",
-            "savings": "Save £100.84 against four at £49.96",
+            "was": "£260",
+            "savings": "Save £97 against four at £49",
             "badge": "Best value"
           }
         },
@@ -57,8 +57,8 @@
           "type": "line",
           "settings": {
             "item": "Jointwell heated joint wrap",
-            "worth": "£62.45",
-            "pay": "£49.96"
+            "worth": "£65",
+            "pay": "£49"
           }
         },
         "line_5": {
@@ -244,7 +244,7 @@
             "massage": "Three strengths",
             "fit": "Strapped on, any chair in the house",
             "effort": "Half an hour with your morning tea",
-            "cost": "£49.96 once"
+            "cost": "£49 once"
           }
         },
         "column_2": {
@@ -281,7 +281,7 @@
     "jw_why": {
       "type": "jw-why",
       "settings": {
-        "signature": ""
+        "signature": "Stan, grandson"
       }
     },
     "jw_timeline": {
@@ -341,7 +341,7 @@
           "settings": {
             "title": "Knee arthritis",
             "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee.",
-            "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
+            "link": "/pages/knee-arthritis"
           }
         },
         "door_2": {
@@ -349,7 +349,7 @@
           "settings": {
             "title": "Stiff shoulder",
             "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder.",
-            "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
+            "link": "/pages/stiff-shoulder"
           }
         },
         "door_3": {
@@ -357,7 +357,7 @@
           "settings": {
             "title": "Tennis elbow",
             "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap.",
-            "link": "/blogs/advice/tennis-elbow-from-the-garden"
+            "link": "/pages/tennis-elbow"
           }
         },
         "door_4": {
@@ -365,7 +365,7 @@
           "settings": {
             "title": "After a knee replacement",
             "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises.",
-            "link": "/blogs/advice/heat-after-knee-replacement"
+            "link": "/pages/after-knee-replacement"
           }
         },
         "door_5": {
@@ -373,7 +373,7 @@
           "settings": {
             "title": "Morning stiffness",
             "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs.",
-            "link": "/blogs/advice/morning-stiffness-first-ten-steps"
+            "link": "/pages/morning-stiffness"
           }
         },
         "door_6": {
@@ -381,7 +381,7 @@
           "settings": {
             "title": "Kneeling and gardening",
             "line": "Down to the beds and back up again. Before you go out, and after you come in.",
-            "link": "/blogs/advice/kneeling-gardening-knees"
+            "link": "/pages/kneeling-and-gardening"
           }
         },
         "door_7": {
@@ -389,7 +389,7 @@
           "settings": {
             "title": "Cold weather aches",
             "line": "October to March. The wrap goes on with the first cup and the heating stays down.",
-            "link": "/blogs/advice/cold-weather-joint-aches"
+            "link": "/pages/cold-weather-aches"
           }
         }
       },
@@ -602,7 +602,7 @@
           "type": "qa",
           "settings": {
             "question": "When will it arrive?",
-            "answer": "<p>Most orders leave us within 1 to 3 working days and arrive 4 to 8 days after that, so allow up to a fortnight. Every order is tracked and you'll get the number by email.</p>"
+            "answer": "<p>We dispatch within 1 to 3 working days and most orders arrive within 7 to 10 working days of ordering, occasionally up to 14. Every order is tracked and we email you the link the moment it leaves us.</p>"
           }
         },
         "qa_6": {

@@ -17,6 +17,27 @@
       <li>UK support</li>
     </ul>
 
+    {%- if section.settings.show_magnet -%}
+    <div class="jw-card jw-magnet" id="jw-routine">
+      <h2 class="jw-h3">{{ section.settings.magnet_title | escape }}</h2>
+      <p class="jw-body">{{ section.settings.magnet_text | escape }}</p>
+      {%- form 'customer', class: 'jw-magnet__form', id: 'jw-routine-form' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="jw-magnet__ok">{{ section.settings.magnet_success | escape }}</p>
+        {%- else -%}
+          {{ form.errors | default_errors }}
+          <input type="hidden" name="contact[tags]" value="routine-pdf,newsletter">
+          <label class="visually-hidden" for="jw-routine-email">Email address</label>
+          <div class="jw-magnet__row">
+            <input id="jw-routine-email" class="jw-magnet__input" type="email" name="contact[email]" autocomplete="email" placeholder="Your email address" required>
+            <button type="submit" class="jw-btn jw-btn--primary">{{ section.settings.magnet_button | escape }}</button>
+          </div>
+          <p class="jw-caption">{{ section.settings.magnet_note | escape }}</p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+    {%- endif -%}
+
     <p class="jw-footnote__brand">{{ section.settings.brand | escape }}</p>
     {%- if section.settings.address != blank -%}
       <address class="jw-footnote__address">{{ section.settings.address | escape | newline_to_br }}</address>
@@ -59,6 +80,13 @@
     { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "Jointwell is a heat and massage device for the comfort and relaxation of stiff, tired knees, shoulders and elbows. It is not a medical treatment and does not cure, treat or prevent any disease or condition, including arthritis. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product." },
     { "type": "text", "id": "support", "label": "Support line", "default": "UK support by email, 2-year warranty on every wrap, 90-day trial with return postage paid." },
     { "type": "link_list", "id": "menu", "label": "Footer menu", "default": "footer" },
+    { "type": "header", "content": "Lead magnet" },
+    { "type": "checkbox", "id": "show_magnet", "label": "Show the routine sign-up", "default": true },
+    { "type": "text", "id": "magnet_title", "label": "Title", "default": "Get the 7-morning stiffness routine (large-print PDF)" },
+    { "type": "textarea", "id": "magnet_text", "label": "Text", "default": "Seven mornings, one page each, in print you can read without your glasses. Kettle on, joint warm, then the day. Free, by email." },
+    { "type": "text", "id": "magnet_button", "label": "Button", "default": "Send me the routine" },
+    { "type": "text", "id": "magnet_note", "label": "Small print", "default": "We send the PDF, then the occasional email. Unsubscribe with one click." },
+    { "type": "text", "id": "magnet_success", "label": "Success message", "default": "Thank you. The routine is on its way to your inbox." },
     { "type": "checkbox", "id": "show_payment_icons", "label": "Show payment icons", "default": true },
     { "type": "text", "id": "copyright", "label": "Copyright line", "default": "Jointwell \u00b7 velagoods.co.uk" },
     { "type": "text", "id": "email", "label": "Support email", "default": "support@velagoods.co.uk" }

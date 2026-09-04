@@ -1,0 +1,19 @@
+{% comment %} Mobile-only sticky bar: price and a button to the buy box. Hidden on desktop and on the cart page. {% endcomment %}
+{%- liquid
+  assign jw_p = all_products['jointwell-heated-joint-wrap']
+  assign bar_price = '£49'
+  if jw_p != blank
+    assign bar_price = jw_p.price | money_without_trailing_zeros
+  endif
+  if template.name == 'index' or template.name == 'product'
+    assign bar_link = '#jw-buy'
+  else
+    assign bar_link = routes.root_url | append: '#jw-buy'
+  endif
+-%}
+{%- unless template.name == 'cart' -%}
+<div class="jw-sticky" role="complementary" aria-label="Buy Jointwell">
+  <span class="jw-sticky__text">Try it for 90 days &middot; <strong>{{ bar_price }}</strong></span>
+  <a class="jw-btn jw-btn--primary jw-sticky__btn" href="{{ bar_link }}">Choose your wrap</a>
+</div>
+{%- endunless -%}
