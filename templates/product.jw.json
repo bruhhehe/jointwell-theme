@@ -1,0 +1,354 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title"
+        },
+        "price": {
+          "type": "price"
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector"
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description"
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_position": "left",
+        "gallery_layout": "stacked",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "jw_product_stack": {
+      "type": "jw-product-stack",
+      "settings": {},
+      "blocks": {
+        "line_1": {
+          "type": "line",
+          "settings": {
+            "item": "Jointwell heated joint wrap",
+            "worth": "£62.45",
+            "pay": "£49.96"
+          }
+        },
+        "line_2": {
+          "type": "line",
+          "settings": {
+            "item": "Extension strap (shoulder and elbow)",
+            "worth": "£9",
+            "pay": "Free"
+          }
+        },
+        "line_3": {
+          "type": "line",
+          "settings": {
+            "item": "USB-C charging cable",
+            "worth": "£6",
+            "pay": "Free"
+          }
+        },
+        "line_4": {
+          "type": "line",
+          "settings": {
+            "item": "Mugwort warming sachet",
+            "worth": "£4",
+            "pay": "Free"
+          }
+        },
+        "line_5": {
+          "type": "line",
+          "settings": {
+            "item": "Tracked UK delivery",
+            "worth": "£4.95",
+            "pay": "Free"
+          }
+        },
+        "line_6": {
+          "type": "line",
+          "settings": {
+            "item": "90-day trial, return postage paid",
+            "worth": "",
+            "pay": "Free"
+          }
+        },
+        "line_7": {
+          "type": "line",
+          "settings": {
+            "item": "2-year warranty, UK support",
+            "worth": "",
+            "pay": "Included"
+          }
+        }
+      },
+      "block_order": [
+        "line_1",
+        "line_2",
+        "line_3",
+        "line_4",
+        "line_5",
+        "line_6",
+        "line_7"
+      ]
+    },
+    "jw_timeline": {
+      "type": "jw-timeline",
+      "settings": {},
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "when": "Day 1",
+            "text": "Warmth you set, not warmth you wait for. Charge it, strap it on, pick a level. Most people go straight to level 3."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "when": "Day 3",
+            "text": "The morning half hour becomes a habit. Kettle on, wrap on. It switches itself off when the tea is finished."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "when": "Week 2",
+            "text": "This is when people tell us the first-thing-in-the-morning stiffness is easier to walk off. Your joint gets the deciding vote, not our copy."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "when": "Week 4",
+            "text": "A month in. You will know by now whether it has earned its place by the kettle."
+          }
+        },
+        "step_5": {
+          "type": "step",
+          "settings": {
+            "when": "Month 3",
+            "text": "Your 90 days are up. Keep it, or post it back and we pay the postage. The warranty runs for two years either way."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4",
+        "step_5"
+      ]
+    },
+    "jw_reviews": {
+      "type": "jw-reviews",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Maggie",
+            "age": "64",
+            "quote": "[PLACEHOLDER: real customer quote from Maggie's verified Judge.me review]"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Sue",
+            "age": "68",
+            "quote": "[PLACEHOLDER: real customer quote from Sue's verified Judge.me review]"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Janet",
+            "age": "70",
+            "quote": "[PLACEHOLDER: real customer quote from Janet's verified Judge.me review]"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ]
+    },
+    "jw_trust": {
+      "type": "jw-trust",
+      "settings": {},
+      "blocks": {
+        "check_1": {
+          "type": "check",
+          "settings": {
+            "lead": "The heat timings.",
+            "text": "Boil your own hot water bottle. Put a hand on it after twenty minutes and again after thirty. You will not need us to tell you what you find."
+          }
+        },
+        "check_2": {
+          "type": "check",
+          "settings": {
+            "lead": "The certificate.",
+            "text": "Our CE test document is linked here. It covers electrical safety. It does not say this is a medical device, and we are not going to imply that it does.",
+            "link_text": "Open the CE certificate",
+            "built_in": "ce"
+          }
+        },
+        "check_3": {
+          "type": "check",
+          "settings": {
+            "lead": "The returns.",
+            "text": "Read the policy. We pay the postage back. A company that expected most people to send it back could not afford to write that.",
+            "link_text": "Read the returns policy",
+            "built_in": "returns",
+            "new_tab": false
+          }
+        },
+        "check_4": {
+          "type": "check",
+          "settings": {
+            "lead": "Our reviews.",
+            "text": "They are collected by Judge.me from verified orders, which means we cannot write them, edit them or delete the bad ones. That is worth more to you than anything we could say here.",
+            "link_text": "Read the reviews",
+            "built_in": "reviews",
+            "new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "check_1",
+        "check_2",
+        "check_3",
+        "check_4"
+      ]
+    },
+    "jw_guarantee": {
+      "type": "jw-guarantee",
+      "settings": {}
+    },
+    "jw_faq": {
+      "type": "jw-faq",
+      "settings": {},
+      "blocks": {
+        "qa_1": {
+          "type": "qa",
+          "settings": {
+            "question": "Isn't this just a heating pad with extra steps?",
+            "answer": "<p>A heating pad gives you heat that fades, or heat that ties you to a wall socket. Jointwell holds whichever of the five levels you pick, 45°C to 65°C, for a full 30 minutes. It adds vibration massage at three strengths, straps on so it stays put, and runs cordless in any chair in the house.</p>"
+          }
+        },
+        "qa_2": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it work for me? My joints have been like this a long time.",
+            "answer": "<p>It isn't a cure and we won't pretend otherwise. Nobody can promise what it will do for your joint. What we can promise is warmth at the level you choose, held for thirty minutes, with massage alongside it. The 90-day trial is there so your own knee gets the deciding vote rather than our copy.</p>"
+          }
+        },
+        "qa_3": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it fit me?",
+            "answer": "<p>One size, 46 cm across and 30 cm tall, with a 55 cm strap span. It fits either knee, and the extension strap in the box takes it round a shoulder or up an arm to the elbow. If it doesn't fit you, the 90-day trial covers a full refund and we pay the return postage.</p>",
+            "show_fit_image": true
+          }
+        },
+        "qa_4": {
+          "type": "qa",
+          "settings": {
+            "question": "Is it safe? Will it burn me?",
+            "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>"
+          }
+        },
+        "qa_5": {
+          "type": "qa",
+          "settings": {
+            "question": "When will it arrive?",
+            "answer": "<p>Most orders leave us within 1 to 3 working days and arrive 4 to 8 days after that, so allow up to a fortnight. Every order is tracked and you'll get the number by email.</p>"
+          }
+        },
+        "qa_6": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I know this isn't another Facebook gadget?",
+            "answer": "<p>Fair question, because this market is full of them. We dispatch most orders within 1 to 3 working days and track every one. There's a UK returns address, UK support, a 2-year warranty, and a 90-day trial where we pay the postage back. Our reviews run through Judge.me on verified orders, so we cannot write our own or delete a bad one. Junk sellers can't afford the guarantee and won't hand that control away.</p>"
+          }
+        },
+        "qa_7": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I use it after a knee replacement?",
+            "answer": "<p>Ask your surgeon or physio first, and follow what they say. Many people are told heat is fine once the wound has fully healed, but that is their call, not ours. If they say yes, most people use it as the warm half hour before their exercises.</p>"
+          }
+        },
+        "qa_8": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I charge it, and how long does a charge last?",
+            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. [PLACEHOLDER: charge time and number of 30-minute sessions per charge, from the manual.] The panel shows the battery level.</p>"
+          }
+        },
+        "qa_9": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens if I send it back?",
+            "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "qa_1",
+        "qa_2",
+        "qa_3",
+        "qa_4",
+        "qa_5",
+        "qa_6",
+        "qa_7",
+        "qa_8",
+        "qa_9"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "jw_product_stack",
+    "jw_timeline",
+    "jw_reviews",
+    "jw_trust",
+    "jw_guarantee",
+    "jw_faq"
+  ]
+}

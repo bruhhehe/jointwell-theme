@@ -21,6 +21,7 @@
       {%- endfor -%}
     </div>
     <p class="jw-caption jw-narrow">{{ section.settings.footnote | escape }}</p>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
   </div>
 </section>
 
@@ -32,7 +33,9 @@
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Heat and massage are what the NHS and orthopaedic surgeons recommend for stiff joints" },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Jointwell puts both in one wrap you strap on at the kitchen table. Here is what the people who are not selling anything say about heat and massage." },
-    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "These are statements about heat and massage in general. Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition." }
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "These are statements about heat and massage in general. Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition." },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
   ],
   "blocks": [
     {

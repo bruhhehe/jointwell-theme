@@ -1,0 +1,86 @@
+{% comment %}
+  Itemised offer stack for product pages, with the guarantee line and trust strip.
+  Used by templates/product.jw.json directly under the main product section.
+  Stack lines are blocks so each product can carry its own list (wrap, refills, strap pack).
+{% endcomment %}
+<section class="jw-offer jw-product-stack">
+  <div class="jw-wrap jw-narrow">
+    <div class="jw-card jw-offer__stack">
+      <h2 class="jw-h3">{{ section.settings.title | escape }}</h2>
+      <table class="jw-stack">
+        <caption class="visually-hidden">What is included and what each item is worth</caption>
+        <thead>
+          <tr><th scope="col">In the box</th><th scope="col">Worth</th><th scope="col">You pay</th></tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row">{{ block.settings.item | escape }}</th>
+              <td>{{ block.settings.worth | escape }}</td>
+              <td class="jw-stack__pay">{{ block.settings.pay | escape }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">{{ section.settings.total_label | escape }}</th>
+            <td>{{ section.settings.total_worth | escape }}</td>
+            <td class="jw-stack__pay">{% if section.settings.use_product_price and product %}{{ product.selected_or_first_available_variant.price | money }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</td>
+          </tr>
+        </tfoot>
+      </table>
+      {%- if section.settings.note != blank -%}
+        <p class="jw-caption">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
+      <ul class="jw-trust" role="list">
+        <li>{{ section.settings.trust_1 | escape }}</li>
+        <li>{{ section.settings.trust_2 | escape }}</li>
+        <li>{{ section.settings.trust_3 | escape }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW Product offer stack",
+  "tag": "section",
+  "class": "jw-section-product-stack",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "What you get" },
+    { "type": "text", "id": "total_label", "label": "Total row label", "default": "Total" },
+    { "type": "text", "id": "total_worth", "label": "Total worth", "default": "£86.40" },
+    { "type": "checkbox", "id": "use_product_price", "label": "Use the product's price for 'you pay'", "default": true },
+    { "type": "text", "id": "total_pay", "label": "Total you pay (if not using product price)", "default": "£49.96" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Values are what each item costs bought separately." },
+    { "type": "text", "id": "trust_1", "label": "Trust line 1", "default": "90-day trial, we pay return postage" },
+    { "type": "text", "id": "trust_2", "label": "Trust line 2", "default": "2-year UK warranty" },
+    { "type": "text", "id": "trust_3", "label": "Trust line 3", "default": "Free tracked delivery" }
+  ],
+  "blocks": [
+    {
+      "type": "line",
+      "name": "Stack line",
+      "settings": [
+        { "type": "text", "id": "item", "label": "Item", "default": "Extension strap (shoulder and elbow)" },
+        { "type": "text", "id": "worth", "label": "Worth", "default": "£9" },
+        { "type": "text", "id": "pay", "label": "You pay", "default": "Free" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Product offer stack",
+      "blocks": [
+        { "type": "line", "settings": { "item": "Jointwell heated joint wrap", "worth": "£62.45", "pay": "£49.96" } },
+        { "type": "line", "settings": { "item": "Extension strap (shoulder and elbow)", "worth": "£9", "pay": "Free" } },
+        { "type": "line", "settings": { "item": "USB-C charging cable", "worth": "£6", "pay": "Free" } },
+        { "type": "line", "settings": { "item": "Mugwort warming sachet", "worth": "£4", "pay": "Free" } },
+        { "type": "line", "settings": { "item": "Tracked UK delivery", "worth": "£4.95", "pay": "Free" } },
+        { "type": "line", "settings": { "item": "90-day trial, return postage paid", "worth": "", "pay": "Free" } },
+        { "type": "line", "settings": { "item": "2-year warranty, UK support", "worth": "", "pay": "Included" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

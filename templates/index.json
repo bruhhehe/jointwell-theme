@@ -34,7 +34,7 @@
             "sub": "One for each knee",
             "price": "£71.96",
             "was": "£89.95",
-            "savings": "Save £27.96 on two singles",
+            "savings": "Save £27.96 against two at £49.96",
             "badge": "Most chosen"
           }
         },
@@ -45,7 +45,7 @@
             "sub": "One for you, one for your sister, two for the family",
             "price": "£99",
             "was": "£179.90",
-            "savings": "Save £100.84 on four singles",
+            "savings": "Save £100.84 against four at £49.96",
             "badge": "Best value"
           }
         },
@@ -551,7 +551,7 @@
           "type": "qa",
           "settings": {
             "question": "Is it safe? Will it burn me?",
-            "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>"
+            "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. Do not use it while asleep. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>"
           }
         },
         "qa_5": {

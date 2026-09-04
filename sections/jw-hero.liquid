@@ -11,7 +11,7 @@
     assign price_text = section.settings.price_text
     assign compare_text = section.settings.compare_text
   endif
-  assign cta_link = section.settings.cta_link | default: '#jw-buy'
+  assign cta_link = section.settings.cta_link
 -%}
 <section class="jw-hero" id="jw-top">
   <div class="jw-wrap jw-hero__grid">
@@ -74,7 +74,7 @@
     { "type": "header", "content": "Words" },
     { "type": "text", "id": "eyebrow", "label": "Small line above the headline", "default": "For knees, shoulders and elbows that have got worse over the years" },
     { "type": "text", "id": "heading", "label": "Headline", "default": "Get down on the floor with the grandchildren. And get back up again." },
-    { "type": "textarea", "id": "subline", "label": "Sub-line", "default": "A cordless heated wrap with massage for knees, shoulders and elbows. Made for arthritis, worn joints and long-term stiffness. Try it for 90 days on your worst joint. If it does not help, we pay the postage back." },
+    { "type": "textarea", "id": "subline", "label": "Sub-line", "default": "A cordless heated wrap with massage for knees, shoulders and elbows. Made for knees, shoulders and elbows that have got worse over the years. Try it for 90 days on your worst joint. If it does not help, we pay the postage back." },
     { "type": "text", "id": "product_name", "label": "Product name line", "default": "Jointwell heated joint wrap" },
     { "type": "header", "content": "Price and button" },
     { "type": "product", "id": "product", "label": "Product", "info": "When set, the price comes from the product. Otherwise the text below is used." },
