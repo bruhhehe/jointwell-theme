@@ -46,7 +46,10 @@
         <img class="jw-hero__img" src="{{ 'jw-hero.jpg' | asset_url }}" width="1024" height="1024" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
       {%- endif -%}
 
-      {%- assign rq = section.settings.review_quote | default: '' -%}
+      {%- assign rq = section.settings.review_short | default: '' -%}
+      {%- if rq == blank -%}
+        {%- assign rq = section.settings.review_quote | default: '' | split: '. ' | first -%}
+      {%- endif -%}
       {%- if rq != blank and rq contains 'PLACEHOLDER' -%}{%- assign rq = '' -%}{%- endif -%}
       {%- if rq != blank -%}
       <aside class="jw-card jw-review-card jw-hero__review" aria-label="Customer review">
@@ -102,7 +105,8 @@
     { "type": "text", "id": "review_age", "label": "Age", "default": "64" },
     { "type": "text", "id": "review_town", "label": "Town" },
     { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
-    { "type": "textarea", "id": "review_quote", "label": "Quote", "info": "Paste the exact words from a verified Judge.me review. The card stays hidden until this is filled in." },
+    { "type": "textarea", "id": "review_quote", "label": "Full quote", "info": "The customer's exact words. The card stays hidden until this is filled in." },
+    { "type": "text", "id": "review_short", "label": "Short line for the card", "info": "One sentence, taken word for word from the full quote. Keeps the card small so it does not cover the photo. Leave blank to use the first sentence." },
     { "type": "image_picker", "id": "review_photo", "label": "Customer's own photo" },
     { "type": "url", "id": "review_link", "label": "Link to the Judge.me review" }
   ],
