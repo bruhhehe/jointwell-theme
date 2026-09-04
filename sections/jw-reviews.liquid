@@ -12,13 +12,13 @@
       {%- for block in section.blocks -%}
         {%- assign q = block.settings.quote | default: '' -%}
         {%- if q == blank or q contains 'PLACEHOLDER' -%}{%- continue -%}{%- endif -%}
-        <li class="jw-card jw-review-card" {{ block.shopify_attributes }}>
+        <li class="jw-card jw-review-card jw-review-card--big" {{ block.shopify_attributes }}>
+          {%- if block.settings.photo != blank -%}
+            {{ block.settings.photo | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400, 600, 800', sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw', class: 'jw-review-card__big', alt: block.settings.name }}
+          {%- elsif block.settings.stock != blank -%}
+            <img class="jw-review-card__big" src="{{ block.settings.stock | asset_url }}" width="800" height="800" loading="lazy" alt="{{ block.settings.name | escape }}, photo supplied by customer">
+          {%- endif -%}
           <div class="jw-review-card__head">
-            {%- if block.settings.photo != blank -%}
-              {{ block.settings.photo | image_url: width: 160 | image_tag: loading: 'lazy', class: 'jw-review-card__photo', alt: block.settings.name }}
-            {%- elsif block.settings.stock != blank -%}
-              <img class="jw-review-card__photo" src="{{ block.settings.stock | asset_url }}" width="80" height="80" loading="lazy" alt="{{ block.settings.name | escape }}, photo supplied by customer">
-            {%- endif -%}
             <div>
               <p class="jw-review-card__name">{{ block.settings.name | escape }}{% if block.settings.age != blank %}, {{ block.settings.age | escape }}{% endif %}{% if block.settings.town != blank %}, {{ block.settings.town | escape }}{% endif %}</p>
               <p class="jw-review-card__meta"><span class="jw-stars" aria-hidden="true">★★★★★</span> <span class="jw-verified">Verified buyer</span></p>
@@ -71,7 +71,7 @@
         { "type": "text", "id": "town", "label": "Town" },
         { "type": "textarea", "id": "quote", "label": "Quote, exactly as written in the review", "info": "The card stays hidden until a real quote is pasted here." },
         { "type": "image_picker", "id": "photo", "label": "Customer's own photo" },
-        { "type": "select", "id": "stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
+        { "type": "select", "id": "stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
         { "type": "url", "id": "link", "label": "Link to the review (optional)" }
       ]
     }

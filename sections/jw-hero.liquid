@@ -54,7 +54,7 @@
           {%- if section.settings.review_photo != blank -%}
             {{ section.settings.review_photo | image_url: width: 160 | image_tag: loading: 'lazy', class: 'jw-review-card__photo', alt: section.settings.review_name }}
           {%- elsif section.settings.review_stock != blank -%}
-            <img class="jw-review-card__photo" src="{{ section.settings.review_stock | asset_url }}" width="80" height="80" loading="lazy" alt="{{ section.settings.review_name | escape }}, photo supplied by customer">
+            <img class="jw-review-card__photo" src="{{ section.settings.review_stock | asset_url }}" width="120" height="120" loading="lazy" alt="{{ section.settings.review_name | escape }}, photo supplied by customer">
           {%- endif -%}
           <div>
             <p class="jw-review-card__name">{{ section.settings.review_name | escape }}{% if section.settings.review_age != blank %}, {{ section.settings.review_age | escape }}{% endif %}{% if section.settings.review_town != blank %}, {{ section.settings.review_town | escape }}{% endif %}</p>
@@ -101,7 +101,7 @@
     { "type": "text", "id": "review_name", "label": "First name", "default": "Maggie" },
     { "type": "text", "id": "review_age", "label": "Age", "default": "64" },
     { "type": "text", "id": "review_town", "label": "Town" },
-    { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
+    { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
     { "type": "textarea", "id": "review_quote", "label": "Quote", "info": "Paste the exact words from a verified Judge.me review. The card stays hidden until this is filled in." },
     { "type": "image_picker", "id": "review_photo", "label": "Customer's own photo" },
     { "type": "url", "id": "review_link", "label": "Link to the Judge.me review" }
