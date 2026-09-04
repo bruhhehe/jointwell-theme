@@ -177,7 +177,9 @@
 /* ---------- Reviews ---------- */
 .jw-reviews__grid { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 16px; }
 .jw-reviews__widget { margin-bottom: 16px; }
-@media (min-width: 750px) { .jw-reviews__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 750px) { .jw-reviews__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 990px) { .jw-reviews__grid { grid-template-columns: repeat(3, 1fr); } }
+.jw-review-card__photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
 
 /* ---------- Trust ---------- */
 .jw-checks { list-style: none; padding: 0; margin: 0 0 24px; }

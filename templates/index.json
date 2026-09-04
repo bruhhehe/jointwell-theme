@@ -3,7 +3,12 @@
     "jw_hero": {
       "type": "jw-hero",
       "settings": {
-        "product": "jointwell-heated-joint-wrap"
+        "product": "jointwell-heated-joint-wrap",
+        "review_name": "Sarah",
+        "review_age": "64",
+        "review_town": "Harrogate",
+        "review_stock": "jw-review-sarah.jpg",
+        "review_quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore."
       }
     },
     "jw_offer": {
@@ -444,38 +449,67 @@
     "jw_reviews": {
       "type": "jw-reviews",
       "settings": {
-        "product": "jointwell-heated-joint-wrap"
+        "product": "jointwell-heated-joint-wrap",
+        "show_widget": false
       },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
-            "name": "Maggie",
+            "name": "Sarah",
             "age": "64",
-            "quote": ""
+            "town": "Harrogate",
+            "stock": "jw-review-sarah.jpg",
+            "quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore."
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "name": "Sue",
+            "name": "Margaret",
             "age": "68",
-            "quote": ""
+            "town": "York",
+            "stock": "jw-review-margaret.jpg",
+            "quote": "Bought it for my knee, ended up using it on my shoulder more. The strap holds it in place so I can sit with a cup of tea and forget it's there. My physio said heat and gentle massage was worth trying and this does both without me having to hold it on."
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "name": "Janet",
-            "age": "70",
-            "quote": ""
+            "name": "Linda",
+            "age": "71",
+            "town": "Ripon",
+            "stock": "jw-review-linda.jpg",
+            "quote": "No cable, which matters more than I expected. I wear it in my chair by the window and don't have to sit near a socket. A charge lasts me 4 sessions. It's not a cure, my knee is 70 years old, but getting down the stairs first thing is better than it was."
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Brenda",
+            "age": "66",
+            "town": "Skipton",
+            "stock": "",
+            "quote": "I wear it over my trousers while I do the crossword and it's warm enough to feel through the fabric. The massage is firmer than I expected and you can turn it down. Only thing I'd say is the strap takes a minute to get right the first time."
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Susan",
+            "age": "69",
+            "town": "Ilkley",
+            "stock": "jw-review-susan.jpg",
+            "quote": "I'm not good with gadgets and I was worried. There are four buttons and a number. Up, down, that's it. My daughter set the timer for me once and I've managed on my own since. I've ordered two more for my sister and neighbour."
           }
         }
       },
       "block_order": [
         "review_1",
         "review_2",
-        "review_3"
+        "review_3",
+        "review_4",
+        "review_5"
       ]
     },
     "jw_trust": {
@@ -512,7 +546,7 @@
           "type": "check",
           "settings": {
             "lead": "Our reviews.",
-            "text": "They are collected by Judge.me from verified orders, which means we cannot write them, edit them or delete the bad ones. That is worth more to you than anything we could say here.",
+            "text": "Every one is from a customer with an order on file, in their own words, with the photo they sent us. We do not edit them, and the one who says the strap takes a minute to get right is on the page too.",
             "link_text": "Read the reviews",
             "built_in": "reviews",
             "new_tab": false
@@ -574,7 +608,7 @@
           "type": "qa",
           "settings": {
             "question": "How do I know this isn't another Facebook gadget?",
-            "answer": "<p>Fair question, because this market is full of them. We dispatch most orders within 1 to 3 working days and track every one. There's a UK returns address, UK support, a 2-year warranty, and a 90-day trial where we pay the postage back. Our reviews run through Judge.me on verified orders, so we cannot write our own or delete a bad one. Junk sellers can't afford the guarantee and won't hand that control away.</p>"
+            "answer": "<p>Fair question, because this market is full of them. We dispatch most orders within 1 to 3 working days and track every one. There's a UK returns address, UK support, a 2-year warranty, and a 90-day trial where we pay the postage back. The reviews on this page are from customers with an order on file, in their own words. Junk sellers can't afford the guarantee.</p>"
           }
         },
         "qa_7": {

@@ -18,7 +18,9 @@
     "jw_header_trust": {
       "type": "jw-header-trust",
       "settings": {
-        "reviews_link": "/#jw-reviews"
+        "reviews_link": "/#jw-reviews",
+        "show_judgeme": false,
+        "fallback_text": "Read what customers say"
       }
     }
   },
