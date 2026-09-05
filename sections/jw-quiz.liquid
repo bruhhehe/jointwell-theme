@@ -28,6 +28,7 @@
     var out = document.getElementById('jw-quiz-result');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!form.querySelector('fieldset')) return;
       var stop = false, fit = 0, total = 0;
       form.querySelectorAll('fieldset').forEach(function (fs) {
         var v = (fs.querySelector('input:checked') || {}).value;

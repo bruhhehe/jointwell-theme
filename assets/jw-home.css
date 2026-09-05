@@ -449,3 +449,4 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 @media (max-width: 749px) { .jw-compare__grid { grid-template-columns: 1fr; } }
 .jw-chart__evidence { list-style: none; margin: 16px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
 .jw-chart__evidence img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--jw-border); }
+.jw-quiz__result[hidden] { display: none; }

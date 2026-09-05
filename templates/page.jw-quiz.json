@@ -2,7 +2,59 @@
   "sections": {
     "jw_quiz": {
       "type": "jw-quiz",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "q_1": {
+          "type": "q",
+          "settings": {
+            "question": "Is your knee, shoulder or elbow stiffest first thing in the morning, or after sitting?",
+            "kind": "fit"
+          }
+        },
+        "q_2": {
+          "type": "q",
+          "settings": {
+            "question": "Have you tried a wheat bag or hot water bottle and found it goes cold before it has done any good?",
+            "kind": "fit"
+          }
+        },
+        "q_3": {
+          "type": "q",
+          "settings": {
+            "question": "Do you sit down with a cup of tea most mornings for half an hour anyway?",
+            "kind": "fit"
+          }
+        },
+        "q_4": {
+          "type": "q",
+          "settings": {
+            "question": "Is the joint hot, red or more swollen than usual right now?",
+            "kind": "gp"
+          }
+        },
+        "q_5": {
+          "type": "q",
+          "settings": {
+            "question": "Do you have diabetes, a circulation problem, or reduced feeling in your skin?",
+            "kind": "gp"
+          }
+        },
+        "q_6": {
+          "type": "q",
+          "settings": {
+            "question": "Is there an unhealed wound or a recent operation on that joint?",
+            "kind": "gp"
+          }
+        }
+      },
+      "block_order": [
+        "q_1",
+        "q_2",
+        "q_3",
+        "q_4",
+        "q_5",
+        "q_6"
+      ]
     },
     "jw_guarantee": {
       "type": "jw-guarantee",
