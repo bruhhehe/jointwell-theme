@@ -109,7 +109,7 @@
               {%- endif -%}
             {%- endfor -%}
           </fieldset>
-          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span> &middot; <span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
+          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span><span class="jw-hero__dot" aria-hidden="true">&middot;</span><span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
         </form>
       {%- else -%}
         <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
@@ -139,8 +139,16 @@
     var form = document.querySelector('form.jw-hero__tiers[data-jw-checkout]');
     if (!form) return;
     var priceOut = form.querySelector('[data-jw-price]');
-    function sync() { var c = form.querySelector('input[name="id"]:checked'); if (c && priceOut) priceOut.textContent = c.dataset.price; }
-    form.addEventListener('change', sync); sync();
+    function sync() {
+      var c = form.querySelector('input[name="id"]:checked');
+      if (c && priceOut) priceOut.textContent = c.getAttribute('data-price') || '';
+    }
+    form.querySelectorAll('input[name="id"]').forEach(function (r) {
+      r.addEventListener('change', sync);
+      r.addEventListener('click', sync);
+    });
+    form.addEventListener('change', sync);
+    sync();
     form.addEventListener('submit', function (e) {
       var chosen = form.querySelector('input[name="id"]:checked');
       if (!chosen) return;
