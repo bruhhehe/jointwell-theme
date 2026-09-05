@@ -623,3 +623,7 @@ body.jw-has-sticky { padding-bottom: 88px; }
 .jw-magnet__img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--jw-radius-sm); display: block; max-height: 320px; }
 .jw-magnet__incentive { margin: 10px 0 4px; font-weight: 700; }
 @media (min-width: 750px) { .jw-magnet__grid { grid-template-columns: 1fr 2fr; } .jw-magnet__img { max-height: none; } }
+
+.jw-assure li { align-items: center; min-height: 48px; }
+.jw-assure li > span:last-child { line-height: 1.3; }
+@media (min-width: 990px) { .jw-why__grid:not(:has(.jw-why__media)) { grid-template-columns: 1fr; max-width: 760px; } }

@@ -37,116 +37,146 @@
         "ce_text": "CE, EMC Directive 2014/30/EU, independent lab, 21 Nov 2024.",
         "ce_link": "Open the certificate",
         "uk_text": "support by email, a reply within one working day",
-        "caveat": "The CE test covers electrical safety and interference. It does not make this a medical device, and we do not claim it is one."
+        "caveat": ""
       }
+    },
+    "jw_authority": {
+      "type": "jw-authority",
+      "settings": {
+        "strip": false,
+        "heading": "What the NHS and orthopaedic surgeons say about heat and massage",
+        "intro": "None of these people are selling anything. These are their words about warmth and massage on stiff joints in general, with the source linked so you can read it yourself.",
+        "evidence_heading": "What the evidence says",
+        "evidence_note": "",
+        "footnote": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do."
+      },
+      "blocks": {
+        "a_nhs": {
+          "type": "quote",
+          "settings": {
+            "who": "NHS",
+            "role": "nhs.uk, on easing joint stiffness at home",
+            "quote": "Heat applied to the affected area can be very effective in reducing pain.",
+            "source_url": "",
+            "photo_url": "",
+            "is_logo": true
+          }
+        },
+        "a_kambach": {
+          "type": "quote",
+          "settings": {
+            "who": "Brandon Kambach, MD",
+            "role": "Orthopaedic surgeon",
+            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain.",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-kambach_200x200.jpg"
+          }
+        },
+        "a_box": {
+          "type": "quote",
+          "settings": {
+            "who": "Hayden N. Box, MD",
+            "role": "Orthopaedic surgeon, hip and knee replacement",
+            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain.",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-box_200x200.jpg"
+          }
+        },
+        "e_dose": {
+          "type": "evidence",
+          "settings": {
+            "text": "Heat-pack guidance says apply warmth for 15 to 20 minutes. A hot water bottle holds useful warmth for 20 to 30 minutes and a microwaved wheat bag about 30. The dose in your cupboard is roughly right. It is the delivery that runs out.",
+            "source": "NHS and manufacturers' heat-pack guidance",
+            "url": "",
+            "link_text": "Read it"
+          }
+        },
+        "e_joints": {
+          "type": "evidence",
+          "settings": {
+            "text": "Knees, shoulders and elbows sit under thin skin with little muscle or fat around them, so they lose warmth faster than the rest of you and hold it worst. Cold hands, cold nose, cold knees.",
+            "source": "Basic anatomy, references on request",
+            "url": "",
+            "link_text": "Read it"
+          }
+        },
+        "e_nice": {
+          "type": "evidence",
+          "settings": {
+            "text": "NICE, which writes the guidance the NHS follows, puts exercise, weight management and information first for osteoarthritis. We are not a substitute for any of that. Warmth is what people use to get moving in the morning so they can do the rest.",
+            "source": "NICE guideline NG226, Osteoarthritis in over 16s (2022)",
+            "url": "https://www.nice.org.uk/guidance/ng226",
+            "link_text": "Read it"
+          }
+        }
+      },
+      "block_order": [
+        "a_nhs",
+        "a_kambach",
+        "a_box",
+        "e_dose",
+        "e_joints",
+        "e_nice"
+      ]
     },
     "jw_doorways": {
       "type": "jw-doorways",
-      "settings": {
-        "heading": "Which joint runs your day?",
-        "intro": "Same wrap, different mornings. Tap the one that sounds like yours.",
-        "open_label": "See how it fits",
-        "read_label": "Read the full advice piece",
-        "cta_label": "Try it on your worst joint",
-        "footnote": "Jointwell is a comfort device for stiff, tired joints. It is not a treatment for any condition and does not replace the care you are waiting for."
-      },
+      "settings": {},
       "blocks": {
         "door_1": {
           "type": "door",
           "settings": {
-            "title": "The stiff knee at 7am",
-            "line": "The first ten steps are the worst. Then the kettle, then the stairs.",
-            "panel_heading": "The cold hour before the day starts",
-            "text": "<p>Overnight a joint sits still and cools. The stiffness at 7am is a cold, unmoved knee, not the day getting worse. Kettle on, wrap on, level three, read the paper. By the second cup the wrap has clicked itself off and the knee has had thirty minutes of steady warmth before it is asked to do the stairs.</p>",
-            "fit": "Straight round the knee, over pyjamas or trousers. One size, 55 cm strap span.",
-            "stock": "jw-photo-breakfast.jpg",
-            "alt": "A man in his sixties at the kitchen table with tea and toast, wearing the wrap on his knee",
-            "link": "/blogs/advice/heat-for-arthritic-knee-mornings",
-            "cta": ""
+            "title": "Knee arthritis",
+            "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee.",
+            "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
           }
         },
         "door_2": {
           "type": "door",
           "settings": {
-            "title": "The shoulder that won't reach the top shelf",
-            "line": "Doing up a strap, lifting the kettle, sleeping on that side. Small things, twenty times a day.",
-            "panel_heading": "A shoulder is the hardest joint to keep warm",
-            "text": "<p>A wheat bag slides off a shoulder. A hot water bottle needs the hand you wanted to use. Rubs reach the skin, not the joint. So the shoulder stays cold. Shoulder people tend to use the wrap twice: under a cardigan while the tea brews, and again in the armchair before bed. Being cordless is what makes the second one possible.</p>",
-            "fit": "The extension strap in the box takes it from a knee loop to one that goes over the shoulder and under the arm, so the warm panel sits on the joint and stays there.",
-            "stock": "jw-feature-joints.jpg",
-            "alt": "The wrap worn on a knee, a shoulder and an elbow, side by side",
-            "link": "/blogs/advice/stiff-shoulder-heat-and-massage",
-            "cta": ""
+            "title": "Stiff shoulder",
+            "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder.",
+            "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
           }
         },
         "door_3": {
           "type": "door",
           "settings": {
-            "title": "The elbow that aches from the garden",
-            "line": "Secateurs, the watering can, forty years of one arm doing the work.",
-            "panel_heading": "Not from the tennis court",
-            "text": "<p>Nobody over sixty got a bad elbow from tennis. It was the secateurs, the heavy watering can, the wallpaper stripping. The ache sits on the outside of the elbow and shows up when you grip, lift or turn a stiff tap. Half an hour of warmth in the chair, before the crossword or after the garden, is the routine people tell us about.</p>",
-            "fit": "The extension strap runs the wrap up the forearm so it sits over the elbow. 360 g, so it does not drag.",
-            "stock": "jw-photo-crossword-elbow.jpg",
-            "alt": "A man doing the crossword in an armchair, wearing the wrap on his elbow",
-            "link": "/blogs/advice/tennis-elbow-from-the-garden",
-            "cta": ""
+            "title": "Tennis elbow",
+            "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap.",
+            "link": "/blogs/advice/tennis-elbow-from-the-garden"
           }
         },
         "door_4": {
           "type": "door",
           "settings": {
-            "title": "The warm half hour before physio exercises",
-            "line": "Once your surgeon and physio say heat is fine, this is the bit before the work.",
-            "panel_heading": "Warm first, then move",
-            "text": "<p>Physiotherapists warm a joint before they work on it. If you have been given exercises to do at home, the same order applies: thirty minutes of steady warmth, then the sheet of exercises. Ask your surgeon or physio before using heat on a joint that has been operated on, and follow what they say over anything written here.</p>",
-            "fit": "Round the knee while you sit up in bed or on the sofa, then off, then the exercises. It switches itself off at thirty minutes so it cannot be left running.",
-            "stock": "jw-photo-bed.jpg",
-            "alt": "A woman reading in bed with the wrap on her knee",
-            "link": "/blogs/advice/heat-after-knee-replacement",
-            "cta": ""
+            "title": "After a knee replacement",
+            "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises.",
+            "link": "/blogs/advice/heat-after-knee-replacement"
           }
         },
         "door_5": {
           "type": "door",
           "settings": {
-            "title": "The first ten steps of the day",
-            "line": "Kettle on, wrap on, before the stairs.",
-            "panel_heading": "Thirty minutes, then the day",
-            "text": "<p>Most people put it on with the first cup of tea and forget about it. It is light enough to walk to the kettle in. Thirty minutes later it clicks off, and the joint has had steady warmth rather than ten hot minutes and twenty lukewarm ones. A routine kept twice a week does nothing. Every morning is the point.</p>",
-            "fit": "Strap on, press once, pick a level from 45°C. Big lit digits, no menus, no app.",
-            "stock": "jw-photo-kettle.jpg",
-            "alt": "A woman at the kettle in a cardigan and slippers, wearing the wrap on her knee",
-            "link": "/blogs/advice/morning-stiffness-first-ten-steps",
-            "cta": ""
+            "title": "Morning stiffness",
+            "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs.",
+            "link": "/blogs/advice/morning-stiffness-first-ten-steps"
           }
         },
         "door_6": {
           "type": "door",
           "settings": {
-            "title": "Down to the flower beds and back up again",
-            "line": "Before you go out, and after you come in.",
-            "panel_heading": "Kneeling is the price of a garden",
-            "text": "<p>Gardeners kneel, and kneeling is what a stiff knee hates most. People tell us they wear the wrap at the table before they go out, so the knee is warm when it first bends, and again when they come in with the mud still on their boots. It goes over trousers.</p>",
-            "fit": "Over trousers, either knee. If both knees complain, two wraps at once is why the pair is the most chosen pack.",
-            "stock": "jw-photo-garden-window.jpg",
-            "alt": "A woman sitting by the garden door with a cup of tea, wearing the wrap on her knee, raised beds behind her",
-            "link": "/blogs/advice/kneeling-gardening-knees",
-            "cta": ""
+            "title": "Kneeling and gardening",
+            "line": "Down to the beds and back up again. Before you go out, and after you come in.",
+            "link": "/blogs/advice/kneeling-gardening-knees"
           }
         },
         "door_7": {
           "type": "door",
           "settings": {
-            "title": "When the damp comes in",
-            "line": "October to March, and the van step at seven in the morning.",
-            "panel_heading": "One warm thing when everything else is cold",
-            "text": "<p>The first cold snap is when most people go looking. Cold tightens everything around a joint, and a day on hard floors or a cold van seat finishes the job. The wrap runs off a battery, so it goes on in the van, in the caravan, or in the chair before the heating has caught up. One warm joint is not a substitute for a warm home. It is the thing you can do about the knee while the house catches up.</p>",
-            "fit": "Cordless, so it goes wherever you are sitting. About four half-hour sessions per charge, off a phone charger.",
-            "stock": "jw-photo-van.jpg",
-            "alt": "A tradesman in a hi-vis jacket sitting on the step of his van, wearing the wrap on his knee",
-            "link": "/blogs/advice/cold-weather-joint-aches",
-            "cta": ""
+            "title": "Cold weather aches",
+            "line": "October to March. The wrap goes on with the first cup and the heating stays down.",
+            "link": "/blogs/advice/cold-weather-joint-aches"
           }
         }
       },
@@ -172,7 +202,7 @@
           "settings": {
             "title": "Warmth, held at the level you set",
             "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole session, instead of starting hot and fading like a wheat bag.",
-            "product_image_index": 4
+            "product_image_index": 1
           }
         },
         "step_2": {
@@ -180,7 +210,7 @@
           "settings": {
             "title": "Gentle vibration alongside it",
             "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
-            "product_image_index": 5
+            "product_image_index": 0
           }
         },
         "step_3": {
@@ -188,7 +218,7 @@
           "settings": {
             "title": "A thirty-minute timer, so it becomes a habit",
             "text": "It switches itself off. Kettle on, wrap on, half an hour, done. Cordless, so the second cup does not mean sitting still.",
-            "product_image_index": 8
+            "product_image_index": 3
           }
         }
       },
@@ -628,6 +658,17 @@
         "ck_4"
       ]
     },
+    "jw_magnet": {
+      "type": "jw-magnet",
+      "settings": {
+        "title": "Not ready to buy? Take the routine anyway.",
+        "text": "The 7-morning stiffness routine, in large print, free by email. It works with a hot water bottle. It works better with something that stays warm.",
+        "button": "Send me the routine",
+        "incentive": "",
+        "note": "One PDF, then the occasional email. Unsubscribe in one tap.",
+        "success": "Thank you. Check your inbox in the next few minutes."
+      }
+    },
     "jw_faq": {
       "type": "jw-faq",
       "settings": {},
@@ -720,96 +761,6 @@
     "jw_final_cta": {
       "type": "jw-final-cta",
       "settings": {}
-    },
-    "jw_authority": {
-      "type": "jw-authority",
-      "settings": {
-        "strip": false,
-        "heading": "What the NHS and orthopaedic surgeons say about heat and massage",
-        "intro": "None of these people are selling anything. These are their words about warmth and massage on stiff joints in general, with the source linked so you can read it yourself.",
-        "evidence_heading": "What the evidence says",
-        "evidence_note": "Statements about heat in general, not about this device. Nothing here is a claim about what Jointwell will do for your joint.",
-        "footnote": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do."
-      },
-      "blocks": {
-        "a_nhs": {
-          "type": "quote",
-          "settings": {
-            "who": "NHS",
-            "role": "nhs.uk, on easing joint stiffness at home",
-            "quote": "Heat applied to the affected area can be very effective in reducing pain.",
-            "source_url": "",
-            "photo_url": "",
-            "is_logo": true
-          }
-        },
-        "a_kambach": {
-          "type": "quote",
-          "settings": {
-            "who": "Brandon Kambach, MD",
-            "role": "Orthopaedic surgeon",
-            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain.",
-            "source_url": "",
-            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-kambach_200x200.jpg"
-          }
-        },
-        "a_box": {
-          "type": "quote",
-          "settings": {
-            "who": "Hayden N. Box, MD",
-            "role": "Orthopaedic surgeon, hip and knee replacement",
-            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain.",
-            "source_url": "",
-            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-box_200x200.jpg"
-          }
-        },
-        "e_dose": {
-          "type": "evidence",
-          "settings": {
-            "text": "Heat-pack guidance says apply warmth for 15 to 20 minutes. A hot water bottle holds useful warmth for 20 to 30 minutes and a microwaved wheat bag about 30. The dose in your cupboard is roughly right. It is the delivery that runs out.",
-            "source": "NHS and manufacturers' heat-pack guidance",
-            "url": "",
-            "link_text": "Read it"
-          }
-        },
-        "e_joints": {
-          "type": "evidence",
-          "settings": {
-            "text": "Knees, shoulders and elbows sit under thin skin with little muscle or fat around them, so they lose warmth faster than the rest of you and hold it worst. Cold hands, cold nose, cold knees.",
-            "source": "Basic anatomy, references on request",
-            "url": "",
-            "link_text": "Read it"
-          }
-        },
-        "e_nice": {
-          "type": "evidence",
-          "settings": {
-            "text": "NICE, which writes the guidance the NHS follows, puts exercise, weight management and information first for osteoarthritis. We are not a substitute for any of that. Warmth is what people use to get moving in the morning so they can do the rest.",
-            "source": "NICE guideline NG226, Osteoarthritis in over 16s (2022)",
-            "url": "https://www.nice.org.uk/guidance/ng226",
-            "link_text": "Read it"
-          }
-        }
-      },
-      "block_order": [
-        "a_nhs",
-        "a_kambach",
-        "a_box",
-        "e_dose",
-        "e_joints",
-        "e_nice"
-      ]
-    },
-    "jw_magnet": {
-      "type": "jw-magnet",
-      "settings": {
-        "title": "Not ready to buy? Take the routine anyway.",
-        "text": "The 7-morning stiffness routine, in large print, free by email. It works with a hot water bottle. It works better with something that stays warm.",
-        "button": "Send me the routine",
-        "incentive": "",
-        "note": "One PDF, then the occasional email. Unsubscribe in one tap.",
-        "success": "Thank you. Check your inbox in the next few minutes."
-      }
     }
   },
   "order": [
@@ -821,11 +772,11 @@
     "jw_heat_chart",
     "jw_comparison",
     "jw_reviews",
-    "jw_magnet",
     "jw_why",
     "jw_timeline",
     "jw_box",
     "jw_wordg",
+    "jw_magnet",
     "jw_faq",
     "jw_final_cta"
   ]

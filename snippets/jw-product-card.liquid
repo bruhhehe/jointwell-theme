@@ -14,8 +14,9 @@
 {%- if p != blank -%}
 <aside class="jw-pcard" aria-label="Jointwell heated joint wrap, buy">
   <a class="jw-pcard__media" href="{{ card_link }}" tabindex="-1" aria-hidden="true">
-    {%- if p.featured_image != blank -%}
-      {{ p.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'jw-pcard__img', alt: p.title, widths: '200, 300, 400', sizes: '160px' }}
+    {%- assign card_img = p.images[1] | default: p.featured_image -%}
+    {%- if card_img != blank -%}
+      {{ card_img | image_url: width: 400 | image_tag: loading: 'lazy', class: 'jw-pcard__img', alt: p.title, widths: '200, 300, 400', sizes: '160px' }}
     {%- endif -%}
   </a>
   <div class="jw-pcard__body">

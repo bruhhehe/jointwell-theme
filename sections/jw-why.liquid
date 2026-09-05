@@ -9,17 +9,16 @@
 {%- else -%}
 <section class="jw-why jw-band" id="jw-why">
   <div class="jw-wrap jw-why__grid">
+    {%- if section.settings.image != blank -%}
     <div class="jw-why__media">
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '400, 700, 1000', sizes: '(min-width: 990px) 40vw, 100vw', class: 'jw-why__img', alt: section.settings.image_alt }}
-      {%- else -%}
-        {%- comment -%} Fallback is the wrap on the table with a mug: honest until a real photo of grandad is chosen. {%- endcomment -%}
-        <img class="jw-why__img" src="{{ 'jw-wrap-mug.jpg' | asset_url }}" width="1024" height="1024" alt="The Jointwell wrap on a kitchen table next to a mug of tea" loading="lazy">
       {%- endif -%}
       {%- if section.settings.image_caption != blank -%}
         <p class="jw-caption">{{ section.settings.image_caption | escape }}</p>
       {%- endif -%}
     </div>
+    {%- endif -%}
     <div class="jw-why__copy">
       <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
       <div class="jw-prose">
