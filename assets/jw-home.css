@@ -445,7 +445,7 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-compare__grid { min-width: 0; }
 .jw-compare__grid > * { min-width: 0; overflow-wrap: anywhere; }
 .jw-compare { overflow: hidden; }
-@media (min-width: 990px) { .jw-compare__grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; } .jw-compare__grid .jw-card { padding: 16px; } .jw-compare__grid .jw-card dt, .jw-compare__grid .jw-card dd { font-size: 16px; } }
+@media (min-width: 990px) { .jw-compare__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; } .jw-compare__grid .jw-card { padding: 16px; } .jw-compare__grid .jw-card dt, .jw-compare__grid .jw-card dd { font-size: 16px; } }
 @media (max-width: 749px) { .jw-compare__grid { grid-template-columns: 1fr; } }
 .jw-chart__evidence { list-style: none; margin: 16px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
 .jw-chart__evidence img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 8px; border: 1px solid var(--jw-border); }
@@ -460,3 +460,39 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-hero__thumbbtn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 8px; }
 .jw-hero__thumbbtn:focus-visible { outline: 3px solid var(--jw-focus); outline-offset: 2px; }
 .jw-hero__thumbbtn.is-active .jw-hero__thumb { border: 2px solid var(--jw-accent); }
+
+/* ---------- Reassurance icon row ---------- */
+.jw-assure { list-style: none; margin: 8px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 16px; line-height: 1.35; color: var(--jw-text); }
+.jw-assure li { display: flex; gap: 10px; align-items: center; }
+.jw-assure__icon { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--jw-accent-soft); color: var(--jw-accent-dark); display: inline-flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; }
+.jw-hero__note { margin: 4px 0 0; }
+@media (min-width: 750px) { .jw-assure { grid-template-columns: repeat(4, 1fr); } }
+/* ---------- Spec tiles ---------- */
+.jw-spectiles { list-style: none; margin: 0 0 12px; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.jw-spectile { display: flex; flex-direction: column; gap: 2px; text-align: center; padding: 18px 12px; font-size: 16px; color: var(--jw-muted); }
+.jw-spectile__big { font-family: var(--jw-font-heading); font-weight: 700; font-size: 32px; line-height: 1.1; color: var(--jw-accent-dark); }
+@media (min-width: 750px) { .jw-spectiles { grid-template-columns: repeat(4, 1fr); } .jw-spectile__big { font-size: 40px; } }
+.jw-specs__details { margin: 0 0 8px; }
+.jw-specs__summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 8px 0; font-weight: 700; font-size: 18px; color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+.jw-specs__summary::-webkit-details-marker { display: none; }
+.jw-specs__summary::after { content: "+"; font-size: 24px; }
+.jw-specs__details[open] .jw-specs__summary::after { content: "\2212"; }
+/* ---------- Authority as text strip ---------- */
+.jw-authority--strip { padding: 20px 0; }
+.jw-authority--strip .jw-h2 { font-size: 20px; margin-bottom: 4px; }
+.jw-authority--strip .jw-lead { font-size: 16px; margin-bottom: 8px; }
+.jw-authority--strip .jw-authority__quotes { grid-template-columns: 1fr; gap: 6px; }
+.jw-authority--strip .jw-quote { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; padding: 8px 12px; box-shadow: none; }
+.jw-authority--strip .jw-quote blockquote { margin: 0; font-size: 16px; }
+.jw-authority--strip .jw-quote blockquote::before, .jw-authority--strip .jw-quote blockquote::after { content: "\201C"; } .jw-authority--strip .jw-quote blockquote::after { content: "\201D"; }
+.jw-authority--strip .jw-authority__source { margin: 0; padding: 2px 8px; font-size: 16px; }
+.jw-authority--strip .jw-quote figcaption { font-size: 16px; color: var(--jw-muted); }
+/* ---------- What's in the box ---------- */
+.jw-boxsec { padding: var(--jw-section) 0; font-family: var(--jw-font); color: var(--jw-text); }
+.jw-boxsec__grid { display: grid; gap: 20px; }
+.jw-boxsec__img { width: 100%; height: auto; border-radius: var(--jw-radius); aspect-ratio: 1 / 1; object-fit: cover; }
+.jw-boxsec__list { list-style: none; margin: 0 0 8px; padding: 0; font-size: 18px; }
+.jw-boxsec__list li { padding: 10px 0; border-bottom: 1px solid var(--jw-border); }
+.jw-boxsec__list li::before { content: "\2713\00a0"; color: var(--jw-good); font-weight: 700; }
+.jw-muted { color: var(--jw-muted); }
+@media (min-width: 990px) { .jw-boxsec__grid { grid-template-columns: 2fr 3fr; align-items: center; } }

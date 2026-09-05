@@ -3,7 +3,7 @@
   These are quotes about heat and massage in general, not claims about this device.
   Do not add words like "clinically proven" here or anywhere else.
 {% endcomment %}
-<section class="jw-authority">
+<section class="jw-authority{% if section.settings.strip %} jw-authority--strip{% endif %}">
   <div class="jw-wrap">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
@@ -37,6 +37,7 @@
   "tag": "section",
   "class": "jw-section-authority",
   "settings": [
+    { "type": "checkbox", "id": "strip", "label": "Show as a compact text strip", "default": true },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Heat and massage are what the NHS and orthopaedic surgeons recommend for stiff joints" },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Jointwell puts both in one wrap you strap on at the kitchen table. Here is what the people who are not selling anything say about heat and massage." },
     { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "These are statements about heat and massage in general. Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition." },

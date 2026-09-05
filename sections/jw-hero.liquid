@@ -21,15 +21,17 @@
     <div class="jw-hero__media jw-hero__media--product">
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 48vw, 100vw', class: 'jw-hero__img', alt: section.settings.image_alt }}
-      {%- elsif product != blank and product.featured_image != blank -%}
-        {{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 48vw, 100vw', class: 'jw-hero__img', alt: product.featured_image.alt | default: section.settings.image_alt }}
+      {%- elsif product != blank and product.images.size > 0 -%}
+        {%- assign main_img = product.images[section.settings.main_index] | default: product.featured_image -%}
+        {{ main_img | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 990px) 48vw, 100vw', class: 'jw-hero__img', alt: main_img.alt | default: section.settings.image_alt }}
       {%- else -%}
         <img class="jw-hero__img" src="{{ 'jw-hero.jpg' | asset_url }}" width="1024" height="1024" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
       {%- endif -%}
       {%- if product != blank and product.images.size > 1 -%}
         <ul class="jw-hero__thumbs" role="list" data-jw-gallery>
-          {%- for img in product.images offset: 1 limit: 3 -%}
-            <li><button type="button" class="jw-hero__thumbbtn" data-full="{{ img | image_url: width: 1400 }}" aria-label="Show photo {{ forloop.index | plus: 1 }}">{{ img | image_url: width: 300 | image_tag: loading: 'lazy', class: 'jw-hero__thumb', alt: img.alt }}</button></li>
+          {%- for img in product.images limit: 4 -%}
+            {%- if forloop.index0 == section.settings.main_index -%}{%- continue -%}{%- endif -%}
+            <li><button type="button" class="jw-hero__thumbbtn" data-full="{{ img | image_url: width: 1400 }}" aria-label="Show photo {{ forloop.index }}">{{ img | image_url: width: 300 | image_tag: loading: 'lazy', class: 'jw-hero__thumb', alt: img.alt }}</button></li>
           {%- endfor -%}
           <li><button type="button" class="jw-hero__thumbbtn" data-full="{{ 'jw-in-the-box.jpg' | asset_url }}" aria-label="Show what comes in the box"><img class="jw-hero__thumb" src="{{ 'jw-in-the-box.jpg' | asset_url }}" width="300" height="300" loading="lazy" alt="What comes in the box: the wrap, the USB-C cable and the instructions"></button></li>
         </ul>
@@ -111,11 +113,13 @@
       {%- else -%}
         <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
       {%- endif -%}
-      <ul class="jw-trust" role="list">
-        <li>90-day trial, we pay return postage</li>
-        <li>2-year UK warranty</li>
-        <li>Free tracked delivery</li>
+      <ul class="jw-assure" role="list">
+        <li><span class="jw-assure__icon" aria-hidden="true">&#128230;</span><span><strong>Free tracked delivery</strong><br>UK, every order</span></li>
+        <li><span class="jw-assure__icon" aria-hidden="true">&#8634;</span><span><strong>90-day trial</strong><br>we pay return postage</span></li>
+        <li><span class="jw-assure__icon" aria-hidden="true">&#10003;</span><span><strong>2-year warranty</strong><br>replacement, not repair</span></li>
+        <li><span class="jw-assure__icon" aria-hidden="true">&#9993;</span><span><strong>UK support</strong><br>a reply within one working day</span></li>
       </ul>
+      <p class="jw-caption jw-hero__note">{{ section.settings.disclaimer | escape }}</p>
 
       {%- if shop.enabled_payment_types.size > 0 -%}
         <ul class="jw-hero__payments" role="list" aria-label="Payment methods">
@@ -181,6 +185,8 @@
     { "type": "text", "id": "heading", "label": "Headline", "default": "Get down on the floor with the grandchildren. And get back up again." },
     { "type": "textarea", "id": "subline", "label": "Sub-line", "default": "A cordless heated wrap with massage for knees, shoulders and elbows. Made for knees, shoulders and elbows that have got worse over the years. Try it for 90 days on your worst joint. If it does not help, we pay the postage back." },
     { "type": "text", "id": "product_name", "label": "Product name line", "default": "Jointwell heated joint wrap" },
+    { "type": "range", "id": "main_index", "label": "Main photo: product photo number", "min": 0, "max": 9, "step": 1, "default": 1, "info": "0 is the studio shot. 1 is the wrap on a knee." },
+    { "type": "textarea", "id": "disclaimer", "label": "One line near the buy box", "default": "A comfort device, not a medical treatment. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using heat." },
     { "type": "header", "content": "Tier picker" },
     { "type": "text", "id": "tiers_legend", "label": "Legend", "default": "How many?" },
     { "type": "range", "id": "preselect", "label": "Preselected tier", "min": 1, "max": 3, "step": 1, "default": 2 },

@@ -3,6 +3,14 @@
   <div class="jw-wrap jw-narrow">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead">{{ section.settings.intro | escape }}</p>
+    <ul class="jw-spectiles" role="list">
+      <li class="jw-card jw-spectile"><span class="jw-spectile__big">45–65°C</span><span>held for the full session</span></li>
+      <li class="jw-card jw-spectile"><span class="jw-spectile__big">30 min</span><span>timed, then it switches itself off</span></li>
+      <li class="jw-card jw-spectile"><span class="jw-spectile__big">3</span><span>massage strengths</span></li>
+      <li class="jw-card jw-spectile"><span class="jw-spectile__big">360 g</span><span>cordless, USB-C</span></li>
+    </ul>
+    <details class="jw-specs__details">
+      <summary class="jw-specs__summary">Full specification</summary>
     <dl class="jw-card jw-specs__list">
       {%- for block in section.blocks -%}
         {%- if block.settings.value != blank -%}
@@ -17,6 +25,7 @@
         <dd>CE tested to the EMC Directive 2014/30/EU by an independent lab, 21 November 2024. Not a medical device and not claimed as one. <a href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener">Open the certificate</a></dd>
       </div>
     </dl>
+    </details>
     {% render 'jw-cta-strip', label: section.settings.cta_label, style: 'none' %}
   </div>
 </section>

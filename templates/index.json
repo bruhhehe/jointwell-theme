@@ -14,117 +14,184 @@
         "review_town": "Harrogate",
         "review_stock": "jw-review-sarah.jpg",
         "review_short": "I set it to 45 and it stays at 45.",
-        "preselect": 2,
-        "badge": "Most chosen",
+        "preselect": 1,
+        "badge": "Start here",
         "tiers_legend": "How many?",
         "cta_label": "Try it for 90 days",
-        "subline": "A cordless heated wrap with massage for stiff knees, shoulders and elbows. Try it for 90 days on your worst joint, and if it does not help we pay the postage back."
+        "subline": "Thirty minutes of steady warmth, so the first steps of the day aren't the worst.",
+        "main_index": 1
       }
     },
-    "jw_reviews": {
-      "type": "jw-reviews",
-      "settings": {
-        "product": "jointwell-heated-joint-wrap",
-        "show_widget": false,
-        "heading": "Customers, in their own words",
-        "intro": "Real orders, real photos, unedited."
-      },
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "name": "Sarah",
-            "age": "64",
-            "town": "Harrogate",
-            "stock": "jw-review-sarah.jpg",
-            "quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore."
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "name": "Margaret",
-            "age": "68",
-            "town": "York",
-            "stock": "jw-review-margaret.jpg",
-            "quote": "Bought it for my knee, ended up using it on my shoulder more. The strap holds it in place so I can sit with a cup of tea and forget it's there. My physio said heat and gentle massage was worth trying and this does both without me having to hold it on."
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "name": "Linda",
-            "age": "71",
-            "town": "Ripon",
-            "stock": "jw-review-linda.jpg",
-            "quote": "No cable, which matters more than I expected. I wear it in my chair by the window and don't have to sit near a socket. A charge lasts me 4 sessions. It's not a cure, my knee is 70 years old, but getting down the stairs first thing is better than it was."
-          }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
-            "name": "Brenda",
-            "age": "66",
-            "town": "Skipton",
-            "stock": "jw-review-brenda.jpg",
-            "quote": "I wear it over my trousers while I do the crossword and it's warm enough to feel through the fabric. The massage is firmer than I expected and you can turn it down. Only thing I'd say is the strap takes a minute to get right the first time."
-          }
-        },
-        "review_5": {
-          "type": "review",
-          "settings": {
-            "name": "Susan",
-            "age": "69",
-            "town": "Ilkley",
-            "stock": "jw-review-susan.jpg",
-            "quote": "I'm not good with gadgets and I was worried. There are four buttons and a number. Up, down, that's it. My daughter set the timer for me once and I've managed on my own since. I've ordered two more for my sister and neighbour."
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3",
-        "review_4",
-        "review_5"
-      ]
-    },
-    "jw_problem": {
-      "type": "jw-problem",
+    "jw_doorways": {
+      "type": "jw-doorways",
       "settings": {},
       "blocks": {
-        "item_1": {
-          "type": "item",
+        "door_1": {
+          "type": "door",
           "settings": {
-            "lead": "The wheat bag helps for ten minutes.",
-            "rest": "Then it goes cold and you are back at the microwave for the fourth time tonight."
+            "title": "Knee arthritis",
+            "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee.",
+            "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
           }
         },
-        "item_2": {
-          "type": "item",
+        "door_2": {
+          "type": "door",
           "settings": {
-            "lead": "The pills work until they wear off.",
-            "rest": ""
+            "title": "Stiff shoulder",
+            "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder.",
+            "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
           }
         },
-        "item_3": {
-          "type": "item",
+        "door_3": {
+          "type": "door",
           "settings": {
-            "lead": "The physio helps for a few days.",
-            "rest": "Then the stiffness comes back, £50 a visit, next appointment three weeks off."
+            "title": "Tennis elbow",
+            "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap.",
+            "link": "/blogs/advice/tennis-elbow-from-the-garden"
+          }
+        },
+        "door_4": {
+          "type": "door",
+          "settings": {
+            "title": "After a knee replacement",
+            "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises.",
+            "link": "/blogs/advice/heat-after-knee-replacement"
+          }
+        },
+        "door_5": {
+          "type": "door",
+          "settings": {
+            "title": "Morning stiffness",
+            "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs.",
+            "link": "/blogs/advice/morning-stiffness-first-ten-steps"
+          }
+        },
+        "door_6": {
+          "type": "door",
+          "settings": {
+            "title": "Kneeling and gardening",
+            "line": "Down to the beds and back up again. Before you go out, and after you come in.",
+            "link": "/blogs/advice/kneeling-gardening-knees"
+          }
+        },
+        "door_7": {
+          "type": "door",
+          "settings": {
+            "title": "Cold weather aches",
+            "line": "October to March. The wrap goes on with the first cup and the heating stays down.",
+            "link": "/blogs/advice/cold-weather-joint-aches"
           }
         }
       },
       "block_order": [
-        "item_1",
-        "item_2",
-        "item_3"
+        "door_1",
+        "door_2",
+        "door_3",
+        "door_4",
+        "door_5",
+        "door_6",
+        "door_7"
+      ]
+    },
+    "jw_authority": {
+      "type": "jw-authority",
+      "settings": {
+        "heading": "What the people who are not selling anything say about heat",
+        "intro": "Statements about heat in general. Jointwell is a comfort device.",
+        "strip": true
+      },
+      "blocks": {
+        "q_nhs": {
+          "type": "quote",
+          "settings": {
+            "who": "NHS",
+            "role": "nhs.uk, on easing joint pain",
+            "quote": "Heat applied to the affected area can be very effective in reducing pain."
+          }
+        },
+        "q_kambach": {
+          "type": "quote",
+          "settings": {
+            "who": "Brandon Kambach, MD",
+            "role": "Orthopaedic surgeon",
+            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain."
+          }
+        },
+        "q_box": {
+          "type": "quote",
+          "settings": {
+            "who": "Hayden N. Box, MD",
+            "role": "Orthopaedic surgeon",
+            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain."
+          }
+        },
+        "q_harvard": {
+          "type": "quote",
+          "settings": {
+            "who": "Harvard Health",
+            "role": "Harvard Health Publishing",
+            "quote": ""
+          }
+        },
+        "q_physio": {
+          "type": "quote",
+          "settings": {
+            "who": "",
+            "role": "Chartered physiotherapist, HCPC registered",
+            "quote": ""
+          }
+        }
+      },
+      "block_order": [
+        "q_nhs",
+        "q_kambach",
+        "q_box",
+        "q_harvard",
+        "q_physio"
+      ]
+    },
+    "jw_howto": {
+      "type": "jw-how-it-works",
+      "settings": {
+        "heading": "How Jointwell works",
+        "intro": "Three things the device does, and nothing we cannot show you."
+      },
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "Warmth, held at the level you set",
+            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole session, instead of starting hot and fading like a wheat bag.",
+            "product_image_index": 4
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "Gentle vibration alongside it",
+            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
+            "product_image_index": 5
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "A thirty-minute timer, so it becomes a habit",
+            "text": "It switches itself off. Kettle on, wrap on, half an hour, done. Cordless, so the second cup does not mean sitting still.",
+            "product_image_index": 8
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
       ]
     },
     "jw_heat_chart": {
       "type": "jw-heat-chart",
       "settings": {
-        "show_tiles": true
+        "show_tiles": false
       },
       "blocks": {
         "feature_1": {
@@ -247,62 +314,6 @@
         "spec_9"
       ]
     },
-    "jw_authority": {
-      "type": "jw-authority",
-      "settings": {
-        "heading": "What the people who are not selling anything say about heat",
-        "intro": "Statements about heat and massage in general. Jointwell is a comfort device, not a medical treatment."
-      },
-      "blocks": {
-        "q_nhs": {
-          "type": "quote",
-          "settings": {
-            "who": "NHS",
-            "role": "nhs.uk, on easing joint pain",
-            "quote": "Heat applied to the affected area can be very effective in reducing pain."
-          }
-        },
-        "q_kambach": {
-          "type": "quote",
-          "settings": {
-            "who": "Brandon Kambach, MD",
-            "role": "Orthopaedic surgeon",
-            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain."
-          }
-        },
-        "q_box": {
-          "type": "quote",
-          "settings": {
-            "who": "Hayden N. Box, MD",
-            "role": "Orthopaedic surgeon",
-            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain."
-          }
-        },
-        "q_harvard": {
-          "type": "quote",
-          "settings": {
-            "who": "Harvard Health",
-            "role": "Harvard Health Publishing",
-            "quote": ""
-          }
-        },
-        "q_physio": {
-          "type": "quote",
-          "settings": {
-            "who": "",
-            "role": "Chartered physiotherapist, HCPC registered",
-            "quote": ""
-          }
-        }
-      },
-      "block_order": [
-        "q_nhs",
-        "q_kambach",
-        "q_box",
-        "q_harvard",
-        "q_physio"
-      ]
-    },
     "jw_comparison": {
       "type": "jw-comparison",
       "settings": {},
@@ -366,52 +377,137 @@
             "effort": "Travel, waiting room, weeks between visits",
             "cost": "£40 to £70 every visit"
           }
+        },
+        "c_amazon": {
+          "type": "column",
+          "settings": {
+            "title": "£25 heated pad",
+            "highlight": false,
+            "heat": "Warm, but plugged into the wall and no held level",
+            "massage": "Rarely, and buzzy when it is",
+            "fit": "A flat pad you hold in place",
+            "effort": "Find a socket, sit still",
+            "cost": "£20 to £30, no trial"
+          }
         }
       },
       "block_order": [
         "c_jw",
+        "c_physio",
         "c_wheat",
+        "c_amazon",
         "c_cream",
-        "c_tens",
-        "c_physio"
+        "c_tens"
+      ]
+    },
+    "jw_reviews": {
+      "type": "jw-reviews",
+      "settings": {
+        "product": "jointwell-heated-joint-wrap",
+        "show_widget": false,
+        "heading": "Customers, in their own words",
+        "intro": "Real orders, real photos, unedited."
+      },
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Sarah",
+            "age": "64",
+            "town": "Harrogate",
+            "stock": "jw-review-sarah.jpg",
+            "quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Margaret",
+            "age": "68",
+            "town": "York",
+            "stock": "jw-review-margaret.jpg",
+            "quote": "Bought it for my knee, ended up using it on my shoulder more. The strap holds it in place so I can sit with a cup of tea and forget it's there. My physio said heat and gentle massage was worth trying and this does both without me having to hold it on."
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Linda",
+            "age": "71",
+            "town": "Ripon",
+            "stock": "jw-review-linda.jpg",
+            "quote": "No cable, which matters more than I expected. I wear it in my chair by the window and don't have to sit near a socket. A charge lasts me 4 sessions. It's not a cure, my knee is 70 years old, but getting down the stairs first thing is better than it was."
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Brenda",
+            "age": "66",
+            "town": "Skipton",
+            "stock": "jw-review-brenda.jpg",
+            "quote": "I wear it over my trousers while I do the crossword and it's warm enough to feel through the fabric. The massage is firmer than I expected and you can turn it down. Only thing I'd say is the strap takes a minute to get right the first time."
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Susan",
+            "age": "69",
+            "town": "Ilkley",
+            "stock": "jw-review-susan.jpg",
+            "quote": "I'm not good with gadgets and I was worried. There are four buttons and a number. Up, down, that's it. My daughter set the timer for me once and I've managed on my own since. I've ordered two more for my sister and neighbour."
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5"
       ]
     },
     "jw_why": {
       "type": "jw-why",
       "settings": {
-        "signature": "Stan, grandson"
+        "signature": "Stan, grandson",
+        "heading": "The hour before the physio arrives, that nobody looks after"
       }
     },
     "jw_timeline": {
       "type": "jw-timeline",
-      "settings": {},
+      "settings": {
+        "heading": "The Morning Half Hour",
+        "intro": "A routine, not a treatment. One instruction per stage, and your joint gets the deciding vote."
+      },
       "blocks": {
         "step_1": {
           "type": "step",
           "settings": {
             "when": "Day 1",
-            "text": "Warmth you set, not warmth you wait for. Charge it, strap it on, pick a level. Most people go straight to level 3."
+            "text": "Level 1 or 2 (45 to 50°C), massage off, 30 minutes with the first cup of tea. Every morning this week."
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
             "when": "Day 3",
-            "text": "The morning half hour becomes a habit. Kettle on, wrap on. It switches itself off when the tea is finished."
+            "text": "Same time, same chair. Try the gentle massage. Kettle on, wrap on. It switches itself off when the tea is finished."
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
             "when": "Week 2",
-            "text": "This is when people tell us the first-thing-in-the-morning stiffness is easier to walk off. Your joint gets the deciding vote, not our copy."
+            "text": "Move up to level 3 (55°C) if you want more. Seven mornings a week; a routine kept twice a week does nothing."
           }
         },
         "step_4": {
           "type": "step",
           "settings": {
             "when": "Week 4",
-            "text": "A month in. You will know by now whether it has earned its place by the kettle."
+            "text": "Your level, 30 minutes, every morning. A month in, you will know whether it has earned its place by the kettle."
           }
         },
         "step_5": {
@@ -430,127 +526,66 @@
         "step_5"
       ]
     },
-    "jw_doorways": {
-      "type": "jw-doorways",
+    "jw_box": {
+      "type": "jw-box",
       "settings": {},
       "blocks": {
-        "door_1": {
-          "type": "door",
+        "b1": {
+          "type": "item",
           "settings": {
-            "title": "Knee arthritis",
-            "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee.",
-            "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
+            "item": "The Jointwell wrap",
+            "note": "46 × 30 cm, 55 cm strap span, one size"
           }
         },
-        "door_2": {
-          "type": "door",
+        "b2": {
+          "type": "item",
           "settings": {
-            "title": "Stiff shoulder",
-            "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder.",
-            "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
+            "item": "Shoulder and elbow extension strap"
           }
         },
-        "door_3": {
-          "type": "door",
+        "b3": {
+          "type": "item",
           "settings": {
-            "title": "Tennis elbow",
-            "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap.",
-            "link": "/blogs/advice/tennis-elbow-from-the-garden"
+            "item": "USB-C charging cable",
+            "note": "the same as most phones"
           }
         },
-        "door_4": {
-          "type": "door",
+        "b4": {
+          "type": "item",
           "settings": {
-            "title": "After a knee replacement",
-            "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises.",
-            "link": "/blogs/advice/heat-after-knee-replacement"
+            "item": "Mugwort warming sachet",
+            "note": "lift it out if you would rather go without"
           }
         },
-        "door_5": {
-          "type": "door",
+        "b5": {
+          "type": "item",
           "settings": {
-            "title": "Morning stiffness",
-            "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs.",
-            "link": "/blogs/advice/morning-stiffness-first-ten-steps"
+            "item": "The 7-morning routine, large print",
+            "note": "also free by email below"
           }
         },
-        "door_6": {
-          "type": "door",
+        "b6": {
+          "type": "item",
           "settings": {
-            "title": "Kneeling and gardening",
-            "line": "Down to the beds and back up again. Before you go out, and after you come in.",
-            "link": "/blogs/advice/kneeling-gardening-knees"
-          }
-        },
-        "door_7": {
-          "type": "door",
-          "settings": {
-            "title": "Cold weather aches",
-            "line": "October to March. The wrap goes on with the first cup and the heating stays down.",
-            "link": "/blogs/advice/cold-weather-joint-aches"
+            "item": "2-year warranty and the 90-day trial",
+            "note": "return postage paid"
           }
         }
       },
       "block_order": [
-        "door_1",
-        "door_2",
-        "door_3",
-        "door_4",
-        "door_5",
-        "door_6",
-        "door_7"
-      ]
-    },
-    "jw_photo_grid": {
-      "type": "jw-photo-grid",
-      "settings": {
-        "heading": "In real kitchens, on real knees",
-        "intro": "Four of our customers, photographed by themselves."
-      },
-      "blocks": {
-        "ph_1": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-review-susan.jpg",
-            "alt": "Susan at her kitchen table with the wrap on her knee",
-            "caption": "Susan, 69, Ilkley. \"Four buttons and a number. Up, down, that's it.\""
-          }
-        },
-        "ph_2": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-review-margaret.jpg",
-            "alt": "Margaret in her armchair with the wrap on her knee",
-            "caption": "Margaret, 68, York. \"I can sit with a cup of tea and forget it's there.\""
-          }
-        },
-        "ph_3": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-review-sarah.jpg",
-            "alt": "Sarah on her sofa with the wrap on her shoulder",
-            "caption": "Sarah, 64, Harrogate. \"I set it to 45 and it stays at 45.\""
-          }
-        },
-        "ph_4": {
-          "type": "photo",
-          "settings": {
-            "stock": "jw-review-brenda.jpg",
-            "alt": "Brenda in her kitchen holding the wrap showing 45 on the panel",
-            "caption": "Brenda, 66, Skipton. \"The strap takes a minute to get right the first time.\""
-          }
-        }
-      },
-      "block_order": [
-        "ph_1",
-        "ph_2",
-        "ph_3",
-        "ph_4"
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
       ]
     },
     "jw_wordg": {
       "type": "jw-word-guarantee",
-      "settings": {},
+      "settings": {
+        "heading": "We are the ones selling it. So don't take our word for any of it."
+      },
       "blocks": {
         "ck_1": {
           "type": "check",
@@ -690,16 +725,16 @@
   },
   "order": [
     "jw_hero",
-    "jw_reviews",
-    "jw_problem",
+    "jw_doorways",
+    "jw_authority",
+    "jw_howto",
     "jw_heat_chart",
     "jw_specs",
-    "jw_authority",
     "jw_comparison",
+    "jw_reviews",
     "jw_why",
     "jw_timeline",
-    "jw_doorways",
-    "jw_photo_grid",
+    "jw_box",
     "jw_wordg",
     "jw_faq",
     "jw_final_cta"
