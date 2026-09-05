@@ -1,6 +1,6 @@
 # DEPLOY: preview, check, publish
 
-Repo: github.com/bruhhehe/jointwell-theme. `main` is untouched Dawn 16.0.0. All Jointwell work is on `jointwell-rebuild`. Nothing here is live until you publish a theme in Shopify yourself.
+Repo: github.com/bruhhehe/jointwell-theme. `main` is untouched Dawn 16.0.0. `jointwell-rebuild` is the branch connected to the LIVE theme: anything pushed there goes straight to customers. New work is on `jointwell-v3`; connect that branch to a new unpublished theme, check it, then publish it from the theme list.
 
 ## 1. Connect the branch to an unpublished theme
 

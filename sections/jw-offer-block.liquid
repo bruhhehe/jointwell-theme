@@ -1,0 +1,235 @@
+{% comment %}
+  The offer block near the bottom of the page (Primal Queen's "#join_pkg").
+  Every CTA below the hero jumps here. Left: what is in the box with a value on every line the owner
+  can evidence, and the specifics behind a toggle. Right: the tier picker (same variants as the hero,
+  kept in sync), the button, the four plain guarantee terms.
+{% endcomment %}
+{%- liquid
+  assign product = section.settings.product
+  if product == blank and section.settings.product_handle != blank
+    assign product = all_products[section.settings.product_handle]
+  endif
+  assign any_valued = false
+  for block in section.blocks
+    if block.type == 'item' and block.settings.value != blank
+      assign any_valued = true
+    endif
+  endfor
+-%}
+<section class="jw-offerblock" id="jw-offer">
+  <div class="jw-wrap">
+    <h2 class="jw-h2 jw-offerblock__h">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+
+    <div class="jw-offerblock__grid">
+      <div class="jw-offerblock__left">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'jw-offerblock__img', alt: 'What comes in the box' }}
+        {%- else -%}
+          <img class="jw-offerblock__img" src="{{ 'jw-in-the-box.jpg' | asset_url }}" width="1200" height="1200" loading="lazy" alt="What comes in the box: the wrap, the extension strap, the USB-C cable and the instructions">
+        {%- endif -%}
+        <h3 class="jw-h3">{{ section.settings.box_title | escape }}</h3>
+        <ul class="jw-stacklist{% if any_valued %} jw-stacklist--valued{% endif %}" role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type != 'item' -%}{%- continue -%}{%- endif -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="jw-stacklist__item"><strong>{{ block.settings.item | escape }}</strong>{% if block.settings.note != blank %} <span class="jw-muted">{{ block.settings.note | escape }}</span>{% endif %}</span>
+              {%- if block.settings.value != blank -%}<span class="jw-stacklist__value">{{ block.settings.value | escape }}</span>{%- endif -%}
+              <span class="jw-stacklist__pay">{{ block.settings.pay | default: 'Included' | escape }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- if any_valued and section.settings.total_line != blank -%}
+          <p class="jw-stacklist__total">{{ section.settings.total_line | escape }}{% if product != blank %} <strong>You pay <span data-jw-offer-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>.</strong>{% endif %}</p>
+        {%- endif -%}
+        {%- if section.settings.values_note != blank -%}
+          <p class="jw-caption">{{ section.settings.values_note | escape }}</p>
+        {%- endif -%}
+        {%- assign has_spec = false -%}
+        {%- for block in section.blocks -%}{%- if block.type == 'spec' and block.settings.value != blank -%}{%- assign has_spec = true -%}{%- endif -%}{%- endfor -%}
+        {%- if has_spec -%}
+          <details class="jw-boxsec__specs">
+            <summary class="jw-boxsec__specsum">{{ section.settings.specs_label | escape }}</summary>
+            <dl class="jw-specs__list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'spec' and block.settings.value != blank -%}
+                  <div {{ block.shopify_attributes }}><dt>{{ block.settings.label | escape }}</dt><dd>{{ block.settings.value | escape }}</dd></div>
+                {%- endif -%}
+              {%- endfor -%}
+            </dl>
+          </details>
+        {%- endif -%}
+      </div>
+
+      <div class="jw-offerblock__right jw-card">
+        {%- if product != blank and product.available -%}
+          <form action="{{ routes.cart_add_url }}" method="post" class="jw-offerblock__form" data-jw-checkout>
+            <input type="hidden" name="quantity" value="1">
+            <fieldset class="jw-hero__fieldset">
+              <legend class="jw-hero__legend">{{ section.settings.tiers_legend | escape }}</legend>
+              {%- for v in product.variants -%}
+                {%- if v.available -%}
+                  {%- liquid
+                    assign single = product.variants.first.price
+                    assign units = 1
+                    assign sub = section.settings.sub_1
+                    assign badge = ''
+                    if v.title contains 'Two'
+                      assign units = 2
+                      assign sub = section.settings.sub_2
+                      assign badge = section.settings.badge_2
+                    elsif v.title contains 'Four'
+                      assign units = 4
+                      assign sub = section.settings.sub_4
+                      assign badge = section.settings.badge_4
+                    endif
+                    assign saving = single | times: units | minus: v.price
+                  -%}
+                  <label class="jw-tier2{% if badge != blank %} jw-tier2--badged{% endif %}">
+                    <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money_without_trailing_zeros }}" data-was="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
+                    <span class="jw-tier2__body">
+                      {%- if badge != blank -%}<span class="jw-tier2__badge{% if units == 4 %} jw-tier2__badge--alt{% endif %}">{{ badge | escape }}</span>{%- endif -%}
+                      <span class="jw-tier2__main">
+                        <span class="jw-tier2__name">{{ v.title | escape }}</span>
+                        <span class="jw-tier2__sub">{{ sub | escape }}{% if units > 1 %} <strong>Save {{ saving | money_without_trailing_zeros }} on {{ units }} singles.</strong>{% endif %}</span>
+                      </span>
+                      <span class="jw-tier2__price">
+                        <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
+                        {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+                      </span>
+                    </span>
+                  </label>
+                {%- endif -%}
+              {%- endfor -%}
+            </fieldset>
+            <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span><span class="jw-hero__dot" aria-hidden="true">&ndash;</span><span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
+          </form>
+        {%- else -%}
+          <a class="jw-btn jw-btn--primary jw-btn--block" href="{{ section.settings.fallback_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
+        {%- endif -%}
+        {%- if section.settings.price_note != blank -%}
+          <p class="jw-caption jw-offerblock__note">{{ section.settings.price_note | escape }}</p>
+        {%- endif -%}
+        <ul class="jw-terms" role="list">
+          <li><strong>You pay to send it back:</strong> nothing. We pay the return postage.</li>
+          <li><strong>Days to decide:</strong> 90, from the day it arrives.</li>
+          <li><strong>Reason needed:</strong> none.</li>
+          <li><strong>Warranty:</strong> 2 years, replacement not repair, UK support.</li>
+        </ul>
+        {%- if shop.enabled_payment_types.size > 0 -%}
+          <ul class="jw-hero__payments" role="list" aria-label="Payment methods">
+            {%- for type in shop.enabled_payment_types -%}
+              <li>{{ type | payment_type_svg_tag: class: 'jw-hero__payment-icon' }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+        <p class="jw-caption">{{ section.settings.disclaimer | escape }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    // Keep every tier picker on the page in step, and every price readout with them.
+    var forms = Array.prototype.slice.call(document.querySelectorAll('form[data-jw-checkout]'));
+    if (!forms.length) return;
+    function setAll(value) {
+      forms.forEach(function (f) {
+        var r = f.querySelector('input[name="id"][value="' + value + '"]');
+        if (r && !r.checked) r.checked = true;
+        var c = f.querySelector('input[name="id"]:checked'); if (!c) return;
+        var out = f.querySelector('[data-jw-price]'); if (out) out.textContent = c.getAttribute('data-price') || '';
+      });
+      var c = forms[0].querySelector('input[name="id"]:checked');
+      if (c) {
+        var big = document.querySelector('[data-jw-big-price]'), was = document.querySelector('[data-jw-big-was]'), offer = document.querySelector('[data-jw-offer-price]');
+        if (big) big.textContent = c.getAttribute('data-price') || '';
+        if (was) { was.textContent = c.getAttribute('data-was') || ''; was.hidden = !c.getAttribute('data-was'); }
+        if (offer) offer.textContent = c.getAttribute('data-price') || '';
+      }
+    }
+    document.addEventListener('change', function (e) {
+      if (e.target && e.target.name === 'id' && e.target.form && e.target.form.hasAttribute('data-jw-checkout')) setAll(e.target.value);
+    });
+    var first = forms[0].querySelector('input[name="id"]:checked'); if (first) setAll(first.value);
+    forms.forEach(function (f) {
+      if (f.classList.contains('jw-hero__tiers')) return; // the hero handles its own submit
+      f.addEventListener('submit', function (e) {
+        var chosen = f.querySelector('input[name="id"]:checked'); if (!chosen) return;
+        e.preventDefault(); window.location.href = '/cart/' + chosen.value + ':1';
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "JW Offer block",
+  "tag": "section",
+  "class": "jw-section-offerblock",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Everything you get, and what it costs" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "One payment. No subscription, no refills you have to buy, nothing that runs out. The sachet is a nicety, not a need." },
+    { "type": "product", "id": "product", "label": "Product" },
+    { "type": "text", "id": "product_handle", "label": "Product handle (fallback)", "default": "jointwell-heated-joint-wrap" },
+    { "type": "image_picker", "id": "image", "label": "Box photo" },
+    { "type": "text", "id": "box_title", "label": "List title", "default": "In the box" },
+    { "type": "text", "id": "total_line", "label": "Total line (shows when items carry values)", "default": "Bought separately, £89." },
+    { "type": "text", "id": "values_note", "label": "Note under the values", "default": "Values are what each item costs on its own: the wrap at its full price, the strap and cable at what they sell for, delivery at Royal Mail's tracked rate." },
+    { "type": "text", "id": "specs_label", "label": "Specifics toggle label", "default": "The specifics, if you want them" },
+    { "type": "header", "content": "Tier picker" },
+    { "type": "text", "id": "tiers_legend", "label": "Legend", "default": "How many?" },
+    { "type": "range", "id": "preselect", "label": "Preselected tier", "min": 1, "max": 3, "step": 1, "default": 2 },
+    { "type": "text", "id": "sub_1", "label": "One wrap: line under", "default": "For one knee, shoulder or elbow. Includes the extension strap." },
+    { "type": "text", "id": "sub_2", "label": "Two wraps: line under", "default": "Both knees at once, or one for you and one for a partner." },
+    { "type": "text", "id": "badge_2", "label": "Two wraps: badge", "default": "Most chosen" },
+    { "type": "text", "id": "sub_4", "label": "Four wraps: line under", "default": "For the household." },
+    { "type": "text", "id": "badge_4", "label": "Four wraps: badge", "default": "Best value" },
+    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
+    { "type": "url", "id": "fallback_link", "label": "Link if no product" },
+    { "type": "text", "id": "price_note", "label": "Line under the button", "default": "Free tracked UK delivery. Dispatched within 1 to 3 working days." },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "A comfort device, not a medical treatment. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using heat." }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "In the box",
+      "settings": [
+        { "type": "text", "id": "item", "label": "Item", "default": "The Jointwell wrap" },
+        { "type": "text", "id": "note", "label": "Note", "default": "" },
+        { "type": "text", "id": "value", "label": "Worth (only if you can evidence it)", "default": "" },
+        { "type": "text", "id": "pay", "label": "You pay", "default": "Included" }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Specific",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Heat" },
+        { "type": "text", "id": "value", "label": "Value", "default": "Five levels, 45 to 65°C" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW Offer block",
+      "blocks": [
+        { "type": "item", "settings": { "item": "The Jointwell wrap", "note": "46 × 30 cm, 55 cm strap span, one size", "value": "£65", "pay": "£49" } },
+        { "type": "item", "settings": { "item": "Shoulder and elbow extension strap", "note": "", "value": "£9", "pay": "Free" } },
+        { "type": "item", "settings": { "item": "USB-C charging cable", "note": "the same as most phones", "value": "£6", "pay": "Free" } },
+        { "type": "item", "settings": { "item": "Mugwort warming sachet", "note": "lift it out if you would rather go without", "value": "£1.50", "pay": "Free" } },
+        { "type": "item", "settings": { "item": "The 7-morning routine, large print", "note": "also free by email below", "value": "£3", "pay": "Free" } },
+        { "type": "item", "settings": { "item": "Tracked UK delivery", "note": "", "value": "£4.95", "pay": "Free" } },
+        { "type": "item", "settings": { "item": "2-year warranty and the 90-day trial", "note": "return postage paid", "value": "", "pay": "Included" } },
+        { "type": "spec", "settings": { "label": "Heat", "value": "Five levels, 45 to 65°C, held for the session" } },
+        { "type": "spec", "settings": { "label": "Massage", "value": "Three strengths, or off" } },
+        { "type": "spec", "settings": { "label": "Timer", "value": "30 minutes, then it switches itself off" } },
+        { "type": "spec", "settings": { "label": "Weight", "value": "360 g" } },
+        { "type": "spec", "settings": { "label": "Size", "value": "46 cm across, 30 cm tall, 55 cm strap span; extension strap for shoulder and elbow" } },
+        { "type": "spec", "settings": { "label": "Battery", "value": "3000 mAh, charged over USB-C" } },
+        { "type": "spec", "settings": { "label": "Testing", "value": "CE, EMC Directive 2014/30/EU, independent lab, November 2024. Not a medical device." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

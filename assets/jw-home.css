@@ -627,3 +627,83 @@ body.jw-has-sticky { padding-bottom: 88px; }
 .jw-assure li { align-items: center; min-height: 48px; }
 .jw-assure li > span:last-child { line-height: 1.3; }
 @media (min-width: 990px) { .jw-why__grid:not(:has(.jw-why__media)) { grid-template-columns: 1fr; max-width: 760px; } }
+
+/* ---------- v3: box-sizing guard, belief, doorway tabs, offer block ---------- */
+.jw-btn, .jw-btn--block { box-sizing: border-box; max-width: 100%; }
+.jw-belief { padding: var(--jw-section) 0; font-family: var(--jw-font); font-size: var(--jw-fs-body); line-height: var(--jw-lh); color: var(--jw-text); }
+.jw-belief * { box-sizing: border-box; }
+.jw-belief__top { margin-bottom: 24px; }
+.jw-belief__enemies { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 8px; }
+.jw-belief__enemies li { padding: 12px 16px; border-left: 4px solid var(--jw-accent); background: var(--jw-card); border-radius: 0 var(--jw-radius-sm) var(--jw-radius-sm) 0; }
+.jw-belief__enemies strong { display: block; }
+.jw-belief__turn { font-weight: 700; }
+.jw-belief__bridge { margin-top: 4px; }
+.jw-belief__steps { margin-top: 8px; }
+.jw-belief__only { margin: 20px 0 0; }
+.jw-belief .jw-narrow { margin-left: 0; }
+@media (min-width: 990px) { .jw-belief__top { max-width: 760px; } }
+
+.jw-doors { position: relative; }
+.jw-doors__input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.jw-doors__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.jw-doors__tab { display: inline-flex; align-items: center; min-height: var(--jw-tap); padding: 10px 16px; border: 2px solid var(--jw-border); border-radius: 999px; background: var(--jw-card); font-weight: 700; font-size: var(--jw-fs-body); cursor: pointer; color: var(--jw-text); }
+.jw-doors__tab:hover { border-color: var(--jw-accent); }
+.jw-doors__panel { display: none; padding: 0; overflow: hidden; }
+.jw-doors__panel .jw-doors__media { width: 100%; }
+.jw-doors__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.jw-doors__copy { padding: 20px; }
+.jw-doors__copy .jw-lead { margin-bottom: 12px; }
+.jw-doors__facts { margin: 0 0 16px; }
+.jw-doors__facts div { padding: 10px 0; border-top: 1px solid var(--jw-border); }
+.jw-doors__facts dt { font-weight: 700; color: var(--jw-muted); font-size: var(--jw-fs-caption); margin: 0 0 2px; }
+.jw-doors__facts dd { margin: 0; }
+.jw-doors__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.jw-doors__actions .jw-btn { width: 100%; }
+.jw-doors__more { color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; min-height: var(--jw-tap); display: inline-flex; align-items: center; }
+.jw-doors__input:nth-of-type(1):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(1),
+.jw-doors__input:nth-of-type(2):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(2),
+.jw-doors__input:nth-of-type(3):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(3),
+.jw-doors__input:nth-of-type(4):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(4),
+.jw-doors__input:nth-of-type(5):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(5),
+.jw-doors__input:nth-of-type(6):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(6),
+.jw-doors__input:nth-of-type(7):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(7),
+.jw-doors__input:nth-of-type(8):checked ~ .jw-doors__tabs .jw-doors__tab:nth-of-type(8) { background: var(--jw-accent); border-color: var(--jw-accent); color: #fff; }
+.jw-doors__input:nth-of-type(1):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(1),
+.jw-doors__input:nth-of-type(2):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(2),
+.jw-doors__input:nth-of-type(3):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(3),
+.jw-doors__input:nth-of-type(4):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(4),
+.jw-doors__input:nth-of-type(5):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(5),
+.jw-doors__input:nth-of-type(6):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(6),
+.jw-doors__input:nth-of-type(7):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(7),
+.jw-doors__input:nth-of-type(8):checked ~ .jw-doors__panels .jw-doors__panel:nth-of-type(8) { display: grid; }
+.jw-doors__input:focus-visible ~ .jw-doors__tabs { outline: 3px solid var(--jw-focus); outline-offset: 4px; border-radius: 8px; }
+.jw-doorways .jw-trust--center { margin-top: 20px; }
+@media (min-width: 750px) {
+  .jw-doors__panel { grid-template-columns: 2fr 3fr; align-items: stretch; }
+  .jw-doors__img { height: 100%; aspect-ratio: auto; }
+  .jw-doors__copy { padding: 28px; }
+  .jw-doors__actions .jw-btn { width: auto; min-width: 240px; }
+}
+
+.jw-offerblock { padding: var(--jw-section) 0; font-family: var(--jw-font); font-size: var(--jw-fs-body); line-height: var(--jw-lh); color: var(--jw-text); background: var(--jw-bg); }
+.jw-offerblock * { box-sizing: border-box; }
+.jw-offerblock img { max-width: 100%; height: auto; display: block; }
+.jw-offerblock__grid { display: grid; gap: 24px; margin-top: 8px; }
+.jw-offerblock__img { width: 100%; border-radius: var(--jw-radius); aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 16px; }
+.jw-stacklist { list-style: none; margin: 0; padding: 0; }
+.jw-stacklist li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--jw-border); }
+.jw-stacklist--valued li { grid-template-columns: 1fr auto auto; }
+.jw-stacklist__value { color: var(--jw-muted); white-space: nowrap; text-decoration: line-through; }
+.jw-stacklist__pay { font-weight: 700; color: var(--jw-good); white-space: nowrap; text-align: right; }
+.jw-stacklist__total { margin: 12px 0 4px; padding-top: 12px; border-top: 2px solid var(--jw-text); font-size: var(--jw-fs-large); }
+.jw-stacklist__total strong { color: var(--jw-accent-dark); }
+.jw-offerblock__right { padding: 20px; }
+.jw-offerblock__form { margin: 0 0 12px; }
+.jw-offerblock__note { margin: 0 0 12px; }
+.jw-terms { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px; }
+.jw-terms li { padding: 10px 12px; background: var(--jw-bg-alt); border-radius: var(--jw-radius-sm); }
+.jw-offerblock .jw-hero__payments { margin: 8px 0; }
+@media (min-width: 990px) {
+  .jw-offerblock__grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .jw-offerblock__right { position: sticky; top: 16px; padding: 28px; }
+}

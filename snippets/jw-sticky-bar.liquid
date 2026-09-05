@@ -9,10 +9,12 @@
   if jw_p != blank
     assign bar_price = jw_p.price | money_without_trailing_zeros
   endif
-  if template.name == 'index' or template.name == 'product'
+  if template.name == 'index'
+    assign bar_link = '#jw-offer'
+  elsif template.name == 'product'
     assign bar_link = '#jw-buy'
   else
-    assign bar_link = routes.root_url | append: '#jw-buy'
+    assign bar_link = routes.root_url | append: '#jw-offer'
   endif
 -%}
 {%- unless template.name == 'cart' -%}
@@ -29,7 +31,7 @@
     var buy = document.getElementById('jw-buy'), hero = document.getElementById('jw-top');
     var priceOut = bar.querySelector('[data-jw-sticky-price]'), unitOut = bar.querySelector('[data-jw-sticky-unit]');
     function sync() {
-      var form = document.querySelector('form.jw-hero__tiers'); if (!form) return;
+      var form = document.querySelector('form[data-jw-checkout]'); if (!form) return;
       var c = form.querySelector('input[name="id"]:checked'); if (!c) return;
       var label = c.closest('label'), name = label && label.querySelector('.jw-tier2__name');
       if (priceOut) priceOut.textContent = c.getAttribute('data-price') || priceOut.textContent;
@@ -37,15 +39,21 @@
     }
     document.addEventListener('change', function (e) { if (e.target && e.target.name === 'id') sync(); });
     sync();
-    var watch = buy || hero;
-    if (!watch || !('IntersectionObserver' in window)) { bar.hidden = false; document.body.classList.add('jw-has-sticky'); return; }
+    var offer = document.getElementById('jw-offer');
+    var targets = [buy || hero, offer].filter(Boolean);
+    if (!targets.length || !('IntersectionObserver' in window)) { bar.hidden = false; document.body.classList.add('jw-has-sticky'); return; }
+    var visible = {}, passedFirst = false;
     var io = new IntersectionObserver(function (entries) {
-      var onScreen = entries[0].isIntersecting;
-      var pastIt = entries[0].boundingClientRect.top < 0;
-      var show = !onScreen && pastIt;
+      entries.forEach(function (en) {
+        visible[en.target.id] = en.isIntersecting;
+        if (en.target === targets[0] && en.boundingClientRect.top < 0) passedFirst = true;
+        if (en.target === targets[0] && en.isIntersecting) passedFirst = false;
+      });
+      var anyOn = Object.keys(visible).some(function (k) { return visible[k]; });
+      var show = !anyOn && passedFirst;
       bar.hidden = !show; document.body.classList.toggle('jw-has-sticky', show);
     }, { threshold: 0 });
-    io.observe(watch);
+    targets.forEach(function (t) { io.observe(t); });
   })();
 </script>
 {%- endunless -%}

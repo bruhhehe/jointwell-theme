@@ -16,6 +16,7 @@ Read in this order. Implement in this order.
 | `08-content-shot-list.md` | One-day shoot: every photo and video, who, where, props, which section it feeds. |
 | `09-compliance-checklist.md` | Every claim, with substantiation and CAP / DMCC / MHRA pass or fail. |
 | `10-launch-plan.md` | The 90-day sequence as a week-by-week checklist with metrics. |
+| `13-optimal-pass-v3.md` | The merge of the first build and the live rebuild into one cold-traffic page, on branch `jointwell-v3`. Start here. |
 | `originals/` | Untouched copies of the three Dawn files this build edits. |
 
 All ten deliverables are present. Theme files added by them beyond the homepage: `templates/article.jw-doorway.json`, `sections/jw-article-cta.liquid`, `templates/product.jw.json`, `sections/jw-product-stack.liquid`.

@@ -14,7 +14,7 @@
         "review_town": "Harrogate",
         "review_stock": "jw-review-sarah.jpg",
         "review_short": "I set it to 45 and it stays at 45.",
-        "preselect": 1,
+        "preselect": 2,
         "tiers_legend": "How many?",
         "cta_label": "Try it for 90 days",
         "subline": "Thirty minutes of steady warmth, so the first steps of the day aren't the worst.",
@@ -127,7 +127,12 @@
           "type": "door",
           "settings": {
             "title": "Knee arthritis",
-            "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee.",
+            "line": "Wear and tear, the GP says. The first ten steps are the worst and the stairs are a decision.",
+            "how": "Straight round the knee, over or under trousers. The strap holds it while you walk to the kettle.",
+            "when": "First thing, with the first cup. Level 3, thirty minutes, before the stairs.",
+            "note": "Heat before you move, ice after a flare. That is what physios say, and it is all we say.",
+            "stock": "jw-photo-kettle.jpg",
+            "alt": "Woman at the kettle with the wrap on her knee",
             "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
           }
         },
@@ -135,7 +140,12 @@
           "type": "door",
           "settings": {
             "title": "Stiff shoulder",
-            "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder.",
+            "line": "The top shelf, the bra strap, sleeping on that side. Small things, twenty times a day.",
+            "how": "The extension strap in the box loops it over the shoulder and under the arm, so the warm panel sits on the joint.",
+            "when": "Under a cardigan while the tea brews, and again in the armchair in the evening.",
+            "note": "A wheat bag slides off a shoulder. This one stays.",
+            "stock": "jw-photo-armchair.jpg",
+            "alt": "Woman in an armchair with the wrap on her shoulder",
             "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
           }
         },
@@ -143,7 +153,12 @@
           "type": "door",
           "settings": {
             "title": "Tennis elbow",
-            "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap.",
+            "line": "From the secateurs and the watering can, not the tennis court. Worse when you grip.",
+            "how": "The strap takes it up the forearm to the elbow. Rest the arm on the chair and forget it.",
+            "when": "Before the garden, not after. Twenty to thirty minutes on the forearm as a warm-up.",
+            "note": "If the elbow is hot and sore to touch after a session, that is an ice day.",
+            "stock": "jw-photo-crossword-elbow.jpg",
+            "alt": "Woman doing a crossword with the wrap on her elbow",
             "link": "/blogs/advice/tennis-elbow-from-the-garden"
           }
         },
@@ -151,7 +166,12 @@
           "type": "door",
           "settings": {
             "title": "After a knee replacement",
-            "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises.",
+            "line": "Ask your surgeon or physio first. Their word beats ours.",
+            "how": "Only once the wound has fully healed and they have said heat is fine. Start at the lowest level.",
+            "when": "The warm half hour before the exercise sheet, then the exercises.",
+            "note": "Never over a wound that has not healed, and never on a hot, red or newly swollen knee. That is a phone call to the clinic.",
+            "stock": "jw-photo-breakfast.jpg",
+            "alt": "Woman at the breakfast table with the wrap on her knee",
             "link": "/blogs/advice/heat-after-knee-replacement"
           }
         },
@@ -159,7 +179,12 @@
           "type": "door",
           "settings": {
             "title": "Morning stiffness",
-            "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs.",
+            "line": "Hand on the wall, down the stairs sideways, fine by the afternoon. Then tomorrow.",
+            "how": "On the worst joint before you leave the kitchen. Kettle on, wrap on.",
+            "when": "Every morning for a month. Same chair, same cup. Habit is the whole trick.",
+            "note": "A joint that has not moved for eight hours is a cold joint. Warmth and movement are what wake it.",
+            "stock": "jw-photo-garden-window.jpg",
+            "alt": "Woman by the window with the wrap on her knee",
             "link": "/blogs/advice/morning-stiffness-first-ten-steps"
           }
         },
@@ -167,7 +192,12 @@
           "type": "door",
           "settings": {
             "title": "Kneeling and gardening",
-            "line": "Down to the beds and back up again. Before you go out, and after you come in.",
+            "line": "It is not the kneeling. It is getting down, and getting back up.",
+            "how": "Round the knee before the wellies go on. It is cordless, so it goes to the back door with you.",
+            "when": "Twenty minutes before you go out, and again in the chair when you come in.",
+            "note": "Two knees? Two wraps. The pair is the one most gardeners choose.",
+            "stock": "jw-photo-floor.jpg",
+            "alt": "Woman on the carpet with the wrap on her knee",
             "link": "/blogs/advice/kneeling-gardening-knees"
           }
         },
@@ -175,7 +205,12 @@
           "type": "door",
           "settings": {
             "title": "Cold weather aches",
-            "line": "October to March. The wrap goes on with the first cup and the heating stays down.",
+            "line": "October to March. Some knees know the weather before the curtains are open.",
+            "how": "Under a dressing gown while the kettle boils, in the armchair with the television, in the car before a cold walk.",
+            "when": "Morning and evening on the coldest days. One charge covers the day for most people.",
+            "note": "One knee warm, not the whole house. The heating can stay where it is.",
+            "stock": "jw-photo-radiator.jpg",
+            "alt": "Woman in an armchair by the radiator with the wrap on her knee",
             "link": "/blogs/advice/cold-weather-joint-aches"
           }
         }
@@ -188,44 +223,6 @@
         "door_5",
         "door_6",
         "door_7"
-      ]
-    },
-    "jw_howto": {
-      "type": "jw-how-it-works",
-      "settings": {
-        "heading": "How Jointwell works",
-        "intro": "Three things the device does, and nothing we cannot show you."
-      },
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "title": "Warmth, held at the level you set",
-            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole session, instead of starting hot and fading like a wheat bag.",
-            "product_image_index": 1
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "title": "Gentle vibration alongside it",
-            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
-            "product_image_index": 0
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "title": "A thirty-minute timer, so it becomes a habit",
-            "text": "It switches itself off. Kettle on, wrap on, half an hour, done. Cordless, so the second cup does not mean sitting still.",
-            "product_image_index": 3
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3"
       ]
     },
     "jw_heat_chart": {
@@ -480,136 +477,6 @@
         "step_5"
       ]
     },
-    "jw_box": {
-      "type": "jw-box",
-      "settings": {
-        "heading": "What's in the box",
-        "intro": "Everything you need, and nothing to buy afterwards.",
-        "specs_label": "The specifics, if you want them",
-        "total_line": ""
-      },
-      "blocks": {
-        "b1": {
-          "type": "item",
-          "settings": {
-            "item": "The Jointwell wrap",
-            "note": "46 × 30 cm, 55 cm strap span, one size",
-            "value": ""
-          }
-        },
-        "b2": {
-          "type": "item",
-          "settings": {
-            "item": "Shoulder and elbow extension strap",
-            "value": ""
-          }
-        },
-        "b3": {
-          "type": "item",
-          "settings": {
-            "item": "USB-C charging cable",
-            "note": "the same as most phones",
-            "value": ""
-          }
-        },
-        "b4": {
-          "type": "item",
-          "settings": {
-            "item": "Mugwort warming sachet",
-            "note": "lift it out if you would rather go without",
-            "value": ""
-          }
-        },
-        "b5": {
-          "type": "item",
-          "settings": {
-            "item": "The 7-morning routine, large print",
-            "note": "also free by email below",
-            "value": ""
-          }
-        },
-        "b6": {
-          "type": "item",
-          "settings": {
-            "item": "2-year warranty and the 90-day trial",
-            "note": "return postage paid",
-            "value": ""
-          }
-        },
-        "s_spec_1": {
-          "type": "spec",
-          "settings": {
-            "label": "Size",
-            "value": "46 cm across, 30 cm tall, 55 cm strap span. One size, either side of the body."
-          }
-        },
-        "s_spec_2": {
-          "type": "spec",
-          "settings": {
-            "label": "Weight",
-            "value": "360 g, about a full mug of tea"
-          }
-        },
-        "s_spec_3": {
-          "type": "spec",
-          "settings": {
-            "label": "Heat",
-            "value": "Five levels: 45, 50, 55, 60, 65°C, held for the full session"
-          }
-        },
-        "s_spec_4": {
-          "type": "spec",
-          "settings": {
-            "label": "Massage",
-            "value": "Three vibration strengths: gentle, comfortable, strong"
-          }
-        },
-        "s_spec_5": {
-          "type": "spec",
-          "settings": {
-            "label": "Session",
-            "value": "30 minutes, then it switches itself off. Cannot be overridden. Screen lock on the panel."
-          }
-        },
-        "s_spec_6": {
-          "type": "spec",
-          "settings": {
-            "label": "Battery",
-            "value": "3000 mAh, USB-C. Customers tell us about four 30-minute sessions per charge."
-          }
-        },
-        "s_spec_7": {
-          "type": "spec",
-          "settings": {
-            "label": "Layers",
-            "value": "Windproof outer, infrared heating middle, non-slip inner"
-          }
-        },
-        "s_spec_8": {
-          "type": "spec",
-          "settings": {
-            "label": "In the box",
-            "value": "Wrap, extension strap, USB-C cable, mugwort sachet"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4",
-        "b5",
-        "b6",
-        "s_spec_1",
-        "s_spec_2",
-        "s_spec_3",
-        "s_spec_4",
-        "s_spec_5",
-        "s_spec_6",
-        "s_spec_7",
-        "s_spec_8"
-      ]
-    },
     "jw_wordg": {
       "type": "jw-word-guarantee",
       "settings": {
@@ -761,23 +628,237 @@
     "jw_final_cta": {
       "type": "jw-final-cta",
       "settings": {}
+    },
+    "jw_belief": {
+      "type": "jw-belief",
+      "settings": {},
+      "blocks": {
+        "enemy_1": {
+          "type": "enemy",
+          "settings": {
+            "lead": "The wheat bag helps for ten minutes.",
+            "rest": "Then it is cold and you are back at the microwave for the fourth time tonight."
+          }
+        },
+        "enemy_2": {
+          "type": "enemy",
+          "settings": {
+            "lead": "The cream warms the skin, not the joint.",
+            "rest": "Three times a day, and it comes off on your trousers."
+          }
+        },
+        "enemy_3": {
+          "type": "enemy",
+          "settings": {
+            "lead": "The heated pad ties you to a socket.",
+            "rest": "Warm, but you sit where the wire lets you, and there is no level to hold."
+          }
+        },
+        "enemy_4": {
+          "type": "enemy",
+          "settings": {
+            "lead": "The pills work until they wear off.",
+            "rest": ""
+          }
+        },
+        "enemy_5": {
+          "type": "enemy",
+          "settings": {
+            "lead": "The physio helps for a few days.",
+            "rest": "Then the stiffness comes back, £50 a visit, next appointment three weeks off."
+          }
+        },
+        "step_6": {
+          "type": "step",
+          "settings": {
+            "title": "Warmth, held at the level you set",
+            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole session, instead of starting hot and fading like a wheat bag.",
+            "product_image_index": 1,
+            "stock": "jw-feature-heat.jpg"
+          }
+        },
+        "step_7": {
+          "type": "step",
+          "settings": {
+            "title": "Gentle massage running alongside it",
+            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
+            "product_image_index": 0,
+            "stock": "jw-feature-massage.jpg"
+          }
+        },
+        "step_8": {
+          "type": "step",
+          "settings": {
+            "title": "Strapped on, cordless, off by itself at 30 minutes",
+            "text": "It stays where you put it while you walk to the kettle. No wire. It switches itself off, so it cannot be left running and the half hour becomes a habit.",
+            "product_image_index": 3,
+            "stock": "jw-feature-timer.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "enemy_1",
+        "enemy_2",
+        "enemy_3",
+        "enemy_4",
+        "enemy_5",
+        "step_6",
+        "step_7",
+        "step_8"
+      ]
+    },
+    "jw_offer_block": {
+      "type": "jw-offer-block",
+      "settings": {
+        "preselect": 2
+      },
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "item": "The Jointwell wrap",
+            "note": "46 × 30 cm, 55 cm strap span, one size",
+            "value": "£65",
+            "pay": "£49"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "item": "Shoulder and elbow extension strap",
+            "note": "",
+            "value": "£9",
+            "pay": "Free"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "item": "USB-C charging cable",
+            "note": "the same as most phones",
+            "value": "£6",
+            "pay": "Free"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "item": "Mugwort warming sachet",
+            "note": "lift it out if you would rather go without",
+            "value": "£1.50",
+            "pay": "Free"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "item": "The 7-morning routine, large print",
+            "note": "also free by email below",
+            "value": "£3",
+            "pay": "Free"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "item": "Tracked UK delivery",
+            "note": "",
+            "value": "£4.95",
+            "pay": "Free"
+          }
+        },
+        "item_7": {
+          "type": "item",
+          "settings": {
+            "item": "2-year warranty and the 90-day trial",
+            "note": "return postage paid",
+            "value": "",
+            "pay": "Included"
+          }
+        },
+        "spec_8": {
+          "type": "spec",
+          "settings": {
+            "label": "Heat",
+            "value": "Five levels, 45 to 65°C, held for the session"
+          }
+        },
+        "spec_9": {
+          "type": "spec",
+          "settings": {
+            "label": "Massage",
+            "value": "Three strengths, or off"
+          }
+        },
+        "spec_10": {
+          "type": "spec",
+          "settings": {
+            "label": "Timer",
+            "value": "30 minutes, then it switches itself off"
+          }
+        },
+        "spec_11": {
+          "type": "spec",
+          "settings": {
+            "label": "Weight",
+            "value": "360 g"
+          }
+        },
+        "spec_12": {
+          "type": "spec",
+          "settings": {
+            "label": "Size",
+            "value": "46 cm across, 30 cm tall, 55 cm strap span; extension strap for shoulder and elbow"
+          }
+        },
+        "spec_13": {
+          "type": "spec",
+          "settings": {
+            "label": "Battery",
+            "value": "3000 mAh, charged over USB-C"
+          }
+        },
+        "spec_14": {
+          "type": "spec",
+          "settings": {
+            "label": "Testing",
+            "value": "CE, EMC Directive 2014/30/EU, independent lab, November 2024. Not a medical device."
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5",
+        "item_6",
+        "item_7",
+        "spec_8",
+        "spec_9",
+        "spec_10",
+        "spec_11",
+        "spec_12",
+        "spec_13",
+        "spec_14"
+      ]
     }
   },
   "order": [
     "jw_hero",
     "jw_proof",
-    "jw_authority",
-    "jw_doorways",
-    "jw_howto",
+    "jw_belief",
     "jw_heat_chart",
-    "jw_comparison",
+    "jw_authority",
     "jw_reviews",
     "jw_why",
+    "jw_doorways",
+    "jw_comparison",
     "jw_timeline",
-    "jw_box",
     "jw_wordg",
-    "jw_magnet",
+    "jw_offer_block",
     "jw_faq",
+    "jw_magnet",
     "jw_final_cta"
   ]
 }
