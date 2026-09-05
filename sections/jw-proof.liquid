@@ -1,4 +1,8 @@
-{% comment %} Proof strip: verifiable items only. Heat-in-general quotes (text, with caveat), the CE certificate, the guarantee and warranty row. When real video or photo reviews exist, they lead and the quotes drop beneath. {% endcomment %}
+{% comment %}
+  Trust row under the hero. Four things that can be checked, each specific and each a link where a link exists.
+  "Independently tested" says by whom and to what: CE, EMC Directive 2014/30/EU, independent laboratory, 21 November 2024.
+  Optional video review leads the row when set.
+{% endcomment %}
 <section class="jw-proof2 jw-band">
   <div class="jw-wrap">
     {%- if section.settings.video_url != blank -%}
@@ -13,37 +17,30 @@
         <figcaption class="jw-body"><strong>{{ section.settings.video_title | escape }}</strong></figcaption>
       </figure>
     {%- endif -%}
-    <ul class="jw-proof2__quotes" role="list">
-      {%- for block in section.blocks -%}
-        {%- if block.settings.quote == blank -%}{%- continue -%}{%- endif -%}
-        <li {{ block.shopify_attributes }}><span class="jw-proof2__who">{{ block.settings.who | escape }}</span> <q>{{ block.settings.quote | escape }}</q>{% if block.settings.source_url != blank %} <a class="jw-proof2__src" href="{{ block.settings.source_url }}" target="_blank" rel="noopener">Source</a>{% endif %}</li>
-      {%- endfor -%}
-    </ul>
-    <p class="jw-caption">{{ section.settings.caveat | escape }}</p>
     <ul class="jw-assure jw-proof2__row" role="list">
-      <li><span class="jw-assure__icon" aria-hidden="true">CE</span><span><strong>Independently tested</strong><br><a href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener">Open the certificate</a></span></li>
-      <li><span class="jw-assure__icon" aria-hidden="true">90</span><span><strong>90-day trial</strong><br>we pay return postage</span></li>
+      <li><span class="jw-assure__icon" aria-hidden="true">CE</span><span><strong>{{ section.settings.ce_title | escape }}</strong><br>{{ section.settings.ce_text | escape }} <a href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener">{{ section.settings.ce_link | escape }}</a></span></li>
+      <li><span class="jw-assure__icon" aria-hidden="true">90</span><span><strong>90-day trial</strong><br>we pay the return postage. <a href="#jw-guarantee">How it works</a></span></li>
       <li><span class="jw-assure__icon" aria-hidden="true">2yr</span><span><strong>2-year warranty</strong><br>replacement, not repair</span></li>
-      <li><span class="jw-assure__icon" aria-hidden="true">UK</span><span><strong>Free tracked delivery</strong><br>UK support by email</span></li>
+      <li><span class="jw-assure__icon" aria-hidden="true">UK</span><span><strong>UK returns address</strong><br>{{ section.settings.uk_text | escape }}</span></li>
     </ul>
+    {%- if section.settings.caveat != blank -%}<p class="jw-caption">{{ section.settings.caveat | escape }}</p>{%- endif -%}
   </div>
 </section>
 {% schema %}
 {
-  "name": "JW Proof strip",
+  "name": "JW Trust row",
   "tag": "section",
   "class": "jw-section-proof2",
   "settings": [
-    { "type": "text", "id": "caveat", "label": "Caveat", "default": "Statements about heat in general. Jointwell is a comfort device, not a medical treatment." },
-    { "type": "header", "content": "Video review (leads the strip when set)" },
+    { "type": "text", "id": "ce_title", "label": "Testing: bold line", "default": "Independently tested" },
+    { "type": "text", "id": "ce_text", "label": "Testing: what, by whom", "default": "CE, EMC Directive 2014/30/EU, independent lab, 21 Nov 2024." },
+    { "type": "text", "id": "ce_link", "label": "Testing: link text", "default": "Open the certificate" },
+    { "type": "text", "id": "uk_text", "label": "UK line", "default": "support by email, a reply within one working day" },
+    { "type": "text", "id": "caveat", "label": "Caveat", "default": "The CE test covers electrical safety and interference. It does not make this a medical device, and we do not claim it is one." },
+    { "type": "header", "content": "Video review (leads the row when set)" },
     { "type": "text", "id": "video_url", "label": "Video link", "info": "A real customer, with permission. YouTube or MP4." },
     { "type": "text", "id": "video_title", "label": "Who is in it" }
   ],
-  "blocks": [{ "type": "quote", "name": "Quote", "limit": 4, "settings": [
-    { "type": "text", "id": "who", "label": "Who" },
-    { "type": "textarea", "id": "quote", "label": "Quote, verbatim" },
-    { "type": "url", "id": "source_url", "label": "Source link" }
-  ] }],
-  "presets": [{ "name": "JW Proof strip" }]
+  "presets": [{ "name": "JW Trust row" }]
 }
 {% endschema %}

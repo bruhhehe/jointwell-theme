@@ -1,31 +1,58 @@
 {% comment %}
-  Borrowed authority. NHS first, then two surgeons, done.
-  These are quotes about heat and massage in general, not claims about this device.
-  Do not add words like "clinically proven" here or anywhere else.
+  Borrowed authority, sat directly under the buy box.
+  Two parts: named clinicians with a photo and credentials, then "What the evidence says", a short
+  list of sourced statements about heat in general with links. Every quote is verbatim from a live
+  source. Never add "clinically proven", "treats", "inflammation" or "circulation" here or anywhere.
+  Headshot and logo URLs default to the files already on the live velagoods.co.uk CDN.
 {% endcomment %}
-<section class="jw-authority{% if section.settings.strip %} jw-authority--strip{% endif %}">
+<section class="jw-authority{% if section.settings.strip %} jw-authority--strip{% endif %}" id="jw-authority">
   <div class="jw-wrap">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+
     <div class="jw-quotes jw-authority__quotes">
       {%- for block in section.blocks -%}
-        {%- if block.settings.quote == blank -%}{%- continue -%}{%- endif -%}
-        <figure class="jw-card jw-quote" {{ block.shopify_attributes }}>
-          {%- if block.settings.logo != blank -%}
-            {{ block.settings.logo | image_url: width: 240 | image_tag: loading: 'lazy', class: 'jw-quote__logo', alt: block.settings.who }}
-          {%- else -%}
-            <span class="jw-authority__source">{{ block.settings.who | escape }}</span>
-          {%- endif -%}
-          <blockquote>{{ block.settings.quote | escape }}</blockquote>
-          <figcaption>
-            <span class="jw-quote__who">{{ block.settings.role | escape }}</span>
-            {%- if block.settings.source_url != blank -%}
-              <a class="jw-quote__src" href="{{ block.settings.source_url }}" rel="noopener" target="_blank">Source</a>
+        {%- if block.type != 'quote' or block.settings.quote == blank -%}{%- continue -%}{%- endif -%}
+        <figure class="jw-card jw-quote jw-quote--person" {{ block.shopify_attributes }}>
+          <div class="jw-quote__head">
+            {%- if block.settings.photo != blank -%}
+              {{ block.settings.photo | image_url: width: 160 | image_tag: loading: 'lazy', class: 'jw-quote__photo', alt: block.settings.who }}
+            {%- elsif block.settings.photo_url != blank -%}
+              <img class="jw-quote__photo{% if block.settings.is_logo %} jw-quote__photo--logo{% endif %}" src="{{ block.settings.photo_url }}" width="80" height="80" loading="lazy" alt="{{ block.settings.who | escape }}">
+            {%- else -%}
+              <span class="jw-authority__source">{{ block.settings.who | escape }}</span>
             {%- endif -%}
-          </figcaption>
+            <div>
+              <p class="jw-quote__name">{{ block.settings.who | escape }}</p>
+              {%- if block.settings.role != blank -%}<p class="jw-quote__role">{{ block.settings.role | escape }}</p>{%- endif -%}
+            </div>
+          </div>
+          <blockquote>{{ block.settings.quote | escape }}</blockquote>
+          {%- if block.settings.source_url != blank -%}
+            <figcaption><a class="jw-quote__src" href="{{ block.settings.source_url }}" rel="noopener" target="_blank">Read the source</a></figcaption>
+          {%- endif -%}
         </figure>
       {%- endfor -%}
     </div>
+
+    {%- assign has_ev = false -%}
+    {%- for block in section.blocks -%}{%- if block.type == 'evidence' and block.settings.text != blank -%}{%- assign has_ev = true -%}{%- endif -%}{%- endfor -%}
+    {%- if has_ev -%}
+      <div class="jw-card jw-evidence">
+        <h3 class="jw-h3">{{ section.settings.evidence_heading | escape }}</h3>
+        <ul class="jw-evidence__list" role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type != 'evidence' or block.settings.text == blank -%}{%- continue -%}{%- endif -%}
+            <li {{ block.shopify_attributes }}>
+              <p class="jw-body">{{ block.settings.text | escape }}</p>
+              <p class="jw-caption"><strong>{{ block.settings.source | escape }}</strong>{% if block.settings.url != blank %} · <a href="{{ block.settings.url }}" rel="noopener" target="_blank">{{ block.settings.link_text | default: 'Source' | escape }}</a>{% endif %}</p>
+            </li>
+          {%- endfor -%}
+        </ul>
+        <p class="jw-caption">{{ section.settings.evidence_note | escape }}</p>
+      </div>
+    {%- endif -%}
+
     <p class="jw-caption jw-narrow">{{ section.settings.footnote | escape }}</p>
     {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'none' %}
   </div>
@@ -37,36 +64,42 @@
   "tag": "section",
   "class": "jw-section-authority",
   "settings": [
-    { "type": "checkbox", "id": "strip", "label": "Show as a compact text strip", "default": true },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Heat and massage are what the NHS and orthopaedic surgeons recommend for stiff joints" },
-    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Jointwell puts both in one wrap you strap on at the kitchen table. Here is what the people who are not selling anything say about heat and massage." },
-    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "These are statements about heat and massage in general. Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition." },
+    { "type": "checkbox", "id": "strip", "label": "Show as a compact text strip", "default": false },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What the NHS and orthopaedic surgeons say about heat and massage" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "None of these people are selling anything. These are their words about warmth and massage on stiff joints in general." },
+    { "type": "text", "id": "evidence_heading", "label": "Evidence block heading", "default": "What the evidence says" },
+    { "type": "textarea", "id": "evidence_note", "label": "Line under the evidence", "default": "These are statements about heat in general, with the source linked so you can read it yourself. Nothing here is a claim about what Jointwell will do for your joint." },
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do." },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link" }
   ],
   "blocks": [
     {
       "type": "quote",
-      "name": "Quote",
+      "name": "Named quote",
       "limit": 5,
       "settings": [
-        { "type": "image_picker", "id": "logo", "label": "Logo (only if you hold permission to use it)" },
-        { "type": "text", "id": "role", "label": "Line under the quote (role or publication)" },
+        { "type": "text", "id": "who", "label": "Full name (or organisation)" },
+        { "type": "text", "id": "role", "label": "Credentials, one line" },
         { "type": "textarea", "id": "quote", "label": "Quote (verbatim from the source)" },
-        { "type": "text", "id": "who", "label": "Who said it" },
-        { "type": "url", "id": "source_url", "label": "Link to the source" }
+        { "type": "url", "id": "source_url", "label": "Link to the source" },
+        { "type": "image_picker", "id": "photo", "label": "Headshot or logo" },
+        { "type": "text", "id": "photo_url", "label": "Headshot or logo URL (fallback)" },
+        { "type": "checkbox", "id": "is_logo", "label": "This is a logo, not a face", "default": false }
+      ]
+    },
+    {
+      "type": "evidence",
+      "name": "Evidence line",
+      "limit": 4,
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "One plain sentence, in your words" },
+        { "type": "text", "id": "source", "label": "Source name" },
+        { "type": "url", "id": "url", "label": "Source link" },
+        { "type": "text", "id": "link_text", "label": "Link text", "default": "Read it" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "JW Borrowed authority",
-      "blocks": [
-        { "type": "quote", "settings": { "quote": "Heat applied to the affected area can be very effective in reducing pain.", "who": "NHS" } },
-        { "type": "quote", "settings": { "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain.", "who": "Brandon Kambach, MD, orthopaedic surgeon" } },
-        { "type": "quote", "settings": { "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain.", "who": "Hayden N. Box, MD, orthopaedic surgeon" } }
-      ]
-    }
-  ]
+  "presets": [ { "name": "JW Borrowed authority" } ]
 }
 {% endschema %}

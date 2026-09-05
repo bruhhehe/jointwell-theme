@@ -6,6 +6,16 @@
 {%- liquid
   assign menu = linklists[section.settings.menu]
   assign cta_link = section.settings.cta_link | default: '/#jw-buy'
+  comment
+    Landing mode: on the homepage every nav item is an anchor that scrolls on-page, so ad traffic
+    has one exit, the buy box. Track my order and Contact live in the footer. Off the homepage the
+    normal menu shows.
+  endcomment
+  assign landing = false
+  if section.settings.anchor_nav and template.name == 'index'
+    assign landing = true
+  endif
+  assign anchors = section.settings.anchors | split: ','
 -%}
 <header class="jw-header">
   <div class="jw-wrap jw-header__inner">
@@ -21,9 +31,16 @@
 
     <nav class="jw-header__nav jw-header__nav--desktop" aria-label="Main">
       <ul class="jw-header__list" role="list">
-        {%- for link in menu.links -%}
-          <li><a class="jw-header__link{% if link.current %} jw-header__link--current{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-        {%- endfor -%}
+        {%- if landing -%}
+          {%- for a in anchors -%}
+            {%- assign pair = a | split: '|' -%}
+            {%- if pair.size == 2 -%}<li><a class="jw-header__link" href="{{ pair[1] | strip }}">{{ pair[0] | strip | escape }}</a></li>{%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- for link in menu.links -%}
+            <li><a class="jw-header__link{% if link.current %} jw-header__link--current{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+          {%- endfor -%}
+        {%- endif -%}
       </ul>
     </nav>
 
@@ -38,9 +55,16 @@
       </summary>
       <nav aria-label="Main">
         <ul class="jw-header__mlist" role="list">
-          {%- for link in menu.links -%}
-            <li><a class="jw-header__mlink" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-          {%- endfor -%}
+          {%- if landing -%}
+            {%- for a in anchors -%}
+              {%- assign pair = a | split: '|' -%}
+              {%- if pair.size == 2 -%}<li><a class="jw-header__mlink" href="{{ pair[1] | strip }}">{{ pair[0] | strip | escape }}</a></li>{%- endif -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for link in menu.links -%}
+              <li><a class="jw-header__mlink" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+            {%- endfor -%}
+          {%- endif -%}
           {%- if section.settings.show_cta -%}
             <li><a class="jw-btn jw-btn--primary jw-btn--block" href="{{ cta_link }}">{{ section.settings.cta_label | escape }}</a></li>
           {%- endif -%}
@@ -60,7 +84,9 @@
     { "type": "text", "id": "logo_file", "label": "Logo file name in Content > Files", "default": "jointwell-logo.svg" },
     { "type": "range", "id": "logo_width", "label": "Logo width (px)", "min": 80, "max": 300, "step": 10, "default": 150 },
     { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Jointwell" },
-    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "link_list", "id": "menu", "label": "Menu (used on every page except the homepage when landing mode is on)", "default": "main-menu" },
+    { "type": "checkbox", "id": "anchor_nav", "label": "Landing mode on the homepage: nav items scroll on-page only", "default": true },
+    { "type": "textarea", "id": "anchors", "label": "Anchor items, one per line as Label|#id", "default": "How it works|#jw-how, Reviews|#jw-reviews, Guarantee|#jw-guarantee, FAQ|#jw-faq" },
     { "type": "checkbox", "id": "show_cta", "label": "Show the buy button in the header", "default": true },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link", "info": "Leave blank to jump to the buy box on the homepage." }

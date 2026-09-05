@@ -4,6 +4,9 @@
   The illness named in constraint 8 of the brief is never mentioned, here or anywhere on the site.
   No photo, surname or personal details of the owner.
 {% endcomment %}
+{%- if section.settings.story == blank -%}
+  {%- comment -%} No story written yet. Render nothing rather than an empty band. Do not invent a founder. {%- endcomment -%}
+{%- else -%}
 <section class="jw-why jw-band" id="jw-why">
   <div class="jw-wrap jw-why__grid">
     <div class="jw-why__media">
@@ -29,6 +32,7 @@
     </div>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

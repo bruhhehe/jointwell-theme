@@ -6,7 +6,19 @@
 <section class="jw-reviews jw-band" id="jw-reviews">
   <div class="jw-wrap">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.count != blank -%}
+      <p class="jw-reviews__total"><span class="jw-stars jw-stars--big" aria-hidden="true">★★★★★</span> <strong>{% if section.settings.rating != blank %}{{ section.settings.rating | escape }} out of 5, {% endif %}{{ section.settings.count | escape }} verified reviews</strong>{% if section.settings.count_note != blank %} <span class="jw-muted">{{ section.settings.count_note | escape }}</span>{% endif %}</p>
+    {%- endif -%}
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+    {%- if section.settings.stat_number != blank and section.settings.stat_text != blank -%}
+      <div class="jw-card jw-card--hi jw-reviews__stat">
+        <p class="jw-reviews__statnum">{{ section.settings.stat_number | escape }}</p>
+        <div>
+          <p class="jw-body"><strong>{{ section.settings.stat_text | escape }}</strong></p>
+          <p class="jw-caption">{{ section.settings.stat_method | escape }}</p>
+        </div>
+      </div>
+    {%- endif -%}
 
     {%- if section.settings.video_url != blank -%}
       <figure class="jw-card jw-reviews__video">
@@ -36,7 +48,7 @@
           <div class="jw-review-card__head">
             <div>
               <p class="jw-review-card__name">{{ block.settings.name | escape }}{% if block.settings.age != blank %}, {{ block.settings.age | escape }}{% endif %}{% if block.settings.town != blank %}, {{ block.settings.town | escape }}{% endif %}</p>
-              <p class="jw-review-card__meta"><span class="jw-stars" aria-hidden="true">★★★★★</span> <span class="jw-verified">Verified buyer</span></p>
+              <p class="jw-review-card__meta"><span class="jw-stars" aria-hidden="true">★★★★★</span> <span class="jw-verified">Verified buyer</span>{% if block.settings.uses != blank %} <span class="jw-review-card__uses">{{ block.settings.uses | escape }}</span>{% endif %}</p>
             </div>
           </div>
           <blockquote class="jw-review-card__quote">{{ block.settings.quote | escape }}</blockquote>
@@ -60,13 +72,21 @@
 
 {% schema %}
 {
-  "name": "JW What real buyers say",
+  "name": "JW Customers in their own words",
   "tag": "section",
   "class": "jw-section-reviews",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "What real buyers say" },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Customers in their own words, with the photos they sent us. We hold the order record for every one, and we do not edit them." },
     { "type": "product", "id": "product", "label": "Product for the Judge.me widget" },
+    { "type": "header", "content": "Total (shows only when a count is set)" },
+    { "type": "text", "id": "count", "label": "Number of verified reviews", "info": "Only a number Judge.me shows. Leave blank until then." },
+    { "type": "text", "id": "rating", "label": "Average, for example 4.8" },
+    { "type": "text", "id": "count_note", "label": "Small note after it", "default": "across Australia and the UK" },
+    { "type": "header", "content": "One honest outcome number (hidden until all three are filled)" },
+    { "type": "text", "id": "stat_number", "label": "The number, for example 8 in 10" },
+    { "type": "text", "id": "stat_text", "label": "What it means", "info": "For example: said mornings were easier after four weeks." },
+    { "type": "text", "id": "stat_method", "label": "How you got it", "info": "For example: Email survey of 212 UK buyers, June 2027, 61 replies. Self-reported, not a clinical result." },
     { "type": "header", "content": "Video testimonial (hidden until a link is set)" },
     { "type": "text", "id": "video_url", "label": "Video link", "info": "YouTube, Vimeo or a direct MP4 link. A real customer, with their permission." },
     { "type": "text", "id": "video_title", "label": "Who is in it", "default": "Name, age, town" },
@@ -85,17 +105,18 @@
       "settings": [
         { "type": "text", "id": "name", "label": "First name", "default": "Maggie" },
         { "type": "text", "id": "age", "label": "Age", "default": "64" },
-        { "type": "text", "id": "town", "label": "Town" },
+        { "type": "text", "id": "town", "label": "Town or state" },
+        { "type": "text", "id": "uses", "label": "Uses it on (knee, shoulder, elbow, cold mornings)" },
         { "type": "textarea", "id": "quote", "label": "Quote, exactly as written in the review", "info": "The card stays hidden until a real quote is pasted here." },
         { "type": "image_picker", "id": "photo", "label": "Customer's own photo" },
-        { "type": "select", "id": "stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
+        { "type": "select", "id": "stock", "label": "Built-in photo", "info": "Only the customer's own photo belongs beside their words. Leave as None unless they sent one.", "options": [ { "value": "", "label": "None" } ], "default": "" },
         { "type": "url", "id": "link", "label": "Link to the review (optional)" }
       ]
     }
   ],
   "presets": [
     {
-      "name": "JW What real buyers say",
+      "name": "JW Customers in their own words",
       "blocks": [
         { "type": "review", "settings": { "name": "Maggie", "age": "64", "quote": "" } },
         { "type": "review", "settings": { "name": "Sue", "age": "68", "quote": "" } },

@@ -1,0 +1,56 @@
+{% comment %}
+  Mid-page lead magnet: the 7-morning routine, large print. One field, one button, no popup.
+  Uses the customer form so it lands in Shopify customers with tags, same as the footer version.
+  Optional first-order incentive line: only write a code that exists and that you will honour.
+{% endcomment %}
+<section class="jw-magnetsec" id="jw-routine">
+  <div class="jw-wrap">
+    <div class="jw-card jw-magnet jw-magnet--mid">
+      <div class="jw-magnet__grid">
+        <div class="jw-magnet__media">
+          {%- if section.settings.image != blank -%}
+            {{ section.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'jw-magnet__img', alt: 'The 7-morning routine, large print' }}
+          {%- else -%}
+            <img class="jw-magnet__img" src="{{ 'jw-photo-kettle.jpg' | asset_url }}" width="600" height="745" loading="lazy" alt="A woman at the kettle wearing the wrap on her knee">
+          {%- endif -%}
+        </div>
+        <div>
+          <h2 class="jw-h3">{{ section.settings.title | escape }}</h2>
+          <p class="jw-body">{{ section.settings.text | escape }}</p>
+          {%- form 'customer', class: 'jw-magnet__form', id: 'jw-routine-mid-form' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="jw-magnet__ok">{{ section.settings.success | escape }}</p>
+            {%- else -%}
+              {{ form.errors | default_errors }}
+              <input type="hidden" name="contact[tags]" value="routine-pdf,newsletter,midpage">
+              <label class="visually-hidden" for="jw-routine-mid-email">Email address</label>
+              <div class="jw-magnet__row">
+                <input id="jw-routine-mid-email" class="jw-magnet__input" type="email" name="contact[email]" autocomplete="email" placeholder="Your email address" required>
+                <button type="submit" class="jw-btn jw-btn--primary">{{ section.settings.button | escape }}</button>
+              </div>
+              {%- if section.settings.incentive != blank -%}<p class="jw-body jw-magnet__incentive">{{ section.settings.incentive | escape }}</p>{%- endif -%}
+              <p class="jw-caption">{{ section.settings.note | escape }}</p>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "JW Lead magnet (mid-page)",
+  "tag": "section",
+  "class": "jw-section-magnet",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Not ready to buy? Take the routine anyway." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "The 7-morning stiffness routine, in large print, free by email. It works with a hot water bottle. It works better with something that stays warm." },
+    { "type": "text", "id": "button", "label": "Button", "default": "Send me the routine" },
+    { "type": "text", "id": "incentive", "label": "First-order incentive line (optional)", "info": "Only if the code exists. For example: We will also send a £5 code for your first wrap." },
+    { "type": "text", "id": "note", "label": "Small print", "default": "One PDF, then the occasional email. Unsubscribe in one tap." },
+    { "type": "text", "id": "success", "label": "Success message", "default": "Thank you. Check your inbox in the next few minutes." },
+    { "type": "image_picker", "id": "image", "label": "Picture" }
+  ],
+  "presets": [{ "name": "JW Lead magnet (mid-page)" }]
+}
+{% endschema %}

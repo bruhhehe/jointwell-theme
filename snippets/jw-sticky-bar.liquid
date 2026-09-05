@@ -1,4 +1,8 @@
-{% comment %} Mobile-only sticky bar: price and a button to the buy box. Hidden on desktop and on the cart page. {% endcomment %}
+{% comment %}
+  Sticky buy bar. Shows on every screen size once the hero buy box has scrolled out of view,
+  hides again when the visitor is back at the buy box or on the cart page.
+  The price follows the tier picked in the hero. Text follows Primal Queen's pattern: price, trial, one button.
+{% endcomment %}
 {%- liquid
   assign jw_p = all_products['jointwell-heated-joint-wrap']
   assign bar_price = '£49'
@@ -12,8 +16,36 @@
   endif
 -%}
 {%- unless template.name == 'cart' -%}
-<div class="jw-sticky" role="complementary" aria-label="Buy Jointwell">
-  <span class="jw-sticky__text">Try it for 90 days &middot; <strong>{{ bar_price }}</strong></span>
-  <a class="jw-btn jw-btn--primary jw-sticky__btn" href="{{ bar_link }}">Choose your wrap</a>
+<div class="jw-sticky" role="complementary" aria-label="Buy Jointwell" data-jw-sticky hidden>
+  <div class="jw-sticky__text">
+    <span class="jw-sticky__price"><strong data-jw-sticky-price>{{ bar_price }}</strong> <span class="jw-sticky__unit" data-jw-sticky-unit>one wrap</span></span>
+    <span class="jw-sticky__sub">90-day trial · we pay return postage</span>
+  </div>
+  <a class="jw-btn jw-btn--primary jw-sticky__btn" href="{{ bar_link }}">Try it for 90 days</a>
 </div>
+<script>
+  (function () {
+    var bar = document.querySelector('[data-jw-sticky]'); if (!bar) return;
+    var buy = document.getElementById('jw-buy'), hero = document.getElementById('jw-top');
+    var priceOut = bar.querySelector('[data-jw-sticky-price]'), unitOut = bar.querySelector('[data-jw-sticky-unit]');
+    function sync() {
+      var form = document.querySelector('form.jw-hero__tiers'); if (!form) return;
+      var c = form.querySelector('input[name="id"]:checked'); if (!c) return;
+      var label = c.closest('label'), name = label && label.querySelector('.jw-tier2__name');
+      if (priceOut) priceOut.textContent = c.getAttribute('data-price') || priceOut.textContent;
+      if (unitOut && name) unitOut.textContent = name.textContent.trim().toLowerCase();
+    }
+    document.addEventListener('change', function (e) { if (e.target && e.target.name === 'id') sync(); });
+    sync();
+    var watch = buy || hero;
+    if (!watch || !('IntersectionObserver' in window)) { bar.hidden = false; document.body.classList.add('jw-has-sticky'); return; }
+    var io = new IntersectionObserver(function (entries) {
+      var onScreen = entries[0].isIntersecting;
+      var pastIt = entries[0].boundingClientRect.top < 0;
+      var show = !onScreen && pastIt;
+      bar.hidden = !show; document.body.classList.toggle('jw-has-sticky', show);
+    }, { threshold: 0 });
+    io.observe(watch);
+  })();
+</script>
 {%- endunless -%}

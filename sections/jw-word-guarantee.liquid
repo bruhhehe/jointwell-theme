@@ -29,6 +29,12 @@
         <p class="jw-eyebrow">{{ section.settings.g_eyebrow | escape }}</p>
         <h3 class="jw-h2">{{ section.settings.g_heading | escape }}</h3>
         <p class="jw-body">{{ section.settings.g_text | escape }}</p>
+        <ul class="jw-wordg__terms" role="list">
+          <li><strong>{{ section.settings.t1_lead | escape }}</strong> {{ section.settings.t1 | escape }}</li>
+          <li><strong>{{ section.settings.t2_lead | escape }}</strong> {{ section.settings.t2 | escape }}</li>
+          <li><strong>{{ section.settings.t3_lead | escape }}</strong> {{ section.settings.t3 | escape }}</li>
+          <li><strong>{{ section.settings.t4_lead | escape }}</strong> {{ section.settings.t4 | escape }}</li>
+        </ul>
         <p class="jw-body"><strong>Worst case,</strong> {{ section.settings.worst | escape }}</p>
         <p class="jw-body"><strong>Best case,</strong> {{ section.settings.best | escape }}</p>
         <a class="jw-btn jw-btn--primary jw-btn--block" href="{{ section.settings.cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
@@ -51,6 +57,15 @@
     { "type": "textarea", "id": "g_text", "label": "Right panel text", "default": "Use Jointwell every morning for up to three months, on your own knee or shoulder, in your own kitchen. If you can't feel the difference, send it back within 90 days of delivery for a full refund and we pay the return postage. Every wrap carries a 2-year warranty as well, with UK support." },
     { "type": "text", "id": "worst", "label": "Worst case", "default": "you post it back and you are where you started." },
     { "type": "text", "id": "best", "label": "Best case", "default": "the first cold morning in October is the one you don't notice." },
+    { "type": "header", "content": "The four plain terms" },
+    { "type": "text", "id": "t1_lead", "label": "Term 1 lead", "default": "You pay to send it back:" },
+    { "type": "text", "id": "t1", "label": "Term 1", "default": "nothing. We pay the return postage." },
+    { "type": "text", "id": "t2_lead", "label": "Term 2 lead", "default": "Days to decide:" },
+    { "type": "text", "id": "t2", "label": "Term 2", "default": "90, from the day it arrives." },
+    { "type": "text", "id": "t3_lead", "label": "Term 3 lead", "default": "Reason needed:" },
+    { "type": "text", "id": "t3", "label": "Term 3", "default": "none." },
+    { "type": "text", "id": "t4_lead", "label": "Term 4 lead", "default": "Where it goes back to:" },
+    { "type": "text", "id": "t4", "label": "Term 4", "default": "a UK address. Email us and we send the details." },
     { "type": "text", "id": "cta_label", "label": "Button", "default": "Start the 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link" }
   ],

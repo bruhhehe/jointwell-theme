@@ -525,3 +525,101 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-proof2__row { margin-top: 12px; }
 .jw-proof2__row a { color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 .jw-assure__icon { font-size: 15px; letter-spacing: 0.02em; }
+
+/* ---------- 2026-09 conversion pass: proof number, video, dispatch, doorways in place, authority, sticky ---------- */
+.jw-stars--big { font-size: 22px; letter-spacing: 1px; }
+.jw-hero__proofline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin: 4px 0 8px; color: var(--jw-text); text-decoration: none; }
+.jw-hero__proofline:hover .jw-hero__proofnum { text-decoration: underline; text-underline-offset: 3px; }
+.jw-hero__proofnum { font-weight: 800; font-size: 20px; }
+.jw-hero__proofwhere { flex-basis: 100%; color: var(--jw-muted); font-size: var(--jw-fs-caption); }
+.jw-hero__origin { margin: 0 0 12px; font-size: var(--jw-fs-body); color: var(--jw-muted); }
+
+.jw-hero__video { margin-top: 12px; border-radius: var(--jw-radius); overflow: hidden; background: #111; aspect-ratio: 16 / 9; position: relative; }
+.jw-hero__play { position: absolute; inset: 0; width: 100%; border: 0; padding: 0; background: #222; cursor: pointer; display: grid; place-items: center; color: #fff; font-family: var(--jw-font); }
+.jw-hero__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+.jw-hero__playicon { position: relative; width: 72px; height: 72px; border-radius: 50%; background: var(--jw-accent); box-shadow: 0 6px 24px rgba(0,0,0,0.35); }
+.jw-hero__playicon::after { content: ""; position: absolute; left: 29px; top: 22px; border-style: solid; border-width: 14px 0 14px 22px; border-color: transparent transparent transparent #fff; }
+.jw-hero__playtext { position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.75)); font-size: 18px; font-weight: 700; text-align: left; }
+.jw-hero__playtext small { font-weight: 400; opacity: 0.85; margin-left: 6px; }
+.jw-hero__play:hover .jw-hero__playicon, .jw-hero__play:focus-visible .jw-hero__playicon { background: var(--jw-accent-dark); }
+.jw-hero__play:focus-visible { outline: 3px solid var(--jw-focus); outline-offset: -3px; }
+.jw-hero__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+
+.jw-hero__dispatch { display: flex; align-items: center; gap: 10px; margin: 10px 0 14px; font-size: var(--jw-fs-body); color: var(--jw-text); }
+.jw-hero__dispatchdot { width: 12px; height: 12px; border-radius: 50%; background: var(--jw-good); box-shadow: 0 0 0 4px rgba(46,107,74,0.15); flex: none; }
+.jw-hero__quiz.jw-btn--secondary { margin-top: 12px; text-decoration: none; color: var(--jw-text); display: flex; }
+.jw-hero__quizsub { margin: 6px 0 0; }
+.jw-btn--secondary { background: var(--jw-card); color: var(--jw-text); border: 2px solid var(--jw-text); }
+.jw-btn--secondary:hover { background: var(--jw-bg-alt); }
+
+/* Doorways as tabs with a panel that opens in place */
+.jw-door { text-align: left; font-family: var(--jw-font); font-size: var(--jw-fs-body); cursor: pointer; border: 2px solid var(--jw-border); background: var(--jw-card); }
+.jw-door.is-active, .jw-door[aria-selected="true"] { border-color: var(--jw-accent); background: var(--jw-accent-soft); }
+.jw-door.is-active .jw-door__more { color: var(--jw-accent-dark); }
+.jw-door-panel { margin-top: 16px; display: grid; gap: 16px; scroll-margin-top: 80px; }
+.jw-door-panel__img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--jw-radius-sm); display: block; }
+.jw-door-panel__text p { font-size: var(--jw-fs-body); line-height: var(--jw-lh); margin: 0 0 12px; }
+.jw-door-panel__fit { font-size: var(--jw-fs-body); margin: 0 0 16px; padding: 12px 14px; border-left: 4px solid var(--jw-accent); background: var(--jw-bg-alt); border-radius: 0 var(--jw-radius-sm) var(--jw-radius-sm) 0; }
+.jw-door-panel__actions { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+.jw-door-panel__read { color: var(--jw-text); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+@media (min-width: 750px) { .jw-door-panel { grid-template-columns: 2fr 3fr; align-items: start; } }
+@media (min-width: 990px) { .jw-door-panel { grid-template-columns: 5fr 7fr; gap: 28px; } }
+
+/* Authority: people with faces and credentials, plus the evidence card */
+.jw-quote--person { display: flex; flex-direction: column; gap: 12px; }
+.jw-quote__head { display: flex; align-items: center; gap: 12px; }
+.jw-quote__photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid var(--jw-border); background: #fff; }
+.jw-quote__photo--logo { border-radius: var(--jw-radius-sm); object-fit: contain; padding: 6px; }
+.jw-quote__name { margin: 0; font-weight: 800; font-size: var(--jw-fs-body); }
+.jw-quote__role { margin: 0; color: var(--jw-muted); font-size: var(--jw-fs-caption); }
+.jw-quote--person blockquote { font-size: var(--jw-fs-body); }
+.jw-evidence { margin-top: 20px; }
+.jw-evidence__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.jw-evidence__list li { padding-left: 16px; border-left: 4px solid var(--jw-good); }
+.jw-evidence__list .jw-body { margin: 0 0 4px; }
+.jw-evidence__list .jw-caption { margin: 0; }
+@media (min-width: 750px) { .jw-evidence__list { grid-template-columns: repeat(3, 1fr); } .jw-evidence__list li:only-child, .jw-evidence__list li:first-child:nth-last-child(2) { grid-column: span 1; } }
+
+/* Reviews: total line, honest stat, use tag */
+.jw-reviews__total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin: 0 0 12px; font-size: var(--jw-fs-large); }
+.jw-reviews__stat { display: flex; gap: 20px; align-items: center; margin: 0 0 20px; }
+.jw-reviews__statnum { margin: 0; font-size: 40px; font-weight: 800; line-height: 1; white-space: nowrap; }
+.jw-reviews__stat .jw-body { margin: 0 0 4px; } .jw-reviews__stat .jw-caption { margin: 0; }
+.jw-review-card__uses { display: inline-block; margin-left: 6px; padding: 2px 10px; border-radius: 999px; background: var(--jw-bg-alt); border: 1px solid var(--jw-border); font-size: var(--jw-fs-caption); color: var(--jw-text); }
+
+/* Box: values column, total, specifics accordion */
+.jw-boxsec__list--valued li { display: flex; justify-content: space-between; gap: 16px; }
+.jw-boxsec__value { font-weight: 700; white-space: nowrap; color: var(--jw-muted); }
+.jw-boxsec__total { font-weight: 800; font-size: var(--jw-fs-large); margin: 12px 0 0; padding-top: 12px; border-top: 2px solid var(--jw-border); }
+.jw-boxsec__specs { margin: 20px 0 0; }
+.jw-boxsec__specsum { cursor: pointer; font-weight: 700; font-size: var(--jw-fs-body); padding: 12px 0; min-height: var(--jw-tap); list-style: none; display: flex; align-items: center; gap: 10px; }
+.jw-boxsec__specsum::-webkit-details-marker { display: none; }
+.jw-boxsec__specsum::before { content: "+"; width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--jw-text); display: grid; place-items: center; font-weight: 800; }
+.jw-boxsec__specs[open] .jw-boxsec__specsum::before { content: "\2013"; }
+.jw-boxsec__specs .jw-specs__list { margin-top: 8px; padding: 0; }
+.jw-boxsec__specs .jw-specs__list > div { display: grid; gap: 4px; padding: 12px 0; border-bottom: 1px solid var(--jw-border); font-size: var(--jw-fs-body); line-height: 1.5; }
+.jw-boxsec__specs .jw-specs__list dt { font-weight: 700; margin: 0; } .jw-boxsec__specs .jw-specs__list dd { margin: 0; }
+@media (min-width: 750px) { .jw-boxsec__specs .jw-specs__list > div { grid-template-columns: 160px 1fr; } }
+
+/* Guarantee: the four plain terms */
+.jw-wordg__terms { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.jw-wordg__terms li { font-size: var(--jw-fs-body); padding: 10px 12px; background: rgba(255,255,255,0.7); border-radius: var(--jw-radius-sm); }
+
+/* Sticky bar: every size once past the buy box */
+.jw-sticky[hidden] { display: none; }
+.jw-sticky { padding: 10px 16px; }
+.jw-sticky__text { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.jw-sticky__price strong { font-size: 22px; }
+.jw-sticky__unit { color: var(--jw-muted); font-size: var(--jw-fs-caption); }
+.jw-sticky__sub { font-size: var(--jw-fs-caption); color: var(--jw-muted); }
+body { padding-bottom: 0; }
+body.jw-has-sticky { padding-bottom: 88px; }
+@media (min-width: 990px) { .jw-sticky { display: flex; justify-content: center; gap: 40px; } .jw-sticky:not([hidden]) { display: flex; } body.jw-has-sticky { padding-bottom: 80px; } }
+
+/* Mid-page lead magnet */
+.jw-magnetsec { padding: var(--jw-section) 0; }
+.jw-magnet--mid { max-width: none; margin: 0; }
+.jw-magnet__grid { display: grid; gap: 20px; align-items: center; }
+.jw-magnet__img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--jw-radius-sm); display: block; max-height: 320px; }
+.jw-magnet__incentive { margin: 10px 0 4px; font-weight: 700; }
+@media (min-width: 750px) { .jw-magnet__grid { grid-template-columns: 1fr 2fr; } .jw-magnet__img { max-height: none; } }

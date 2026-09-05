@@ -1,36 +1,95 @@
 {% comment %}
-  Condition doorways. One wrap, seven ways in. Each links to its Advice (Journal) article.
-  Set the links once the articles are published. Until then they jump to the buy box.
+  Situation doorways. One wrap, seven mornings. Each tile opens a panel in place (photo, four lines,
+  the fit note, the buy button). Nothing navigates away from the landing page.
+  Titles are situations, not conditions: naming conditions the wrap is "used for" reads as a
+  medical indications list under CAP 12.1. Keep it to the morning, the shelf, the garden, the cold.
+  Optional "Read more" per tile links to the matching Advice article for people who want the long version.
 {% endcomment %}
-<section class="jw-doorways jw-band">
+<section class="jw-doorways jw-band" id="jw-doorways">
   <div class="jw-wrap">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
-    <ul class="jw-doorways__grid" role="list">
+
+    <div class="jw-doors" data-jw-doors>
+      <ul class="jw-doorways__grid" role="tablist" aria-label="Pick the morning that sounds like yours">
+        {%- for block in section.blocks -%}
+          <li role="presentation" {{ block.shopify_attributes }}>
+            <button type="button" class="jw-card jw-door" role="tab" id="jw-door-tab-{{ block.id }}" aria-controls="jw-door-panel-{{ block.id }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" {% unless forloop.first %}tabindex="-1"{% endunless %}>
+              <span class="jw-door__title">{{ block.settings.title | escape }}</span>
+              <span class="jw-door__line">{{ block.settings.line | escape }}</span>
+              <span class="jw-door__more" aria-hidden="true">{{ section.settings.open_label | escape }}</span>
+            </button>
+          </li>
+        {%- endfor -%}
+      </ul>
+
       {%- for block in section.blocks -%}
-        <li {{ block.shopify_attributes }}>
-          <a class="jw-card jw-door" href="{{ block.settings.link | default: '#jw-buy' }}">
-            <span class="jw-door__title">{{ block.settings.title | escape }}</span>
-            <span class="jw-door__line">{{ block.settings.line | escape }}</span>
-            <span class="jw-door__more">Read more</span>
-          </a>
-        </li>
+        <div class="jw-card jw-door-panel" role="tabpanel" id="jw-door-panel-{{ block.id }}" aria-labelledby="jw-door-tab-{{ block.id }}" {% unless forloop.first %}hidden{% endunless %}>
+          <div class="jw-door-panel__media">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 40vw, 100vw', class: 'jw-door-panel__img', alt: block.settings.alt }}
+            {%- elsif block.settings.stock != blank and block.settings.stock != 'none' -%}
+              <img class="jw-door-panel__img" src="{{ block.settings.stock | asset_url }}" width="900" height="1120" loading="lazy" alt="{{ block.settings.alt | escape }}">
+            {%- endif -%}
+          </div>
+          <div class="jw-door-panel__copy">
+            <h3 class="jw-h3">{{ block.settings.panel_heading | default: block.settings.title | escape }}</h3>
+            <div class="jw-prose jw-door-panel__text">{{ block.settings.text }}</div>
+            {%- if block.settings.fit != blank -%}
+              <p class="jw-door-panel__fit"><strong>How it goes on:</strong> {{ block.settings.fit | escape }}</p>
+            {%- endif -%}
+            <div class="jw-door-panel__actions">
+              <a class="jw-btn jw-btn--primary" href="{{ section.settings.cta_link | default: '#jw-buy' }}">{{ block.settings.cta | default: section.settings.cta_label | escape }}</a>
+              {%- if block.settings.link != blank -%}
+                <a class="jw-door-panel__read" href="{{ block.settings.link }}">{{ section.settings.read_label | escape }}</a>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
       {%- endfor -%}
-    </ul>
-    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'none' %}
+    </div>
+    <p class="jw-caption jw-narrow">{{ section.settings.footnote | escape }}</p>
   </div>
 </section>
+<script>
+  (function () {
+    var root = document.querySelector('[data-jw-doors]');
+    if (!root) return;
+    var tabs = root.querySelectorAll('[role="tab"]'), panels = root.querySelectorAll('[role="tabpanel"]');
+    function show(tab, focusPanel) {
+      tabs.forEach(function (t) { var on = t === tab; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; t.classList.toggle('is-active', on); });
+      panels.forEach(function (p) { p.hidden = p.id !== tab.getAttribute('aria-controls'); });
+      if (focusPanel) {
+        var p = document.getElementById(tab.getAttribute('aria-controls'));
+        if (p && window.matchMedia('(max-width: 989px)').matches) { p.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      }
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(t, true); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = tabs[(i + 1) % tabs.length];
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (n) { e.preventDefault(); n.focus(); show(n, false); }
+      });
+    });
+    tabs[0] && tabs[0].classList.add('is-active');
+  })();
+</script>
 
 {% schema %}
 {
-  "name": "JW Condition doorways",
+  "name": "JW Situation doorways",
   "tag": "section",
   "class": "jw-section-doorways",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Which joint runs your day?" },
-    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Same wrap, different mornings. Pick the one that sounds like yours." },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Same wrap, different mornings. Tap the one that sounds like yours." },
+    { "type": "text", "id": "open_label", "label": "Small label on each tile", "default": "See how it fits" },
+    { "type": "text", "id": "read_label", "label": "Link text to the long article", "default": "Read the full advice piece" },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it on your worst joint" },
-    { "type": "url", "id": "cta_link", "label": "Button link" }
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "Jointwell is a comfort device for stiff, tired joints. It is not a treatment for any condition and does not replace the care you are waiting for." }
   ],
   "blocks": [
     {
@@ -38,25 +97,31 @@
       "name": "Doorway",
       "limit": 8,
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Knee arthritis" },
-        { "type": "text", "id": "line", "label": "One line", "default": "Wear and tear, the GP says. Here is what the morning half hour looks like on a knee." },
-        { "type": "url", "id": "link", "label": "Link to the Advice article" }
+        { "type": "text", "id": "title", "label": "Tile title", "default": "The stiff knee at 7am" },
+        { "type": "text", "id": "line", "label": "Tile line", "default": "The first ten steps are the worst. What a warm half hour before the stairs looks like." },
+        { "type": "text", "id": "panel_heading", "label": "Panel heading (blank = tile title)" },
+        { "type": "richtext", "id": "text", "label": "Panel text, four lines at most", "default": "<p>Overnight a joint sits still and cools. The stiffness at 7am is a cold, unmoved knee, not the day getting worse. Kettle on, wrap on, level three, read the paper. By the second cup the wrap has clicked off and the knee has had thirty minutes of steady warmth before it is asked to do the stairs.</p>" },
+        { "type": "text", "id": "fit", "label": "How it goes on", "default": "Straight round the knee, over pyjamas if you like. One size, 55 cm strap span." },
+        { "type": "text", "id": "cta", "label": "Button text for this panel" },
+        { "type": "url", "id": "link", "label": "Link to the Advice article (optional)" },
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "select", "id": "stock", "label": "Built-in photo", "options": [
+          { "value": "none", "label": "None" },
+          { "value": "jw-photo-breakfast.jpg", "label": "Man at breakfast, wrap on knee" },
+          { "value": "jw-photo-kettle.jpg", "label": "Woman at the kettle, wrap on knee" },
+          { "value": "jw-photo-crossword-elbow.jpg", "label": "Man doing the crossword, wrap on elbow" },
+          { "value": "jw-photo-bed.jpg", "label": "Woman reading in bed, wrap on knee" },
+          { "value": "jw-photo-van.jpg", "label": "Tradesman on the van step, wrap on knee" },
+          { "value": "jw-photo-garden-window.jpg", "label": "Woman by the garden door, wrap on knee" },
+          { "value": "jw-photo-floor.jpg", "label": "On the carpet with a jigsaw" },
+          { "value": "jw-photo-elbow.jpg", "label": "Armchair, wrap on elbow" },
+          { "value": "jw-photo-bothknees.jpg", "label": "Two wraps, both knees" },
+          { "value": "jw-feature-joints.jpg", "label": "Knee, shoulder and elbow side by side" }
+        ], "default": "jw-photo-breakfast.jpg" },
+        { "type": "text", "id": "alt", "label": "Photo description", "default": "A man in his sixties at the kitchen table with tea and toast, wearing the wrap on his knee" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "JW Condition doorways",
-      "blocks": [
-        { "type": "door", "settings": { "title": "Knee arthritis", "line": "Wear and tear, the GP says. What the morning half hour looks like on a knee." } },
-        { "type": "door", "settings": { "title": "Stiff shoulder", "line": "Reaching the top shelf, doing up a bra strap. The extension strap takes it round the shoulder." } },
-        { "type": "door", "settings": { "title": "Tennis elbow", "line": "From the garden, not the tennis court. Up the arm to the elbow with the strap." } },
-        { "type": "door", "settings": { "title": "After a knee replacement", "line": "Once your surgeon and physio say heat is fine, this is the warm half hour before exercises." } },
-        { "type": "door", "settings": { "title": "Morning stiffness", "line": "The first ten steps of the day. Kettle on, wrap on, before the stairs." } },
-        { "type": "door", "settings": { "title": "Kneeling and gardening", "line": "Down to the beds and back up again. Before you go out, and after you come in." } },
-        { "type": "door", "settings": { "title": "Cold weather aches", "line": "October to March. The wrap goes on with the first cup and the heating stays down." } }
-      ]
-    }
-  ]
+  "presets": [ { "name": "JW Situation doorways" } ]
 }
 {% endschema %}

@@ -36,6 +36,18 @@
           <li><button type="button" class="jw-hero__thumbbtn" data-full="{{ 'jw-in-the-box.jpg' | asset_url }}" aria-label="Show what comes in the box"><img class="jw-hero__thumb" src="{{ 'jw-in-the-box.jpg' | asset_url }}" width="300" height="300" loading="lazy" alt="What comes in the box: the wrap, the USB-C cable and the instructions"></button></li>
         </ul>
       {%- endif -%}
+      {%- if section.settings.video_url != blank -%}
+        {%- assign vu = section.settings.video_url -%}
+        {%- assign poster = section.settings.video_poster_url -%}
+        {%- if section.settings.video_poster != blank -%}{%- assign poster = section.settings.video_poster | image_url: width: 1200 -%}{%- endif -%}
+        <div class="jw-hero__video" data-jw-video data-src="{{ vu | escape }}" data-kind="{% if vu contains 'youtube.com' or vu contains 'youtu.be' %}youtube{% elsif vu contains 'vimeo.com' %}vimeo{% else %}mp4{% endif %}">
+          <button type="button" class="jw-hero__play" aria-label="Play: {{ section.settings.video_title | escape }}">
+            {%- if poster != blank -%}<img class="jw-hero__poster" src="{{ poster }}" width="1200" height="675" loading="lazy" alt="">{%- endif -%}
+            <span class="jw-hero__playicon" aria-hidden="true"></span>
+            <span class="jw-hero__playtext">{{ section.settings.video_title | escape }}{% if section.settings.video_length != blank %} <small>{{ section.settings.video_length | escape }}</small>{% endif %}</span>
+          </button>
+        </div>
+      {%- endif -%}
     </div>
 
     <div class="jw-hero__copy">
@@ -51,10 +63,21 @@
         <li>{{ section.settings.tick_3 | escape }}</li>
       </ul>
 
-      <a class="jw-hero__reviews" href="{{ section.settings.reviews_link | default: '#jw-reviews' }}">
-        <span class="jw-stars" aria-hidden="true">★★★★★</span>
-        <span>{{ section.settings.reviews_text | escape }}</span>
-      </a>
+      {%- if section.settings.proof_count != blank -%}
+        <a class="jw-hero__proofline" href="{{ section.settings.reviews_link | default: '#jw-reviews' }}">
+          <span class="jw-stars jw-stars--big" aria-hidden="true">★★★★★</span>
+          <span class="jw-hero__proofnum">{% if section.settings.proof_rating != blank %}Rated {{ section.settings.proof_rating | escape }} by {% endif %}{{ section.settings.proof_count | escape }} {{ section.settings.proof_noun | escape }}</span>
+          {%- if section.settings.proof_where != blank -%}<span class="jw-hero__proofwhere">{{ section.settings.proof_where | escape }}</span>{%- endif -%}
+        </a>
+      {%- else -%}
+        <a class="jw-hero__reviews" href="{{ section.settings.reviews_link | default: '#jw-reviews' }}">
+          <span class="jw-stars" aria-hidden="true">★★★★★</span>
+          <span>{{ section.settings.reviews_text | escape }}</span>
+        </a>
+      {%- endif -%}
+      {%- if section.settings.origin_line != blank -%}
+        <p class="jw-hero__origin">{{ section.settings.origin_line | escape }}</p>
+      {%- endif -%}
 
       <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
       <div class="jw-hero__pricerow">
@@ -125,6 +148,12 @@
       {%- else -%}
         <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
       {%- endif -%}
+      {%- if section.settings.dispatch_hour > 0 -%}
+        <p class="jw-hero__dispatch" data-jw-dispatch data-hour="{{ section.settings.dispatch_hour }}" data-days="{{ section.settings.dispatch_days }}" hidden>
+          <span class="jw-hero__dispatchdot" aria-hidden="true"></span>
+          <span data-jw-dispatch-text></span>
+        </p>
+      {%- endif -%}
       <ul class="jw-assure" role="list">
         <li><span class="jw-assure__icon" aria-hidden="true">&#128230;</span><span><strong>Free tracked delivery</strong><br>UK, every order</span></li>
         <li><span class="jw-assure__icon" aria-hidden="true">&#8634;</span><span><strong>90-day trial</strong><br>we pay return postage</span></li>
@@ -142,13 +171,53 @@
       {%- endif -%}
 
       {%- if section.settings.quiz_link != blank -%}
-        <a class="jw-hero__quiz" href="{{ section.settings.quiz_link }}">{{ section.settings.quiz_label | escape }}</a>
+        <a class="jw-btn jw-btn--secondary jw-btn--block jw-hero__quiz" href="{{ section.settings.quiz_link }}">{{ section.settings.quiz_label | escape }}</a>
+        {%- if section.settings.quiz_sub != blank -%}<p class="jw-caption jw-hero__quizsub">{{ section.settings.quiz_sub | escape }}</p>{%- endif -%}
       {%- endif -%}
     </div>
   </div>
 </section>
 <script>
   (function () {
+    var v = document.querySelector('[data-jw-video]');
+    if (v) {
+      v.querySelector('.jw-hero__play').addEventListener('click', function () {
+        var src = v.getAttribute('data-src'), kind = v.getAttribute('data-kind'), el;
+        if (kind === 'youtube') {
+          var id = src.split('v=').pop().split('&')[0].split('/').pop();
+          el = document.createElement('iframe'); el.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0'; el.allow = 'autoplay; encrypted-media; picture-in-picture'; el.allowFullscreen = true;
+        } else if (kind === 'vimeo') {
+          el = document.createElement('iframe'); el.src = 'https://player.vimeo.com/video/' + src.split('/').pop() + '?autoplay=1&dnt=1'; el.allow = 'autoplay; fullscreen; picture-in-picture'; el.allowFullscreen = true;
+        } else {
+          el = document.createElement('video'); el.src = src; el.controls = true; el.autoplay = true; el.playsInline = true;
+        }
+        el.className = 'jw-hero__frame'; el.title = 'Jointwell video';
+        v.innerHTML = ''; v.appendChild(el);
+      });
+    }
+    var d = document.querySelector('[data-jw-dispatch]');
+    if (d) {
+      var hour = parseInt(d.getAttribute('data-hour'), 10) || 14;
+      var days = (d.getAttribute('data-days') || '1,2,3,4,5').split(',').map(function (x) { return parseInt(x, 10); });
+      var out = d.querySelector('[data-jw-dispatch-text]');
+      var names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      function tick() {
+        var parts = {}, wd = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+        new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date()).forEach(function (x) { parts[x.type] = x.value; });
+        var dow = wd[parts.weekday], h = parseInt(parts.hour, 10) % 24, m = parseInt(parts.minute, 10);
+        var todayOk = days.indexOf(dow) > -1 && h < hour;
+        if (todayOk) {
+          var left = (hour - h) * 60 - m, hh = Math.floor(left / 60), mm = left % 60;
+          out.textContent = 'Order in the next ' + (hh ? hh + ' hr ' : '') + mm + ' min and it leaves us today.';
+        } else {
+          var n = dow, add = 0;
+          do { n = (n + 1) % 7; add++; } while (days.indexOf(n) < 0 && add < 8);
+          out.textContent = 'Order now and it leaves us ' + (add === 1 ? 'tomorrow' : 'on ' + names[n]) + '.';
+        }
+        d.hidden = false;
+      }
+      tick(); setInterval(tick, 60000);
+    }
     var gal = document.querySelector('[data-jw-gallery]'), main = document.querySelector('.jw-hero__media--product .jw-hero__img');
     if (gal && main) {
       gal.querySelectorAll('.jw-hero__thumbbtn').forEach(function (b) {
@@ -213,12 +282,28 @@
     { "type": "text", "id": "review_town", "label": "Town" },
     { "type": "text", "id": "review_short", "label": "One sentence, word for word from their review" },
     { "type": "image_picker", "id": "review_photo", "label": "Their photo" },
-    { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
+    { "type": "select", "id": "review_stock", "label": "Built-in photo", "info": "Only the customer's own photo belongs beside their words. Leave as None unless they sent one.", "options": [ { "value": "", "label": "None" } ], "default": "" },
     { "type": "text", "id": "activity_line", "label": "Activity line", "info": "A true number, updated by hand, for example: 14 wraps posted this week. Leave blank to hide." },
     { "type": "header", "content": "Three ticks" },
     { "type": "text", "id": "tick_1", "label": "Tick 1", "default": "Heat held for a full 30 minutes, 45 to 65°C" },
     { "type": "text", "id": "tick_2", "label": "Tick 2", "default": "Three massage strengths, running alongside" },
     { "type": "text", "id": "tick_3", "label": "Tick 3", "default": "Switches itself off. Cordless, 360 g" },
+    { "type": "header", "content": "Proof number (shows only when a count is set)" },
+    { "type": "text", "id": "proof_count", "label": "Count", "info": "A number you can show on the page. Leave blank until you have it." },
+    { "type": "text", "id": "proof_rating", "label": "Rating, for example 4.8" },
+    { "type": "text", "id": "proof_noun", "label": "What they are", "default": "verified customers" },
+    { "type": "text", "id": "proof_where", "label": "Small line after it", "default": "Reviews collected by Judge.me from real orders" },
+    { "type": "text", "id": "origin_line", "label": "Where it has been sold before", "default": "Sold in Australia for two years before it came to Britain." },
+    { "type": "header", "content": "Video (shows in the photo column when a link is set)" },
+    { "type": "text", "id": "video_url", "label": "Video link", "info": "YouTube, Vimeo or a direct MP4. Ideally 30 seconds: strap on, panel lights, timer clicks off, she stands up." },
+    { "type": "text", "id": "video_title", "label": "Play button text", "default": "Watch it go on and switch itself off" },
+    { "type": "text", "id": "video_length", "label": "Length", "default": "32 seconds" },
+    { "type": "image_picker", "id": "video_poster", "label": "Poster frame" },
+    { "type": "text", "id": "video_poster_url", "label": "Poster frame URL (fallback)", "default": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-video-demo-poster.jpg", "info": "Re-upload this to Content > Files and paste the new URL before the old theme is deleted." },
+    { "type": "header", "content": "Dispatch cut-off (honest deadline)" },
+    { "type": "range", "id": "dispatch_hour", "label": "Same-day dispatch cut-off, UK time (0 hides it)", "min": 0, "max": 18, "step": 1, "default": 14 },
+    { "type": "text", "id": "dispatch_days", "label": "Dispatch days (0=Sun ... 6=Sat)", "default": "1,2,3,4,5" },
+    { "type": "text", "id": "quiz_sub", "label": "Line under the quiz button", "default": "Six questions. It tells you honestly if this is not for you." },
     { "type": "header", "content": "Review line" },
     { "type": "text", "id": "reviews_text", "label": "Review count line", "default": "Customer reviews, with photos", "info": "Only write a number you can show on the page." },
     { "type": "url", "id": "reviews_link", "label": "Review link" },
