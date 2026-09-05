@@ -27,10 +27,11 @@
         <img class="jw-hero__img" src="{{ 'jw-hero.jpg' | asset_url }}" width="1024" height="1024" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
       {%- endif -%}
       {%- if product != blank and product.images.size > 1 -%}
-        <ul class="jw-hero__thumbs" role="list">
-          {%- for img in product.images offset: 1 limit: 4 -%}
-            <li>{{ img | image_url: width: 300 | image_tag: loading: 'lazy', class: 'jw-hero__thumb', alt: img.alt }}</li>
+        <ul class="jw-hero__thumbs" role="list" data-jw-gallery>
+          {%- for img in product.images offset: 1 limit: 3 -%}
+            <li><button type="button" class="jw-hero__thumbbtn" data-full="{{ img | image_url: width: 1400 }}" aria-label="Show photo {{ forloop.index | plus: 1 }}">{{ img | image_url: width: 300 | image_tag: loading: 'lazy', class: 'jw-hero__thumb', alt: img.alt }}</button></li>
           {%- endfor -%}
+          <li><button type="button" class="jw-hero__thumbbtn" data-full="{{ 'jw-in-the-box.jpg' | asset_url }}" aria-label="Show what comes in the box"><img class="jw-hero__thumb" src="{{ 'jw-in-the-box.jpg' | asset_url }}" width="300" height="300" loading="lazy" alt="What comes in the box: the wrap, the USB-C cable and the instructions"></button></li>
         </ul>
       {%- endif -%}
     </div>
@@ -132,6 +133,15 @@
 </section>
 <script>
   (function () {
+    var gal = document.querySelector('[data-jw-gallery]'), main = document.querySelector('.jw-hero__media--product .jw-hero__img');
+    if (gal && main) {
+      gal.querySelectorAll('.jw-hero__thumbbtn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          main.removeAttribute('srcset'); main.removeAttribute('sizes'); main.src = b.getAttribute('data-full');
+          gal.querySelectorAll('.jw-hero__thumbbtn').forEach(function (x) { x.classList.remove('is-active'); }); b.classList.add('is-active');
+        });
+      });
+    }
     var form = document.querySelector('form.jw-hero__tiers[data-jw-checkout]');
     if (!form) return;
     var priceOut = form.querySelector('[data-jw-price]');

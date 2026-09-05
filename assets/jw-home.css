@@ -456,3 +456,7 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-cta-strip { margin-top: 12px; }
 .jw-hero__name { margin: 0 0 4px; }
 .jw-price__note { display: block; margin-top: 2px; }
+
+.jw-hero__thumbbtn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 8px; }
+.jw-hero__thumbbtn:focus-visible { outline: 3px solid var(--jw-focus); outline-offset: 2px; }
+.jw-hero__thumbbtn.is-active .jw-hero__thumb { border: 2px solid var(--jw-accent); }
