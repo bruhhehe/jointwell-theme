@@ -12,6 +12,8 @@
     <a class="jw-header__logo" href="{{ routes.root_url }}" aria-label="Jointwell, home">
       {%- if section.settings.logo != blank -%}
         {{ section.settings.logo | image_url: width: 360 | image_tag: loading: 'eager', class: 'jw-header__logo-img', alt: 'Jointwell', width: section.settings.logo_width }}
+      {%- elsif section.settings.logo_file != blank -%}
+        <img class="jw-header__logo-img" src="{{ section.settings.logo_file | file_url }}" alt="Jointwell" width="{{ section.settings.logo_width }}" height="48" loading="eager">
       {%- else -%}
         <span class="jw-header__wordmark">{{ section.settings.wordmark | escape }}</span>
       {%- endif -%}
@@ -54,7 +56,8 @@
   "tag": "div",
   "class": "jw-section-header",
   "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Logo image", "info": "Leave empty to show the wordmark below." },
+    { "type": "image_picker", "id": "logo", "label": "Logo image", "info": "Leave empty to use the file below, or the wordmark." },
+    { "type": "text", "id": "logo_file", "label": "Logo file name in Content > Files", "default": "jointwell-logo.svg" },
     { "type": "range", "id": "logo_width", "label": "Logo width (px)", "min": 80, "max": 300, "step": 10, "default": 150 },
     { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Jointwell" },
     { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },

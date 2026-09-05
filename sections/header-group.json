@@ -15,7 +15,9 @@
         "menu": "main-menu",
         "show_cta": true,
         "cta_label": "Try it for 90 days",
-        "cta_link": "/#jw-buy"
+        "cta_link": "/#jw-buy",
+        "logo_file": "jointwell-logo.svg",
+        "logo_width": 170
       }
     },
     "jw_header_trust": {

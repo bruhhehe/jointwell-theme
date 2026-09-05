@@ -237,7 +237,7 @@
 .jw-header *, .jw-footer * { box-sizing: border-box; }
 .jw-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding-top: 8px; padding-bottom: 8px; }
 .jw-header__logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--jw-text); min-height: var(--jw-tap); }
-.jw-header__logo-img { display: block; height: auto; max-height: 48px; width: auto; }
+.jw-header__logo-img { display: block; height: 44px; width: auto; max-width: 200px; }
 .jw-header__wordmark { font-family: var(--jw-font-heading); font-weight: 700; font-size: 26px; letter-spacing: -0.01em; color: var(--jw-accent-dark); }
 .jw-header__nav--desktop, .jw-header__cta { display: none; }
 .jw-header__list { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; }
