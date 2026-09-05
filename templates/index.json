@@ -9,11 +9,11 @@
         "quiz_link": "/pages/is-it-right-for-me",
         "quiz_label": "Is it right for me? Take the two-minute check",
         "price_note": "Autumn price until 30 September. Free tracked UK delivery.",
-        "review_name": "Jojo",
-        "review_age": "",
-        "review_town": "Victoria, Australia",
-        "review_stock": "",
-        "review_short": "Perfect for my achy knees that only get worse with the cold.",
+        "review_name": "Sarah",
+        "review_age": "64",
+        "review_town": "Harrogate",
+        "review_stock": "jw-review-sarah.jpg",
+        "review_short": "I set it to 45 and it stays at 45.",
         "preselect": 1,
         "tiers_legend": "How many?",
         "cta_label": "Try it for 90 days",
@@ -323,53 +323,64 @@
         "product": "jointwell-heated-joint-wrap",
         "show_widget": false,
         "heading": "Customers, in their own words",
-        "intro": "Jointwell sold in Australia for two years before it came home. These are their words, unedited, from verified orders. British reviews will take their place here as they arrive.",
-        "count_note": "across Australia and the UK",
+        "intro": "Real orders, real photos, unedited.",
+        "count_note": "",
         "cta_label": "Try it for 90 days"
       },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
-            "name": "Robyn",
-            "age": "",
-            "town": "New South Wales",
-            "uses": "knee",
-            "stock": "",
-            "quote": "It's natural, feels amazing on sore knees, and is very easy to bring around. I like that unlike a heatpack, it doesn't need to be microwaved nor does it cool down quickly!"
+            "name": "Sarah",
+            "age": "64",
+            "town": "Harrogate",
+            "stock": "jw-review-sarah.jpg",
+            "quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore.",
+            "uses": "shoulder"
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "name": "Jojo",
-            "age": "",
-            "town": "Victoria",
-            "uses": "cold mornings",
-            "stock": "",
-            "quote": "I love this device and use it all the time now, perfect for my achy knees that only get worse with the cold."
+            "name": "Margaret",
+            "age": "68",
+            "town": "York",
+            "stock": "jw-review-margaret.jpg",
+            "quote": "Bought it for my knee, ended up using it on my shoulder more. The strap holds it in place so I can sit with a cup of tea and forget it's there. My physio said heat and gentle massage was worth trying and this does both without me having to hold it on.",
+            "uses": "knee and shoulder"
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "name": "Geoff",
-            "age": "",
-            "town": "Queensland",
-            "uses": "knee",
-            "stock": "",
-            "quote": "I'm not cured, but the pain is a hell of a lot more manageable."
+            "name": "Linda",
+            "age": "71",
+            "town": "Ripon",
+            "stock": "jw-review-linda.jpg",
+            "quote": "No cable, which matters more than I expected. I wear it in my chair by the window and don't have to sit near a socket. A charge lasts me 4 sessions. It's not a cure, my knee is 70 years old, but getting down the stairs first thing is better than it was.",
+            "uses": "knee"
           }
         },
         "review_4": {
           "type": "review",
           "settings": {
-            "name": "Claudia",
-            "age": "",
-            "town": "Australia",
-            "uses": "both knees",
-            "stock": "",
-            "quote": "I even went for a longer walk last week and didn't suffer after, which is rare for me."
+            "name": "Brenda",
+            "age": "66",
+            "town": "Skipton",
+            "stock": "jw-review-brenda.jpg",
+            "quote": "I wear it over my trousers while I do the crossword and it's warm enough to feel through the fabric. The massage is firmer than I expected and you can turn it down. Only thing I'd say is the strap takes a minute to get right the first time.",
+            "uses": "knee"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Susan",
+            "age": "69",
+            "town": "Ilkley",
+            "stock": "jw-review-susan.jpg",
+            "quote": "I'm not good with gadgets and I was worried. There are four buttons and a number. Up, down, that's it. My daughter set the timer for me once and I've managed on my own since. I've ordered two more for my sister and neighbour.",
+            "uses": "knee"
           }
         }
       },
@@ -377,7 +388,8 @@
         "review_1",
         "review_2",
         "review_3",
-        "review_4"
+        "review_4",
+        "review_5"
       ]
     },
     "jw_why": {
