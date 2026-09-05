@@ -4,7 +4,7 @@
       "type": "jw-hero",
       "settings": {
         "product": "jointwell-heated-joint-wrap",
-        "reviews_text": "5 customer reviews, with photos",
+        "reviews_text": "Customer reviews, with photos",
         "reviews_link": "/#jw-reviews",
         "quiz_link": "/pages/is-it-right-for-me",
         "quiz_label": "Is it right for me? Take the two-minute check",
@@ -25,8 +25,8 @@
       "settings": {
         "product": "jointwell-heated-joint-wrap",
         "show_widget": false,
-        "heading": "5 customers, in their own words",
-        "intro": "Real orders, real photos, unedited. The count is the count."
+        "heading": "Customers, in their own words",
+        "intro": "Real orders, real photos, unedited."
       },
       "blocks": {
         "review_1": {
