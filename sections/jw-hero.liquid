@@ -87,28 +87,40 @@
             <legend class="jw-hero__legend">{{ section.settings.tiers_legend | escape }}</legend>
             {%- for v in product.variants -%}
               {%- if v.available -%}
-                <label class="jw-tier jw-tier--compact{% if forloop.index == section.settings.preselect %} jw-tier--badged{% endif %}">
+                {%- liquid
+                  assign single = product.variants.first.price
+                  assign units = 1
+                  assign sub = section.settings.sub_1
+                  assign badge = ''
+                  if v.title contains 'Two'
+                    assign units = 2
+                    assign sub = section.settings.sub_2
+                    assign badge = section.settings.badge_2
+                  elsif v.title contains 'Four'
+                    assign units = 4
+                    assign sub = section.settings.sub_4
+                    assign badge = section.settings.badge_4
+                  endif
+                  assign saving = single | times: units | minus: v.price
+                -%}
+                <label class="jw-tier2{% if badge != blank %} jw-tier2--badged{% endif %}">
                   <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money_without_trailing_zeros }}" data-was="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
-                  <span class="jw-tier__body">
-                    {%- if forloop.index == section.settings.preselect -%}<span class="jw-tier__badge">{{ section.settings.badge | escape }}</span>{%- endif -%}
-                    <span class="jw-tier__name">{{ v.title | escape }}</span>
-                    {%- assign single = product.variants.first.price -%}
-                    {%- assign units = 1 -%}
-                    {%- if v.title contains 'Two' -%}{%- assign units = 2 -%}{%- elsif v.title contains 'Four' -%}{%- assign units = 4 -%}{%- endif -%}
-                    {%- if units > 1 -%}
-                      {%- assign saving = single | times: units | minus: v.price -%}
-                      <span class="jw-tier__savings">Save {{ saving | money_without_trailing_zeros }} against {{ units }} at {{ single | money_without_trailing_zeros }}</span>
-                    {%- endif -%}
-                    <span class="jw-tier__price">
-                      {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+                  <span class="jw-tier2__body">
+                    {%- if badge != blank -%}<span class="jw-tier2__badge{% if units == 4 %} jw-tier2__badge--alt{% endif %}">{{ badge | escape }}</span>{%- endif -%}
+                    <span class="jw-tier2__main">
+                      <span class="jw-tier2__name">{{ v.title | escape }}</span>
+                      <span class="jw-tier2__sub">{{ sub | escape }}{% if units > 1 %} <strong>Save {{ saving | money_without_trailing_zeros }} on {{ units }} singles.</strong>{% endif %}</span>
+                    </span>
+                    <span class="jw-tier2__price">
                       <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
+                      {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
                     </span>
                   </span>
                 </label>
               {%- endif -%}
             {%- endfor -%}
           </fieldset>
-          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span><span class="jw-hero__dot" aria-hidden="true">&middot;</span><span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
+          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span><span class="jw-hero__dot" aria-hidden="true">&ndash;</span><span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
         </form>
       {%- else -%}
         <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
@@ -190,7 +202,11 @@
     { "type": "header", "content": "Tier picker" },
     { "type": "text", "id": "tiers_legend", "label": "Legend", "default": "How many?" },
     { "type": "range", "id": "preselect", "label": "Preselected tier", "min": 1, "max": 3, "step": 1, "default": 2 },
-    { "type": "text", "id": "badge", "label": "Badge on the preselected tier", "default": "Most chosen" },
+    { "type": "text", "id": "sub_1", "label": "One wrap: line under", "default": "For one knee, shoulder or elbow. Includes the extension strap." },
+    { "type": "text", "id": "sub_2", "label": "Two wraps: line under", "default": "Both knees at once, or one for you and one for a partner." },
+    { "type": "text", "id": "badge_2", "label": "Two wraps: badge", "default": "Most chosen" },
+    { "type": "text", "id": "sub_4", "label": "Four wraps: line under", "default": "For the household." },
+    { "type": "text", "id": "badge_4", "label": "Four wraps: badge", "default": "Best value" },
     { "type": "header", "content": "Review card beside the price" },
     { "type": "text", "id": "review_name", "label": "Name" },
     { "type": "text", "id": "review_age", "label": "Age" },

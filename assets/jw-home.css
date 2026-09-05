@@ -496,3 +496,32 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-boxsec__list li::before { content: "\2713\00a0"; color: var(--jw-good); font-weight: 700; }
 .jw-muted { color: var(--jw-muted); }
 @media (min-width: 990px) { .jw-boxsec__grid { grid-template-columns: 2fr 3fr; align-items: center; } }
+
+/* ---------- Tiers, live-site style ---------- */
+.jw-tier2 { display: block; position: relative; cursor: pointer; }
+.jw-tier2 input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.jw-tier2__body { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: start; position: relative; padding: 14px 16px 14px 48px; background: var(--jw-card); border: 2px solid var(--jw-border); border-radius: var(--jw-radius); }
+.jw-tier2__body::before { content: ""; position: absolute; left: 16px; top: 18px; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #9a9a9a; background: #fff; }
+.jw-tier2 input:checked + .jw-tier2__body { border-color: var(--jw-accent); background: var(--jw-accent-soft); }
+.jw-tier2 input:checked + .jw-tier2__body::before { border-color: var(--jw-accent); background: radial-gradient(circle, var(--jw-accent) 48%, #fff 54%); }
+.jw-tier2 input:focus-visible + .jw-tier2__body { outline: 3px solid var(--jw-focus); outline-offset: 2px; }
+.jw-tier2__main { display: grid; gap: 2px; }
+.jw-tier2__name { font-weight: 700; font-size: 18px; }
+.jw-tier2__sub { font-size: 16px; color: var(--jw-muted); line-height: 1.4; }
+.jw-tier2__sub strong { color: var(--jw-accent-dark); }
+.jw-tier2__price { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.jw-tier2__price .jw-price__now { font-size: 22px; color: var(--jw-accent-dark); font-weight: 700; }
+.jw-tier2__price .jw-price__was { font-size: 16px; }
+.jw-tier2__badge { position: absolute; top: -12px; right: 12px; padding: 3px 10px; border-radius: 999px; background: var(--jw-navy); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.jw-tier2__badge--alt { background: var(--jw-accent); }
+.jw-tier2--badged { margin-top: 6px; }
+.jw-hero__fieldset { gap: 10px; }
+.jw-hero__dot { margin: 0 0.35em; }
+/* ---------- Proof strip v2 ---------- */
+.jw-proof2 { padding: 20px 0; font-family: var(--jw-font); color: var(--jw-text); border-top: 1px solid var(--jw-border); border-bottom: 1px solid var(--jw-border); }
+.jw-proof2__quotes { list-style: none; margin: 0 0 4px; padding: 0; display: grid; gap: 6px; font-size: 16px; line-height: 1.45; }
+.jw-proof2__who { font-weight: 700; }
+.jw-proof2__src { color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; margin-left: 4px; }
+.jw-proof2__row { margin-top: 12px; }
+.jw-proof2__row a { color: var(--jw-accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+.jw-assure__icon { font-size: 15px; letter-spacing: 0.02em; }

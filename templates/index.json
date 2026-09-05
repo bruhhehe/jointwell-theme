@@ -22,6 +22,38 @@
         "main_index": 1
       }
     },
+    "jw_proof": {
+      "type": "jw-proof",
+      "settings": {},
+      "blocks": {
+        "q_nhs": {
+          "type": "quote",
+          "settings": {
+            "who": "NHS:",
+            "quote": "Heat applied to the affected area can be very effective in reducing pain."
+          }
+        },
+        "q_kambach": {
+          "type": "quote",
+          "settings": {
+            "who": "Brandon Kambach, MD, orthopaedic surgeon:",
+            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain."
+          }
+        },
+        "q_box": {
+          "type": "quote",
+          "settings": {
+            "who": "Hayden N. Box, MD, orthopaedic surgeon:",
+            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain."
+          }
+        }
+      },
+      "block_order": [
+        "q_nhs",
+        "q_kambach",
+        "q_box"
+      ]
+    },
     "jw_doorways": {
       "type": "jw-doorways",
       "settings": {},
@@ -91,63 +123,6 @@
         "door_5",
         "door_6",
         "door_7"
-      ]
-    },
-    "jw_authority": {
-      "type": "jw-authority",
-      "settings": {
-        "heading": "What the people who are not selling anything say about heat",
-        "intro": "Statements about heat in general. Jointwell is a comfort device.",
-        "strip": true
-      },
-      "blocks": {
-        "q_nhs": {
-          "type": "quote",
-          "settings": {
-            "who": "NHS",
-            "role": "nhs.uk, on easing joint pain",
-            "quote": "Heat applied to the affected area can be very effective in reducing pain."
-          }
-        },
-        "q_kambach": {
-          "type": "quote",
-          "settings": {
-            "who": "Brandon Kambach, MD",
-            "role": "Orthopaedic surgeon",
-            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain."
-          }
-        },
-        "q_box": {
-          "type": "quote",
-          "settings": {
-            "who": "Hayden N. Box, MD",
-            "role": "Orthopaedic surgeon",
-            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain."
-          }
-        },
-        "q_harvard": {
-          "type": "quote",
-          "settings": {
-            "who": "Harvard Health",
-            "role": "Harvard Health Publishing",
-            "quote": ""
-          }
-        },
-        "q_physio": {
-          "type": "quote",
-          "settings": {
-            "who": "",
-            "role": "Chartered physiotherapist, HCPC registered",
-            "quote": ""
-          }
-        }
-      },
-      "block_order": [
-        "q_nhs",
-        "q_kambach",
-        "q_box",
-        "q_harvard",
-        "q_physio"
       ]
     },
     "jw_howto": {
@@ -725,8 +700,8 @@
   },
   "order": [
     "jw_hero",
+    "jw_proof",
     "jw_doorways",
-    "jw_authority",
     "jw_howto",
     "jw_heat_chart",
     "jw_specs",

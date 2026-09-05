@@ -2,19 +2,20 @@
    Contrast ratios checked against WCAG AA at 18px body (4.5:1) and large text (3:1). */
 :root {
   /* Colour */
-  --jw-bg: #fbf7f1;            /* warm off-white page ground */
-  --jw-bg-alt: #f2ebe1;        /* section band */
+  --jw-bg: #ffffff;            /* warm off-white page ground */
+  --jw-bg-alt: #faf7f3;        /* section band */
   --jw-card: #ffffff;
-  --jw-border: #e3d9cb;
-  --jw-text: #1f1b16;          /* on --jw-bg 15.6:1, on white 17.4:1 */
-  --jw-muted: #5a5249;         /* on --jw-bg 6.6:1 */
-  --jw-accent: #9a3f1c;        /* terracotta. White on it 7.0:1 */
-  --jw-accent-dark: #7d3114;   /* hover. White on it 9.4:1 */
-  --jw-accent-soft: #f6e4da;   /* accent tint, text on it uses --jw-text */
+  --jw-border: #e6e1da;
+  --jw-text: #1a1a1a;          /* on --jw-bg 15.6:1, on white 17.4:1 */
+  --jw-muted: #5b5b5b;         /* on --jw-bg 6.6:1 */
+  --jw-accent: #d9531a;        /* terracotta. White on it 7.0:1 */
+  --jw-accent-dark: #b7430f;   /* hover. White on it 9.4:1 */
+  --jw-accent-soft: #fdeee4;   /* accent tint, text on it uses --jw-text */
   --jw-good: #2e6b4a;          /* ticks. On white 6.3:1 */
   --jw-warn: #8a6a00;          /* wheat bag line in chart. On white 5.4:1 */
   --jw-star: #d99a1e;          /* decorative only, never text */
   --jw-focus: #1d4ed8;
+  --jw-navy: #1f2937;         /* badge pill, from the live site */
 
   /* Type. Fonts come from settings_data.json (Nunito Sans). Fallback stack below. */
   --jw-font: var(--font-body-family, "Nunito Sans", "Segoe UI", Arial, sans-serif);

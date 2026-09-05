@@ -19,20 +19,10 @@
         "logo_file": "jointwell-logo.svg",
         "logo_width": 170
       }
-    },
-    "jw_header_trust": {
-      "type": "jw-header-trust",
-      "settings": {
-        "reviews_link": "/#jw-reviews",
-        "show_judgeme": false,
-        "fallback_text": "Read what customers say",
-        "brand_line": "Jointwell"
-      }
     }
   },
   "order": [
     "jw_announcement",
-    "jw_header",
-    "jw_header_trust"
+    "jw_header"
   ]
 }
