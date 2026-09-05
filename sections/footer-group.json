@@ -5,7 +5,9 @@
     "jw_footer": {
       "type": "jw-footer",
       "settings": {
-        "menu": "footer"
+        "menu": "footer",
+        "brand": "Jointwell",
+        "copyright": "Jointwell is a trading name of Vela Goods \u00b7 velagoods.co.uk"
       }
     }
   },

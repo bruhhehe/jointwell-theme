@@ -38,6 +38,14 @@
         <text x="420" y="26" font-size="18">Wheat bag</text>
       </svg>
       <figcaption class="jw-caption">{{ section.settings.caption | escape }}</figcaption>
+      {%- if section.settings.photo_0 != blank and section.settings.photo_15 != blank and section.settings.photo_30 != blank -%}
+        <ul class="jw-chart__evidence" role="list">
+          <li>{{ section.settings.photo_0 | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Thermometer readings at 0 minutes' }}<span class="jw-caption">0 minutes</span></li>
+          <li>{{ section.settings.photo_15 | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Thermometer readings at 15 minutes' }}<span class="jw-caption">15 minutes</span></li>
+          <li>{{ section.settings.photo_30 | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Thermometer readings at 30 minutes' }}<span class="jw-caption">30 minutes</span></li>
+        </ul>
+        <p class="jw-caption">{{ section.settings.evidence_caption | escape }}</p>
+      {%- endif -%}
     </figure>
 
     <p class="jw-body">{{ section.settings.body | escape }}</p>
@@ -74,6 +82,11 @@
   "tag": "section",
   "class": "jw-section-chart",
   "settings": [
+    { "type": "header", "content": "Kitchen test photos (all three needed to show)" },
+    { "type": "image_picker", "id": "photo_0", "label": "0 minutes" },
+    { "type": "image_picker", "id": "photo_15", "label": "15 minutes" },
+    { "type": "image_picker", "id": "photo_30", "label": "30 minutes" },
+    { "type": "text", "id": "evidence_caption", "label": "Caption", "default": "Our own kitchen test: a hot water bottle and a Jointwell wrap, same thermometer, photographed at 0, 15 and 30 minutes." },
     { "type": "checkbox", "id": "show_tiles", "label": "Show the four feature tiles", "default": false },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Your wheat bag lasts ten minutes. Your knee hurts all day." },
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Anything you heat in a microwave is hottest the moment you pick it up and cooler every minute after. Jointwell holds the level you choose, from 45°C to 65°C, for a full thirty minutes, then switches itself off." },

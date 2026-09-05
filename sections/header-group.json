@@ -23,7 +23,8 @@
       "settings": {
         "reviews_link": "/#jw-reviews",
         "show_judgeme": false,
-        "fallback_text": "Read what customers say"
+        "fallback_text": "Read what customers say",
+        "brand_line": "Jointwell"
       }
     }
   },

@@ -52,6 +52,10 @@
         <span class="jw-stars" aria-hidden="true">★★★★★</span>
         <span>{{ section.settings.reviews_text | escape }}</span>
       </a>
+      <p class="jw-hero__reals">
+        <a href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener">{{ section.settings.ce_line | escape }}</a>
+        {%- if section.settings.activity_line != blank -%} &middot; {{ section.settings.activity_line | escape }}{%- endif -%}
+      </p>
 
       <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
       <div class="jw-hero__pricerow">
@@ -85,10 +89,17 @@
             {%- for v in product.variants -%}
               {%- if v.available -%}
                 <label class="jw-tier jw-tier--compact{% if forloop.index == section.settings.preselect %} jw-tier--badged{% endif %}">
-                  <input type="radio" name="id" value="{{ v.id }}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
+                  <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money_without_trailing_zeros }}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
                   <span class="jw-tier__body">
                     {%- if forloop.index == section.settings.preselect -%}<span class="jw-tier__badge">{{ section.settings.badge | escape }}</span>{%- endif -%}
                     <span class="jw-tier__name">{{ v.title | escape }}</span>
+                    {%- assign single = product.variants.first.price -%}
+                    {%- assign units = 1 -%}
+                    {%- if v.title contains 'Two' -%}{%- assign units = 2 -%}{%- elsif v.title contains 'Four' -%}{%- assign units = 4 -%}{%- endif -%}
+                    {%- if units > 1 -%}
+                      {%- assign saving = single | times: units | minus: v.price -%}
+                      <span class="jw-tier__savings">Save {{ saving | money_without_trailing_zeros }} against {{ units }} at {{ single | money_without_trailing_zeros }}</span>
+                    {%- endif -%}
                     <span class="jw-tier__price">
                       {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
                       <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
@@ -98,7 +109,7 @@
               {%- endif -%}
             {%- endfor -%}
           </fieldset>
-          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn">{{ section.settings.cta_label | escape }}</button>
+          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span> &middot; <span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
         </form>
       {%- else -%}
         <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
@@ -127,6 +138,9 @@
   (function () {
     var form = document.querySelector('form.jw-hero__tiers[data-jw-checkout]');
     if (!form) return;
+    var priceOut = form.querySelector('[data-jw-price]');
+    function sync() { var c = form.querySelector('input[name="id"]:checked'); if (c && priceOut) priceOut.textContent = c.dataset.price; }
+    form.addEventListener('change', sync); sync();
     form.addEventListener('submit', function (e) {
       var chosen = form.querySelector('input[name="id"]:checked');
       if (!chosen) return;
@@ -158,6 +172,8 @@
     { "type": "text", "id": "review_short", "label": "One sentence, word for word from their review" },
     { "type": "image_picker", "id": "review_photo", "label": "Their photo" },
     { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
+    { "type": "text", "id": "ce_line", "label": "Certificate line", "default": "Independently CE-tested, November 2024" },
+    { "type": "text", "id": "activity_line", "label": "Activity line", "info": "A true number, updated by hand, for example: 14 wraps posted this week. Leave blank to hide." },
     { "type": "header", "content": "Three ticks" },
     { "type": "text", "id": "tick_1", "label": "Tick 1", "default": "Heat held for a full 30 minutes, 45 to 65°C" },
     { "type": "text", "id": "tick_2", "label": "Tick 2", "default": "Three massage strengths, running alongside" },
