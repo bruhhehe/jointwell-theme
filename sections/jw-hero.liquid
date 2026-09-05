@@ -52,16 +52,12 @@
         <span class="jw-stars" aria-hidden="true">★★★★★</span>
         <span>{{ section.settings.reviews_text | escape }}</span>
       </a>
-      <p class="jw-hero__reals">
-        <a href="{{ 'jw-ce-certificate.jpg' | asset_url }}" target="_blank" rel="noopener">{{ section.settings.ce_line | escape }}</a>
-        {%- if section.settings.activity_line != blank -%} &middot; {{ section.settings.activity_line | escape }}{%- endif -%}
-      </p>
 
       <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
       <div class="jw-hero__pricerow">
         <div class="jw-hero__price" aria-label="Price">
-          {%- if compare_text != blank -%}<s class="jw-price__was">{{ compare_text }}</s>{%- endif -%}
-          <span class="jw-price__now">{{ price_text }}</span>
+          <s class="jw-price__was" data-jw-big-was{% if compare_text == blank %} hidden{% endif %}>{{ compare_text }}</s>
+          <span class="jw-price__now" data-jw-big-price>{{ price_text }}</span>
           {%- if section.settings.price_note != blank -%}<span class="jw-price__note">{{ section.settings.price_note | escape }}</span>{%- endif -%}
         </div>
         {%- assign rq = section.settings.review_short | default: '' -%}
@@ -89,7 +85,7 @@
             {%- for v in product.variants -%}
               {%- if v.available -%}
                 <label class="jw-tier jw-tier--compact{% if forloop.index == section.settings.preselect %} jw-tier--badged{% endif %}">
-                  <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money_without_trailing_zeros }}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
+                  <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money_without_trailing_zeros }}" data-was="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
                   <span class="jw-tier__body">
                     {%- if forloop.index == section.settings.preselect -%}<span class="jw-tier__badge">{{ section.settings.badge | escape }}</span>{%- endif -%}
                     <span class="jw-tier__name">{{ v.title | escape }}</span>
@@ -139,9 +135,15 @@
     var form = document.querySelector('form.jw-hero__tiers[data-jw-checkout]');
     if (!form) return;
     var priceOut = form.querySelector('[data-jw-price]');
+    var big = document.querySelector('[data-jw-big-price]');
+    var bigWas = document.querySelector('[data-jw-big-was]');
     function sync() {
       var c = form.querySelector('input[name="id"]:checked');
-      if (c && priceOut) priceOut.textContent = c.getAttribute('data-price') || '';
+      if (!c) return;
+      var price = c.getAttribute('data-price') || '', was = c.getAttribute('data-was') || '';
+      if (priceOut) priceOut.textContent = price;
+      if (big) big.textContent = price;
+      if (bigWas) { bigWas.textContent = was; bigWas.hidden = !was; }
     }
     form.querySelectorAll('input[name="id"]').forEach(function (r) {
       r.addEventListener('change', sync);
@@ -180,7 +182,6 @@
     { "type": "text", "id": "review_short", "label": "One sentence, word for word from their review" },
     { "type": "image_picker", "id": "review_photo", "label": "Their photo" },
     { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
-    { "type": "text", "id": "ce_line", "label": "Certificate line", "default": "Independently CE-tested, November 2024" },
     { "type": "text", "id": "activity_line", "label": "Activity line", "info": "A true number, updated by hand, for example: 14 wraps posted this week. Leave blank to hide." },
     { "type": "header", "content": "Three ticks" },
     { "type": "text", "id": "tick_1", "label": "Tick 1", "default": "Heat held for a full 30 minutes, 45 to 65°C" },

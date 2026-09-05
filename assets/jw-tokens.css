@@ -30,7 +30,7 @@
 
   /* Space and shape */
   --jw-space: 16px;
-  --jw-section: 48px;
+  --jw-section: 28px;
   --jw-radius: 12px;
   --jw-radius-sm: 8px;
   --jw-tap: 48px;
@@ -43,6 +43,6 @@
     --jw-fs-h1: 44px;   /* 44px desktop */
     --jw-fs-h2: 34px;  /* 34px */
     --jw-fs-h3: 22px;  /* 22px */
-    --jw-section: 72px;
+    --jw-section: 44px;
   }
 }
