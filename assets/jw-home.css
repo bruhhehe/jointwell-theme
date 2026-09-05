@@ -403,8 +403,8 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-quiz__result { margin-top: 24px; }
 
 /* ---------- Hero: tier picker and mini review card ---------- */
-.jw-hero__pricerow { display: grid; gap: 12px; margin-bottom: 12px; }
-.jw-hero__minicard { display: flex; gap: 12px; align-items: center; padding: 12px; margin: 0; max-width: 100%; }
+.jw-hero__pricerow { display: grid; gap: 12px; margin-bottom: 16px; }
+.jw-hero__minicard { display: flex; gap: 12px; align-items: center; padding: 12px 16px; margin: 0; width: 100%; box-sizing: border-box; }
 .jw-hero__minicard .jw-review-card__photo { width: 56px; height: 56px; }
 .jw-hero__minicard .jw-review-card__name { font-size: 16px; margin: 0 0 4px; }
 .jw-hero__minicard .jw-review-card__quote { font-size: 16px; line-height: 1.45; margin: 0; border: 0; padding: 0; }
@@ -412,9 +412,13 @@ a.jw-proof__item:hover span:first-child, a.jw-proof__item:focus-visible span:fir
 .jw-hero__tiers { margin: 0 0 12px; }
 .jw-hero__fieldset { border: 0; padding: 0; margin: 0 0 12px; display: grid; gap: 8px; }
 .jw-hero__legend { font-weight: 700; font-size: 18px; margin-bottom: 8px; }
-.jw-tier--compact { padding: 10px 14px; }
+.jw-tier--compact { margin-bottom: 8px; }
+.jw-tier--compact .jw-tier__body { padding: 12px 16px 12px 52px; }
+.jw-tier--compact .jw-tier__body::before { top: 14px; }
+.jw-tier--compact .jw-tier__price { grid-row: 1 / span 2; align-self: center; }
+.jw-tier--compact.jw-tier--badged .jw-tier__price { grid-row: 2 / span 1; }
 .jw-tier--compact .jw-tier__name { font-size: 18px; }
-@media (min-width: 990px) { .jw-hero__pricerow { grid-template-columns: auto 1fr; align-items: center; } }
+@media (min-width: 990px) { .jw-hero__pricerow { grid-template-columns: auto minmax(260px, 1fr); align-items: center; } }
 
 /* ---------- Checks + guarantee two panels ---------- */
 .jw-wordg { padding: var(--jw-section) 0; font-family: var(--jw-font); color: var(--jw-text); }

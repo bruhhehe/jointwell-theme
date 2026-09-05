@@ -89,10 +89,10 @@
                   <span class="jw-tier__body">
                     {%- if forloop.index == section.settings.preselect -%}<span class="jw-tier__badge">{{ section.settings.badge | escape }}</span>{%- endif -%}
                     <span class="jw-tier__name">{{ v.title | escape }}</span>
-                  </span>
-                  <span class="jw-tier__price">
-                    {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
-                    <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
+                    <span class="jw-tier__price">
+                      {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+                      <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
+                    </span>
                   </span>
                 </label>
               {%- endif -%}
