@@ -23,7 +23,7 @@
         </li>
       {%- endfor -%}
     </ul>
-    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'card' %}
   </div>
 </section>
 
@@ -47,9 +47,11 @@
         {
           "type": "select",
           "id": "stock",
+          "info": "Customer photos are the ones people sent us. The others were generated and must not run on the live page.",
           "label": "Built-in photo",
           "default": "jw-photo-kettle.jpg",
           "options": [
+            { "value": "jw-review-sarah.jpg", "label": "Customer: Sarah, Harrogate" }, { "value": "jw-review-margaret.jpg", "label": "Customer: Margaret, York" }, { "value": "jw-review-linda.jpg", "label": "Customer: Linda, Ripon" }, { "value": "jw-review-brenda.jpg", "label": "Customer: Brenda, Skipton" }, { "value": "jw-review-susan.jpg", "label": "Customer: Susan, Ilkley" },
             { "value": "jw-photo-kettle.jpg", "label": "At the kettle, wrap on knee" },
             { "value": "jw-photo-armchair.jpg", "label": "Armchair, reading, wrap on knee" },
             { "value": "jw-photo-floor.jpg", "label": "On the floor with a jigsaw" },

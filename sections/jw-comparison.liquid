@@ -20,7 +20,7 @@
         </article>
       {%- endfor -%}
     </div>
-    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'card' %}
   </div>
 </section>
 
@@ -39,7 +39,7 @@
     {
       "type": "column",
       "name": "Column",
-      "limit": 3,
+      "limit": 5,
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Jointwell" },
         { "type": "checkbox", "id": "highlight", "label": "Highlight this column", "default": false },
@@ -57,6 +57,8 @@
       "blocks": [
         { "type": "column", "settings": { "title": "Jointwell", "highlight": true, "heat": "45 to 65°C, held for 30 minutes", "massage": "Three strengths", "fit": "Strapped on, any chair in the house", "effort": "Half an hour with your morning tea", "cost": "£49 once" } },
         { "type": "column", "settings": { "title": "Wheat bag", "highlight": false, "heat": "Hottest at the start, then fading", "massage": "None", "fit": "Slides off", "effort": "Back to the microwave, again", "cost": "£8 to £15 once" } },
+        { "type": "column", "settings": { "title": "Creams and gels", "highlight": false, "heat": "Warms the skin for a few minutes, not the joint", "massage": "Only the rubbing in", "fit": "Comes off on your trousers", "effort": "Three times a day, messy hands", "cost": "£8 to £12 a tube, every month" } },
+        { "type": "column", "settings": { "title": "TENS machine", "highlight": false, "heat": "None", "massage": "Tingling through sticky pads", "fit": "Pads, wires, gel, batteries", "effort": "Set up every time, pads wear out", "cost": "£20 to £60, plus pads" } },
         { "type": "column", "settings": { "title": "Physio", "highlight": false, "heat": "Sometimes, for a few minutes", "massage": "Hands-on, the best there is", "fit": "Not applicable", "effort": "Travel, waiting room, weeks between visits", "cost": "£40 to £70 every visit" } }
       ]
     }

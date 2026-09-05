@@ -25,7 +25,7 @@
       {%- assign sig = section.settings.signature | default: '' -%}
       {%- if sig != blank and sig contains 'FIRST NAME' -%}{%- assign sig = '' -%}{%- endif -%}
       {%- if sig != blank -%}<p class="jw-why__sign">{{ sig | escape }}</p>{%- endif -%}
-      {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+      {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'none' %}
     </div>
   </div>
 </section>

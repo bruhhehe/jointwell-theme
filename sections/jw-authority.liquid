@@ -7,12 +7,18 @@
   <div class="jw-wrap">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
-    <div class="jw-quotes">
+    <div class="jw-quotes jw-authority__quotes">
       {%- for block in section.blocks -%}
+        {%- if block.settings.quote == blank -%}{%- continue -%}{%- endif -%}
         <figure class="jw-card jw-quote" {{ block.shopify_attributes }}>
+          {%- if block.settings.logo != blank -%}
+            {{ block.settings.logo | image_url: width: 240 | image_tag: loading: 'lazy', class: 'jw-quote__logo', alt: block.settings.who }}
+          {%- else -%}
+            <span class="jw-authority__source">{{ block.settings.who | escape }}</span>
+          {%- endif -%}
           <blockquote>{{ block.settings.quote | escape }}</blockquote>
           <figcaption>
-            <span class="jw-quote__who">{{ block.settings.who | escape }}</span>
+            <span class="jw-quote__who">{{ block.settings.role | escape }}</span>
             {%- if block.settings.source_url != blank -%}
               <a class="jw-quote__src" href="{{ block.settings.source_url }}" rel="noopener" target="_blank">Source</a>
             {%- endif -%}
@@ -21,7 +27,7 @@
       {%- endfor -%}
     </div>
     <p class="jw-caption jw-narrow">{{ section.settings.footnote | escape }}</p>
-    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'none' %}
   </div>
 </section>
 
@@ -41,8 +47,10 @@
     {
       "type": "quote",
       "name": "Quote",
-      "limit": 3,
+      "limit": 5,
       "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Logo (only if you hold permission to use it)" },
+        { "type": "text", "id": "role", "label": "Line under the quote (role or publication)" },
         { "type": "textarea", "id": "quote", "label": "Quote (verbatim from the source)" },
         { "type": "text", "id": "who", "label": "Who said it" },
         { "type": "url", "id": "source_url", "label": "Link to the source" }

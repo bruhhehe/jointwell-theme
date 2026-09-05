@@ -1,0 +1,73 @@
+{% comment %} Two panels: left, the four things she can check without us; right, the guarantee with Worst case / Best case. {% endcomment %}
+<section class="jw-wordg jw-band" id="jw-guarantee">
+  <div class="jw-wrap">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
+    <div class="jw-wordg__grid">
+      <div class="jw-card jw-wordg__checks">
+        <h3 class="jw-h3">{{ section.settings.checks_title | escape }}</h3>
+        <ul class="jw-checks" role="list">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign link = block.settings.link
+              if link == blank and block.settings.built_in == 'ce'
+                assign link = 'jw-ce-certificate.jpg' | asset_url
+              elsif link == blank and block.settings.built_in == 'reviews'
+                assign link = '#jw-reviews'
+              elsif link == blank and block.settings.built_in == 'returns'
+                assign link = routes.root_url | append: 'pages/returns-policy'
+              endif
+            -%}
+            <li {{ block.shopify_attributes }}>
+              <strong>{{ block.settings.lead | escape }}</strong> {{ block.settings.text | escape }}
+              {%- if link != blank and block.settings.link_text != blank %} <a href="{{ link }}"{% if block.settings.built_in == 'ce' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.link_text | escape }}</a>{% endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="jw-card jw-card--hi jw-wordg__guarantee">
+        <p class="jw-eyebrow">{{ section.settings.g_eyebrow | escape }}</p>
+        <h3 class="jw-h2">{{ section.settings.g_heading | escape }}</h3>
+        <p class="jw-body">{{ section.settings.g_text | escape }}</p>
+        <p class="jw-body"><strong>Worst case,</strong> {{ section.settings.worst | escape }}</p>
+        <p class="jw-body"><strong>Best case,</strong> {{ section.settings.best | escape }}</p>
+        <a class="jw-btn jw-btn--primary jw-btn--block" href="{{ section.settings.cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
+        <p class="jw-caption">90-day trial, we pay return postage</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "JW Checks and guarantee",
+  "tag": "section",
+  "class": "jw-section-wordg",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "We are the ones selling it. So don't take our word for any of it." },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Everything above this line was written by us, and you are right to knock some off for the fact that we want your money. Here are the parts you can check without us, and what happens if you try it and it does nothing." },
+    { "type": "text", "id": "checks_title", "label": "Left panel title", "default": "Four things you can check yourself" },
+    { "type": "text", "id": "g_eyebrow", "label": "Right panel small line", "default": "The 90-day worst-joint trial" },
+    { "type": "text", "id": "g_heading", "label": "Right panel heading", "default": "If it doesn't help, we don't keep your money." },
+    { "type": "textarea", "id": "g_text", "label": "Right panel text", "default": "Use Jointwell every morning for up to three months, on your own knee or shoulder, in your own kitchen. If you can't feel the difference, send it back within 90 days of delivery for a full refund and we pay the return postage. Every wrap carries a 2-year warranty as well, with UK support." },
+    { "type": "text", "id": "worst", "label": "Worst case", "default": "you post it back and you are where you started." },
+    { "type": "text", "id": "best", "label": "Best case", "default": "the first cold morning in October is the one you don't notice." },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Start the 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    { "type": "check", "name": "Check", "limit": 4, "settings": [
+      { "type": "text", "id": "lead", "label": "Bold lead" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "link_text", "label": "Link text" },
+      { "type": "url", "id": "link", "label": "Link" },
+      { "type": "select", "id": "built_in", "label": "Built-in link", "options": [ { "value": "", "label": "None" }, { "value": "ce", "label": "CE certificate" }, { "value": "returns", "label": "Returns page" }, { "value": "reviews", "label": "Reviews on this page" } ], "default": "" }
+    ] }
+  ],
+  "presets": [{ "name": "JW Checks and guarantee", "blocks": [
+    { "type": "check", "settings": { "lead": "The heat timings.", "text": "Boil your own hot water bottle. Put a hand on it after twenty minutes and again after thirty. You will not need us to tell you what you find." } },
+    { "type": "check", "settings": { "lead": "The certificate.", "text": "Our CE test document is linked here. It covers electrical safety. It does not say this is a medical device, and we are not going to imply that it does.", "link_text": "Open the CE certificate", "built_in": "ce" } },
+    { "type": "check", "settings": { "lead": "The returns.", "text": "Read the policy. We pay the postage back. A company that expected most people to send it back could not afford to write that.", "link_text": "Read the returns policy", "built_in": "returns" } },
+    { "type": "check", "settings": { "lead": "Our reviews.", "text": "Every one is from a customer with an order on file, in their own words, with the photo they sent us. We do not edit them, and the one who says the strap takes a minute to get right is on the page too.", "link_text": "Read the reviews", "built_in": "reviews" } }
+  ] }]
+}
+{% endschema %}

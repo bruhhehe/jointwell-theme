@@ -4,7 +4,7 @@
     <div class="jw-final__copy">
       <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
       <p class="jw-lead">{{ section.settings.text | escape }}</p>
-      {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+      {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, style: 'card' %}
     </div>
     <div class="jw-final__media">
       {%- if section.settings.image != blank -%}

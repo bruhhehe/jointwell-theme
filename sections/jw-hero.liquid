@@ -54,17 +54,55 @@
       </a>
 
       <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
-      <div class="jw-hero__price" aria-label="Price">
-        {%- if compare_text != blank -%}
-          <s class="jw-price__was">{{ compare_text }}</s>
-        {%- endif -%}
-        <span class="jw-price__now">{{ price_text }}</span>
-        {%- if section.settings.price_note != blank -%}
-          <span class="jw-price__note">{{ section.settings.price_note | escape }}</span>
+      <div class="jw-hero__pricerow">
+        <div class="jw-hero__price" aria-label="Price">
+          {%- if compare_text != blank -%}<s class="jw-price__was">{{ compare_text }}</s>{%- endif -%}
+          <span class="jw-price__now">{{ price_text }}</span>
+          {%- if section.settings.price_note != blank -%}<span class="jw-price__note">{{ section.settings.price_note | escape }}</span>{%- endif -%}
+        </div>
+        {%- assign rq = section.settings.review_short | default: '' -%}
+        {%- if rq != blank and section.settings.review_name != blank -%}
+          <aside class="jw-card jw-review-card jw-hero__minicard" aria-label="Customer review">
+            {%- if section.settings.review_photo != blank -%}
+              {{ section.settings.review_photo | image_url: width: 120 | image_tag: loading: 'lazy', class: 'jw-review-card__photo', alt: section.settings.review_name }}
+            {%- elsif section.settings.review_stock != blank -%}
+              <img class="jw-review-card__photo" src="{{ section.settings.review_stock | asset_url }}" width="56" height="56" loading="lazy" alt="{{ section.settings.review_name | escape }}">
+            {%- endif -%}
+            <div>
+              <p class="jw-review-card__name">{{ section.settings.review_name | escape }}{% if section.settings.review_age != blank %}, {{ section.settings.review_age | escape }}{% endif %}{% if section.settings.review_town != blank %}, {{ section.settings.review_town | escape }}{% endif %} <span class="jw-stars" aria-hidden="true">★★★★★</span></p>
+              <blockquote class="jw-review-card__quote">{{ rq | escape }}</blockquote>
+            </div>
+          </aside>
         {%- endif -%}
       </div>
 
-      <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
+      {%- if product != blank and product.available -%}
+        <form action="{{ routes.cart_add_url }}" method="post" class="jw-hero__tiers" id="jw-buy" data-jw-checkout>
+          <input type="hidden" name="return_to" value="/checkout">
+          <input type="hidden" name="quantity" value="1">
+          <fieldset class="jw-hero__fieldset">
+            <legend class="jw-hero__legend">{{ section.settings.tiers_legend | escape }}</legend>
+            {%- for v in product.variants -%}
+              {%- if v.available -%}
+                <label class="jw-tier jw-tier--compact{% if forloop.index == section.settings.preselect %} jw-tier--badged{% endif %}">
+                  <input type="radio" name="id" value="{{ v.id }}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
+                  <span class="jw-tier__body">
+                    {%- if forloop.index == section.settings.preselect -%}<span class="jw-tier__badge">{{ section.settings.badge | escape }}</span>{%- endif -%}
+                    <span class="jw-tier__name">{{ v.title | escape }}</span>
+                  </span>
+                  <span class="jw-tier__price">
+                    {%- if v.compare_at_price > v.price -%}<s class="jw-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+                    <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
+                  </span>
+                </label>
+              {%- endif -%}
+            {%- endfor -%}
+          </fieldset>
+          <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn">{{ section.settings.cta_label | escape }}</button>
+        </form>
+      {%- else -%}
+        <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
+      {%- endif -%}
       <ul class="jw-trust" role="list">
         <li>90-day trial, we pay return postage</li>
         <li>2-year UK warranty</li>
@@ -85,6 +123,18 @@
     </div>
   </div>
 </section>
+<script>
+  (function () {
+    var form = document.querySelector('form.jw-hero__tiers[data-jw-checkout]');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      var chosen = form.querySelector('input[name="id"]:checked');
+      if (!chosen) return;
+      e.preventDefault();
+      window.location.href = '/cart/' + chosen.value + ':1';
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -97,6 +147,17 @@
     { "type": "text", "id": "heading", "label": "Headline", "default": "Get down on the floor with the grandchildren. And get back up again." },
     { "type": "textarea", "id": "subline", "label": "Sub-line", "default": "A cordless heated wrap with massage for knees, shoulders and elbows. Made for knees, shoulders and elbows that have got worse over the years. Try it for 90 days on your worst joint. If it does not help, we pay the postage back." },
     { "type": "text", "id": "product_name", "label": "Product name line", "default": "Jointwell heated joint wrap" },
+    { "type": "header", "content": "Tier picker" },
+    { "type": "text", "id": "tiers_legend", "label": "Legend", "default": "How many?" },
+    { "type": "range", "id": "preselect", "label": "Preselected tier", "min": 1, "max": 3, "step": 1, "default": 2 },
+    { "type": "text", "id": "badge", "label": "Badge on the preselected tier", "default": "Most chosen" },
+    { "type": "header", "content": "Review card beside the price" },
+    { "type": "text", "id": "review_name", "label": "Name" },
+    { "type": "text", "id": "review_age", "label": "Age" },
+    { "type": "text", "id": "review_town", "label": "Town" },
+    { "type": "text", "id": "review_short", "label": "One sentence, word for word from their review" },
+    { "type": "image_picker", "id": "review_photo", "label": "Their photo" },
+    { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
     { "type": "header", "content": "Three ticks" },
     { "type": "text", "id": "tick_1", "label": "Tick 1", "default": "Heat held for a full 30 minutes, 45 to 65°C" },
     { "type": "text", "id": "tick_2", "label": "Tick 2", "default": "Three massage strengths, running alongside" },
@@ -117,17 +178,7 @@
     { "type": "url", "id": "cta_link", "label": "Button link", "info": "Leave blank to jump to the buy box below." },
     { "type": "header", "content": "Image" },
     { "type": "image_picker", "id": "image", "label": "Main photo (4:5)" },
-    { "type": "text", "id": "image_alt", "label": "Photo description for screen readers", "default": "Woman at her kitchen table wearing the Jointwell wrap on her knee" },
-    { "type": "header", "content": "Review card beside the price" },
-    { "type": "paragraph", "content": "Use a real, verified review only. Link it to the Judge.me review so the tick can be checked." },
-    { "type": "text", "id": "review_name", "label": "First name", "default": "Maggie" },
-    { "type": "text", "id": "review_age", "label": "Age", "default": "64" },
-    { "type": "text", "id": "review_town", "label": "Town" },
-    { "type": "select", "id": "review_stock", "label": "Built-in customer photo", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah" }, { "value": "jw-review-margaret.jpg", "label": "Margaret" }, { "value": "jw-review-linda.jpg", "label": "Linda" }, { "value": "jw-review-brenda.jpg", "label": "Brenda" }, { "value": "jw-review-susan.jpg", "label": "Susan" } ], "default": "" },
-    { "type": "textarea", "id": "review_quote", "label": "Full quote", "info": "The customer's exact words. The card stays hidden until this is filled in." },
-    { "type": "text", "id": "review_short", "label": "Short line for the card", "info": "One sentence, taken word for word from the full quote. Keeps the card small so it does not cover the photo. Leave blank to use the first sentence." },
-    { "type": "image_picker", "id": "review_photo", "label": "Customer's own photo" },
-    { "type": "url", "id": "review_link", "label": "Link to the Judge.me review" }
+    { "type": "text", "id": "image_alt", "label": "Photo description for screen readers", "default": "Woman at her kitchen table wearing the Jointwell wrap on her knee" }
   ],
   "presets": [{ "name": "JW Hero" }]
 }
