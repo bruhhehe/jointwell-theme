@@ -76,26 +76,115 @@
   "tag": "section",
   "class": "jw-section-reviews",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "What real buyers say" },
-    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Customers in their own words, with the photos they sent us. We hold the order record for every one, and we do not edit them." },
-    { "type": "product", "id": "product", "label": "Product for the Judge.me widget" },
-    { "type": "header", "content": "Total (shows only when a count is set)" },
-    { "type": "text", "id": "count", "label": "Number of verified reviews", "info": "Only a number Judge.me shows. Leave blank until then." },
-    { "type": "text", "id": "rating", "label": "Average, for example 4.8" },
-    { "type": "text", "id": "count_note", "label": "Small note after it", "default": "across Australia and the UK" },
-    { "type": "header", "content": "One honest outcome number (hidden until all three are filled)" },
-    { "type": "text", "id": "stat_number", "label": "The number, for example 8 in 10" },
-    { "type": "text", "id": "stat_text", "label": "What it means", "info": "For example: said mornings were easier after four weeks." },
-    { "type": "text", "id": "stat_method", "label": "How you got it", "info": "For example: Email survey of 212 UK buyers, June 2027, 61 replies. Self-reported, not a clinical result." },
-    { "type": "header", "content": "Video testimonial (hidden until a link is set)" },
-    { "type": "text", "id": "video_url", "label": "Video link", "info": "YouTube, Vimeo or a direct MP4 link. A real customer, with their permission." },
-    { "type": "text", "id": "video_title", "label": "Who is in it", "default": "Name, age, town" },
-    { "type": "text", "id": "video_caption", "label": "One line under the video" },
-    { "type": "image_picker", "id": "video_poster", "label": "Poster frame (MP4 only)" },
-    { "type": "checkbox", "id": "show_widget", "label": "Show the full Judge.me review widget", "default": false, "info": "Only switch on once the Judge.me app is installed." },
-    { "type": "text", "id": "widget_title", "label": "Widget title", "default": "All verified reviews" },
-    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
-    { "type": "url", "id": "cta_link", "label": "Button link" }
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What real buyers say"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Customers in their own words, with the photos they sent us. We hold the order record for every one, and we do not edit them."
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product for the Judge.me widget"
+    },
+    {
+      "type": "header",
+      "content": "Total (shows only when a count is set)"
+    },
+    {
+      "type": "text",
+      "id": "count",
+      "label": "Number of verified reviews",
+      "info": "Only a number Judge.me shows. Leave blank until then."
+    },
+    {
+      "type": "text",
+      "id": "rating",
+      "label": "Average, for example 4.8"
+    },
+    {
+      "type": "text",
+      "id": "count_note",
+      "label": "Small note after it",
+      "info": "For example: across the UK. Leave blank to hide."
+    },
+    {
+      "type": "header",
+      "content": "Outcome number (hidden until all three are set)"
+    },
+    {
+      "type": "text",
+      "id": "stat_number",
+      "label": "The number, for example 8 in 10"
+    },
+    {
+      "type": "text",
+      "id": "stat_text",
+      "label": "What it means",
+      "info": "For example: said mornings were easier after four weeks."
+    },
+    {
+      "type": "text",
+      "id": "stat_method",
+      "label": "How you got it",
+      "info": "For example: Email survey of 212 UK buyers, June 2027, 61 replies. Self-reported, not a clinical result."
+    },
+    {
+      "type": "header",
+      "content": "Video testimonial (hidden until a link is set)"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video link",
+      "info": "YouTube, Vimeo or a direct MP4 link. A real customer, with their permission."
+    },
+    {
+      "type": "text",
+      "id": "video_title",
+      "label": "Who is in it",
+      "default": "Name, age, town"
+    },
+    {
+      "type": "text",
+      "id": "video_caption",
+      "label": "One line under the video"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "Poster frame (MP4 only)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_widget",
+      "label": "Show the full Judge.me review widget",
+      "default": false,
+      "info": "Only switch on once the Judge.me app is installed."
+    },
+    {
+      "type": "text",
+      "id": "widget_title",
+      "label": "Widget title",
+      "default": "All verified reviews"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Try it for 90 days"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
   ],
   "blocks": [
     {
@@ -103,14 +192,77 @@
       "name": "Review card",
       "limit": 6,
       "settings": [
-        { "type": "text", "id": "name", "label": "First name", "default": "Maggie" },
-        { "type": "text", "id": "age", "label": "Age", "default": "64" },
-        { "type": "text", "id": "town", "label": "Town or state" },
-        { "type": "text", "id": "uses", "label": "Uses it on (knee, shoulder, elbow, cold mornings)" },
-        { "type": "textarea", "id": "quote", "label": "Quote, exactly as written in the review", "info": "The card stays hidden until a real quote is pasted here." },
-        { "type": "image_picker", "id": "photo", "label": "Customer's own photo" },
-        { "type": "select", "id": "stock", "label": "Built-in photo", "info": "Only the customer's own photo belongs beside their words. Leave as None unless they sent one.", "options": [ { "value": "", "label": "None" }, { "value": "jw-review-sarah.jpg", "label": "Sarah, Harrogate" }, { "value": "jw-review-margaret.jpg", "label": "Margaret, York" }, { "value": "jw-review-linda.jpg", "label": "Linda, Ripon" }, { "value": "jw-review-brenda.jpg", "label": "Brenda, Skipton" }, { "value": "jw-review-susan.jpg", "label": "Susan, Ilkley" } ], "default": "" },
-        { "type": "url", "id": "link", "label": "Link to the review (optional)" }
+        {
+          "type": "text",
+          "id": "name",
+          "label": "First name",
+          "default": "Maggie"
+        },
+        {
+          "type": "text",
+          "id": "age",
+          "label": "Age",
+          "default": "64"
+        },
+        {
+          "type": "text",
+          "id": "town",
+          "label": "Town or state"
+        },
+        {
+          "type": "text",
+          "id": "uses",
+          "label": "Uses it on (knee, shoulder, elbow, cold mornings)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote, exactly as written in the review",
+          "info": "The card stays hidden until a real quote is pasted here."
+        },
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Customer's own photo"
+        },
+        {
+          "type": "select",
+          "id": "stock",
+          "label": "Built-in photo",
+          "info": "Only the customer's own photo belongs beside their words. Leave as None unless they sent one.",
+          "options": [
+            {
+              "value": "",
+              "label": "None"
+            },
+            {
+              "value": "jw-review-sarah.jpg",
+              "label": "Sarah, Harrogate"
+            },
+            {
+              "value": "jw-review-margaret.jpg",
+              "label": "Margaret, York"
+            },
+            {
+              "value": "jw-review-linda.jpg",
+              "label": "Linda, Ripon"
+            },
+            {
+              "value": "jw-review-brenda.jpg",
+              "label": "Brenda, Skipton"
+            },
+            {
+              "value": "jw-review-susan.jpg",
+              "label": "Susan, Ilkley"
+            }
+          ],
+          "default": ""
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link to the review (optional)"
+        }
       ]
     }
   ],
@@ -118,9 +270,30 @@
     {
       "name": "JW Customers in their own words",
       "blocks": [
-        { "type": "review", "settings": { "name": "Maggie", "age": "64", "quote": "" } },
-        { "type": "review", "settings": { "name": "Sue", "age": "68", "quote": "" } },
-        { "type": "review", "settings": { "name": "Janet", "age": "70", "quote": "" } }
+        {
+          "type": "review",
+          "settings": {
+            "name": "Maggie",
+            "age": "64",
+            "quote": ""
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "name": "Sue",
+            "age": "68",
+            "quote": ""
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "name": "Janet",
+            "age": "70",
+            "quote": ""
+          }
+        }
       ]
     }
   ]

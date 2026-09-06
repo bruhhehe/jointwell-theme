@@ -168,45 +168,176 @@
   "tag": "section",
   "class": "jw-section-offerblock",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Everything you get, and what it costs" },
-    { "type": "textarea", "id": "intro", "label": "Intro", "default": "One payment. No subscription, no refills you have to buy, nothing that runs out. The sachet is a nicety, not a need." },
-    { "type": "product", "id": "product", "label": "Product" },
-    { "type": "text", "id": "product_handle", "label": "Product handle (fallback)", "default": "jointwell-heated-joint-wrap" },
-    { "type": "image_picker", "id": "image", "label": "Box photo" },
-    { "type": "text", "id": "box_title", "label": "List title", "default": "In the box" },
-    { "type": "text", "id": "total_line", "label": "Total line (shows when items carry values)", "default": "Bought separately, £89." },
-    { "type": "text", "id": "values_note", "label": "Note under the values", "default": "Values are what each item costs on its own: the wrap at its full price, the strap and cable at what they sell for, delivery at Royal Mail's tracked rate." },
-    { "type": "text", "id": "specs_label", "label": "Specifics toggle label", "default": "The specifics, if you want them" },
-    { "type": "header", "content": "Tier picker" },
-    { "type": "text", "id": "tiers_legend", "label": "Legend", "default": "How many?" },
-    { "type": "range", "id": "preselect", "label": "Preselected tier", "min": 1, "max": 3, "step": 1, "default": 2 },
-    { "type": "text", "id": "sub_1", "label": "One wrap: line under", "default": "For one knee, shoulder or elbow. Includes the extension strap." },
-    { "type": "text", "id": "sub_2", "label": "Two wraps: line under", "default": "Both knees at once, or one for you and one for a partner." },
-    { "type": "text", "id": "badge_2", "label": "Two wraps: badge", "default": "Most chosen" },
-    { "type": "text", "id": "sub_4", "label": "Four wraps: line under", "default": "For the household." },
-    { "type": "text", "id": "badge_4", "label": "Four wraps: badge", "default": "Best value" },
-    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
-    { "type": "url", "id": "fallback_link", "label": "Link if no product" },
-    { "type": "text", "id": "price_note", "label": "Line under the button", "default": "Free tracked UK delivery. Dispatched within 1 to 3 working days." },
-    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "A comfort device, not a medical treatment. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using heat." }
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Everything you get, and what it costs"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "One payment. No subscription, no refills you have to buy, nothing that runs out. The sachet is a nicety, not a need."
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Product handle (fallback)",
+      "default": "jointwell-heated-joint-wrap"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Box photo"
+    },
+    {
+      "type": "text",
+      "id": "box_title",
+      "label": "List title",
+      "default": "In the box"
+    },
+    {
+      "type": "text",
+      "id": "total_line",
+      "label": "Total line (shows when items carry values)",
+      "default": "Bought separately, £89."
+    },
+    {
+      "type": "text",
+      "id": "values_note",
+      "label": "Note under the values",
+      "default": "Values are what each item costs on its own: the wrap at its full price, the strap and cable at what they sell for, delivery at Royal Mail's tracked rate."
+    },
+    {
+      "type": "text",
+      "id": "specs_label",
+      "label": "Specifics toggle label",
+      "default": "The specifics, if you want them"
+    },
+    {
+      "type": "header",
+      "content": "Tier picker"
+    },
+    {
+      "type": "text",
+      "id": "tiers_legend",
+      "label": "Legend",
+      "default": "How many?"
+    },
+    {
+      "type": "range",
+      "id": "preselect",
+      "label": "Preselected tier",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "text",
+      "id": "sub_1",
+      "label": "One wrap: line under",
+      "default": "For one knee, shoulder or elbow. Includes the extension strap."
+    },
+    {
+      "type": "text",
+      "id": "sub_2",
+      "label": "Two wraps: line under",
+      "default": "Both knees at once, or one for you and one for a partner."
+    },
+    {
+      "type": "text",
+      "id": "badge_2",
+      "label": "Two wraps: badge",
+      "default": "Most chosen"
+    },
+    {
+      "type": "text",
+      "id": "sub_4",
+      "label": "Four wraps: line under",
+      "default": "For the household."
+    },
+    {
+      "type": "text",
+      "id": "badge_4",
+      "label": "Four wraps: badge",
+      "default": "Best value"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Try it for 90 days"
+    },
+    {
+      "type": "url",
+      "id": "fallback_link",
+      "label": "Link if no product"
+    },
+    {
+      "type": "text",
+      "id": "price_note",
+      "label": "Line under the button",
+      "default": "Free tracked UK delivery. Dispatched within 1 to 3 working days."
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "A comfort device, not a medical treatment. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using heat."
+    }
   ],
   "blocks": [
     {
       "type": "item",
       "name": "In the box",
       "settings": [
-        { "type": "text", "id": "item", "label": "Item", "default": "The Jointwell wrap" },
-        { "type": "text", "id": "note", "label": "Note", "default": "" },
-        { "type": "text", "id": "value", "label": "Worth (only if you can evidence it)", "default": "" },
-        { "type": "text", "id": "pay", "label": "You pay", "default": "Included" }
+        {
+          "type": "text",
+          "id": "item",
+          "label": "Item",
+          "default": "The Jointwell wrap"
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Note"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Worth (only if you can evidence it)"
+        },
+        {
+          "type": "text",
+          "id": "pay",
+          "label": "You pay",
+          "default": "Included"
+        }
       ]
     },
     {
       "type": "spec",
       "name": "Specific",
       "settings": [
-        { "type": "text", "id": "label", "label": "Label", "default": "Heat" },
-        { "type": "text", "id": "value", "label": "Value", "default": "Five levels, 45 to 65°C" }
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Heat"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Five levels, 45 to 65°C"
+        }
       ]
     }
   ],
@@ -214,20 +345,118 @@
     {
       "name": "JW Offer block",
       "blocks": [
-        { "type": "item", "settings": { "item": "The Jointwell wrap", "note": "46 × 30 cm, 55 cm strap span, one size", "value": "£65", "pay": "£49" } },
-        { "type": "item", "settings": { "item": "Shoulder and elbow extension strap", "note": "", "value": "£9", "pay": "Free" } },
-        { "type": "item", "settings": { "item": "USB-C charging cable", "note": "the same as most phones", "value": "£6", "pay": "Free" } },
-        { "type": "item", "settings": { "item": "Mugwort warming sachet", "note": "lift it out if you would rather go without", "value": "£1.50", "pay": "Free" } },
-        { "type": "item", "settings": { "item": "The 7-morning routine, large print", "note": "also free by email below", "value": "£3", "pay": "Free" } },
-        { "type": "item", "settings": { "item": "Tracked UK delivery", "note": "", "value": "£4.95", "pay": "Free" } },
-        { "type": "item", "settings": { "item": "2-year warranty and the 90-day trial", "note": "return postage paid", "value": "", "pay": "Included" } },
-        { "type": "spec", "settings": { "label": "Heat", "value": "Five levels, 45 to 65°C, held for the session" } },
-        { "type": "spec", "settings": { "label": "Massage", "value": "Three strengths, or off" } },
-        { "type": "spec", "settings": { "label": "Timer", "value": "30 minutes, then it switches itself off" } },
-        { "type": "spec", "settings": { "label": "Weight", "value": "360 g" } },
-        { "type": "spec", "settings": { "label": "Size", "value": "46 cm across, 30 cm tall, 55 cm strap span; extension strap for shoulder and elbow" } },
-        { "type": "spec", "settings": { "label": "Battery", "value": "3000 mAh, charged over USB-C" } },
-        { "type": "spec", "settings": { "label": "Testing", "value": "CE, EMC Directive 2014/30/EU, independent lab, November 2024. Not a medical device." } }
+        {
+          "type": "item",
+          "settings": {
+            "item": "The Jointwell wrap",
+            "note": "46 × 30 cm, 55 cm strap span, one size",
+            "value": "£65",
+            "pay": "£49"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "item": "Shoulder and elbow extension strap",
+            "note": "",
+            "value": "£9",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "item": "USB-C charging cable",
+            "note": "the same as most phones",
+            "value": "£6",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "item": "Mugwort warming sachet",
+            "note": "lift it out if you would rather go without",
+            "value": "£1.50",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "item": "The 7-morning routine, large print",
+            "note": "also free by email below",
+            "value": "£3",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "item": "Tracked UK delivery",
+            "note": "",
+            "value": "£4.95",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "item": "2-year warranty and the 90-day trial",
+            "note": "return postage paid",
+            "value": "",
+            "pay": "Included"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Heat",
+            "value": "Five levels, 45 to 65°C, held for the session"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Massage",
+            "value": "Three strengths, or off"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Timer",
+            "value": "30 minutes, then it switches itself off"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Weight",
+            "value": "360 g"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Size",
+            "value": "46 cm across, 30 cm tall, 55 cm strap span; extension strap for shoulder and elbow"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Battery",
+            "value": "3000 mAh, charged over USB-C"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Testing",
+            "value": "CE, EMC Directive 2014/30/EU, independent lab, November 2024. Not a medical device."
+          }
+        }
       ]
     }
   ]

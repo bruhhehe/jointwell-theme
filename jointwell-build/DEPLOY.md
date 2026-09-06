@@ -1,6 +1,6 @@
 # DEPLOY: preview, check, publish
 
-Repo: github.com/bruhhehe/jointwell-theme. `main` is untouched Dawn 16.0.0. `jointwell-rebuild` is the branch connected to the LIVE theme: anything pushed there goes straight to customers. New work is on `jointwell-v3`; connect that branch to a new unpublished theme, check it, then publish it from the theme list.
+Repo: github.com/bruhhehe/jointwell-theme. `main` is untouched Dawn 16.0.0. `jointwell-v3` is the branch connected to the LIVE theme (published 6 September 2026): anything pushed there goes straight to customers. `jointwell-rebuild` is the previous live theme, kept so it can be published back in one click. Do new work on a fresh branch, connect it to a new unpublished theme, check it, then publish it from the theme list.
 
 ## 1. Connect the branch to an unpublished theme
 
@@ -46,4 +46,4 @@ Then the same on a laptop, and once with Windows high-contrast or a screen reade
 ## 5. After publishing
 
 - Keep `jointwell-rebuild` connected. Future pushes go live immediately, so from then on treat that branch as production and do new work on a fresh branch connected to a fresh unpublished theme.
-- The push script `jw-push.cmd` in the repo folder commits everything and pushes `jointwell-rebuild`. Once that branch is live, do not run it without checking what it will push.
+- The push script `jw-push.cmd` in the repo folder pushes the `jointwell-v3` bundle. That branch is live, so do not run it without checking what it will push.

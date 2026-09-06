@@ -46,8 +46,8 @@ Dispatch clock (real), the autumn price with its real end date, a sticky bar, a 
 
 ## Compliance flags carried forward
 
-1. **Reviews.** The five review cards (Sarah, Margaret, Linda, Brenda, Susan) with photos are on the page under "Real orders, real photos, unedited". The build brief allowed only the three existing testimonials (Maggie, Sue, Janet) plus any the owner adds, and required every card to link to its Judge.me review. If these five are real customers, add the Judge.me links so the "Verified buyer" tick can be checked. If they are not, remove them before this theme is published: fabricated reviews are banned outright under the DMCC Act and the report singles this audience out as the one that checks.
-2. "Sold in Australia for two years before it came to Britain" appears under the headline. Keep only if it is true and can be evidenced.
+1. **Reviews.** The five review cards (Sarah, Margaret, Linda, Brenda, Susan) are real buyers, confirmed by the owner on 6 September. They stay. Add each one's Judge.me link in the review card settings so the "Verified buyer" tick can be checked by anyone who wants to.
+2. The "sold in Australia" line that an earlier pass added was not true and has been removed from the hero, the reviews note and every schema default. The owner confirmed there was never an Australian run. Do not add it back.
 3. The sub-line "so the first steps of the day aren't the worst" is an outcome phrase. It is mild, but "so the first steps of the day start warm" is safer.
 4. Source URLs on the authority quotes and evidence lines are still blank in places.
 5. The product page (`templates/product.json`) was not touched in this pass.
@@ -55,3 +55,11 @@ Dispatch clock (real), the autumn price with its real end date, a sticky bar, a 
 ## Files changed in this pass
 
 `sections/jw-belief.liquid` (new), `sections/jw-doorways.liquid` (rebuilt), `sections/jw-offer-block.liquid` (new), `snippets/jw-cta-strip.liquid`, `snippets/jw-product-card.liquid`, `snippets/jw-sticky-bar.liquid`, `sections/jw-authority.liquid`, `sections/jw-why.liquid`, `sections/jw-timeline.liquid`, `sections/jw-heat-chart.liquid`, `sections/jw-word-guarantee.liquid`, `sections/jw-header.liquid` (anchor defaults), `assets/jw-home.css`, `templates/index.json`. `jw-how-it-works` and `jw-box` stay in the theme but are no longer on the homepage.
+
+## 6 September fix: why the homepage showed 404
+
+Shopify's GitHub sync silently drops any file that fails its schema validation, and then drops every template that references a dropped section. Three sections failed: `jw-hero` and `jw-reviews` had a settings header longer than 50 characters, and `jw-offer-block` (with the same pattern in hero, reviews and proof strip) had text settings with `"default": ""`. Shopify rejects both. Without those three sections, `templates/index.json`, `product.json`, `product.jw.json` and `page.jw-landing.json` were rejected too, so the homepage had no template and returned 404.
+
+Fixed by shortening the headers and removing the blank defaults (a text setting with no default is simply blank). Each schema was checked against Shopify's own validator on an unpublished theme before this commit. Rules to keep for any new section: header content 50 characters or fewer, section and block names 25 or fewer, never `"default": ""` on a text or textarea setting.
+
+`jointwell-v3` is now the branch connected to the LIVE theme. Anything pushed to it goes to customers. Start the next pass on a new branch.
