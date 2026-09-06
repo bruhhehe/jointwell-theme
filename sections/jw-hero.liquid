@@ -82,8 +82,8 @@
       <p class="jw-hero__name">{{ section.settings.product_name | escape }}</p>
       <div class="jw-hero__pricerow">
         <div class="jw-hero__price" aria-label="Price">
-          <s class="jw-price__was" data-jw-big-was{% if compare_text == blank %} hidden{% endif %}>{{ compare_text }}</s>
-          <span class="jw-price__now" data-jw-big-price>{{ price_text }}</span>
+          <s class="jw-price__was"{% if compare_text == blank %} hidden{% endif %}>{{ compare_text }}</s>
+          <span class="jw-price__now">{{ price_text }}</span>
           {%- if section.settings.price_note != blank -%}<span class="jw-price__note">{{ section.settings.price_note | escape }}</span>{%- endif -%}
         </div>
         {%- assign rq = section.settings.review_short | default: '' -%}
@@ -102,7 +102,7 @@
         {%- endif -%}
       </div>
 
-      {%- if product != blank and product.available -%}
+      {%- if section.settings.show_tiers and product != blank and product.available -%}
         <form action="{{ routes.cart_add_url }}" method="post" class="jw-hero__tiers" id="jw-buy" data-jw-checkout>
           <input type="hidden" name="return_to" value="/checkout">
           <input type="hidden" name="quantity" value="1">
@@ -146,7 +146,7 @@
           <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span><span class="jw-hero__dot" aria-hidden="true">&ndash;</span><span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
         </form>
       {%- else -%}
-        <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
+        <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-offer' }}">{{ section.settings.cta_label | escape }}</a>
       {%- endif -%}
       {%- if section.settings.dispatch_hour > 0 -%}
         <p class="jw-hero__dispatch" data-jw-dispatch data-hour="{{ section.settings.dispatch_hour }}" data-days="{{ section.settings.dispatch_days }}" hidden>
@@ -308,6 +308,13 @@
     {
       "type": "header",
       "content": "Tier picker"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tiers",
+      "label": "Show the tier picker here too",
+      "default": false,
+      "info": "Off: one button that jumps to the offer box, so the page asks how many only once."
     },
     {
       "type": "text",
