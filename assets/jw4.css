@@ -261,3 +261,5 @@ body { background: var(--jw-bg); }
   .jw-doors__tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .jw-doors__tab { width: 100%; text-align: center; font-size: 17px; padding: 12px 10px; margin: 0; }
 }
+
+.jw5-beat__lines { text-align: center; }
