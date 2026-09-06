@@ -263,3 +263,23 @@ body { background: var(--jw-bg); }
 }
 
 .jw5-beat__lines { text-align: center; }
+
+/* ===== v5.2: one rhythm for every section, and a hairline between them ===== */
+:root { --jw-section: 64px; --jw-rule: rgba(74, 42, 28, 0.14); }
+@media (min-width: 750px) { :root { --jw-section: 96px; } }
+.jw4, .jw-authority, .jw-doorways, .jw-offerblock, .jw-faq, .jw-chart, .jw-final { padding: var(--jw-section) 0; }
+.jw4-hero { padding-top: 32px; }
+@media (min-width: 900px) { .jw4-hero { padding-top: 48px; } }
+/* Heading, its line, then content: the same gaps everywhere */
+.jw4 .jw-h2, .jw-authority .jw-h2, .jw-doorways .jw-h2, .jw-offerblock .jw-h2, .jw-faq .jw-h2 { margin: 0 0 12px; }
+.jw4 .jw-lead, .jw-authority .jw-lead, .jw-doorways .jw-lead, .jw-offerblock .jw-lead, .jw-faq .jw-lead { margin: 0 0 8px; }
+.jw4__center, .jw5-subhead { margin-bottom: 32px; }
+.jw4-enemy__grid, .jw5-decline__beats, .jw4-reviews__grid, .jw5-tl, .jw4-guar__terms, .jw5-quote__fig { margin-top: 0; }
+.jw4-enemy__belieftext, .jw4-mech__only, .jw5-words__body { margin-top: 24px; }
+.jw-cta-strip { margin-top: 40px; }
+.jw5-beat, .jw5-text, .jw5-handoff { margin: 0; }
+.jw5-decline__beats { gap: 44px; }
+.jw5-subhead { padding-top: 24px; }
+/* Hairline between sections. Not above the first, and softened on the dark band. */
+#MainContent .shopify-section + .shopify-section { border-top: 1px solid var(--jw-rule); }
+#MainContent .shopify-section + .shopify-section:has(.jw4--clay) { border-top-color: rgba(255,255,255,0.18); }
