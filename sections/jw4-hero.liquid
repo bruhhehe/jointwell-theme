@@ -36,10 +36,6 @@
         <a class="jw-btn jw-btn--primary" href="{{ cta }}">{{ section.settings.cta_label | escape }}</a>
         <p class="jw4-hero__proof">{{ section.settings.proof_line | escape }}</p>
       </div>
-      {%- if section.settings.dispatch_hour > 0 -%}
-        <p class="jw4-hero__dispatch" data-jw-dispatch data-hour="{{ section.settings.dispatch_hour }}" data-days="{{ section.settings.dispatch_days }}" hidden><span data-jw-dispatch-text></span></p>
-      {%- endif -%}
-      <p class="jw4-hero__disc">{{ section.settings.disclaimer | escape }}</p>
     </div>
   </div>
 </section>
