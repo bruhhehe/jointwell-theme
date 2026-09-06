@@ -290,3 +290,11 @@ body { background: var(--jw-bg); }
 @media (max-width: 899px) {
   .jw5-beat > *, .jw4-mech__row > *, .jw4__split > * { order: 0 !important; }
 }
+
+/* Review wall: the list's own indent was pushing every card off centre */
+.jw4-reviews__grid { list-style: none; margin-left: 0; margin-right: 0; padding: 0; }
+/* Joint selector on a phone: one full-width option per row, all the same height */
+@media (max-width: 749px) {
+  .jw-doors__tabs { grid-template-columns: 1fr; gap: 8px; }
+  .jw-doors__tab { justify-content: flex-start; text-align: left; padding: 14px 18px; }
+}
