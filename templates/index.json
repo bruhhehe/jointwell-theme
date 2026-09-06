@@ -6,9 +6,9 @@
         "product": "jointwell-heated-joint-wrap",
         "price_note": "One payment. Free UK delivery.",
         "eyebrow": "",
-        "subline": "Paula, 65, was going up the stairs on her hands and knees. Fifteen minutes a day, and now she doesn't think about them.",
+        "subline": "Paula, 65, was going up the stairs on her hands and knees. Thirty minutes a day, and now she doesn't think about them.",
         "cta_label": "Try it risk-free →",
-        "proof_line": "★ 4.7 · 1,200+ reviews · 90-day guarantee · Shipped from the UK",
+        "proof_line": "90-day guarantee · Free UK delivery · UK support · 2-year warranty",
         "show_ba": true,
         "ba_caption": "Before and after: Paula on the stairs, then the same stairs twelve weeks on"
       }
@@ -66,7 +66,7 @@
           "type": "step",
           "settings": {
             "title": "Warmth, held at the level you set",
-            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole half hour, instead of starting hot and fading like a wheat bag.",
+            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole half hour, instead of starting hot and fading like a wheat bag. Most people sit at 45 to 50°C: start low, wear it over clothing, and only go higher if it stays comfortable.",
             "stock": "jw-feature-heat.jpg"
           }
         },
@@ -103,11 +103,12 @@
       "type": "jw-authority",
       "settings": {
         "strip": false,
-        "heading": "What the experts say",
-        "intro": "Don't take it from us.",
+        "heading": "What the NHS says about heat",
+        "intro": "Not us. Published guidance, with the source so you can read it yourself.",
         "evidence_heading": "What the evidence says",
         "evidence_note": "",
-        "footnote": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do."
+        "footnote": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do.",
+        "hide_cta": true
       },
       "blocks": {
         "a_nhs": {
@@ -119,26 +120,6 @@
             "source_url": "",
             "photo_url": "",
             "is_logo": true
-          }
-        },
-        "a_kambach": {
-          "type": "quote",
-          "settings": {
-            "who": "Brandon Kambach, MD",
-            "role": "Orthopaedic surgeon",
-            "quote": "Heat therapy is an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness and pain.",
-            "source_url": "",
-            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-kambach_200x200.jpg"
-          }
-        },
-        "a_box": {
-          "type": "quote",
-          "settings": {
-            "who": "Hayden N. Box, MD",
-            "role": "Orthopaedic surgeon, hip and knee replacement",
-            "quote": "Using heat on sore or stiff joints can bring significant relief, especially when dealing with chronic arthritis pain.",
-            "source_url": "",
-            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-box_200x200.jpg"
           }
         },
         "e_dose": {
@@ -171,8 +152,6 @@
       },
       "block_order": [
         "a_nhs",
-        "a_kambach",
-        "a_box",
         "e_dose",
         "e_joints",
         "e_nice"
@@ -248,12 +227,15 @@
         "eyebrow": "",
         "heading": "Paula's not the only one",
         "intro": "Everyone has their own story.",
-        "note": ""
+        "note": "",
+        "hide_cta": true
       }
     },
     "jw_doorways": {
       "type": "jw-doorways",
-      "settings": {},
+      "settings": {
+        "hide_cta": true
+      },
       "blocks": {
         "door_1": {
           "type": "door",
@@ -265,7 +247,7 @@
             "note": "Heat before you move, ice after a flare. That is what physios say, and it is all we say.",
             "stock": "jw-photo-kettle.jpg",
             "alt": "Woman at the kettle with the wrap on her knee",
-            "link": "/blogs/advice/heat-for-arthritic-knee-mornings"
+            "link": ""
           }
         },
         "door_2": {
@@ -278,7 +260,7 @@
             "note": "A wheat bag slides off a shoulder. This one stays.",
             "stock": "jw-photo-armchair.jpg",
             "alt": "Woman in an armchair with the wrap on her shoulder",
-            "link": "/blogs/advice/stiff-shoulder-heat-and-massage"
+            "link": ""
           }
         },
         "door_3": {
@@ -291,7 +273,7 @@
             "note": "If the elbow is hot and sore to touch after a session, that is an ice day.",
             "stock": "jw-photo-crossword-elbow.jpg",
             "alt": "Woman doing a crossword with the wrap on her elbow",
-            "link": "/blogs/advice/tennis-elbow-from-the-garden"
+            "link": ""
           }
         },
         "door_4": {
@@ -304,7 +286,7 @@
             "note": "Never over a wound that has not healed, and never on a hot, red or newly swollen knee. That is a phone call to the clinic.",
             "stock": "jw-photo-breakfast.jpg",
             "alt": "Woman at the breakfast table with the wrap on her knee",
-            "link": "/blogs/advice/heat-after-knee-replacement"
+            "link": ""
           }
         },
         "door_5": {
@@ -317,7 +299,7 @@
             "note": "A joint that has not moved for eight hours is a cold joint. Warmth and movement are what wake it.",
             "stock": "jw-photo-garden-window.jpg",
             "alt": "Woman by the window with the wrap on her knee",
-            "link": "/blogs/advice/morning-stiffness-first-ten-steps"
+            "link": ""
           }
         },
         "door_6": {
@@ -330,7 +312,7 @@
             "note": "Two knees? Two wraps. The pair is the one most gardeners choose.",
             "stock": "jw-photo-floor.jpg",
             "alt": "Woman on the carpet with the wrap on her knee",
-            "link": "/blogs/advice/kneeling-gardening-knees"
+            "link": ""
           }
         },
         "door_7": {
@@ -343,7 +325,7 @@
             "note": "One knee warm, not the whole house. The heating can stay where it is.",
             "stock": "jw-photo-radiator.jpg",
             "alt": "Woman in an armchair by the radiator with the wrap on her knee",
-            "link": "/blogs/advice/cold-weather-joint-aches"
+            "link": ""
           }
         }
       },
@@ -396,7 +378,7 @@
         "g4"
       ],
       "settings": {
-        "intro": "Use it every morning for up to three months on your own knee. If you cannot feel the difference, post it back.",
+        "intro": "Use it for 90 days on your own knee, whenever it suits you. If you cannot feel the difference, post it back and we pay the return postage.",
         "eyebrow": ""
       }
     },
@@ -448,7 +430,7 @@
         "item_5": {
           "type": "item",
           "settings": {
-            "item": "The 7-morning routine, large print",
+            "item": "The warm-up routine card, large print",
             "note": "",
             "value": "£3",
             "pay": "Free"
@@ -571,7 +553,7 @@
           "type": "qa",
           "settings": {
             "question": "Is it safe? Will it burn me?",
-            "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. Do not use it while asleep. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>"
+            "answer": "<p>Heat can burn skin if it is too hot, held too long, or used by someone who cannot feel it properly. So: start at level 1 or 2 (45 to 50°C), wear it over clothing rather than bare skin, and only go higher if it stays comfortable. Every session ends itself after 30 minutes, so it cannot be left running, and you can stop it at any point.</p><p>Do not use it while asleep, over broken skin, or on a joint that is hot, red and swollen. If you have diabetes, circulation problems, reduced feeling in your skin, or you are under medical care for that joint, ask your GP before using any heat product. If the skin goes red and stays red after you take it off, that level is too high for you.</p>"
           }
         },
         "qa_5": {
@@ -775,11 +757,16 @@
     },
     "jw5_discovery": {
       "type": "jw5-quote",
-      "settings": {}
+      "settings": {
+        "quote": "I found it in a Facebook group for osteoarthritis. At first I was sceptical. Was it really going to do anything? I had already tried the lot. Then I saw the 90-day guarantee, a 90-day trial they called it: if it doesn't work, send it back. So I thought, go on then, what is there to lose.",
+        "hide_cta": true
+      }
     },
     "jw5_experience": {
       "type": "jw5-timeline",
-      "settings": {},
+      "settings": {
+        "hide_cta": true
+      },
       "blocks": {
         "w1": {
           "type": "stage",
@@ -813,7 +800,7 @@
           "type": "stage",
           "settings": {
             "when": "Week 12",
-            "lines": "Fifteen minutes, first thing, same as brushing my teeth.\nMy sister asked what I'd been doing differently.\nThat's when I told her about the gadget."
+            "lines": "Thirty minutes, first thing, same as brushing my teeth.\nMy sister asked what I'd been doing differently.\nThat's when I told her about the gadget."
           }
         }
       },
@@ -827,7 +814,9 @@
     },
     "jw5_whynot": {
       "type": "jw5-words",
-      "settings": {}
+      "settings": {
+        "lines": "Thirty minutes with it on, whenever it suited her, and she got on with her day.\nIf you recognised the stairs, the chair, the garden through the window, you're where she was at the start.\nThe device is the same one she's still using."
+      }
     }
   },
   "order": [

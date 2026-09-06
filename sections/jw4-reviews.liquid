@@ -27,7 +27,7 @@
       {%- endfor -%}
     </ul>
     {%- if section.settings.note != blank -%}<p class="jw4-reviews__note">{{ section.settings.note | escape }}</p>{%- endif -%}
-    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, hide: section.settings.hide_cta %}
   </div>
 </section>
 
@@ -71,6 +71,12 @@
       "type": "url",
       "id": "cta_link",
       "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_cta",
+      "label": "Hide the button in this section",
+      "default": false
     }
   ],
   "blocks": [

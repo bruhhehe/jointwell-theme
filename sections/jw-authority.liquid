@@ -54,7 +54,7 @@
     {%- endif -%}
 
     <p class="jw-caption jw-narrow">{{ section.settings.footnote | escape }}</p>
-    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label, hide: section.settings.hide_cta %}
   </div>
 </section>
 
@@ -71,7 +71,8 @@
     { "type": "textarea", "id": "evidence_note", "label": "Line under the evidence", "default": "These are statements about heat in general, with the source linked so you can read it yourself. Nothing here is a claim about what Jointwell will do for your joint." },
     { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do." },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
-    { "type": "url", "id": "cta_link", "label": "Button link" }
+    { "type": "url", "id": "cta_link", "label": "Button link" },
+    { "type": "checkbox", "id": "hide_cta", "label": "Hide the button in this section", "default": false }
   ],
   "blocks": [
     {

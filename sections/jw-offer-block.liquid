@@ -71,7 +71,10 @@
               {%- for v in product.variants -%}
                 {%- if v.available -%}
                   {%- liquid
-                    assign single = product.variants.first.price
+                    assign single = product.variants.first.compare_at_price
+                    if single == blank or single == 0
+                      assign single = product.variants.first.price
+                    endif
                     assign units = 1
                     assign sub = section.settings.sub_1
                     assign badge = ''
@@ -92,7 +95,7 @@
                       {%- if badge != blank -%}<span class="jw-tier2__badge{% if units == 4 %} jw-tier2__badge--alt{% endif %}">{{ badge | escape }}</span>{%- endif -%}
                       <span class="jw-tier2__main">
                         <span class="jw-tier2__name">{{ v.title | escape }}</span>
-                        <span class="jw-tier2__sub">{{ sub | escape }}{% if units > 1 %} <strong>Save {{ saving | money_without_trailing_zeros }} on {{ units }} singles.</strong>{% endif %}</span>
+                        <span class="jw-tier2__sub">{{ sub | escape }}{% if units > 1 %} <strong>Save {{ saving | money_without_trailing_zeros }} against {{ units }} at {{ single | money_without_trailing_zeros }}.</strong>{% endif %}</span>
                       </span>
                       <span class="jw-tier2__price">
                         <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>

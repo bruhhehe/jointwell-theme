@@ -37,22 +37,26 @@
                 {%- if block.settings.when != blank -%}<div><dt>When</dt><dd>{{ block.settings.when | escape }}</dd></div>{%- endif -%}
                 {%- if block.settings.note != blank -%}<div><dt>Worth knowing</dt><dd>{{ block.settings.note | escape }}</dd></div>{%- endif -%}
               </dl>
+              {%- unless section.settings.hide_cta -%}
               <div class="jw-doors__actions">
                 <a class="jw-btn jw-btn--primary" href="{{ block.settings.cta_link | default: section.settings.cta_link | default: '#offer' }}">{{ section.settings.cta_label | escape }}</a>
                 {%- if block.settings.link != blank -%}
                   <a class="jw-doors__more" href="{{ block.settings.link }}">{{ section.settings.more_label | escape }}</a>
                 {%- endif -%}
               </div>
+              {%- endunless -%}
             </div>
           </div>
         {%- endfor -%}
       </div>
     </div>
+    {%- unless section.settings.hide_cta -%}
     <ul class="jw-trust jw-trust--center" role="list">
       <li>90-day trial, we pay return postage</li>
       <li>2-year UK warranty</li>
       <li>Free tracked delivery</li>
     </ul>
+    {%- endunless -%}
   </div>
 </section>
 
@@ -66,6 +70,7 @@
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Same wrap, different mornings. Tap the one that sounds like yours." },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link (leave blank for the offer)" },
+    { "type": "checkbox", "id": "hide_cta", "label": "Hide the buttons in this section", "default": false },
     { "type": "text", "id": "more_label", "label": "Article link text", "default": "Read the longer version" }
   ],
   "blocks": [
