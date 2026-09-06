@@ -1,0 +1,99 @@
+{% comment %}
+  The enemy and the belief shift, in big type. Four things in the cupboard, one reason they all fail,
+  one line that installs the new belief. Nothing about her joints being too far gone.
+{% endcomment %}
+<section class="jw4 jw4--cream jw4-enemy" id="jw-why-it-works">
+  <div class="jw-wrap">
+    <div class="jw4__center">
+      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+      <p class="jw-lead">{{ section.settings.intro | escape }}</p>
+    </div>
+    <ul class="jw4-enemy__grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'item' -%}
+          <li class="jw4-enemy__item" {{ block.shopify_attributes }}>
+            <strong>{{ block.settings.title | escape }}</strong>
+            <span>{{ block.settings.text | escape }}</span>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+    <div class="jw4-enemy__belief">
+      <h2 class="jw-h2">{{ section.settings.belief | escape }}</h2>
+      <p class="jw-lead">{{ section.settings.bridge | escape }}</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW4 Enemy and belief",
+  "tag": "section",
+  "class": "jw4-section-enemy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small line",
+      "default": "Why nothing in the cupboard lasted"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You have tried everything. That is not on you."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "One line under it",
+      "default": "Every one of them gives you warmth that fades."
+    },
+    {
+      "type": "text",
+      "id": "belief",
+      "label": "The belief, in one line",
+      "default": "The ten minutes was the problem. Not the heat."
+    },
+    {
+      "type": "textarea",
+      "id": "bridge",
+      "label": "Bridge to the mechanism",
+      "default": "A stiff joint wants warmth that stays, long enough for the muscles round it to let go. So the whole job was to make warmth stay put, on the joint, for half an hour, with no wire and no microwave. That is all Jointwell is."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Cupboard item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "What it does",
+          "default": "The wheat bag helps for ten minutes."
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Then what",
+          "default": "Then it is cold, and you are back at the microwave."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW4 Enemy and belief",
+      "blocks": [
+        { "type": "item", "settings": { "title": "The wheat bag helps for ten minutes.", "text": "Then it is cold, and you are back at the microwave for the fourth time tonight." } },
+        { "type": "item", "settings": { "title": "The cream warms the skin, not the joint.", "text": "Three times a day, and it comes off on your trousers." } },
+        { "type": "item", "settings": { "title": "The heated pad ties you to a socket.", "text": "Warm, but you sit where the wire lets you, and there is no level to hold." } },
+        { "type": "item", "settings": { "title": "The physio helps for a few days.", "text": "Then the stiffness comes back, £50 a visit, next appointment three weeks off." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

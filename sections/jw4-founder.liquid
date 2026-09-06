@@ -1,0 +1,118 @@
+{% comment %}
+  The grandson's story, in short lines beside one big photo. The wrap never gets credit for him walking again.
+  The illness is never named. No surname, no photo of the owner.
+{% endcomment %}
+<section class="jw4 jw4-founder" id="jw-story">
+  <div class="jw-wrap jw4__split">
+    <div class="jw4-founder__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '600, 900, 1200', sizes: '(min-width: 900px) 50vw, 100vw', class: 'jw4__img jw4-founder__img', alt: section.settings.image_alt }}
+      {%- else -%}
+        <img class="jw4__img jw4-founder__img" src="{{ section.settings.stock | asset_url }}" width="928" height="1152" loading="lazy" alt="{{ section.settings.image_alt | escape }}">
+      {%- endif -%}
+    </div>
+    <div class="jw4-founder__lines">
+      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+      {%- for block in section.blocks -%}
+        <p {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+      {%- endfor -%}
+      <p class="jw4-founder__sig">{{ section.settings.sig_name | escape }}<span>{{ section.settings.sig_role | escape }}</span></p>
+      {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW4 Founder story",
+  "tag": "section",
+  "class": "jw4-section-founder",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Small line",
+      "default": "Why Jointwell exists"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The hour before the physio arrives, that nobody looks after."
+    },
+    {
+      "type": "text",
+      "id": "sig_name",
+      "label": "Signed",
+      "default": "Stan"
+    },
+    {
+      "type": "text",
+      "id": "sig_role",
+      "label": "Who",
+      "default": "Grandson, and the one who answers your emails"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo"
+    },
+    {
+      "type": "select",
+      "id": "stock",
+      "label": "Built-in photo",
+      "options": [
+        { "value": "jw-photo-breakfast.jpg", "label": "Breakfast table, newspaper" },
+        { "value": "jw-photo-crossword-elbow.jpg", "label": "Crossword, elbow" },
+        { "value": "jw-photo-kettle.jpg", "label": "At the kettle" }
+      ],
+      "default": "jw-photo-breakfast.jpg"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Photo description",
+      "default": "Older man at the breakfast table with the paper and the wrap on his knee"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button",
+      "default": "Try it for 90 days"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "line",
+      "name": "Line",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "One short paragraph",
+          "default": "A few years ago my grandad stopped walking."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW4 Founder story",
+      "blocks": [
+        { "type": "line", "settings": { "text": "A few years ago my grandad stopped walking. The stairs might as well have been a mountain." } },
+        { "type": "line", "settings": { "text": "He got back on his feet. That was the physios and the doctors, months of it. A heated wrap did not do that, and I am not going to pretend it did." } },
+        { "type": "line", "settings": { "text": "What I saw was the hour before the physio arrived. Joints cold, everything stiff, a wheat bag going round the microwave for the third time. Nobody was looking after that hour, and it decided how the rest of the day went." } },
+        { "type": "line", "settings": { "text": "So I went looking for warmth that stayed warm, that he could strap on at the table and forget about, and that he could not leave running by accident. Jointwell is what I found and had safety-tested." } },
+        { "type": "line", "settings": { "text": "It is for the mornings. It is not a cure. If it does for your knee what it did for his hour before breakfast, keep it. If it does not, post it back and we pay the postage." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

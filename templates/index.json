@@ -1,43 +1,137 @@
 {
   "sections": {
-    "jw_hero": {
-      "type": "jw-hero",
+    "jw4_sale": {
+      "type": "jw4-sale-bar",
+      "settings": {}
+    },
+    "jw4_hero": {
+      "type": "jw4-hero",
       "settings": {
-        "product": "jointwell-heated-joint-wrap",
-        "reviews_text": "Read customer reviews",
-        "reviews_link": "/#jw-reviews",
-        "quiz_link": "/pages/is-it-right-for-me",
-        "quiz_label": "Is it right for me? Take the two-minute check",
-        "price_note": "Autumn price until 30 September. Free tracked UK delivery.",
-        "review_name": "Sarah",
-        "review_age": "64",
-        "review_town": "Harrogate",
-        "review_stock": "jw-review-sarah.jpg",
-        "review_short": "I set it to 45 and it stays at 45.",
-        "preselect": 2,
-        "tiers_legend": "How many?",
-        "cta_label": "Try it for 90 days",
-        "subline": "Thirty minutes of steady warmth, so the first steps of the day aren't the worst.",
-        "main_index": 1,
-        "proof_noun": "verified customers",
-        "proof_where": "Reviews collected by Judge.me from real orders",
-        "video_title": "Watch it go on, warm up and switch itself off",
-        "video_length": "",
-        "video_poster_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-video-demo-poster.jpg",
-        "dispatch_hour": 14,
-        "dispatch_days": "1,2,3,4,5",
-        "quiz_sub": "Six questions. It tells you honestly if this is not for you."
+        "product": "jointwell-heated-joint-wrap"
       }
     },
-    "jw_proof": {
-      "type": "jw-proof",
+    "jw4_enemy": {
+      "type": "jw4-enemy",
+      "blocks": {
+        "e1": {
+          "type": "item",
+          "settings": {
+            "title": "The wheat bag helps for ten minutes.",
+            "text": "Then it is cold, and you are back at the microwave for the fourth time tonight."
+          }
+        },
+        "e2": {
+          "type": "item",
+          "settings": {
+            "title": "The cream warms the skin, not the joint.",
+            "text": "Three times a day, and it comes off on your trousers."
+          }
+        },
+        "e3": {
+          "type": "item",
+          "settings": {
+            "title": "The heated pad ties you to a socket.",
+            "text": "Warm, but you sit where the wire lets you, and there is no level to hold."
+          }
+        },
+        "e4": {
+          "type": "item",
+          "settings": {
+            "title": "The physio helps for a few days.",
+            "text": "Then the stiffness comes back, £50 a visit, next appointment three weeks off."
+          }
+        }
+      },
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4"
+      ],
+      "settings": {}
+    },
+    "jw4_mech": {
+      "type": "jw4-mechanism",
+      "blocks": {
+        "m1": {
+          "type": "step",
+          "settings": {
+            "title": "Warmth, held at the level you set",
+            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole half hour, instead of starting hot and fading like a wheat bag.",
+            "stock": "jw-feature-heat.jpg"
+          }
+        },
+        "m2": {
+          "type": "step",
+          "settings": {
+            "title": "Gentle massage, running alongside",
+            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
+            "stock": "jw-feature-massage.jpg"
+          }
+        },
+        "m3": {
+          "type": "step",
+          "settings": {
+            "title": "Strapped on, cordless, off by itself",
+            "text": "It stays where you put it while you walk to the kettle. No wire. At 30 minutes it switches itself off, so it cannot be left running.",
+            "stock": "jw-feature-timer.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3"
+      ],
       "settings": {
-        "ce_title": "Independently tested",
-        "ce_text": "CE, EMC Directive 2014/30/EU, independent lab, 21 Nov 2024.",
-        "ce_link": "Open the certificate",
-        "uk_text": "support by email, a reply within one working day",
-        "caveat": ""
+        "product": "jointwell-heated-joint-wrap"
       }
+    },
+    "jw_heat_chart": {
+      "type": "jw-heat-chart",
+      "settings": {
+        "show_tiles": false
+      },
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-heat.jpg",
+            "title": "Five heat levels, held",
+            "text": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-massage.jpg",
+            "title": "Three massage strengths",
+            "text": "Gentle, comfortable or strong. Chosen on a lit panel you can read without glasses."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-timer.jpg",
+            "title": "Switches itself off at 30 minutes",
+            "text": "Every time. Start at 45°C and work up."
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-joints.jpg",
+            "title": "Knee, shoulder or elbow",
+            "text": "One wrap, one size. The extension strap in the box takes it round a shoulder."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ]
     },
     "jw_authority": {
       "type": "jw-authority",
@@ -117,6 +211,165 @@
         "e_joints",
         "e_nice"
       ]
+    },
+    "jw4_reviews": {
+      "type": "jw4-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Sarah",
+            "age": "64",
+            "town": "Harrogate",
+            "uses": "shoulder",
+            "quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore.",
+            "stock": "jw-review-sarah.jpg"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Margaret",
+            "age": "68",
+            "town": "York",
+            "uses": "knee and shoulder",
+            "quote": "Bought it for my knee, ended up using it on my shoulder more. The strap holds it in place so I can sit with a cup of tea and forget it's there. My physio said heat and gentle massage was worth trying and this does both without me having to hold it on.",
+            "stock": "jw-review-margaret.jpg"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Linda",
+            "age": "71",
+            "town": "Ripon",
+            "uses": "knee",
+            "quote": "No cable, which matters more than I expected. I wear it in my chair by the window and don't have to sit near a socket. A charge lasts me 4 sessions. It's not a cure, my knee is 70 years old, but getting down the stairs first thing is better than it was.",
+            "stock": "jw-review-linda.jpg"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Brenda",
+            "age": "66",
+            "town": "Skipton",
+            "uses": "knee",
+            "quote": "I wear it over my trousers while I do the crossword and it's warm enough to feel through the fabric. The massage is firmer than I expected and you can turn it down. Only thing I'd say is the strap takes a minute to get right the first time.",
+            "stock": "jw-review-brenda.jpg"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Susan",
+            "age": "69",
+            "town": "Ilkley",
+            "uses": "knee",
+            "quote": "I'm not good with gadgets and I was worried. There are four buttons and a number. Up, down, that's it. My daughter set the timer for me once and I've managed on my own since. I've ordered two more for my sister and neighbour.",
+            "stock": "jw-review-susan.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5"
+      ],
+      "settings": {}
+    },
+    "jw4_founder": {
+      "type": "jw4-founder",
+      "blocks": {
+        "l1": {
+          "type": "line",
+          "settings": {
+            "text": "A few years ago my grandad stopped walking. The stairs might as well have been a mountain."
+          }
+        },
+        "l2": {
+          "type": "line",
+          "settings": {
+            "text": "He got back on his feet. That was the physios and the doctors, months of it. A heated wrap did not do that, and I am not going to pretend it did."
+          }
+        },
+        "l3": {
+          "type": "line",
+          "settings": {
+            "text": "What I saw was the hour before the physio arrived. Joints cold, everything stiff, a wheat bag going round the microwave for the third time. Nobody was looking after that hour, and it decided how the rest of the day went."
+          }
+        },
+        "l4": {
+          "type": "line",
+          "settings": {
+            "text": "So I went looking for warmth that stayed warm, that he could strap on at the table and forget about, and that he could not leave running by accident. Jointwell is what I found and had safety-tested."
+          }
+        },
+        "l5": {
+          "type": "line",
+          "settings": {
+            "text": "It is for the mornings. It is not a cure. If it does for your knee what it did for his hour before breakfast, keep it. If it does not, post it back and we pay the postage."
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5"
+      ],
+      "settings": {}
+    },
+    "jw4_routine": {
+      "type": "jw4-routine",
+      "blocks": {
+        "r1": {
+          "type": "step",
+          "settings": {
+            "when": "Day 1",
+            "text": "Level 1 or 2 (45 to 50°C), massage off, thirty minutes with the first cup of tea."
+          }
+        },
+        "r2": {
+          "type": "step",
+          "settings": {
+            "when": "Day 3",
+            "text": "Same chair, same time. Try the gentle massage. It switches itself off when the tea is finished."
+          }
+        },
+        "r3": {
+          "type": "step",
+          "settings": {
+            "when": "Week 2",
+            "text": "Move up to level 3 if you want more. Seven mornings a week. Twice a week does nothing."
+          }
+        },
+        "r4": {
+          "type": "step",
+          "settings": {
+            "when": "Week 4",
+            "text": "Your level, every morning. By now you will know whether it has earned its place by the kettle."
+          }
+        },
+        "r5": {
+          "type": "step",
+          "settings": {
+            "when": "Day 90",
+            "text": "Keep it, or post it back and we pay the postage. The warranty runs for two years either way."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "settings": {}
     },
     "jw_doorways": {
       "type": "jw-doorways",
@@ -224,487 +477,45 @@
         "door_7"
       ]
     },
-    "jw_heat_chart": {
-      "type": "jw-heat-chart",
-      "settings": {
-        "show_tiles": false
-      },
+    "jw4_guar": {
+      "type": "jw4-guarantee",
       "blocks": {
-        "feature_1": {
-          "type": "feature",
+        "g1": {
+          "type": "term",
           "settings": {
-            "stock": "jw-feature-heat.jpg",
-            "title": "Five heat levels, held",
-            "text": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes."
+            "big": "90 days",
+            "text": "to decide, from the day it arrives"
           }
         },
-        "feature_2": {
-          "type": "feature",
+        "g2": {
+          "type": "term",
           "settings": {
-            "stock": "jw-feature-massage.jpg",
-            "title": "Three massage strengths",
-            "text": "Gentle, comfortable or strong. Chosen on a lit panel you can read without glasses."
+            "big": "£0",
+            "text": "to send it back. We pay the return postage"
           }
         },
-        "feature_3": {
-          "type": "feature",
+        "g3": {
+          "type": "term",
           "settings": {
-            "stock": "jw-feature-timer.jpg",
-            "title": "Switches itself off at 30 minutes",
-            "text": "Every time. Start at 45°C and work up."
+            "big": "No reason",
+            "text": "needed, though we would like to hear it"
           }
         },
-        "feature_4": {
-          "type": "feature",
+        "g4": {
+          "type": "term",
           "settings": {
-            "stock": "jw-feature-joints.jpg",
-            "title": "Knee, shoulder or elbow",
-            "text": "One wrap, one size. The extension strap in the box takes it round a shoulder."
+            "big": "2 years",
+            "text": "of warranty, replacement not repair, UK support"
           }
         }
       },
       "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3",
-        "feature_4"
-      ]
-    },
-    "jw_comparison": {
-      "type": "jw-comparison",
-      "settings": {},
-      "blocks": {
-        "c_jw": {
-          "type": "column",
-          "settings": {
-            "title": "Jointwell",
-            "highlight": true,
-            "heat": "45 to 65°C, held for 30 minutes",
-            "massage": "Three strengths",
-            "fit": "Strapped on, any chair in the house",
-            "effort": "Half an hour with your morning tea",
-            "cost": "£49 once"
-          }
-        },
-        "c_wheat": {
-          "type": "column",
-          "settings": {
-            "title": "Wheat bag",
-            "highlight": false,
-            "heat": "Hottest at the start, then fading",
-            "massage": "None",
-            "fit": "Slides off",
-            "effort": "Back to the microwave, again",
-            "cost": "£8 to £15 once"
-          }
-        },
-        "c_tens": {
-          "type": "column",
-          "settings": {
-            "title": "TENS machine",
-            "highlight": false,
-            "heat": "None",
-            "massage": "Tingling through sticky pads",
-            "fit": "Pads, wires, gel, batteries",
-            "effort": "Set up every time, pads wear out",
-            "cost": "£20 to £60, plus pads"
-          }
-        },
-        "c_physio": {
-          "type": "column",
-          "settings": {
-            "title": "Physio",
-            "highlight": false,
-            "heat": "Sometimes, for a few minutes",
-            "massage": "Hands-on, the best there is",
-            "fit": "Not applicable",
-            "effort": "Travel, waiting room, weeks between visits",
-            "cost": "£40 to £70 every visit"
-          }
-        },
-        "c_amazon": {
-          "type": "column",
-          "settings": {
-            "title": "£25 heated pad",
-            "highlight": false,
-            "heat": "Warm, but plugged into the wall and no held level",
-            "massage": "Rarely, and buzzy when it is",
-            "fit": "A flat pad you hold in place",
-            "effort": "Find a socket, sit still",
-            "cost": "£20 to £30, no trial"
-          }
-        }
-      },
-      "block_order": [
-        "c_jw",
-        "c_physio",
-        "c_wheat",
-        "c_amazon",
-        "c_tens"
-      ]
-    },
-    "jw_reviews": {
-      "type": "jw-reviews",
-      "settings": {
-        "product": "jointwell-heated-joint-wrap",
-        "show_widget": false,
-        "heading": "Customers, in their own words",
-        "intro": "Real orders, real photos, unedited.",
-        "count_note": "",
-        "cta_label": "Try it for 90 days"
-      },
-      "blocks": {
-        "review_1": {
-          "type": "review",
-          "settings": {
-            "name": "Sarah",
-            "age": "64",
-            "town": "Harrogate",
-            "stock": "jw-review-sarah.jpg",
-            "quote": "I set it to 45 and it stays at 45. That's the whole difference from the hot water bottle I used before, which was lovely for 20 minutes and then a cold lump. I do half an hour on my shoulder after lunch and I'm not stiff reaching for things on the top shelf anymore.",
-            "uses": "shoulder"
-          }
-        },
-        "review_2": {
-          "type": "review",
-          "settings": {
-            "name": "Margaret",
-            "age": "68",
-            "town": "York",
-            "stock": "jw-review-margaret.jpg",
-            "quote": "Bought it for my knee, ended up using it on my shoulder more. The strap holds it in place so I can sit with a cup of tea and forget it's there. My physio said heat and gentle massage was worth trying and this does both without me having to hold it on.",
-            "uses": "knee and shoulder"
-          }
-        },
-        "review_3": {
-          "type": "review",
-          "settings": {
-            "name": "Linda",
-            "age": "71",
-            "town": "Ripon",
-            "stock": "jw-review-linda.jpg",
-            "quote": "No cable, which matters more than I expected. I wear it in my chair by the window and don't have to sit near a socket. A charge lasts me 4 sessions. It's not a cure, my knee is 70 years old, but getting down the stairs first thing is better than it was.",
-            "uses": "knee"
-          }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
-            "name": "Brenda",
-            "age": "66",
-            "town": "Skipton",
-            "stock": "jw-review-brenda.jpg",
-            "quote": "I wear it over my trousers while I do the crossword and it's warm enough to feel through the fabric. The massage is firmer than I expected and you can turn it down. Only thing I'd say is the strap takes a minute to get right the first time.",
-            "uses": "knee"
-          }
-        },
-        "review_5": {
-          "type": "review",
-          "settings": {
-            "name": "Susan",
-            "age": "69",
-            "town": "Ilkley",
-            "stock": "jw-review-susan.jpg",
-            "quote": "I'm not good with gadgets and I was worried. There are four buttons and a number. Up, down, that's it. My daughter set the timer for me once and I've managed on my own since. I've ordered two more for my sister and neighbour.",
-            "uses": "knee"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3",
-        "review_4",
-        "review_5"
-      ]
-    },
-    "jw_why": {
-      "type": "jw-why",
-      "settings": {
-        "signature": "Stan, grandson",
-        "heading": "The hour before the physio arrives, that nobody looks after"
-      }
-    },
-    "jw_timeline": {
-      "type": "jw-timeline",
-      "settings": {
-        "heading": "The Morning Half Hour",
-        "intro": "A routine, not a treatment. One instruction per stage, and your joint gets the deciding vote."
-      },
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "when": "Day 1",
-            "text": "Level 1 or 2 (45 to 50°C), massage off, 30 minutes with the first cup of tea. Every morning this week."
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "when": "Day 3",
-            "text": "Same time, same chair. Try the gentle massage. Kettle on, wrap on. It switches itself off when the tea is finished."
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "when": "Week 2",
-            "text": "Move up to level 3 (55°C) if you want more. Seven mornings a week; a routine kept twice a week does nothing."
-          }
-        },
-        "step_4": {
-          "type": "step",
-          "settings": {
-            "when": "Week 4",
-            "text": "Your level, 30 minutes, every morning. A month in, you will know whether it has earned its place by the kettle."
-          }
-        },
-        "step_5": {
-          "type": "step",
-          "settings": {
-            "when": "Month 3",
-            "text": "Your 90 days are up. Keep it, or post it back and we pay the postage. The warranty runs for two years either way."
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3",
-        "step_4",
-        "step_5"
-      ]
-    },
-    "jw_wordg": {
-      "type": "jw-word-guarantee",
-      "settings": {
-        "heading": "We are the ones selling it. So don't take our word for any of it."
-      },
-      "blocks": {
-        "ck_1": {
-          "type": "check",
-          "settings": {
-            "lead": "The heat timings.",
-            "text": "Boil your own hot water bottle. Put a hand on it after twenty minutes and again after thirty. You will not need us to tell you what you find."
-          }
-        },
-        "ck_2": {
-          "type": "check",
-          "settings": {
-            "lead": "The certificate.",
-            "text": "Our CE test document is linked here. It covers electrical safety. It does not say this is a medical device, and we are not going to imply that it does.",
-            "link_text": "Open the CE certificate",
-            "built_in": "ce"
-          }
-        },
-        "ck_3": {
-          "type": "check",
-          "settings": {
-            "lead": "The returns.",
-            "text": "Read the policy. We pay the postage back. A company that expected most people to send it back could not afford to write that.",
-            "link_text": "Read the returns policy",
-            "built_in": "returns"
-          }
-        },
-        "ck_4": {
-          "type": "check",
-          "settings": {
-            "lead": "Our reviews.",
-            "text": "Every one is from a customer with an order on file, in their own words, with the photo they sent us. We do not edit them, and the one who says the strap takes a minute to get right is on the page too.",
-            "link_text": "Read the reviews",
-            "built_in": "reviews"
-          }
-        }
-      },
-      "block_order": [
-        "ck_1",
-        "ck_2",
-        "ck_3",
-        "ck_4"
-      ]
-    },
-    "jw_magnet": {
-      "type": "jw-magnet",
-      "settings": {
-        "title": "Not ready to buy? Take the routine anyway.",
-        "text": "The 7-morning stiffness routine, in large print, free by email. It works with a hot water bottle. It works better with something that stays warm.",
-        "button": "Send me the routine",
-        "incentive": "",
-        "note": "One PDF, then the occasional email. Unsubscribe in one tap.",
-        "success": "Thank you. Check your inbox in the next few minutes."
-      }
-    },
-    "jw_faq": {
-      "type": "jw-faq",
-      "settings": {},
-      "blocks": {
-        "qa_1": {
-          "type": "qa",
-          "settings": {
-            "question": "Isn't this just a heating pad with extra steps?",
-            "answer": "<p>A heating pad gives you heat that fades, or heat that ties you to a wall socket. Jointwell holds whichever of the five levels you pick, 45°C to 65°C, for a full 30 minutes. It adds vibration massage at three strengths, straps on so it stays put, and runs cordless in any chair in the house.</p>"
-          }
-        },
-        "qa_2": {
-          "type": "qa",
-          "settings": {
-            "question": "Will it work for me? My joints have been like this a long time.",
-            "answer": "<p>It isn't a cure and we won't pretend otherwise. Nobody can promise what it will do for your joint. What we can promise is warmth at the level you choose, held for thirty minutes, with massage alongside it. The 90-day trial is there so your own knee gets the deciding vote rather than our copy.</p>"
-          }
-        },
-        "qa_3": {
-          "type": "qa",
-          "settings": {
-            "question": "Will it fit me?",
-            "answer": "<p>One size, 46 cm across and 30 cm tall, with a 55 cm strap span. It fits either knee, and the extension strap in the box takes it round a shoulder or up an arm to the elbow. If it doesn't fit you, the 90-day trial covers a full refund and we pay the return postage.</p>",
-            "show_fit_image": true
-          }
-        },
-        "qa_4": {
-          "type": "qa",
-          "settings": {
-            "question": "Is it safe? Will it burn me?",
-            "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. Do not use it while asleep. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>"
-          }
-        },
-        "qa_5": {
-          "type": "qa",
-          "settings": {
-            "question": "When will it arrive?",
-            "answer": "<p>We dispatch within 1 to 3 working days and most orders arrive within 7 to 10 working days of ordering, occasionally up to 14. Every order is tracked and we email you the link the moment it leaves us.</p>"
-          }
-        },
-        "qa_6": {
-          "type": "qa",
-          "settings": {
-            "question": "How do I know this isn't another Facebook gadget?",
-            "answer": "<p>Fair question, because this market is full of them. We dispatch most orders within 1 to 3 working days and track every one. There's a UK returns address, UK support, a 2-year warranty, and a 90-day trial where we pay the postage back. The reviews on this page are from customers with an order on file, in their own words. Junk sellers can't afford the guarantee.</p>"
-          }
-        },
-        "qa_7": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I use it after a knee replacement?",
-            "answer": "<p>Ask your surgeon or physio first, and follow what they say. Many people are told heat is fine once the wound has fully healed, but that is their call, not ours. If they say yes, most people use it as the warm half hour before their exercises.</p>"
-          }
-        },
-        "qa_8": {
-          "type": "qa",
-          "settings": {
-            "question": "How do I charge it, and how long does a charge last?",
-            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. The panel shows the battery level.</p>"
-          }
-        },
-        "qa_9": {
-          "type": "qa",
-          "settings": {
-            "question": "What happens if I send it back?",
-            "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>"
-          }
-        },
-        "qa_who": {
-          "type": "qa",
-          "settings": {
-            "question": "Who shouldn't use it?",
-            "answer": "<p>Anyone who has been told to avoid heat on that joint. If you have diabetes, circulation problems, reduced feeling in your skin, a pacemaker, an unhealed wound or a joint that is hot, red and swollen, talk to your GP before using any heat product. Do not use it while asleep, over broken skin, or on a child. If you are pregnant or under medical care for the joint, ask first. It is a comfort device, not a treatment, and your GP's word beats ours.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "qa_1",
-        "qa_2",
-        "qa_3",
-        "qa_4",
-        "qa_5",
-        "qa_6",
-        "qa_7",
-        "qa_8",
-        "qa_who",
-        "qa_9"
-      ]
-    },
-    "jw_final_cta": {
-      "type": "jw-final-cta",
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
       "settings": {}
-    },
-    "jw_belief": {
-      "type": "jw-belief",
-      "settings": {},
-      "blocks": {
-        "enemy_1": {
-          "type": "enemy",
-          "settings": {
-            "lead": "The wheat bag helps for ten minutes.",
-            "rest": "Then it is cold and you are back at the microwave for the fourth time tonight."
-          }
-        },
-        "enemy_2": {
-          "type": "enemy",
-          "settings": {
-            "lead": "The cream warms the skin, not the joint.",
-            "rest": "Three times a day, and it comes off on your trousers."
-          }
-        },
-        "enemy_3": {
-          "type": "enemy",
-          "settings": {
-            "lead": "The heated pad ties you to a socket.",
-            "rest": "Warm, but you sit where the wire lets you, and there is no level to hold."
-          }
-        },
-        "enemy_4": {
-          "type": "enemy",
-          "settings": {
-            "lead": "The pills work until they wear off.",
-            "rest": ""
-          }
-        },
-        "enemy_5": {
-          "type": "enemy",
-          "settings": {
-            "lead": "The physio helps for a few days.",
-            "rest": "Then the stiffness comes back, £50 a visit, next appointment three weeks off."
-          }
-        },
-        "step_6": {
-          "type": "step",
-          "settings": {
-            "title": "Warmth, held at the level you set",
-            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole session, instead of starting hot and fading like a wheat bag.",
-            "product_image_index": 1,
-            "stock": "jw-feature-heat.jpg"
-          }
-        },
-        "step_7": {
-          "type": "step",
-          "settings": {
-            "title": "Gentle massage running alongside it",
-            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
-            "product_image_index": 0,
-            "stock": "jw-feature-massage.jpg"
-          }
-        },
-        "step_8": {
-          "type": "step",
-          "settings": {
-            "title": "Strapped on, cordless, off by itself at 30 minutes",
-            "text": "It stays where you put it while you walk to the kettle. No wire. It switches itself off, so it cannot be left running and the half hour becomes a habit.",
-            "product_image_index": 3,
-            "stock": "jw-feature-timer.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "enemy_1",
-        "enemy_2",
-        "enemy_3",
-        "enemy_4",
-        "enemy_5",
-        "step_6",
-        "step_7",
-        "step_8"
-      ]
     },
     "jw_offer_block": {
       "type": "jw-offer-block",
@@ -841,23 +652,115 @@
         "spec_13",
         "spec_14"
       ]
+    },
+    "jw_faq": {
+      "type": "jw-faq",
+      "settings": {},
+      "blocks": {
+        "qa_1": {
+          "type": "qa",
+          "settings": {
+            "question": "Isn't this just a heating pad with extra steps?",
+            "answer": "<p>A heating pad gives you heat that fades, or heat that ties you to a wall socket. Jointwell holds whichever of the five levels you pick, 45°C to 65°C, for a full 30 minutes. It adds vibration massage at three strengths, straps on so it stays put, and runs cordless in any chair in the house.</p>"
+          }
+        },
+        "qa_2": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it work for me? My joints have been like this a long time.",
+            "answer": "<p>It isn't a cure and we won't pretend otherwise. Nobody can promise what it will do for your joint. What we can promise is warmth at the level you choose, held for thirty minutes, with massage alongside it. The 90-day trial is there so your own knee gets the deciding vote rather than our copy.</p>"
+          }
+        },
+        "qa_3": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it fit me?",
+            "answer": "<p>One size, 46 cm across and 30 cm tall, with a 55 cm strap span. It fits either knee, and the extension strap in the box takes it round a shoulder or up an arm to the elbow. If it doesn't fit you, the 90-day trial covers a full refund and we pay the return postage.</p>",
+            "show_fit_image": true
+          }
+        },
+        "qa_4": {
+          "type": "qa",
+          "settings": {
+            "question": "Is it safe? Will it burn me?",
+            "answer": "<p>You choose the heat level, from a gentle 45°C up to 65°C, and every session shuts off after 30 minutes, so it cannot be left running. Do not use it while asleep. If you have diabetes, circulation problems or reduced skin sensation, check with your GP before using any heat product.</p>"
+          }
+        },
+        "qa_5": {
+          "type": "qa",
+          "settings": {
+            "question": "When will it arrive?",
+            "answer": "<p>We dispatch within 1 to 3 working days and most orders arrive within 7 to 10 working days of ordering, occasionally up to 14. Every order is tracked and we email you the link the moment it leaves us.</p>"
+          }
+        },
+        "qa_6": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I know this isn't another Facebook gadget?",
+            "answer": "<p>Fair question, because this market is full of them. We dispatch most orders within 1 to 3 working days and track every one. There's a UK returns address, UK support, a 2-year warranty, and a 90-day trial where we pay the postage back. The reviews on this page are from customers with an order on file, in their own words. Junk sellers can't afford the guarantee.</p>"
+          }
+        },
+        "qa_7": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I use it after a knee replacement?",
+            "answer": "<p>Ask your surgeon or physio first, and follow what they say. Many people are told heat is fine once the wound has fully healed, but that is their call, not ours. If they say yes, most people use it as the warm half hour before their exercises.</p>"
+          }
+        },
+        "qa_8": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I charge it, and how long does a charge last?",
+            "answer": "<p>It charges over USB-C with the cable in the box, the same cable as most phones. It has a 3000 mAh battery. The panel shows the battery level.</p>"
+          }
+        },
+        "qa_9": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens if I send it back?",
+            "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>"
+          }
+        },
+        "qa_who": {
+          "type": "qa",
+          "settings": {
+            "question": "Who shouldn't use it?",
+            "answer": "<p>Anyone who has been told to avoid heat on that joint. If you have diabetes, circulation problems, reduced feeling in your skin, a pacemaker, an unhealed wound or a joint that is hot, red and swollen, talk to your GP before using any heat product. Do not use it while asleep, over broken skin, or on a child. If you are pregnant or under medical care for the joint, ask first. It is a comfort device, not a treatment, and your GP's word beats ours.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "qa_1",
+        "qa_2",
+        "qa_3",
+        "qa_4",
+        "qa_5",
+        "qa_6",
+        "qa_7",
+        "qa_8",
+        "qa_who",
+        "qa_9"
+      ]
+    },
+    "jw_final_cta": {
+      "type": "jw-final-cta",
+      "settings": {}
     }
   },
   "order": [
-    "jw_hero",
-    "jw_proof",
-    "jw_belief",
+    "jw4_sale",
+    "jw4_hero",
+    "jw4_enemy",
+    "jw4_mech",
     "jw_heat_chart",
     "jw_authority",
-    "jw_reviews",
-    "jw_why",
+    "jw4_reviews",
+    "jw4_founder",
+    "jw4_routine",
     "jw_doorways",
-    "jw_comparison",
-    "jw_timeline",
-    "jw_wordg",
+    "jw4_guar",
     "jw_offer_block",
     "jw_faq",
-    "jw_magnet",
     "jw_final_cta"
   ]
 }

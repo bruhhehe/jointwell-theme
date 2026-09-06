@@ -1,0 +1,53 @@
+{% comment %}
+  Sale bar under the header. A real price with its real end date. No countdown, no stock line.
+  Leave the end date blank and the bar shows the delivery and trial lines only.
+{% endcomment %}
+<div class="jw4-sale" role="note">
+  {%- if section.settings.sale_text != blank -%}
+    <span><strong>{{ section.settings.sale_text | escape }}</strong>{% if section.settings.end_text != blank %} {{ section.settings.end_text | escape }}{% endif %}</span>
+    <span class="jw4-sale__sep jw4-sale__extra" aria-hidden="true">|</span>
+  {%- endif -%}
+  <span class="jw4-sale__extra">{{ section.settings.line_2 | escape }}</span>
+  <span class="jw4-sale__sep jw4-sale__extra" aria-hidden="true">|</span>
+  <span class="jw4-sale__extra">{{ section.settings.line_3 | escape }}</span>
+</div>
+
+{% schema %}
+{
+  "name": "JW4 Sale bar",
+  "tag": "div",
+  "class": "jw4-section-sale",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sale_text",
+      "label": "Offer",
+      "default": "Autumn price: £49 instead of £65."
+    },
+    {
+      "type": "text",
+      "id": "end_text",
+      "label": "When it ends (a real date)",
+      "default": "Ends 30 September.",
+      "info": "Change the price on the product on that day, or the line stops being true."
+    },
+    {
+      "type": "text",
+      "id": "line_2",
+      "label": "Second line",
+      "default": "Free tracked UK delivery"
+    },
+    {
+      "type": "text",
+      "id": "line_3",
+      "label": "Third line",
+      "default": "90-day trial, we pay return postage"
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW4 Sale bar"
+    }
+  ]
+}
+{% endschema %}

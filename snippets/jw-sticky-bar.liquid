@@ -28,7 +28,7 @@
 <script>
   (function () {
     var bar = document.querySelector('[data-jw-sticky]'); if (!bar) return;
-    var buy = document.getElementById('jw-buy'), hero = document.getElementById('jw-top');
+    var buy = document.getElementById('jw-buy'), hero = document.getElementById("jw-top") || document.getElementById("jw-hero");
     var priceOut = bar.querySelector('[data-jw-sticky-price]'), unitOut = bar.querySelector('[data-jw-sticky-unit]');
     function sync() {
       var form = document.querySelector('form[data-jw-checkout]'); if (!form) return;
