@@ -32,17 +32,17 @@
         <ul class="jw-stacklist{% if any_valued %} jw-stacklist--valued{% endif %}" role="list">
           {%- for block in section.blocks -%}
             {%- if block.type != 'item' -%}{%- continue -%}{%- endif -%}
-            <li {{ block.shopify_attributes }}>
-              <span class="jw-stacklist__item"><strong>{{ block.settings.item | escape }}</strong>{% if block.settings.note != blank %} <span class="jw-muted">{{ block.settings.note | escape }}</span>{% endif %}</span>
-              {%- if block.settings.value != blank -%}<span class="jw-stacklist__value">{{ block.settings.value | escape }}</span>{%- endif -%}
-              <span class="jw-stacklist__pay">{{ block.settings.pay | default: 'Included' | escape }}</span>
+            <li {{ block.shopify_attributes }} data-jw-row{% if forloop.first %} data-jw-main{% endif %}>
+              <span class="jw-stacklist__item"><strong>{{ block.settings.item | escape }}<span data-jw-qty></span></strong>{% if block.settings.note != blank %} <span class="jw-muted">{{ block.settings.note | escape }}</span>{% endif %}</span>
+              {%- if block.settings.value != blank -%}<span class="jw-stacklist__value" data-jw-val data-base="{{ block.settings.value | escape }}">{{ block.settings.value | escape }}</span>{%- endif -%}
+              <span class="jw-stacklist__pay" data-jw-pay data-base="{{ block.settings.pay | default: 'Included' | escape }}">{{ block.settings.pay | default: 'Included' | escape }}</span>
             </li>
           {%- endfor -%}
         </ul>
         {%- if any_valued -%}
           <div class="jw-stacklist__totals">
-            <div class="jw-stacklist__tot"><span>Total value</span><strong>{{ section.settings.total_value | escape }}</strong></div>
-            <div class="jw-stacklist__tot jw-stacklist__tot--pay"><span>You pay</span><strong>{% if product != blank %}{{ product.variants.first.price | money_without_trailing_zeros }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</strong></div>
+            <div class="jw-stacklist__tot"><span>Total value</span><strong data-jw-total-value data-base="{{ section.settings.total_value | escape }}">{{ section.settings.total_value | escape }}</strong></div>
+            <div class="jw-stacklist__tot jw-stacklist__tot--pay"><span>You pay</span><strong data-jw-total-pay>{% if product != blank %}{{ product.variants.first.price | money_without_trailing_zeros }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</strong></div>
           </div>
         {%- endif -%}
 
@@ -87,7 +87,7 @@
                     assign saving = single | times: units | minus: v.price
                   -%}
                   <label class="jw-tier2{% if badge != blank %} jw-tier2--badged{% endif %}">
-                    <input type="radio" name="id" value="{{ v.id }}" data-price="{{ v.price | money_without_trailing_zeros }}" data-was="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
+                    <input type="radio" name="id" value="{{ v.id }}" data-units="{{ units }}" data-price="{{ v.price | money_without_trailing_zeros }}" data-was="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
                     <span class="jw-tier2__body">
                       {%- if badge != blank -%}<span class="jw-tier2__badge{% if units == 4 %} jw-tier2__badge--alt{% endif %}">{{ badge | escape }}</span>{%- endif -%}
                       <span class="jw-tier2__main">
@@ -134,6 +134,21 @@
     // Keep every tier picker on the page in step, and every price readout with them.
     var forms = Array.prototype.slice.call(document.querySelectorAll('form[data-jw-checkout]'));
     if (!forms.length) return;
+    function money(base, n) {
+      var m = String(base).match(/^£\s*([\d.,]+)$/); if (!m) return base;
+      var v = parseFloat(m[1].replace(/,/g, '')) * n;
+      return '£' + (v % 1 ? v.toFixed(2) : v);
+    }
+    function scaleBox(n, price) {
+      document.querySelectorAll('[data-jw-row]').forEach(function (row) {
+        var q = row.querySelector('[data-jw-qty]'); if (q) q.textContent = n > 1 ? ' \u00d7' + n : '';
+        var val = row.querySelector('[data-jw-val]'); if (val) val.textContent = money(val.getAttribute('data-base'), n);
+        var pay = row.querySelector('[data-jw-pay]');
+        if (pay) pay.textContent = row.hasAttribute('data-jw-main') ? price : pay.getAttribute('data-base');
+      });
+      var tv = document.querySelector('[data-jw-total-value]'); if (tv) tv.textContent = money(tv.getAttribute('data-base'), n);
+      var tp = document.querySelector('[data-jw-total-pay]'); if (tp) tp.textContent = price;
+    }
     function setAll(value) {
       forms.forEach(function (f) {
         var r = f.querySelector('input[name="id"][value="' + value + '"]');
@@ -142,6 +157,7 @@
         var out = f.querySelector('[data-jw-price]'); if (out) out.textContent = c.getAttribute('data-price') || '';
       });
       var c = forms[0].querySelector('input[name="id"]:checked');
+      if (c) scaleBox(parseInt(c.getAttribute('data-units'), 10) || 1, c.getAttribute('data-price') || '');
       if (c) {
         var big = document.querySelector('[data-jw-big-price]'), was = document.querySelector('[data-jw-big-was]');
         if (big) big.textContent = c.getAttribute('data-price') || '';

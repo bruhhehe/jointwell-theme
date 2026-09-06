@@ -22,39 +22,16 @@
 <section class="jw4 jw4-hero" id="jw-hero">
   <div class="jw-wrap jw4-hero__grid">
     <div class="jw4-hero__media">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 900px) 50vw, 100vw', class: 'jw4__img jw4-hero__img', alt: section.settings.image_alt }}
+      {%- if section.settings.ba_image != blank -%}
+        {{ section.settings.ba_image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 900px) 50vw, 100vw', class: 'jw4__img jw4-hero__img', alt: section.settings.ba_caption }}
       {%- else -%}
-        <img class="jw4__img jw4-hero__img" src="{{ section.settings.stock | asset_url }}" width="1024" height="1152" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
-      {%- endif -%}
-      {%- if section.settings.show_ba -%}
-        {%- if section.settings.ba_image != blank -%}
-          {{ section.settings.ba_image | image_url: width: 1400 | image_tag: loading: 'lazy', class: 'jw4__img jw4-hero__ba', alt: section.settings.ba_caption }}
-        {%- else -%}
-          <div class="jw5-ph jw5-ph--wide" role="img" aria-label="{{ section.settings.ba_caption | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ section.settings.ba_caption | escape }}</span></div>
-        {%- endif -%}
-      {%- endif -%}
-      {%- if section.settings.review_quote != blank -%}
-        <div class="jw4-hero__badge">
-          {%- if section.settings.review_stock != blank -%}<img src="{{ section.settings.review_stock | asset_url }}" width="88" height="88" alt="" loading="lazy">{%- endif -%}
-          <div>{{ section.settings.review_name | escape }} <span class="jw-stars" aria-label="Five stars" style="color:var(--jw-star)">★★★★★</span><span>{{ section.settings.review_quote | escape }}</span></div>
-        </div>
+        <div class="jw5-ph jw5-ph--hero" role="img" aria-label="{{ section.settings.ba_caption | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ section.settings.ba_caption | escape }}</span></div>
       {%- endif -%}
     </div>
     <div class="jw4-hero__copy">
       {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h1 class="jw-h1">{{ section.settings.heading | escape }}</h1>
       <p class="jw-lead">{{ section.settings.subline | escape }}</p>
-      <ul class="jw4-hero__ticks" role="list">
-        <li>{{ section.settings.tick_1 | escape }}</li>
-        <li>{{ section.settings.tick_2 | escape }}</li>
-        <li>{{ section.settings.tick_3 | escape }}</li>
-      </ul>
-      <div class="jw4-hero__price">
-        <span class="jw4-hero__now">{{ price_text }}</span>
-        {%- if compare_text != blank -%}<s class="jw4-hero__was">{{ compare_text }}</s>{%- endif -%}
-      </div>
-      <p class="jw4-hero__pricenote">{{ section.settings.price_note | escape }}</p>
       <div class="jw4-hero__cta">
         <a class="jw-btn jw-btn--primary" href="{{ cta }}">{{ section.settings.cta_label | escape }}</a>
         <p class="jw4-hero__proof">{{ section.settings.proof_line | escape }}</p>

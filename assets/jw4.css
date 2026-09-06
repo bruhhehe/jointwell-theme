@@ -247,3 +247,5 @@ body { background: var(--jw-bg); }
 .jw-stacklist__tot--pay span { color: #ffd9c7; }
 .jw-stacklist__tot--pay strong { color: #fff; text-decoration: none; }
 .jw4-guar .jw4__eyebrow { display: none; }
+.jw5-ph--hero { aspect-ratio: 4 / 4.2; margin: 0; font-size: 19px; }
+.jw4-hero__cta { margin-top: 8px; }
