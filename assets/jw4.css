@@ -160,3 +160,7 @@ body { background: var(--jw-bg); }
 .jw-doors__tab { font-size: 18px; border-radius: 999px; padding: 12px 18px; }
 
 .jw-authority .jw-evidence { display: none; }
+/* One place for each fact */
+.jw-chart .jw-lead:empty, .jw-chart .jw-body:empty { display: none; }
+.jw-offerblock .jw-terms { display: none; }
+.jw-final .jw-pcard .jw-trust { display: none; }

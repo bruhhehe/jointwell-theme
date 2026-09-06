@@ -7,7 +7,8 @@
     "jw4_hero": {
       "type": "jw4-hero",
       "settings": {
-        "product": "jointwell-heated-joint-wrap"
+        "product": "jointwell-heated-joint-wrap",
+        "price_note": "One payment. Free tracked UK delivery."
       }
     },
     "jw4_enemy": {
@@ -48,7 +49,9 @@
         "e3",
         "e4"
       ],
-      "settings": {}
+      "settings": {
+        "bridge": "A stiff joint wants warmth that stays, long enough for the muscles round it to let go. Half an hour, on the joint, with no wire and no microwave. That is all Jointwell is."
+      }
     },
     "jw4_mech": {
       "type": "jw4-mechanism",
@@ -90,7 +93,11 @@
     "jw_heat_chart": {
       "type": "jw-heat-chart",
       "settings": {
-        "show_tiles": false
+        "show_tiles": false,
+        "heading": "Thirty minutes, held. Not ten, fading.",
+        "intro": "",
+        "body": "",
+        "caption": "The wheat bag line is what happens to anything you heat in a microwave. Test it with your own hot water bottle."
       },
       "blocks": {
         "feature_1": {
@@ -310,7 +317,7 @@
         "l5": {
           "type": "line",
           "settings": {
-            "text": "It is for the mornings. It is not a cure. If it does for your knee what it did for his hour before breakfast, keep it. If it does not, post it back and we pay the postage."
+            "text": "It is for the mornings. It is not a cure. If it does for your knee what it did for his hour before breakfast, keep it."
           }
         }
       },
@@ -358,7 +365,7 @@
           "type": "step",
           "settings": {
             "when": "Day 90",
-            "text": "Keep it, or post it back and we pay the postage. The warranty runs for two years either way."
+            "text": "By now you will know. Keep it, or post it back."
           }
         }
       },
@@ -515,12 +522,15 @@
         "g3",
         "g4"
       ],
-      "settings": {}
+      "settings": {
+        "intro": "Use it every morning for up to three months on your own knee. If you cannot feel the difference, post it back."
+      }
     },
     "jw_offer_block": {
       "type": "jw-offer-block",
       "settings": {
-        "preselect": 2
+        "preselect": 2,
+        "intro": "One payment. Nothing to refill, nothing that runs out."
       },
       "blocks": {
         "item_1": {
