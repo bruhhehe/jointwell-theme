@@ -40,7 +40,7 @@
           {%- endfor -%}
         </ul>
         {%- if any_valued and section.settings.total_line != blank -%}
-          <p class="jw-stacklist__total">{{ section.settings.total_line | escape }}{% if product != blank %} <strong>You pay <span data-jw-offer-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>.</strong>{% endif %}</p>
+          <p class="jw-stacklist__total">{{ section.settings.total_line | escape }}{% if product != blank %} <strong>You pay {{ product.variants.first.price | money_without_trailing_zeros }} for one.</strong>{% endif %}</p>
         {%- endif -%}
         {%- if section.settings.values_note != blank -%}
           <p class="jw-caption">{{ section.settings.values_note | escape }}</p>
@@ -142,10 +142,9 @@
       });
       var c = forms[0].querySelector('input[name="id"]:checked');
       if (c) {
-        var big = document.querySelector('[data-jw-big-price]'), was = document.querySelector('[data-jw-big-was]'), offer = document.querySelector('[data-jw-offer-price]');
+        var big = document.querySelector('[data-jw-big-price]'), was = document.querySelector('[data-jw-big-was]');
         if (big) big.textContent = c.getAttribute('data-price') || '';
         if (was) { was.textContent = c.getAttribute('data-was') || ''; was.hidden = !c.getAttribute('data-was'); }
-        if (offer) offer.textContent = c.getAttribute('data-price') || '';
       }
     }
     document.addEventListener('change', function (e) {
