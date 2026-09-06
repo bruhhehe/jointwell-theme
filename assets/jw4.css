@@ -249,3 +249,15 @@ body { background: var(--jw-bg); }
 .jw4-guar .jw4__eyebrow { display: none; }
 .jw5-ph--hero { aspect-ratio: 4 / 4.2; margin: 0; font-size: 19px; }
 .jw4-hero__cta { margin-top: 8px; }
+
+/* ===== v5.1 ===== */
+.jw-btn { border-radius: 12px; }
+.jw-doors__tab { border-radius: 12px; }
+.jw4-reviews__img { width: 100%; height: auto !important; aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; max-height: 420px; }
+.jw4-reviews__card { display: flex; flex-direction: column; }
+.jw4-enemy__belieftext { text-align: center; max-width: 720px; margin: 8px auto 0; font-size: var(--jw-fs-large); line-height: 1.4; font-weight: 600; }
+.jw-sticky__text { font-size: 16px; }
+@media (max-width: 749px) {
+  .jw-doors__tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .jw-doors__tab { width: 100%; text-align: center; font-size: 17px; padding: 12px 10px; margin: 0; }
+}

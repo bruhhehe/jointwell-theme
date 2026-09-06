@@ -20,7 +20,7 @@
           <div class="jw4-reviews__body">
             <div class="jw4-reviews__stars" aria-label="Five stars">★★★★★</div>
             <blockquote class="jw4-reviews__q">{{ block.settings.quote | escape }}</blockquote>
-            <p class="jw4-reviews__who">{{ block.settings.name | escape }}{% if block.settings.age != blank %}, {{ block.settings.age | escape }}{% endif %}{% if block.settings.town != blank %}, {{ block.settings.town | escape }}{% endif %} <span>Verified buyer</span>{% if block.settings.uses != blank %} <span>{{ block.settings.uses | escape }}</span>{% endif %}</p>
+            <p class="jw4-reviews__who">{{ block.settings.name | escape }}{% if block.settings.age != blank %}, {{ block.settings.age | escape }}{% endif %}{% if block.settings.town != blank %}, {{ block.settings.town | escape }}{% endif %} <span>Verified buyer</span></p>
             {%- if block.settings.link != blank -%}<p class="jw-caption"><a href="{{ block.settings.link }}">Read the verified review</a></p>{%- endif -%}
           </div>
         </li>

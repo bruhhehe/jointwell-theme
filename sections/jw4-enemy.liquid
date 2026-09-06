@@ -20,7 +20,7 @@
       {%- endfor -%}
     </ul>
     <div class="jw4-enemy__belief">
-      <h2 class="jw-h2">{{ section.settings.belief | escape }}</h2>
+      <p class="jw4-enemy__belieftext">{{ section.settings.belief | escape }}</p>
       {%- if section.settings.bridge != blank -%}<p class="jw-lead">{{ section.settings.bridge | escape }}</p>{%- endif -%}
     </div>
   </div>
