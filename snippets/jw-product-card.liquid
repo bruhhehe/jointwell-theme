@@ -6,11 +6,11 @@
   assign p = all_products['jointwell-heated-joint-wrap']
   assign card_label = label | default: 'Try it for 90 days'
   if template.name == 'index'
-    assign card_link = '#jw-offer'
+    assign card_link = '#offer'
   elsif template.name == 'product' or template.suffix == 'jw-landing'
     assign card_link = '#jw-buy'
   else
-    assign card_link = routes.root_url | append: '#jw-offer'
+    assign card_link = routes.root_url | append: '#offer'
   endif
 -%}
 {%- if p != blank -%}

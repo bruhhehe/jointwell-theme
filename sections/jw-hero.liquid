@@ -146,7 +146,7 @@
           <button type="submit" class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn"><span data-jw-label>{{ section.settings.cta_label | escape }}</span><span class="jw-hero__dot" aria-hidden="true">&ndash;</span><span data-jw-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span></button>
         </form>
       {%- else -%}
-        <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#jw-offer' }}">{{ section.settings.cta_label | escape }}</a>
+        <a class="jw-btn jw-btn--primary jw-btn--block jw-hero__btn" href="{{ cta_link | default: '#offer' }}">{{ section.settings.cta_label | escape }}</a>
       {%- endif -%}
       {%- if section.settings.dispatch_hour > 0 -%}
         <p class="jw-hero__dispatch" data-jw-dispatch data-hour="{{ section.settings.dispatch_hour }}" data-days="{{ section.settings.dispatch_days }}" hidden>

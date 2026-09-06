@@ -10,8 +10,9 @@
 <section class="jw4 jw4-mech" id="jw-how">
   <div class="jw-wrap">
     <div class="jw4__center">
-      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.intro != blank -%}<p class="jw-lead">{{ section.settings.intro | escape }}</p>{%- endif -%}
     </div>
     {%- assign n = 0 -%}
     {%- for block in section.blocks -%}
@@ -55,6 +56,12 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
+      "default": "How it works"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Line under the heading",
       "default": "Warmth that stays put. That is the whole idea."
     },
     {

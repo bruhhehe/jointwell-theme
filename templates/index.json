@@ -1,14 +1,16 @@
 {
   "sections": {
-    "jw4_sale": {
-      "type": "jw4-sale-bar",
-      "settings": {}
-    },
     "jw4_hero": {
       "type": "jw4-hero",
       "settings": {
         "product": "jointwell-heated-joint-wrap",
-        "price_note": "One payment. Free tracked UK delivery."
+        "price_note": "One payment. Free UK delivery.",
+        "eyebrow": "",
+        "subline": "Paula, 65, was going up the stairs on her hands and knees. Fifteen minutes a day, and now she doesn't think about them.",
+        "cta_label": "Try it risk-free →",
+        "proof_line": "★ 4.7 · 1,200+ reviews · 90-day guarantee · Shipped from the UK",
+        "show_ba": true,
+        "ba_caption": "Before and after: Paula on the stairs, then the same stairs twelve weeks on"
       }
     },
     "jw4_enemy": {
@@ -17,29 +19,29 @@
         "e1": {
           "type": "item",
           "settings": {
-            "title": "The wheat bag helps for ten minutes.",
-            "text": "Then it is cold, and you are back at the microwave for the fourth time tonight."
+            "title": "The wheat bag.",
+            "text": "It helped for ten minutes. Then she was back at the microwave for the fourth time that night."
           }
         },
         "e2": {
           "type": "item",
           "settings": {
-            "title": "The cream warms the skin, not the joint.",
-            "text": "Three times a day, and it comes off on your trousers."
+            "title": "The creams.",
+            "text": "Warm on the skin, nothing in the joint, and it came off on her trousers."
           }
         },
         "e3": {
           "type": "item",
           "settings": {
-            "title": "The heated pad ties you to a socket.",
-            "text": "Warm, but you sit where the wire lets you, and there is no level to hold."
+            "title": "The physio.",
+            "text": "Lovely woman. Six sessions, a sheet of exercises, and a ten-week wait to be seen again."
           }
         },
         "e4": {
           "type": "item",
           "settings": {
-            "title": "The physio helps for a few days.",
-            "text": "Then the stiffness comes back, £50 a visit, next appointment three weeks off."
+            "title": "The paracetamol.",
+            "text": "It takes the edge off. She did not want to be on them every day for the rest of her life."
           }
         }
       },
@@ -50,7 +52,11 @@
         "e4"
       ],
       "settings": {
-        "bridge": "A stiff joint wants warmth that stays, long enough for the muscles round it to let go. Half an hour, on the joint, with no wire and no microwave. That is all Jointwell is."
+        "bridge": "",
+        "eyebrow": "",
+        "heading": "What Paula tried",
+        "intro": "The cupboard filled up. The knee stayed the same.",
+        "belief": "None of it failed because her knee was too far gone. It failed because every one of them gives you warmth that fades."
       }
     },
     "jw4_mech": {
@@ -87,65 +93,18 @@
         "m3"
       ],
       "settings": {
-        "product": "jointwell-heated-joint-wrap"
+        "product": "jointwell-heated-joint-wrap",
+        "eyebrow": "",
+        "heading": "How it works",
+        "intro": "Warmth that stays put. That is the whole idea."
       }
-    },
-    "jw_heat_chart": {
-      "type": "jw-heat-chart",
-      "settings": {
-        "show_tiles": false,
-        "heading": "Thirty minutes, held. Not ten, fading.",
-        "intro": "",
-        "body": "",
-        "caption": "The wheat bag line is what happens to anything you heat in a microwave. Test it with your own hot water bottle."
-      },
-      "blocks": {
-        "feature_1": {
-          "type": "feature",
-          "settings": {
-            "stock": "jw-feature-heat.jpg",
-            "title": "Five heat levels, held",
-            "text": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes."
-          }
-        },
-        "feature_2": {
-          "type": "feature",
-          "settings": {
-            "stock": "jw-feature-massage.jpg",
-            "title": "Three massage strengths",
-            "text": "Gentle, comfortable or strong. Chosen on a lit panel you can read without glasses."
-          }
-        },
-        "feature_3": {
-          "type": "feature",
-          "settings": {
-            "stock": "jw-feature-timer.jpg",
-            "title": "Switches itself off at 30 minutes",
-            "text": "Every time. Start at 45°C and work up."
-          }
-        },
-        "feature_4": {
-          "type": "feature",
-          "settings": {
-            "stock": "jw-feature-joints.jpg",
-            "title": "Knee, shoulder or elbow",
-            "text": "One wrap, one size. The extension strap in the box takes it round a shoulder."
-          }
-        }
-      },
-      "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3",
-        "feature_4"
-      ]
     },
     "jw_authority": {
       "type": "jw-authority",
       "settings": {
         "strip": false,
-        "heading": "What the NHS and orthopaedic surgeons say about heat and massage",
-        "intro": "None of these people are selling anything. These are their words about warmth and massage on stiff joints in general, with the source linked so you can read it yourself.",
+        "heading": "What the experts say",
+        "intro": "Don't take it from us.",
         "evidence_heading": "What the evidence says",
         "evidence_note": "",
         "footnote": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do."
@@ -285,98 +244,12 @@
         "review_4",
         "review_5"
       ],
-      "settings": {}
-    },
-    "jw4_founder": {
-      "type": "jw4-founder",
-      "blocks": {
-        "l1": {
-          "type": "line",
-          "settings": {
-            "text": "A few years ago my grandad stopped walking. The stairs might as well have been a mountain."
-          }
-        },
-        "l2": {
-          "type": "line",
-          "settings": {
-            "text": "He got back on his feet. That was the physios and the doctors, months of it. A heated wrap did not do that, and I am not going to pretend it did."
-          }
-        },
-        "l3": {
-          "type": "line",
-          "settings": {
-            "text": "What I saw was the hour before the physio arrived. Joints cold, everything stiff, a wheat bag going round the microwave for the third time. Nobody was looking after that hour, and it decided how the rest of the day went."
-          }
-        },
-        "l4": {
-          "type": "line",
-          "settings": {
-            "text": "So I went looking for warmth that stayed warm, that he could strap on at the table and forget about, and that he could not leave running by accident. Jointwell is what I found and had safety-tested."
-          }
-        },
-        "l5": {
-          "type": "line",
-          "settings": {
-            "text": "It is for the mornings. It is not a cure. If it does for your knee what it did for his hour before breakfast, keep it."
-          }
-        }
-      },
-      "block_order": [
-        "l1",
-        "l2",
-        "l3",
-        "l4",
-        "l5"
-      ],
-      "settings": {}
-    },
-    "jw4_routine": {
-      "type": "jw4-routine",
-      "blocks": {
-        "r1": {
-          "type": "step",
-          "settings": {
-            "when": "Day 1",
-            "text": "Level 1 or 2 (45 to 50°C), massage off, thirty minutes with the first cup of tea."
-          }
-        },
-        "r2": {
-          "type": "step",
-          "settings": {
-            "when": "Day 3",
-            "text": "Same chair, same time. Try the gentle massage. It switches itself off when the tea is finished."
-          }
-        },
-        "r3": {
-          "type": "step",
-          "settings": {
-            "when": "Week 2",
-            "text": "Move up to level 3 if you want more. Seven mornings a week. Twice a week does nothing."
-          }
-        },
-        "r4": {
-          "type": "step",
-          "settings": {
-            "when": "Week 4",
-            "text": "Your level, every morning. By now you will know whether it has earned its place by the kettle."
-          }
-        },
-        "r5": {
-          "type": "step",
-          "settings": {
-            "when": "Day 90",
-            "text": "By now you will know. Keep it, or post it back."
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5"
-      ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "",
+        "heading": "Paula's not the only one",
+        "intro": "Everyone has their own story.",
+        "note": ""
+      }
     },
     "jw_doorways": {
       "type": "jw-doorways",
@@ -523,14 +396,17 @@
         "g4"
       ],
       "settings": {
-        "intro": "Use it every morning for up to three months on your own knee. If you cannot feel the difference, post it back."
+        "intro": "Use it every morning for up to three months on your own knee. If you cannot feel the difference, post it back.",
+        "eyebrow": ""
       }
     },
     "jw_offer_block": {
       "type": "jw-offer-block",
       "settings": {
         "preselect": 2,
-        "intro": "One payment. Nothing to refill, nothing that runs out."
+        "intro": "One payment. Everything in the box, delivered free, and 90 days to decide.",
+        "heading": "Our offer",
+        "total_value": "£89"
       },
       "blocks": {
         "item_1": {
@@ -573,7 +449,7 @@
           "type": "item",
           "settings": {
             "item": "The 7-morning routine, large print",
-            "note": "also free by email below",
+            "note": "",
             "value": "£3",
             "pay": "Free"
           }
@@ -665,7 +541,9 @@
     },
     "jw_faq": {
       "type": "jw-faq",
-      "settings": {},
+      "settings": {
+        "intro": "Straight answers. If yours is not here, ring us."
+      },
       "blocks": {
         "qa_1": {
           "type": "qa",
@@ -752,25 +630,219 @@
         "qa_9"
       ]
     },
-    "jw_final_cta": {
-      "type": "jw-final-cta",
+    "jw5_decline": {
+      "type": "jw5-decline",
+      "settings": {
+        "heading": "It starts with the stairs. It never stays there.",
+        "intro": "If any of this sounds familiar, keep reading."
+      },
+      "blocks": {
+        "b1": {
+          "type": "beat",
+          "settings": {
+            "shot": "Stairs, shot from the bottom looking up. Hand on the banister in the corner of frame.",
+            "lines": "Sideways?\nOne step at a time?\nMaybe even on your hands and knees?"
+          }
+        },
+        "b2": {
+          "type": "beat",
+          "settings": {
+            "shot": "Armchair, side-on. A woman leaning forward, hand on the arm, about to stand.",
+            "lines": "You work out how you'll get up before you've sat down.\nIt used to be where you relaxed."
+          }
+        },
+        "b3": {
+          "type": "beat",
+          "settings": {
+            "shot": "Open car door in a supermarket car park. One foot on the ground, one still inside.",
+            "lines": "That pause before you put your weight on it.\nHoping nobody's watching."
+          }
+        },
+        "b4": {
+          "type": "beat",
+          "settings": {
+            "shot": "Overgrown garden through a kitchen window. Mug on the sill.",
+            "lines": "Too much kneeling.\nToo much bending.\nYou don't want it to, but the grass gets longer every day."
+          }
+        },
+        "b5": {
+          "type": "beat",
+          "settings": {
+            "shot": "Dark bedroom, someone lying on their back, ceiling.",
+            "lines": "You've stopped sleeping on that side.\nThen the other side started too."
+          }
+        },
+        "t1": {
+          "type": "text",
+          "settings": {
+            "lines": "Everyone your age has a knee.\nSo you don't mention it.\nYou just plan around it."
+          }
+        },
+        "h1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Then you go to the GP.",
+            "intro": "Everyone does their best. It still is not enough."
+          }
+        },
+        "b6": {
+          "type": "beat",
+          "settings": {
+            "shot": "GP waiting room. Row of chairs, the ticket screen, a poster about flu jabs.",
+            "lines": "You put it off. It's only a knee.\nWhen you finally go, you get eight minutes."
+          }
+        },
+        "b7": {
+          "type": "beat",
+          "settings": {
+            "shot": "A hand pressing on a knee. Clinical, close, cropped.",
+            "lines": "Wear and tear, they say.\nVery common.\nParacetamol, keep it moving, lose a bit if you can."
+          }
+        },
+        "b8": {
+          "type": "beat",
+          "settings": {
+            "shot": "A brown NHS envelope on a doormat.",
+            "lines": "The physio letter takes ten weeks.\nSix sessions.\nA sheet of exercises for the landing carpet."
+          }
+        },
+        "b9": {
+          "type": "beat",
+          "settings": {
+            "shot": "Printed exercise sheet, folded, on a kitchen table. Coffee ring on it.",
+            "lines": "The physio is lovely.\nThe exercises hurt.\nBy session four you've stopped, and neither of you mentions it."
+          }
+        },
+        "b10": {
+          "type": "beat",
+          "settings": {
+            "shot": "A syringe on a tray, out of focus.",
+            "lines": "So it's the injection.\nAnd it works. Properly works.\nFor about ten weeks."
+          }
+        },
+        "b11": {
+          "type": "beat",
+          "settings": {
+            "shot": "A calendar page with a date circled.",
+            "lines": "Then one morning it's back.\n\"We can only do that a few times a year.\"\n\"Have you thought about a replacement?\""
+          }
+        },
+        "t2": {
+          "type": "text",
+          "settings": {
+            "lines": "Referred. Not booked.\nA letter. A consultation. A list.\nNobody says how long the list is.\nYou look it up and wish you hadn't."
+          }
+        },
+        "b12": {
+          "type": "beat",
+          "settings": {
+            "shot": "Three boxes on a bedside table. Co-codamol, naproxen, paracetamol. Labels visible.",
+            "lines": "One leaves you foggy.\nOne upsets your stomach.\nOne is fine. It's just not enough any more."
+          }
+        },
+        "t3": {
+          "type": "text",
+          "settings": {
+            "lines": "None of this is anyone's fault.\nThe GP has eight minutes. The physio has six sessions. The surgeon has a list.\nIt's just that nobody's job is to get you up the stairs this month."
+          }
+        },
+        "hand": {
+          "type": "handoff",
+          "settings": {
+            "text": "That's the bit Paula got tired of waiting for."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "t1",
+        "h1",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "t2",
+        "b12",
+        "t3",
+        "hand"
+      ]
+    },
+    "jw5_discovery": {
+      "type": "jw5-quote",
+      "settings": {}
+    },
+    "jw5_experience": {
+      "type": "jw5-timeline",
+      "settings": {},
+      "blocks": {
+        "w1": {
+          "type": "stage",
+          "settings": {
+            "when": "Week 1",
+            "lines": "Properly warm, right into the joint. The squeezing I wasn't expecting. It was like someone's hands.\nIt felt good while it was on.\nI'd had nice before, though."
+          }
+        },
+        "w3": {
+          "type": "stage",
+          "settings": {
+            "when": "Week 3",
+            "lines": "I'd started doing it first thing, on the edge of the bed with the radio on.\nThe mornings weren't as stiff.\nI put it down to the weather."
+          }
+        },
+        "w5": {
+          "type": "stage",
+          "settings": {
+            "when": "Week 5",
+            "lines": "I went up the stairs with the washing and didn't hold on.\nI only noticed at the top.\nI stood there a bit."
+          }
+        },
+        "w8": {
+          "type": "stage",
+          "settings": {
+            "when": "Week 8",
+            "lines": "I did the borders in the garden. Not all of them.\nBut you could tell from the kitchen window."
+          }
+        },
+        "w12": {
+          "type": "stage",
+          "settings": {
+            "when": "Week 12",
+            "lines": "Fifteen minutes, first thing, same as brushing my teeth.\nMy sister asked what I'd been doing differently.\nThat's when I told her about the gadget."
+          }
+        }
+      },
+      "block_order": [
+        "w1",
+        "w3",
+        "w5",
+        "w8",
+        "w12"
+      ]
+    },
+    "jw5_whynot": {
+      "type": "jw5-words",
       "settings": {}
     }
   },
   "order": [
-    "jw4_sale",
     "jw4_hero",
+    "jw5_decline",
     "jw4_enemy",
+    "jw5_discovery",
     "jw4_mech",
-    "jw_heat_chart",
-    "jw_authority",
+    "jw5_experience",
+    "jw5_whynot",
     "jw4_reviews",
-    "jw4_founder",
-    "jw4_routine",
+    "jw_authority",
     "jw_doorways",
-    "jw4_guar",
     "jw_offer_block",
     "jw_faq",
-    "jw_final_cta"
+    "jw4_guar"
   ]
 }

@@ -16,7 +16,7 @@
     endif
   endfor
 -%}
-<section class="jw-offerblock" id="jw-offer">
+<section class="jw-offerblock" id="jw-offer"><span id="offer"></span>
   <div class="jw-wrap">
     <h2 class="jw-h2 jw-offerblock__h">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead jw-narrow">{{ section.settings.intro | escape }}</p>
@@ -39,12 +39,13 @@
             </li>
           {%- endfor -%}
         </ul>
-        {%- if any_valued and section.settings.total_line != blank -%}
-          <p class="jw-stacklist__total">{{ section.settings.total_line | escape }}{% if product != blank %} <strong>You pay {{ product.variants.first.price | money_without_trailing_zeros }} for one.</strong>{% endif %}</p>
+        {%- if any_valued -%}
+          <div class="jw-stacklist__totals">
+            <div class="jw-stacklist__tot"><span>Total value</span><strong>{{ section.settings.total_value | escape }}</strong></div>
+            <div class="jw-stacklist__tot jw-stacklist__tot--pay"><span>You pay</span><strong>{% if product != blank %}{{ product.variants.first.price | money_without_trailing_zeros }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</strong></div>
+          </div>
         {%- endif -%}
-        {%- if section.settings.values_note != blank -%}
-          <p class="jw-caption">{{ section.settings.values_note | escape }}</p>
-        {%- endif -%}
+
         {%- assign has_spec = false -%}
         {%- for block in section.blocks -%}{%- if block.type == 'spec' and block.settings.value != blank -%}{%- assign has_spec = true -%}{%- endif -%}{%- endfor -%}
         {%- if has_spec -%}
@@ -203,15 +204,15 @@
     },
     {
       "type": "text",
-      "id": "total_line",
-      "label": "Total line (shows when items carry values)",
-      "default": "Bought separately, £89."
+      "id": "total_value",
+      "label": "Total value (add the lines up)",
+      "default": "£89"
     },
     {
       "type": "text",
-      "id": "values_note",
-      "label": "Note under the values",
-      "default": "Values are what each item costs on its own: the wrap at its full price, the strap and cable at what they sell for, delivery at Royal Mail's tracked rate."
+      "id": "total_pay",
+      "label": "You pay, if no product is set",
+      "default": "£49"
     },
     {
       "type": "text",

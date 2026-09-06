@@ -5,19 +5,20 @@
     "jw_announcement": {
       "type": "jw-announcement",
       "settings": {
-        "text": "Free tracked UK delivery \u00b7 90-day trial, return postage paid \u00b7 2-year warranty",
-        "link": "/#jw-buy"
+        "text": "Save £50 today · Free UK delivery · 90-day guarantee",
+        "link": ""
       }
     },
     "jw_header": {
       "type": "jw-header",
       "settings": {
         "menu": "main-menu",
-        "show_cta": true,
+        "show_cta": false,
         "cta_label": "Try it for 90 days",
         "cta_link": "/#jw-buy",
         "logo_file": "jointwell-logo.svg",
-        "logo_width": 170
+        "logo_width": 170,
+        "phone": "+44 7733 672437"
       }
     }
   },

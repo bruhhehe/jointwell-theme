@@ -1,0 +1,37 @@
+{% comment %} One customer, one quote, big. Used for Paula's discovery. {% endcomment %}
+<section class="jw4 jw4--cream jw5-quote" id="{{ section.settings.anchor | default: 'jw-discovery' }}">
+  <div class="jw-wrap jw4__center">
+    <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    <p class="jw-lead">{{ section.settings.intro | escape }}</p>
+    <figure class="jw5-quote__fig">
+      {%- if section.settings.photo != blank -%}
+        {{ section.settings.photo | image_url: width: 240 | image_tag: loading: 'lazy', class: 'jw5-quote__photo', alt: section.settings.name }}
+      {%- elsif section.settings.show_ph -%}
+        <div class="jw5-ph jw5-ph--round" role="img" aria-label="{{ section.settings.name | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span></div>
+      {%- endif -%}
+      <blockquote class="jw5-quote__text">{{ section.settings.quote | escape }}</blockquote>
+      <figcaption class="jw5-quote__who">{{ section.settings.name | escape }}</figcaption>
+    </figure>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW5 One quote",
+  "tag": "section",
+  "class": "jw5-section-quote",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Paula's discovery" },
+    { "type": "textarea", "id": "intro", "label": "Line under the heading", "default": "In her own words." },
+    { "type": "textarea", "id": "quote", "label": "The quote", "default": "I found it in a Facebook group for osteoarthritis. At first I was sceptical. Was it really going to do anything? I had already tried the lot. Then I saw the 90-day guarantee, a 90-day trial they called it: if it doesn't work, send it back. So I thought, go on then, what is there to lose. And God am I grateful I did." },
+    { "type": "text", "id": "name", "label": "Who", "default": "Paula, 65" },
+    { "type": "image_picker", "id": "photo", "label": "Their photo" },
+    { "type": "checkbox", "id": "show_ph", "label": "Show a photo placeholder until the photo is set", "default": true },
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "jw-discovery" },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "presets": [ { "name": "JW5 One quote" } ]
+}
+{% endschema %}

@@ -38,7 +38,7 @@
                 {%- if block.settings.note != blank -%}<div><dt>Worth knowing</dt><dd>{{ block.settings.note | escape }}</dd></div>{%- endif -%}
               </dl>
               <div class="jw-doors__actions">
-                <a class="jw-btn jw-btn--primary" href="{{ block.settings.cta_link | default: section.settings.cta_link | default: '#jw-offer' }}">{{ section.settings.cta_label | escape }}</a>
+                <a class="jw-btn jw-btn--primary" href="{{ block.settings.cta_link | default: section.settings.cta_link | default: '#offer' }}">{{ section.settings.cta_label | escape }}</a>
                 {%- if block.settings.link != blank -%}
                   <a class="jw-doors__more" href="{{ block.settings.link }}">{{ section.settings.more_label | escape }}</a>
                 {%- endif -%}

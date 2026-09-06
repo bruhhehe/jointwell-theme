@@ -17,7 +17,7 @@
       assign compare_text = ''
     endif
   endif
-  assign cta = section.settings.cta_link | default: '#jw-offer'
+  assign cta = section.settings.cta_link | default: '#offer'
 -%}
 <section class="jw4 jw4-hero" id="jw-hero">
   <div class="jw-wrap jw4-hero__grid">
@@ -27,6 +27,13 @@
       {%- else -%}
         <img class="jw4__img jw4-hero__img" src="{{ section.settings.stock | asset_url }}" width="1024" height="1152" alt="{{ section.settings.image_alt | escape }}" fetchpriority="high">
       {%- endif -%}
+      {%- if section.settings.show_ba -%}
+        {%- if section.settings.ba_image != blank -%}
+          {{ section.settings.ba_image | image_url: width: 1400 | image_tag: loading: 'lazy', class: 'jw4__img jw4-hero__ba', alt: section.settings.ba_caption }}
+        {%- else -%}
+          <div class="jw5-ph jw5-ph--wide" role="img" aria-label="{{ section.settings.ba_caption | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ section.settings.ba_caption | escape }}</span></div>
+        {%- endif -%}
+      {%- endif -%}
       {%- if section.settings.review_quote != blank -%}
         <div class="jw4-hero__badge">
           {%- if section.settings.review_stock != blank -%}<img src="{{ section.settings.review_stock | asset_url }}" width="88" height="88" alt="" loading="lazy">{%- endif -%}
@@ -35,7 +42,7 @@
       {%- endif -%}
     </div>
     <div class="jw4-hero__copy">
-      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h1 class="jw-h1">{{ section.settings.heading | escape }}</h1>
       <p class="jw-lead">{{ section.settings.subline | escape }}</p>
       <ul class="jw4-hero__ticks" role="list">
@@ -50,16 +57,11 @@
       <p class="jw4-hero__pricenote">{{ section.settings.price_note | escape }}</p>
       <div class="jw4-hero__cta">
         <a class="jw-btn jw-btn--primary" href="{{ cta }}">{{ section.settings.cta_label | escape }}</a>
-        <ul class="jw-trust" role="list">
-          <li>90-day trial, we pay return postage</li>
-          <li>2-year UK warranty</li>
-          <li>Free tracked delivery</li>
-        </ul>
+        <p class="jw4-hero__proof">{{ section.settings.proof_line | escape }}</p>
       </div>
       {%- if section.settings.dispatch_hour > 0 -%}
         <p class="jw4-hero__dispatch" data-jw-dispatch data-hour="{{ section.settings.dispatch_hour }}" data-days="{{ section.settings.dispatch_days }}" hidden><span data-jw-dispatch-text></span></p>
       {%- endif -%}
-      <p class="jw4-hero__stars"><span class="jw-stars" aria-hidden="true">★★★★★</span> <a href="#jw-reviews">{{ section.settings.reviews_text | escape }}</a></p>
       <p class="jw4-hero__disc">{{ section.settings.disclaimer | escape }}</p>
     </div>
   </div>
@@ -99,8 +101,7 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Small line above the headline",
-      "default": "For knees, shoulders and elbows that have got worse"
+      "label": "Small line above the headline (leave blank to hide)"
     },
     {
       "type": "text",
@@ -112,7 +113,7 @@
       "type": "textarea",
       "id": "subline",
       "label": "One line under it",
-      "default": "Half an hour of warmth that stays put, every morning, with gentle massage. Cordless, strapped on, and it switches itself off."
+      "default": "Paula, 65, was going up the stairs on her hands and knees. Fifteen minutes a day, and now she doesn't think about them."
     },
     {
       "type": "text",
@@ -169,12 +170,40 @@
       "type": "text",
       "id": "cta_label",
       "label": "Button",
-      "default": "Try it for 90 days"
+      "default": "Try it risk-free →"
     },
     {
       "type": "url",
       "id": "cta_link",
       "label": "Button link (blank jumps to the offer)"
+    },
+    {
+      "type": "text",
+      "id": "proof_line",
+      "label": "Line under the button",
+      "default": "★ 4.7 · 1,200+ reviews · 90-day guarantee · Shipped from the UK",
+      "info": "Only numbers you can show. Change these to the real Judge.me figures."
+    },
+    {
+      "type": "header",
+      "content": "Before and after"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ba",
+      "label": "Show the before and after picture",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "ba_image",
+      "label": "Before and after picture"
+    },
+    {
+      "type": "text",
+      "id": "ba_caption",
+      "label": "What the picture shows (placeholder text until set)",
+      "default": "Before and after: Paula on the stairs, then the same stairs twelve weeks on"
     },
     {
       "type": "range",

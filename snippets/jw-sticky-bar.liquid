@@ -10,11 +10,11 @@
     assign bar_price = jw_p.price | money_without_trailing_zeros
   endif
   if template.name == 'index'
-    assign bar_link = '#jw-offer'
+    assign bar_link = '#offer'
   elsif template.name == 'product'
     assign bar_link = '#jw-buy'
   else
-    assign bar_link = routes.root_url | append: '#jw-offer'
+    assign bar_link = routes.root_url | append: '#offer'
   endif
 -%}
 {%- unless template.name == 'cart' -%}

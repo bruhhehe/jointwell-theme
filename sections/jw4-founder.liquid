@@ -12,7 +12,7 @@
       {%- endif -%}
     </div>
     <div class="jw4-founder__lines">
-      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
       {%- for block in section.blocks -%}
         <p {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>

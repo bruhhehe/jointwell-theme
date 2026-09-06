@@ -5,6 +5,7 @@
 <section class="jw-faq" id="jw-faq">
   <div class="jw-wrap jw-narrow">
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.intro != blank -%}<p class="jw-lead">{{ section.settings.intro | escape }}</p>{%- endif -%}
     <div class="jw-faq__list">
       {%- for block in section.blocks -%}
         <details class="jw-faq__item" {{ block.shopify_attributes }}{% if forloop.first and section.settings.open_first %} open{% endif %}>
@@ -32,6 +33,7 @@
   "class": "jw-section-faq",
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Questions people ask before they buy" },
+    { "type": "textarea", "id": "intro", "label": "Line under the heading", "default": "Straight answers. If yours is not here, ring us." },
     { "type": "checkbox", "id": "open_first", "label": "Open the first question by default", "default": false },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link" }

@@ -1,0 +1,63 @@
+{% comment %}
+  Paula's experience: a vertical timeline that reveals as she scrolls. One block per stage.
+  Reduced-motion users get everything visible at once.
+{% endcomment %}
+<section class="jw4 jw5-timeline" id="jw-experience">
+  <div class="jw-wrap">
+    <div class="jw4__center">
+      <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+      <p class="jw-lead">{{ section.settings.intro | escape }}</p>
+    </div>
+    <ol class="jw5-tl" data-jw-tl>
+      {%- for block in section.blocks -%}
+        <li class="jw5-tl__item" {{ block.shopify_attributes }}>
+          <span class="jw5-tl__dot" aria-hidden="true"></span>
+          <div class="jw5-tl__card">
+            <span class="jw5-tl__when">{{ block.settings.when | escape }}</span>
+            {%- assign lines = block.settings.lines | escape | newline_to_br | replace: '<br>', '<br />' | split: '<br />' -%}
+            {%- for l in lines -%}{%- assign t = l | strip -%}{%- if t != blank -%}<p>{{ t }}</p>{%- endif -%}{%- endfor -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+    {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
+  </div>
+</section>
+<script>
+  (function () {
+    var list = document.querySelector('[data-jw-tl]'); if (!list) return;
+    var items = list.querySelectorAll('.jw5-tl__item');
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      items.forEach(function (i) { i.classList.add('is-in'); }); return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.2 });
+    items.forEach(function (i) { io.observe(i); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "JW5 Experience timeline",
+  "tag": "section",
+  "class": "jw5-section-timeline",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Paula's experience" },
+    { "type": "textarea", "id": "intro", "label": "Line under the heading", "default": "Twelve weeks, in her own words." },
+    { "type": "text", "id": "cta_label", "label": "Button", "default": "Try it for 90 days" },
+    { "type": "url", "id": "cta_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "stage",
+      "name": "Stage",
+      "settings": [
+        { "type": "text", "id": "when", "label": "When", "default": "Week 1" },
+        { "type": "textarea", "id": "lines", "label": "Lines, one per line", "default": "It felt good while it was on.\nI'd had nice before, though." }
+      ]
+    }
+  ],
+  "presets": [ { "name": "JW5 Experience timeline" } ]
+}
+{% endschema %}

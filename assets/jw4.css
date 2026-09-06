@@ -164,3 +164,86 @@ body { background: var(--jw-bg); }
 .jw-chart .jw-lead:empty, .jw-chart .jw-body:empty { display: none; }
 .jw-offerblock .jw-terms { display: none; }
 .jw-final .jw-pcard .jw-trust { display: none; }
+
+/* ===== v5: calmer palette, narrative sections, placeholders ===== */
+:root {
+  --jw-bg: #fbf8f3;
+  --jw-bg-alt: #f3ede4;
+  --jw-cream: #f3ede4;
+  --jw-clay: #4a2a1c;         /* dark band, muted. White on it 12:1 */
+  --jw-accent: #b5522a;       /* brick, not orange. White on it 5.2:1 */
+  --jw-accent-dark: #93401f;
+  --jw-accent-soft: #f5e6dc;
+  --jw-star: #c99a2e;
+  --jw-good: #3d6b4f;
+}
+.jw-btn { box-shadow: 0 6px 18px rgba(74, 42, 28, 0.18); }
+.jw4__eyebrow { color: var(--jw-accent-dark); }
+.jw4-hero__now { color: var(--jw-text); }
+.jw4-enemy__item { border-left-color: var(--jw-accent); }
+.jw4-mech__num { background: var(--jw-clay); }
+.jw4-routine__step, .jw4-routine__step:nth-child(2), .jw4-routine__step:nth-child(3), .jw4-routine__step:nth-child(4) { border-top-color: var(--jw-accent); }
+.jw4-hero__ticks li::before { background: var(--jw-accent-soft); color: var(--jw-accent-dark); }
+.jw4-hero__proof { margin: 4px 0 0; font-size: 17px; font-weight: 700; color: var(--jw-text); }
+.jw4-hero__ba { margin-top: 14px; aspect-ratio: 16 / 9; }
+.jw4-hero__badge { bottom: auto; top: 16px; }
+.jw4-hero__img { aspect-ratio: 4 / 4.2; }
+
+/* Header: logo and a phone number */
+.jw-header__phone { margin-left: auto; font-family: var(--jw-font); font-size: 20px; font-weight: 800; color: var(--jw-text); text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; }
+.jw-header__phone:hover { color: var(--jw-accent-dark); }
+.jw-header__phoneicon { font-size: 22px; color: var(--jw-accent); }
+@media (max-width: 749px) { .jw-header__phone { font-size: 18px; } }
+
+/* Photo placeholders, until the real shots exist */
+.jw5-ph { width: 100%; aspect-ratio: 4 / 3; border-radius: var(--jw-radius); background: repeating-linear-gradient(135deg, #ebe3d8 0 12px, #e4dbcf 12px 24px); border: 2px dashed #b8a998; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center; color: #5e5147; font-size: 17px; line-height: 1.4; }
+.jw5-ph--wide { aspect-ratio: 16 / 9; margin-top: 14px; }
+.jw5-ph--round { width: 120px; height: 120px; aspect-ratio: 1; border-radius: 50%; margin: 0 auto 16px; padding: 0; }
+.jw5-ph__icon { font-size: 34px; line-height: 1; }
+.jw5-ph__text::before { content: "Photo to come: "; font-weight: 700; }
+
+/* The decline */
+.jw5-decline__beats { max-width: 980px; margin: 40px auto 0; display: grid; gap: 40px; }
+.jw5-beat { display: grid; gap: 18px; align-items: center; }
+@media (min-width: 750px) { .jw5-beat { grid-template-columns: 1fr 1fr; gap: 40px; } .jw5-beat:nth-child(even) > :first-child { order: 2; } }
+.jw5-beat__img { aspect-ratio: 4 / 3; }
+.jw5-beat__lines p { margin: 0 0 0.35em; font-size: var(--jw-fs-large); line-height: 1.35; font-weight: 600; }
+.jw5-beat__lines p:first-child { font-weight: 800; }
+.jw5-text { text-align: center; max-width: 720px; margin: 16px auto; }
+.jw5-text p { margin: 0 0 0.35em; font-size: calc(var(--jw-fs-large) * 1.15); line-height: 1.35; font-weight: 700; }
+.jw5-subhead { padding-top: 32px; }
+.jw5-handoff { text-align: center; font-style: italic; font-size: var(--jw-fs-large); margin: 8px auto 0; max-width: 720px; }
+
+/* One quote */
+.jw5-quote__fig { max-width: 820px; margin: 28px auto 0; }
+.jw5-quote__photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 16px; }
+.jw5-quote__text { margin: 0; font-size: calc(var(--jw-fs-large) * 1.1); line-height: 1.45; font-weight: 600; }
+.jw5-quote__text::before { content: "\201C"; } .jw5-quote__text::after { content: "\201D"; }
+.jw5-quote__who { margin-top: 16px; font-weight: 800; }
+
+/* Vertical timeline */
+.jw5-tl { list-style: none; margin: 36px auto 0; padding: 0; max-width: 760px; position: relative; }
+.jw5-tl::before { content: ""; position: absolute; left: 14px; top: 8px; bottom: 8px; width: 4px; background: var(--jw-accent-soft); border-radius: 2px; }
+.jw5-tl__item { position: relative; padding: 0 0 26px 48px; opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.jw5-tl__item.is-in { opacity: 1; transform: none; }
+.jw5-tl__dot { position: absolute; left: 4px; top: 22px; width: 24px; height: 24px; border-radius: 50%; background: var(--jw-accent); border: 4px solid var(--jw-bg); box-shadow: 0 0 0 3px var(--jw-accent-soft); transform: scale(0.4); transition: transform 0.5s ease 0.15s; }
+.jw5-tl__item.is-in .jw5-tl__dot { transform: scale(1); }
+.jw5-tl__card { background: #fff; border-radius: var(--jw-radius); padding: 22px 24px; box-shadow: var(--jw-shadow); }
+.jw5-tl__when { display: block; font-size: 15px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--jw-accent-dark); margin-bottom: 8px; }
+.jw5-tl__card p { margin: 0 0 0.3em; font-size: var(--jw-fs-large); line-height: 1.4; }
+.jw5-tl__card p:first-of-type { font-weight: 700; }
+@media (prefers-reduced-motion: reduce) { .jw5-tl__item, .jw5-tl__dot { opacity: 1; transform: none; transition: none; } }
+
+/* Words section */
+.jw5-words__body { max-width: 760px; margin: 8px auto 0; }
+.jw5-words__body p { margin: 0 0 0.6em; font-size: var(--jw-fs-large); line-height: 1.4; }
+
+/* Offer totals */
+.jw-stacklist__totals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 0; }
+.jw-stacklist__tot { border-radius: 14px; padding: 16px; background: var(--jw-cream); text-align: center; }
+.jw-stacklist__tot span { display: block; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--jw-muted); }
+.jw-stacklist__tot strong { display: block; font-size: 34px; font-weight: 900; line-height: 1.1; margin-top: 4px; text-decoration: line-through; color: var(--jw-muted); }
+.jw-stacklist__tot--pay { background: var(--jw-clay); }
+.jw-stacklist__tot--pay span { color: #ffd9c7; }
+.jw-stacklist__tot--pay strong { color: #fff; text-decoration: none; }
+.jw4-guar .jw4__eyebrow { display: none; }

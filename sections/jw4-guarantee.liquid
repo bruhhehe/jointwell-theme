@@ -3,7 +3,7 @@
 {% endcomment %}
 <section class="jw4 jw4--clay jw4-guar" id="jw-guarantee">
   <div class="jw-wrap jw4__center">
-    <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
     <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
     <p class="jw-lead">{{ section.settings.intro | escape }}</p>
     <ul class="jw4-guar__terms" role="list">

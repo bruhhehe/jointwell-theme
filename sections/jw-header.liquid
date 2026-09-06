@@ -29,6 +29,9 @@
       {%- endif -%}
     </a>
 
+    {%- if section.settings.phone != blank -%}
+      <a class="jw-header__phone" href="tel:{{ section.settings.phone | remove: ' ' }}"><span class="jw-header__phoneicon" aria-hidden="true">&#9742;</span> {{ section.settings.phone | escape }}</a>
+    {%- else -%}
     <nav class="jw-header__nav jw-header__nav--desktop" aria-label="Main">
       <ul class="jw-header__list" role="list">
         {%- if landing -%}
@@ -71,6 +74,7 @@
         </ul>
       </nav>
     </details>
+    {%- endif -%}
   </div>
 </header>
 
@@ -87,6 +91,7 @@
     { "type": "link_list", "id": "menu", "label": "Menu (used on every page except the homepage when landing mode is on)", "default": "main-menu" },
     { "type": "checkbox", "id": "anchor_nav", "label": "Landing mode on the homepage: nav items scroll on-page only", "default": true },
     { "type": "textarea", "id": "anchors", "label": "Anchor items, one per line as Label|#id", "default": "Why it works|#jw-why-it-works, Reviews|#jw-reviews, Guarantee|#jw-guarantee, Price|#jw-offer, FAQ|#jw-faq" },
+    { "type": "text", "id": "phone", "label": "Phone number", "info": "When set, the header shows only the logo and this number. No menu, no button." },
     { "type": "checkbox", "id": "show_cta", "label": "Show the buy button in the header", "default": true },
     { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
     { "type": "url", "id": "cta_link", "label": "Button link", "info": "Leave blank to jump to the buy box on the homepage." }

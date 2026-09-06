@@ -4,7 +4,7 @@
 <section class="jw4 jw4-reviews" id="jw-reviews">
   <div class="jw-wrap">
     <div class="jw4__center">
-      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
       <p class="jw-lead">{{ section.settings.intro | escape }}</p>
     </div>
@@ -26,7 +26,7 @@
         </li>
       {%- endfor -%}
     </ul>
-    <p class="jw4-reviews__note">{{ section.settings.note | escape }}</p>
+    {%- if section.settings.note != blank -%}<p class="jw4-reviews__note">{{ section.settings.note | escape }}</p>{%- endif -%}
     {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
   </div>
 </section>

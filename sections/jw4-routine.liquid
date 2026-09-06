@@ -4,7 +4,7 @@
 <section class="jw4 jw4--cream jw4-routine" id="jw-routine">
   <div class="jw-wrap">
     <div class="jw4__center">
-      <p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
       <p class="jw-lead">{{ section.settings.intro | escape }}</p>
     </div>

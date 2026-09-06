@@ -9,11 +9,11 @@
   if link != blank
     assign cta_link = link
   elsif template.name == 'index'
-    assign cta_link = '#jw-offer'
+    assign cta_link = '#offer'
   elsif template.name == 'product'
     assign cta_link = '#MainContent'
   else
-    assign cta_link = routes.root_url | append: '#jw-offer'
+    assign cta_link = routes.root_url | append: '#offer'
   endif
   assign trust_1 = trust_1 | default: '90-day trial, we pay return postage'
   assign trust_2 = trust_2 | default: '2-year UK warranty'
