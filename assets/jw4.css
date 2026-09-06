@@ -283,3 +283,5 @@ body { background: var(--jw-bg); }
 /* Hairline between sections. Not above the first, and softened on the dark band. */
 #MainContent .shopify-section + .shopify-section { border-top: 1px solid var(--jw-rule); }
 #MainContent .shopify-section + .shopify-section:has(.jw4--clay) { border-top-color: rgba(255,255,255,0.18); }
+
+.jw5-subhead { border-top: 1px solid var(--jw-rule); padding-top: 44px; margin-top: 8px; }
