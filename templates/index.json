@@ -118,8 +118,8 @@
       "type": "jw-authority",
       "settings": {
         "strip": false,
-        "heading": "What the NHS says about heat",
-        "intro": "Not us. Published guidance, with the source so you can read it yourself.",
+        "heading": "What experts say",
+        "intro": "Heat and massage are the two halves of what Jointwell does. Here is what clinicians say about those two things in general — their words, not ours, and none of them are talking about our product.",
         "evidence_heading": "What the evidence says",
         "evidence_note": "",
         "footnote": "Jointwell is a comfort device. It isn't a medical treatment and doesn't cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do.",
@@ -133,7 +133,7 @@
             "role": "nhs.uk, on easing joint stiffness at home",
             "quote": "Heat applied to the affected area can be very effective in reducing pain.",
             "source_url": "",
-            "photo_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/files/nhs-logo-png-transparent.webp?v=1788184168&width=500",
             "is_logo": true
           }
         },
@@ -163,10 +163,70 @@
             "url": "https://www.nice.org.uk/guidance/ng226",
             "link_text": "Read it"
           }
+        },
+        "q_tortland": {
+          "type": "quote",
+          "settings": {
+            "who": "Paul Tortland, DO",
+            "role": "Specialist in regenerative and sports medicine",
+            "quote": "Heat therapy “can be tremendously beneficial for those with osteoarthritis”.",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-tortland_200x200.jpg?v=148384111090437978091788391651",
+            "is_logo": false
+          }
+        },
+        "q_hauser": {
+          "type": "quote",
+          "settings": {
+            "who": "Ross Hauser, MD",
+            "role": "Specialist in physical medicine and rehabilitation",
+            "quote": "Massage therapy is recommended for patients with knee osteoarthritis.",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-hauser_200x200.jpg?v=56163378732195172421788391649",
+            "is_logo": false
+          }
+        },
+        "q_kambach": {
+          "type": "quote",
+          "settings": {
+            "who": "Brandon Kambach, MD",
+            "role": "Orthopaedic surgeon",
+            "quote": "Heat therapy is “an easy, inexpensive, and medication-free way to relieve some types of arthritis stiffness”.",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-kambach_200x200.jpg?v=11350414321339705311788391650",
+            "is_logo": false
+          }
+        },
+        "q_box": {
+          "type": "quote",
+          "settings": {
+            "who": "Hayden N. Box, MD",
+            "role": "Orthopaedic surgeon, hip and knee replacement",
+            "quote": "“Using heat on sore or stiff joints can bring significant relief.”",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/t/4/assets/th-expert-box_200x200.jpg?v=85159549915938624031788391649",
+            "is_logo": false
+          }
+        },
+        "q_harvard": {
+          "type": "quote",
+          "settings": {
+            "who": "Harvard Medical School",
+            "role": "Harvard Health Publishing",
+            "quote": "“Heat treatment remains a standard part of the physical therapist’s practice.”",
+            "source_url": "",
+            "photo_url": "https://velagoods.co.uk/cdn/shop/files/logo-mark.svg?v=1788184201&width=500",
+            "is_logo": true
+          }
         }
       },
       "block_order": [
+        "q_tortland",
+        "q_hauser",
+        "q_kambach",
+        "q_box",
         "a_nhs",
+        "q_harvard",
         "e_dose",
         "e_joints",
         "e_nice"
