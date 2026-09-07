@@ -660,21 +660,24 @@
           "type": "beat",
           "settings": {
             "shot": "Open car door in a supermarket car park. One foot on the ground, one still inside.",
-            "lines": "That pause before you put your weight on it.\nHoping nobody's watching."
+            "lines": "That pause before you put your weight on it.\nHoping nobody's watching.",
+            "stock": "jw-decline-car.jpg"
           }
         },
         "b4": {
           "type": "beat",
           "settings": {
             "shot": "Overgrown garden through a kitchen window. Mug on the sill.",
-            "lines": "Too much kneeling.\nToo much bending.\nYou don't want it to, but the grass gets longer every day."
+            "lines": "Too much kneeling.\nToo much bending.\nYou don't want it to, but the grass gets longer every day.",
+            "stock": "jw-decline-garden.jpg"
           }
         },
         "b5": {
           "type": "beat",
           "settings": {
             "shot": "Dark bedroom, someone lying on their back, ceiling.",
-            "lines": "You've stopped sleeping on that side.\nThen the other side started too."
+            "lines": "You've stopped sleeping on that side.\nThen the other side started too.",
+            "stock": "jw-decline-bed.jpg"
           }
         },
         "t1": {
