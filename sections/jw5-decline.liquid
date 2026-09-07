@@ -17,6 +17,11 @@
               <div class="jw5-beat__media">
                 {%- if block.settings.image != blank -%}
                   {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500, 800, 1000', sizes: '(min-width: 900px) 45vw, 100vw', class: 'jw4__img jw5-beat__img', alt: block.settings.shot }}
+                {%- elsif block.settings.stock != blank -%}
+                  {%- comment -%} Built-in photo from assets, so a beat can carry a real
+                  picture without an upload. An image_picker upload still wins. {%- endcomment -%}
+                  <img class="jw4__img jw5-beat__img" src="{{ block.settings.stock | asset_url }}"
+                       width="1024" height="768" loading="lazy" alt="{{ block.settings.shot | escape }}">
                 {%- else -%}
                   <div class="jw5-ph" role="img" aria-label="{{ block.settings.shot | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ block.settings.shot | escape }}</span></div>
                 {%- endif -%}
@@ -72,6 +77,12 @@
           "type": "image_picker",
           "id": "image",
           "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "stock",
+          "label": "Built-in photo filename (used when no photo is uploaded above)",
+          "info": "A file already in the theme's assets, e.g. jw-decline-stairs.jpg"
         },
         {
           "type": "text",

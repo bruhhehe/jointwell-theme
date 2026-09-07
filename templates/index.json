@@ -644,14 +644,16 @@
           "type": "beat",
           "settings": {
             "shot": "Stairs, shot from the bottom looking up. Hand on the banister in the corner of frame.",
-            "lines": "Sideways?\nOne step at a time?\nMaybe even on your hands and knees?"
+            "lines": "Sideways?\nOne step at a time?\nMaybe even on your hands and knees?",
+            "stock": "jw-decline-stairs.jpg"
           }
         },
         "b2": {
           "type": "beat",
           "settings": {
             "shot": "Armchair, side-on. A woman leaning forward, hand on the arm, about to stand.",
-            "lines": "You work out how you'll get up before you've sat down.\nIt used to be where you relaxed."
+            "lines": "You work out how you'll get up before you've sat down.\nIt used to be where you relaxed.",
+            "stock": "jw-decline-armchair.jpg"
           }
         },
         "b3": {
