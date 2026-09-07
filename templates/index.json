@@ -6,11 +6,14 @@
         "product": "jointwell-heated-joint-wrap",
         "price_note": "One payment. Free UK delivery.",
         "eyebrow": "",
-        "subline": "Paula, 65, was going up the stairs on her hands and knees. Thirty minutes a day, and now she doesn't think about them.",
-        "cta_label": "Try it risk-free →",
-        "proof_line": "90-day guarantee · Free UK delivery · UK support · 2-year warranty",
+        "subline": "Paula, 65, was going up the stairs on her hands and knees. Thirty minutes a morning with a heated wrap, and now she doesn't think about the stairs.",
+        "cta_label": "Try it for 90 days",
+        "proof_line": "90-Morning Guarantee · Free tracked UK delivery · UK support · 2-year warranty",
         "show_ba": true,
-        "ba_caption": "Before and after: Paula on the stairs, then the same stairs twelve weeks on"
+        "ba_caption": "Paula, twelve weeks on, halfway up her own stairs with a basket of washing, both hands on the basket, nothing on the banister. Shot from the bottom step.",
+        "subline_2": "A cordless wrap that holds warmth on the joint for a full half hour. £49. Ninety days to decide, on your own knee.",
+        "rating_line": "",
+        "inset_stock": "jw-feature-weight.jpg"
       }
     },
     "jw4_enemy": {
@@ -20,28 +23,28 @@
           "type": "item",
           "settings": {
             "title": "The wheat bag.",
-            "text": "It helped for ten minutes. Then she was back at the microwave for the fourth time that night."
+            "text": "Lovely for ten minutes. Then she was back at the microwave for the fourth time that night."
           }
         },
         "e2": {
           "type": "item",
           "settings": {
-            "title": "The creams.",
-            "text": "Warm on the skin, nothing in the joint, and it came off on her trousers."
+            "title": "The hot water bottle.",
+            "text": "Slid off the knee every time she moved. Warm on the thigh, cold on the joint."
           }
         },
         "e3": {
           "type": "item",
           "settings": {
-            "title": "The physio.",
-            "text": "Lovely woman. Six sessions, a sheet of exercises, and a ten-week wait to be seen again."
+            "title": "The heat rub.",
+            "text": "Warm on the skin, nothing underneath, and it came off on her trousers."
           }
         },
         "e4": {
           "type": "item",
           "settings": {
-            "title": "The paracetamol.",
-            "text": "It takes the edge off. She did not want to be on them every day for the rest of her life."
+            "title": "The bath.",
+            "text": "Helped. She can't sit in a bath at seven in the morning before the stairs."
           }
         }
       },
@@ -56,7 +59,7 @@
         "eyebrow": "",
         "heading": "What Paula tried",
         "intro": "The cupboard filled up. The knee stayed the same.",
-        "belief": "None of it failed because her knee was too far gone. It failed because every one of them gives you warmth that fades."
+        "belief": "None of it failed because her knee was too far gone. It failed because every one of them gives you warmth that fades, or warmth that won't stay on the joint."
       }
     },
     "jw4_mech": {
@@ -65,24 +68,32 @@
         "m1": {
           "type": "step",
           "settings": {
-            "title": "Warmth, held at the level you set",
-            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole half hour, instead of starting hot and fading like a wheat bag. Most people sit at 45 to 50°C: start low, wear it over clothing, and only go higher if it stays comfortable.",
+            "title": "It holds the temperature.",
+            "text": "Five levels, 45°C to 65°C. Pick one and it stays there for the whole half hour. A wheat bag starts hot and fades. This doesn't. Most people sit at 45 to 50°C: start low, over clothing, and only go higher if it stays comfortable.",
             "stock": "jw-feature-heat.jpg"
           }
         },
         "m2": {
           "type": "step",
           "settings": {
-            "title": "Gentle massage, running alongside",
-            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
-            "stock": "jw-feature-massage.jpg"
+            "title": "It stays where you put it.",
+            "text": "The strap goes round the knee, over trousers or under. You walk to the kettle and it comes with you.",
+            "stock": "jw-photo-kettle.jpg"
           }
         },
         "m3": {
           "type": "step",
           "settings": {
-            "title": "Strapped on, cordless, off by itself",
-            "text": "It stays where you put it while you walk to the kettle. No wire. At 30 minutes it switches itself off, so it cannot be left running.",
+            "title": "No wire.",
+            "text": "Charges from the same cable as your phone. One charge covers about four sessions. Any chair in the house.",
+            "stock": "jw-photo-armchair.jpg"
+          }
+        },
+        "m4": {
+          "type": "step",
+          "settings": {
+            "title": "It switches itself off.",
+            "text": "Thirty minutes, then it stops. You can't leave it running. You can stop it sooner.",
             "stock": "jw-feature-timer.jpg"
           }
         }
@@ -90,13 +101,17 @@
       "block_order": [
         "m1",
         "m2",
-        "m3"
+        "m3",
+        "m4"
       ],
       "settings": {
         "product": "jointwell-heated-joint-wrap",
         "eyebrow": "",
         "heading": "How it works",
-        "intro": "Targeted deep heat and massage, held on the joint for a full thirty minutes."
+        "intro": "Held Heat. Warmth at the level you set, on the joint, for thirty minutes.",
+        "only_line": "Nothing else in the cupboard does all four. That's the difference, and it's the only claim we make.",
+        "panel_text": "Four buttons and a number. Up, down, that's it. Susan, 69, set hers up on the first go. Her daughter checked afterwards.",
+        "panel_stock": ""
       }
     },
     "jw_authority": {
@@ -107,7 +122,7 @@
         "intro": "Not us. Published guidance, with the source so you can read it yourself.",
         "evidence_heading": "What the evidence says",
         "evidence_note": "",
-        "footnote": "Jointwell is a comfort device. It is not a medical treatment and does not cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do.",
+        "footnote": "Jointwell is a comfort device. It isn't a medical treatment and doesn't cure, treat or prevent any condition. Keep doing what your GP and physio have told you to do.",
         "hide_cta": true
       },
       "blocks": {
@@ -125,7 +140,7 @@
         "e_dose": {
           "type": "evidence",
           "settings": {
-            "text": "Heat-pack guidance says apply warmth for 15 to 20 minutes. A hot water bottle holds useful warmth for 20 to 30 minutes and a microwaved wheat bag about 30. The dose in your cupboard is roughly right. It is the delivery that runs out.",
+            "text": "Heat-pack guidance says apply warmth for 15 to 20 minutes. A hot water bottle holds useful warmth for 20 to 30 minutes and a microwaved wheat bag about 30. The dose in your cupboard is roughly right. It's the delivery that runs out.",
             "source": "NHS and manufacturers' heat-pack guidance",
             "url": "",
             "link_text": "Read it"
@@ -143,7 +158,7 @@
         "e_nice": {
           "type": "evidence",
           "settings": {
-            "text": "NICE, which writes the guidance the NHS follows, puts exercise, weight management and information first for osteoarthritis. We are not a substitute for any of that. Warmth is what people use to get moving in the morning so they can do the rest.",
+            "text": "NICE, which writes the guidance the NHS follows, puts exercise, weight management and information first for osteoarthritis. We aren't a substitute for any of that. Warmth is what people use to get moving in the morning so they can do the rest.",
             "source": "NICE guideline NG226, Osteoarthritis in over 16s (2022)",
             "url": "https://www.nice.org.uk/guidance/ng226",
             "link_text": "Read it"
@@ -244,7 +259,7 @@
             "line": "Wear and tear, the GP says. The first ten steps are the worst and the stairs are a decision.",
             "how": "Straight round the knee, over or under trousers. The strap holds it while you walk to the kettle.",
             "when": "First thing, with the first cup. Level 3, thirty minutes, before the stairs.",
-            "note": "Heat before you move, ice after a flare. That is what physios say, and it is all we say.",
+            "note": "Heat before you move, ice after a flare. That's what physios say, and it is all we say.",
             "stock": "jw-photo-kettle.jpg",
             "alt": "Woman at the kettle with the wrap on her knee",
             "link": ""
@@ -270,7 +285,7 @@
             "line": "From the secateurs and the watering can, not the tennis court. Worse when you grip.",
             "how": "The strap takes it up the forearm to the elbow. Rest the arm on the chair and forget it.",
             "when": "Before the garden, not after. Twenty to thirty minutes on the forearm as a warm-up.",
-            "note": "If the elbow is hot and sore to touch after a session, that is an ice day.",
+            "note": "If the elbow is hot and sore to touch after a session, that's an ice day.",
             "stock": "jw-photo-crossword-elbow.jpg",
             "alt": "Woman doing a crossword with the wrap on her elbow",
             "link": ""
@@ -283,7 +298,7 @@
             "line": "Ask your surgeon or physio first. Their word beats ours.",
             "how": "Only once the wound has fully healed and they have said heat is fine. Start at the lowest level.",
             "when": "The warm half hour before the exercise sheet, then the exercises.",
-            "note": "Never over a wound that has not healed, and never on a hot, red or newly swollen knee. That is a phone call to the clinic.",
+            "note": "Never over a wound that hasn't healed, and never on a hot, red or newly swollen knee. That's a phone call to the clinic.",
             "stock": "jw-photo-breakfast.jpg",
             "alt": "Woman at the breakfast table with the wrap on her knee",
             "link": ""
@@ -296,7 +311,7 @@
             "line": "Hand on the wall, down the stairs sideways, fine by the afternoon. Then tomorrow.",
             "how": "On the worst joint before you leave the kitchen. Kettle on, wrap on.",
             "when": "Every morning for a month. Same chair, same cup. Habit is the whole trick.",
-            "note": "A joint that has not moved for eight hours is a cold joint. Warmth and movement are what wake it.",
+            "note": "A joint that hasn't moved for eight hours is a cold joint. Warmth and movement are what wake it.",
             "stock": "jw-photo-garden-window.jpg",
             "alt": "Woman by the window with the wrap on her knee",
             "link": ""
@@ -306,8 +321,8 @@
           "type": "door",
           "settings": {
             "title": "Kneeling and gardening",
-            "line": "It is not the kneeling. It is getting down, and getting back up.",
-            "how": "Round the knee before the wellies go on. It is cordless, so it goes to the back door with you.",
+            "line": "It isn't the kneeling. It's getting down, and getting back up.",
+            "how": "Round the knee before the wellies go on. It's cordless, so it goes to the back door with you.",
             "when": "Twenty minutes before you go out, and again in the chair when you come in.",
             "note": "Two knees? Two wraps. The pair is the one most gardeners choose.",
             "stock": "jw-photo-floor.jpg",
@@ -378,20 +393,34 @@
         "g4"
       ],
       "settings": {
-        "intro": "Use it for 90 days on your own knee, whenever it suits you. If you cannot feel the difference, post it back and we pay the return postage.",
-        "eyebrow": ""
+        "intro": "Use it for ninety mornings on your own knee. If you can't feel the difference, email us, we send a label, you post it back, and we refund every penny. You don't pay the postage and you don't give a reason.",
+        "eyebrow": "",
+        "heading": "The 90-Morning Guarantee",
+        "closing": "Junk sellers can't afford this. That's rather the point.",
+        "sig_name": "Stan, Jointwell",
+        "cta_label": "Start the 90 mornings"
       }
     },
     "jw_offer_block": {
       "type": "jw-offer-block",
       "settings": {
         "preselect": 2,
-        "intro": "One payment. Everything in the box, delivered free, and 90 days to decide.",
+        "intro": "One payment. Everything in the box, delivered free, and ninety days to decide.",
         "heading": "Our offer",
-        "total_value": "£89"
+        "total_value": "£85",
+        "cta_label": "Try it for 90 days",
+        "sub_1": "For one knee, shoulder or elbow. Includes the extension strap.",
+        "sub_2": "Both knees, or one for you and one for a partner.",
+        "sub_4": "For the household.",
+        "price_note": "Dispatched within 1 to 3 working days. Delivered tracked in 7 to 10 working days. Your ninety days start the day it arrives, not the day you order.",
+        "pdf_line": "Order today and the 7-morning routine PDF is in your inbox within five minutes, so you can start the mornings before the wrap gets here.",
+        "phone_line": "Rather order by phone? +44 7733 672437, Mon to Fri, 9 to 5.",
+        "spend_title": "What Paula spent first",
+        "spend_lines": "Wheat bag £12.\nHeat rub, six tubes, £54.\nTwo private physio sessions £110.\nA hot water bottle with a knitted cover, £9.",
+        "spend_total": "£185, and the knee was the same."
       },
       "blocks": {
-        "item_1": {
+        "i1": {
           "type": "item",
           "settings": {
             "item": "The Jointwell wrap",
@@ -400,7 +429,7 @@
             "pay": "£49"
           }
         },
-        "item_2": {
+        "i2": {
           "type": "item",
           "settings": {
             "item": "Shoulder and elbow extension strap",
@@ -409,47 +438,40 @@
             "pay": "Free"
           }
         },
-        "item_3": {
+        "i3": {
           "type": "item",
           "settings": {
-            "item": "USB-C charging cable",
+            "item": "USB-C cable",
             "note": "the same as most phones",
             "value": "£6",
             "pay": "Free"
           }
         },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "item": "Mugwort warming sachet",
-            "note": "lift it out if you would rather go without",
-            "value": "£1.50",
-            "pay": "Free"
-          }
-        },
-        "item_5": {
-          "type": "item",
-          "settings": {
-            "item": "The warm-up routine card, large print",
-            "note": "",
-            "value": "£3",
-            "pay": "Free"
-          }
-        },
-        "item_6": {
+        "i4": {
           "type": "item",
           "settings": {
             "item": "Tracked UK delivery",
             "note": "",
             "value": "£4.95",
-            "pay": "Free"
+            "pay": "Free",
+            "no_scale": true
           }
         },
-        "item_7": {
+        "i5": {
           "type": "item",
           "settings": {
-            "item": "2-year warranty and the 90-day trial",
+            "item": "2-year warranty and the 90-Morning Guarantee",
             "note": "return postage paid",
+            "value": "",
+            "pay": "Included",
+            "no_scale": true
+          }
+        },
+        "i6": {
+          "type": "item",
+          "settings": {
+            "item": "Optional herbal sachet and the large-print morning routine card",
+            "note": "",
             "value": "",
             "pay": "Included"
           }
@@ -505,13 +527,12 @@
         }
       },
       "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_4",
-        "item_5",
-        "item_6",
-        "item_7",
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6",
         "spec_8",
         "spec_9",
         "spec_10",
@@ -524,7 +545,7 @@
     "jw_faq": {
       "type": "jw-faq",
       "settings": {
-        "intro": "Straight answers. If yours is not here, ring us."
+        "intro": "Straight answers. If yours isn't here, ring us."
       },
       "blocks": {
         "qa_1": {
@@ -553,14 +574,14 @@
           "type": "qa",
           "settings": {
             "question": "Is it safe? Will it burn me?",
-            "answer": "<p>Heat can burn skin if it is too hot, held too long, or used by someone who cannot feel it properly. So: start at level 1 or 2 (45 to 50°C), wear it over clothing rather than bare skin, and only go higher if it stays comfortable. Every session ends itself after 30 minutes, so it cannot be left running, and you can stop it at any point.</p><p>Do not use it while asleep, over broken skin, or on a joint that is hot, red and swollen. If you have diabetes, circulation problems, reduced feeling in your skin, or you are under medical care for that joint, ask your GP before using any heat product. If the skin goes red and stays red after you take it off, that level is too high for you.</p>"
+            "answer": "<p>Heat can burn skin if it is too hot, held too long, or used by someone who can't feel it properly. So: start at level 1 or 2 (45 to 50°C), wear it over clothing rather than bare skin, and only go higher if it stays comfortable. Every session ends itself after 30 minutes, so it can't be left running, and you can stop it at any point.</p><p>Don't use it while asleep, over broken skin, or on a joint that's hot, red and swollen. If you have diabetes, circulation problems, reduced feeling in your skin, or you're under medical care for that joint, ask your GP before using any heat product. If the skin goes red and stays red after you take it off, that level is too high for you.</p>"
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
             "question": "When will it arrive?",
-            "answer": "<p>We dispatch within 1 to 3 working days and most orders arrive within 7 to 10 working days of ordering, occasionally up to 14. Every order is tracked and we email you the link the moment it leaves us.</p>"
+            "answer": "<p>We dispatch within 1 to 3 working days and most orders arrive 7 to 10 working days after you order, occasionally up to 14. Every parcel is tracked and we email you the link the moment it leaves. Your ninety days don't start until it's in your hands.</p>"
           }
         },
         "qa_6": {
@@ -574,7 +595,7 @@
           "type": "qa",
           "settings": {
             "question": "Can I use it after a knee replacement?",
-            "answer": "<p>Ask your surgeon or physio first, and follow what they say. Many people are told heat is fine once the wound has fully healed, but that is their call, not ours. If they say yes, most people use it as the warm half hour before their exercises.</p>"
+            "answer": "<p>Ask your surgeon or physio first, and follow what they say. Many people are told heat is fine once the wound has fully healed, but that's their call, not ours. If they say yes, most people use it as the warm half hour before their exercises.</p>"
           }
         },
         "qa_8": {
@@ -588,14 +609,14 @@
           "type": "qa",
           "settings": {
             "question": "What happens if I send it back?",
-            "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You do not pay the postage and you do not have to give a reason, though we would like to hear it.</p>"
+            "answer": "<p>Email us within 90 days of delivery. We send you a UK returns address and a postage label. Post it back, and we refund what you paid in full once it arrives. You don't pay the postage and you don't have to give a reason, though we would like to hear it.</p>"
           }
         },
         "qa_who": {
           "type": "qa",
           "settings": {
             "question": "Who shouldn't use it?",
-            "answer": "<p>Anyone who has been told to avoid heat on that joint. If you have diabetes, circulation problems, reduced feeling in your skin, a pacemaker, an unhealed wound or a joint that is hot, red and swollen, talk to your GP before using any heat product. Do not use it while asleep, over broken skin, or on a child. If you are pregnant or under medical care for the joint, ask first. It is a comfort device, not a treatment, and your GP's word beats ours.</p>"
+            "answer": "<p>Anyone who has been told to avoid heat on that joint. If you have diabetes, circulation problems, reduced feeling in your skin, a pacemaker, an unhealed wound or a joint that's hot, red and swollen, talk to your GP before using any heat product. Don't use it while asleep, over broken skin, or on a child. If you're pregnant or under medical care for the joint, ask first. It's a comfort device, not a treatment, and your GP's word beats ours.</p>"
           }
         }
       },
@@ -664,7 +685,7 @@
           "type": "heading",
           "settings": {
             "heading": "Then you go to the GP.",
-            "intro": "Everyone does their best. It still is not enough."
+            "intro": "Everyone does their best. It still isn't enough."
           }
         },
         "b6": {
@@ -733,6 +754,12 @@
           "settings": {
             "text": "That's the bit Paula got tired of waiting for."
           }
+        },
+        "bridge": {
+          "type": "text",
+          "settings": {
+            "lines": "Paula did all of this for four years.\nThen she found something that took thirty minutes a morning and stayed in the cupboard for a week before she tried it.\nFirst, though, the GP."
+          }
         }
       },
       "block_order": [
@@ -742,6 +769,7 @@
         "b4",
         "b5",
         "t1",
+        "bridge",
         "h1",
         "b6",
         "b7",
@@ -815,8 +843,56 @@
     "jw5_whynot": {
       "type": "jw5-words",
       "settings": {
-        "lines": "Thirty minutes with it on, whenever it suited her, and she got on with her day.\nIf you recognised the stairs, the chair, the garden through the window, you're where she was at the start.\nThe device is the same one she's still using."
+        "lines": "Thirty minutes with it on, whenever it suited her, and she got on with her day.\nIf you recognised the stairs, the chair, the garden through the window, you're where she was at the start.\nThe device is the same one she's still using.\nAnother winter of the stairs, or thirty minutes tomorrow morning. The wrap costs less than the cupboard did."
       }
+    },
+    "jw5_compare": {
+      "type": "jw5-compare",
+      "settings": {},
+      "blocks": {
+        "c1": {
+          "type": "row",
+          "settings": {
+            "label": "Holds one temperature",
+            "values": "no, no, yes, yes"
+          }
+        },
+        "c2": {
+          "type": "row",
+          "settings": {
+            "label": "Stays on the joint",
+            "values": "no, no, no, yes"
+          }
+        },
+        "c3": {
+          "type": "row",
+          "settings": {
+            "label": "No wire",
+            "values": "yes, yes, no, yes"
+          }
+        },
+        "c4": {
+          "type": "row",
+          "settings": {
+            "label": "Switches itself off",
+            "values": "no, no, Some, yes"
+          }
+        },
+        "c5": {
+          "type": "row",
+          "settings": {
+            "label": "Massage alongside",
+            "values": "no, no, no, yes"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
     }
   },
   "order": [
@@ -825,6 +901,7 @@
     "jw4_enemy",
     "jw5_discovery",
     "jw4_mech",
+    "jw5_compare",
     "jw5_experience",
     "jw5_whynot",
     "jw4_reviews",

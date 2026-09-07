@@ -50,42 +50,90 @@
   "tag": "section",
   "class": "jw5-section-decline",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "It starts with the stairs. It never stays there." },
-    { "type": "textarea", "id": "intro", "label": "Line under the heading", "default": "If any of this sounds familiar, keep reading." }
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "It starts with the stairs. It never stays there."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Line under the heading",
+      "default": "If any of this sounds familiar, keep reading."
+    }
   ],
   "blocks": [
     {
       "type": "beat",
       "name": "Photo and lines",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Photo" },
-        { "type": "text", "id": "shot", "label": "The shot (shows as a placeholder until the photo is set)", "default": "Stairs, shot from the bottom looking up." },
-        { "type": "textarea", "id": "lines", "label": "Lines, one per line", "default": "Sideways?\nOne step at a time?" }
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "shot",
+          "label": "The shot (shows as a placeholder until the photo is set)",
+          "default": "Stairs, shot from the bottom looking up."
+        },
+        {
+          "type": "textarea",
+          "id": "lines",
+          "label": "Lines, one per line",
+          "default": "Sideways?\nOne step at a time?"
+        }
       ]
     },
     {
       "type": "text",
       "name": "Words only",
       "settings": [
-        { "type": "textarea", "id": "lines", "label": "Lines, one per line", "default": "Everyone your age has a knee.\nSo you don't mention it." }
+        {
+          "type": "textarea",
+          "id": "lines",
+          "label": "Lines, one per line",
+          "default": "Everyone your age has a knee.\nSo you don't mention it."
+        }
       ]
     },
     {
       "type": "heading",
       "name": "Second heading",
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Then you go to the GP." },
-        { "type": "text", "id": "intro", "label": "Line under it", "default": "Everyone does their best. It still is not enough." }
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Then you go to the GP."
+        },
+        {
+          "type": "text",
+          "id": "intro",
+          "label": "Line under it",
+          "default": "Everyone does their best. It still isn't enough."
+        }
       ]
     },
     {
       "type": "handoff",
       "name": "Hand-off line",
       "settings": [
-        { "type": "text", "id": "text", "label": "One italic line", "default": "That's the bit Paula got tired of waiting for." }
+        {
+          "type": "text",
+          "id": "text",
+          "label": "One italic line",
+          "default": "That's the bit Paula got tired of waiting for."
+        }
       ]
     }
   ],
-  "presets": [ { "name": "JW5 The decline" } ]
+  "presets": [
+    {
+      "name": "JW5 The decline"
+    }
+  ]
 }
 {% endschema %}

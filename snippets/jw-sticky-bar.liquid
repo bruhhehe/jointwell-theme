@@ -19,10 +19,11 @@
 -%}
 {%- unless template.name == 'cart' -%}
 <div class="jw-sticky" role="complementary" aria-label="Buy Jointwell" data-jw-sticky hidden>
+  <img class="jw-sticky__thumb" src="{{ 'jw-feature-weight.jpg' | asset_url }}" width="120" height="120" alt="" loading="lazy">
   <div class="jw-sticky__text">
-    <span class="jw-sticky__sub">90-day trial · we pay return postage</span>
+    <span class="jw-sticky__sub">90-Morning Guarantee · we pay return postage</span>
   </div>
-  <a class="jw-btn jw-btn--primary jw-sticky__btn" href="{{ bar_link }}">Try it for 90 days</a>
+  <a class="jw-btn jw-btn--primary jw-sticky__btn" href="{{ bar_link }}">Try it for 90 days <span aria-hidden="true">&ndash;</span> {{ bar_price }}</a>
 </div>
 <script>
   (function () {

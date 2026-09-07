@@ -66,12 +66,41 @@
   "tag": "section",
   "class": "jw-section-doorways",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Which joint runs your day?" },
-    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Same wrap, different mornings. Tap the one that sounds like yours." },
-    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
-    { "type": "url", "id": "cta_link", "label": "Button link (leave blank for the offer)" },
-    { "type": "checkbox", "id": "hide_cta", "label": "Hide the buttons in this section", "default": false },
-    { "type": "text", "id": "more_label", "label": "Article link text", "default": "Read the longer version" }
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Which joint runs your day?"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Same wrap, different mornings. Tap the one that sounds like yours."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Try it for 90 days"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link (leave blank for the offer)"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_cta",
+      "label": "Hide the buttons in this section",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "more_label",
+      "label": "Article link text",
+      "default": "Read the longer version"
+    }
   ],
   "blocks": [
     {
@@ -79,32 +108,113 @@
       "name": "Doorway",
       "limit": 8,
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab title", "default": "Knee arthritis" },
-        { "type": "text", "id": "line", "label": "The situation, one line", "default": "Wear and tear, the GP says. The first ten steps are the worst and the stairs are a decision." },
-        { "type": "text", "id": "how", "label": "How it goes on", "default": "Straight round the knee, over or under trousers. The strap holds it while you walk to the kettle." },
-        { "type": "text", "id": "when", "label": "When", "default": "First thing, with the first cup. Level 3, thirty minutes, before the stairs." },
-        { "type": "text", "id": "note", "label": "Worth knowing", "default": "Heat before you move, ice after a flare. That is what physios say, and it is all we say." },
-        { "type": "image_picker", "id": "image", "label": "Photo (square)" },
         {
-          "type": "select", "id": "stock", "label": "Built-in photo", "default": "jw-photo-kettle.jpg",
+          "type": "text",
+          "id": "title",
+          "label": "Tab title",
+          "default": "Knee arthritis"
+        },
+        {
+          "type": "text",
+          "id": "line",
+          "label": "The situation, one line",
+          "default": "Wear and tear, the GP says. The first ten steps are the worst and the stairs are a decision."
+        },
+        {
+          "type": "text",
+          "id": "how",
+          "label": "How it goes on",
+          "default": "Straight round the knee, over or under trousers. The strap holds it while you walk to the kettle."
+        },
+        {
+          "type": "text",
+          "id": "when",
+          "label": "When",
+          "default": "First thing, with the first cup. Level 3, thirty minutes, before the stairs."
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Worth knowing",
+          "default": "Heat before you move, ice after a flare. That's what physios say, and it is all we say."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo (square)"
+        },
+        {
+          "type": "select",
+          "id": "stock",
+          "label": "Built-in photo",
+          "default": "jw-photo-kettle.jpg",
           "options": [
-            { "value": "jw-photo-kettle.jpg", "label": "At the kettle" },
-            { "value": "jw-photo-armchair.jpg", "label": "Armchair, reading" },
-            { "value": "jw-photo-crossword-elbow.jpg", "label": "Crossword, elbow" },
-            { "value": "jw-photo-elbow.jpg", "label": "Elbow, armchair" },
-            { "value": "jw-photo-garden-window.jpg", "label": "Garden window" },
-            { "value": "jw-photo-breakfast.jpg", "label": "Breakfast table" },
-            { "value": "jw-photo-floor.jpg", "label": "Floor, jigsaw" },
-            { "value": "jw-photo-radiator.jpg", "label": "By the radiator" },
-            { "value": "jw-photo-bothknees.jpg", "label": "Both knees" },
-            { "value": "jw-photo-bed.jpg", "label": "Reading in bed" },
-            { "value": "jw-photo-van.jpg", "label": "Van, work" },
-            { "value": "none", "label": "No photo" }
+            {
+              "value": "jw-photo-kettle.jpg",
+              "label": "At the kettle"
+            },
+            {
+              "value": "jw-photo-armchair.jpg",
+              "label": "Armchair, reading"
+            },
+            {
+              "value": "jw-photo-crossword-elbow.jpg",
+              "label": "Crossword, elbow"
+            },
+            {
+              "value": "jw-photo-elbow.jpg",
+              "label": "Elbow, armchair"
+            },
+            {
+              "value": "jw-photo-garden-window.jpg",
+              "label": "Garden window"
+            },
+            {
+              "value": "jw-photo-breakfast.jpg",
+              "label": "Breakfast table"
+            },
+            {
+              "value": "jw-photo-floor.jpg",
+              "label": "Floor, jigsaw"
+            },
+            {
+              "value": "jw-photo-radiator.jpg",
+              "label": "By the radiator"
+            },
+            {
+              "value": "jw-photo-bothknees.jpg",
+              "label": "Both knees"
+            },
+            {
+              "value": "jw-photo-bed.jpg",
+              "label": "Reading in bed"
+            },
+            {
+              "value": "jw-photo-van.jpg",
+              "label": "Van, work"
+            },
+            {
+              "value": "none",
+              "label": "No photo"
+            }
           ]
         },
-        { "type": "text", "id": "alt", "label": "Photo description", "default": "Woman at the kettle with the wrap on her knee" },
-        { "type": "url", "id": "link", "label": "Advice article" },
-        { "type": "url", "id": "cta_link", "label": "Button link for this doorway (optional)" }
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Photo description",
+          "default": "Woman at the kettle with the wrap on her knee"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Advice article"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Button link for this doorway (optional)"
+        }
       ]
     }
   ],
@@ -112,13 +222,90 @@
     {
       "name": "JW Condition doorways",
       "blocks": [
-        { "type": "door", "settings": { "title": "Knee arthritis", "line": "Wear and tear, the GP says. The first ten steps are the worst and the stairs are a decision.", "how": "Straight round the knee, over or under trousers. The strap holds it while you walk to the kettle.", "when": "First thing, with the first cup. Level 3, thirty minutes, before the stairs.", "note": "Heat before you move, ice after a flare. That is what physios say, and it is all we say.", "stock": "jw-photo-kettle.jpg", "alt": "Woman at the kettle with the wrap on her knee" } },
-        { "type": "door", "settings": { "title": "Stiff shoulder", "line": "The top shelf, the bra strap, sleeping on that side. Small things, twenty times a day.", "how": "The extension strap in the box loops it over the shoulder and under the arm, so the warm panel sits on the joint.", "when": "Under a cardigan while the tea brews, and again in the armchair in the evening.", "note": "A wheat bag slides off a shoulder. This one stays.", "stock": "jw-photo-armchair.jpg", "alt": "Woman in an armchair with the wrap on her shoulder" } },
-        { "type": "door", "settings": { "title": "Tennis elbow", "line": "From the secateurs and the watering can, not the tennis court. Worse when you grip.", "how": "The strap takes it up the forearm to the elbow. Rest the arm on the chair and forget it.", "when": "Before the garden, not after. Twenty to thirty minutes on the forearm as a warm-up.", "note": "If the elbow is hot and sore to touch after a session, that is an ice day.", "stock": "jw-photo-crossword-elbow.jpg", "alt": "Woman doing a crossword with the wrap on her elbow" } },
-        { "type": "door", "settings": { "title": "After a knee replacement", "line": "Ask your surgeon or physio first. Their word beats ours.", "how": "Only once the wound has fully healed and they have said heat is fine. Start at the lowest level.", "when": "The warm half hour before the exercise sheet, then the exercises.", "note": "Never over a wound that has not healed, and never on a hot, red or newly swollen knee. That is a phone call to the clinic.", "stock": "jw-photo-breakfast.jpg", "alt": "Woman at the breakfast table with the wrap on her knee" } },
-        { "type": "door", "settings": { "title": "Morning stiffness", "line": "Hand on the wall, down the stairs sideways, fine by the afternoon. Then tomorrow.", "how": "On the worst joint before you leave the kitchen. Kettle on, wrap on.", "when": "Every morning for a month. Same chair, same cup. Habit is the whole trick.", "note": "A joint that has not moved for eight hours is a cold joint. Warmth and movement are what wake it.", "stock": "jw-photo-garden-window.jpg", "alt": "Woman by the window with the wrap on her knee" } },
-        { "type": "door", "settings": { "title": "Kneeling and gardening", "line": "It is not the kneeling. It is getting down, and getting back up.", "how": "Round the knee before the wellies go on. It is cordless, so it goes to the back door with you.", "when": "Twenty minutes before you go out, and again in the chair when you come in.", "note": "Two knees? Two wraps. The pair is the one most gardeners choose.", "stock": "jw-photo-floor.jpg", "alt": "Woman on the carpet with the wrap on her knee" } },
-        { "type": "door", "settings": { "title": "Cold weather aches", "line": "October to March. Some knees know the weather before the curtains are open.", "how": "Under a dressing gown while the kettle boils, in the armchair with the television, in the car before a cold walk.", "when": "Morning and evening on the coldest days. One charge covers the day for most people.", "note": "One knee warm, not the whole house. The heating can stay where it is.", "stock": "jw-photo-radiator.jpg", "alt": "Woman in an armchair by the radiator with the wrap on her knee" } }
+        {
+          "type": "door",
+          "settings": {
+            "title": "Knee arthritis",
+            "line": "Wear and tear, the GP says. The first ten steps are the worst and the stairs are a decision.",
+            "how": "Straight round the knee, over or under trousers. The strap holds it while you walk to the kettle.",
+            "when": "First thing, with the first cup. Level 3, thirty minutes, before the stairs.",
+            "note": "Heat before you move, ice after a flare. That is what physios say, and it is all we say.",
+            "stock": "jw-photo-kettle.jpg",
+            "alt": "Woman at the kettle with the wrap on her knee"
+          }
+        },
+        {
+          "type": "door",
+          "settings": {
+            "title": "Stiff shoulder",
+            "line": "The top shelf, the bra strap, sleeping on that side. Small things, twenty times a day.",
+            "how": "The extension strap in the box loops it over the shoulder and under the arm, so the warm panel sits on the joint.",
+            "when": "Under a cardigan while the tea brews, and again in the armchair in the evening.",
+            "note": "A wheat bag slides off a shoulder. This one stays.",
+            "stock": "jw-photo-armchair.jpg",
+            "alt": "Woman in an armchair with the wrap on her shoulder"
+          }
+        },
+        {
+          "type": "door",
+          "settings": {
+            "title": "Tennis elbow",
+            "line": "From the secateurs and the watering can, not the tennis court. Worse when you grip.",
+            "how": "The strap takes it up the forearm to the elbow. Rest the arm on the chair and forget it.",
+            "when": "Before the garden, not after. Twenty to thirty minutes on the forearm as a warm-up.",
+            "note": "If the elbow is hot and sore to touch after a session, that is an ice day.",
+            "stock": "jw-photo-crossword-elbow.jpg",
+            "alt": "Woman doing a crossword with the wrap on her elbow"
+          }
+        },
+        {
+          "type": "door",
+          "settings": {
+            "title": "After a knee replacement",
+            "line": "Ask your surgeon or physio first. Their word beats ours.",
+            "how": "Only once the wound has fully healed and they have said heat is fine. Start at the lowest level.",
+            "when": "The warm half hour before the exercise sheet, then the exercises.",
+            "note": "Never over a wound that has not healed, and never on a hot, red or newly swollen knee. That is a phone call to the clinic.",
+            "stock": "jw-photo-breakfast.jpg",
+            "alt": "Woman at the breakfast table with the wrap on her knee"
+          }
+        },
+        {
+          "type": "door",
+          "settings": {
+            "title": "Morning stiffness",
+            "line": "Hand on the wall, down the stairs sideways, fine by the afternoon. Then tomorrow.",
+            "how": "On the worst joint before you leave the kitchen. Kettle on, wrap on.",
+            "when": "Every morning for a month. Same chair, same cup. Habit is the whole trick.",
+            "note": "A joint that has not moved for eight hours is a cold joint. Warmth and movement are what wake it.",
+            "stock": "jw-photo-garden-window.jpg",
+            "alt": "Woman by the window with the wrap on her knee"
+          }
+        },
+        {
+          "type": "door",
+          "settings": {
+            "title": "Kneeling and gardening",
+            "line": "It is not the kneeling. It is getting down, and getting back up.",
+            "how": "Round the knee before the wellies go on. It is cordless, so it goes to the back door with you.",
+            "when": "Twenty minutes before you go out, and again in the chair when you come in.",
+            "note": "Two knees? Two wraps. The pair is the one most gardeners choose.",
+            "stock": "jw-photo-floor.jpg",
+            "alt": "Woman on the carpet with the wrap on her knee"
+          }
+        },
+        {
+          "type": "door",
+          "settings": {
+            "title": "Cold weather aches",
+            "line": "October to March. Some knees know the weather before the curtains are open.",
+            "how": "Under a dressing gown while the kettle boils, in the armchair with the television, in the car before a cold walk.",
+            "when": "Morning and evening on the coldest days. One charge covers the day for most people.",
+            "note": "One knee warm, not the whole house. The heating can stay where it is.",
+            "stock": "jw-photo-radiator.jpg",
+            "alt": "Woman in an armchair by the radiator with the wrap on her knee"
+          }
+        }
       ]
     }
   ]

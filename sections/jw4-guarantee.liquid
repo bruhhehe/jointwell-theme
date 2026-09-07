@@ -11,6 +11,8 @@
         <li {{ block.shopify_attributes }}><strong>{{ block.settings.big | escape }}</strong>{{ block.settings.text | escape }}</li>
       {%- endfor -%}
     </ul>
+    {%- if section.settings.closing != blank -%}<p class="jw4-guar__closing">{{ section.settings.closing | escape }}</p>{%- endif -%}
+    {%- if section.settings.sig_name != blank -%}<p class="jw4-guar__sig">{{ section.settings.sig_name | escape }}</p>{%- endif -%}
     {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
   </div>
 </section>
@@ -25,25 +27,37 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Small line",
-      "default": "The 90-day worst-joint trial"
+      "default": "The 90-Morning Guarantee"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "If it does not help, we do not keep your money."
+      "default": "If it doesn't help, we don't keep your money."
     },
     {
       "type": "textarea",
       "id": "intro",
       "label": "One line under it",
-      "default": "Use it for 90 days on your own knee, whenever it suits you. If you cannot feel the difference, post it back and we pay the return postage."
+      "default": "Use it for ninety mornings on your own knee. If you can't feel the difference, email us, we send a label, you post it back, and we refund every penny. You don't pay the postage and you don't give a reason."
+    },
+    {
+      "type": "text",
+      "id": "closing",
+      "label": "Closing line",
+      "default": "Junk sellers can't afford this. That's rather the point."
+    },
+    {
+      "type": "text",
+      "id": "sig_name",
+      "label": "Signed",
+      "default": "Stan, Jointwell"
     },
     {
       "type": "text",
       "id": "cta_label",
       "label": "Button",
-      "default": "Start the 90 days"
+      "default": "Start the 90 mornings"
     },
     {
       "type": "url",
@@ -57,8 +71,18 @@
       "name": "Term",
       "limit": 4,
       "settings": [
-        { "type": "text", "id": "big", "label": "Big", "default": "90 days" },
-        { "type": "text", "id": "text", "label": "Small", "default": "to decide, from the day it arrives" }
+        {
+          "type": "text",
+          "id": "big",
+          "label": "Big",
+          "default": "90 days"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Small",
+          "default": "to decide, from the day it arrives"
+        }
       ]
     }
   ],
@@ -66,10 +90,34 @@
     {
       "name": "JW4 Guarantee band",
       "blocks": [
-        { "type": "term", "settings": { "big": "90 days", "text": "to decide, from the day it arrives" } },
-        { "type": "term", "settings": { "big": "£0", "text": "to send it back. We pay the return postage" } },
-        { "type": "term", "settings": { "big": "No reason", "text": "needed, though we would like to hear it" } },
-        { "type": "term", "settings": { "big": "2 years", "text": "of warranty, replacement not repair, UK support" } }
+        {
+          "type": "term",
+          "settings": {
+            "big": "90 days",
+            "text": "to decide, from the day it arrives"
+          }
+        },
+        {
+          "type": "term",
+          "settings": {
+            "big": "£0",
+            "text": "to send it back. We pay the return postage"
+          }
+        },
+        {
+          "type": "term",
+          "settings": {
+            "big": "No reason",
+            "text": "needed, though we would like to hear it"
+          }
+        },
+        {
+          "type": "term",
+          "settings": {
+            "big": "2 years",
+            "text": "of warranty, replacement not repair, UK support"
+          }
+        }
       ]
     }
   ]

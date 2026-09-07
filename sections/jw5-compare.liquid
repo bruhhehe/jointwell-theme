@@ -1,0 +1,133 @@
+{% comment %}
+  Ticks and crosses, not words. One column per thing in the cupboard, the last column is ours.
+  Row blocks carry one value per column, comma separated: yes, no, or a short word like "Some".
+{% endcomment %}
+{%- assign cols = section.settings.columns | split: ',' -%}
+<section class="jw4 jw4--cream jw5-compare" id="jw-compare">
+  <div class="jw-wrap">
+    <div class="jw4__center">
+      <h2 class="jw-h2">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.intro != blank -%}<p class="jw-lead">{{ section.settings.intro | escape }}</p>{%- endif -%}
+    </div>
+    <div class="jw5-compare__scroll">
+      <table class="jw5-compare__table">
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">Feature</span></th>
+            {%- for c in cols -%}
+              {%- assign last = cols.size | minus: 1 -%}
+              <th scope="col"{% if forloop.index0 == last %} class="jw5-compare__ours"{% endif %}>{{ c | strip | escape }}</th>
+            {%- endfor -%}
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row">{{ block.settings.label | escape }}</th>
+              {%- assign vals = block.settings.values | split: ',' -%}
+              {%- for v in vals -%}
+                {%- assign t = v | strip -%}
+                {%- assign last = vals.size | minus: 1 -%}
+                <td{% if forloop.index0 == last %} class="jw5-compare__ours"{% endif %}>
+                  {%- if t == 'yes' -%}<span class="jw5-compare__yes" role="img" aria-label="Yes">✓</span>
+                  {%- elsif t == 'no' -%}<span class="jw5-compare__no" role="img" aria-label="No">✕</span>
+                  {%- else -%}<span class="jw5-compare__part">{{ t | escape }}</span>{%- endif -%}
+                </td>
+              {%- endfor -%}
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JW5 Comparison",
+  "tag": "section",
+  "class": "jw5-section-compare",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Against the rest of the cupboard"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Line under the heading",
+      "default": "The same four things, side by side."
+    },
+    {
+      "type": "text",
+      "id": "columns",
+      "label": "Column headings, comma separated",
+      "default": "Wheat bag, Hot water bottle, Plug-in heat pad, Jointwell"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Row label",
+          "default": "Holds one temperature"
+        },
+        {
+          "type": "text",
+          "id": "values",
+          "label": "One per column: yes, no, or a word",
+          "default": "no, no, yes, yes"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JW5 Comparison",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "label": "Holds one temperature",
+            "values": "no, no, yes, yes"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Stays on the joint",
+            "values": "no, no, no, yes"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "No wire",
+            "values": "yes, yes, no, yes"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Switches itself off",
+            "values": "no, no, Some, yes"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "label": "Massage alongside",
+            "values": "no, no, no, yes"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

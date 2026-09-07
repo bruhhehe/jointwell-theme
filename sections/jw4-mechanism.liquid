@@ -35,6 +35,18 @@
         </div>
       </div>
     {%- endfor -%}
+    {%- if section.settings.panel_text != blank -%}
+      <figure class="jw4-mech__panel">
+        {%- if section.settings.panel_image != blank -%}
+          {{ section.settings.panel_image | image_url: width: 1600 | image_tag: loading: 'lazy', class: 'jw4__img', alt: section.settings.panel_text }}
+        {%- elsif section.settings.panel_stock != blank -%}
+          <img class="jw4__img" src="{{ section.settings.panel_stock | asset_url }}" width="1024" height="1024" loading="lazy" alt="{{ section.settings.panel_text | escape }}">
+        {%- else -%}
+          <div class="jw5-ph jw5-ph--wide" role="img" aria-label="Control panel"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">The control panel, full width, with the four buttons labelled</span></div>
+        {%- endif -%}
+        <figcaption>{{ section.settings.panel_text | escape }}</figcaption>
+      </figure>
+    {%- endif -%}
     <p class="jw4-mech__only">{{ section.settings.only_line | escape }}</p>
     {% render 'jw-cta-strip', link: section.settings.cta_link, label: section.settings.cta_label %}
   </div>
@@ -62,7 +74,7 @@
       "type": "textarea",
       "id": "intro",
       "label": "Line under the heading",
-      "default": "Warmth that stays put. That is the whole idea."
+      "default": "Held Heat. Warmth at the level you set, on the joint, for thirty minutes."
     },
     {
       "type": "product",
@@ -79,7 +91,42 @@
       "type": "textarea",
       "id": "only_line",
       "label": "The one claim",
-      "default": "Nothing else in the cupboard does all four: holds a level, strapped on, cordless, and switches itself off. That is the difference, and it is the only claim we make."
+      "default": "Nothing else in the cupboard does all four: holds a level, strapped on, cordless, and switches itself off. That's the difference, and it is the only claim we make."
+    },
+    {
+      "type": "textarea",
+      "id": "panel_text",
+      "label": "Line under the control panel photo",
+      "default": "Four buttons and a number. Up, down, that's it. Susan, 69, set hers up on the first go. Her daughter checked afterwards."
+    },
+    {
+      "type": "image_picker",
+      "id": "panel_image",
+      "label": "Control panel photo"
+    },
+    {
+      "type": "select",
+      "id": "panel_stock",
+      "label": "Built-in control panel photo",
+      "options": [
+        {
+          "value": "",
+          "label": "None, show the brief"
+        },
+        {
+          "value": "jw-review-brenda.jpg",
+          "label": "Panel in hand, 45"
+        },
+        {
+          "value": "jw-review-linda.jpg",
+          "label": "Panel close up"
+        },
+        {
+          "value": "jw-feature-heat.jpg",
+          "label": "Heat levels tile"
+        }
+      ],
+      "default": ""
     },
     {
       "type": "text",
@@ -130,12 +177,46 @@
           "id": "stock",
           "label": "Built-in photo",
           "options": [
-            { "value": "jw-feature-heat.jpg", "label": "Five heat levels" },
-            { "value": "jw-feature-massage.jpg", "label": "Three massage strengths" },
-            { "value": "jw-feature-timer.jpg", "label": "Switches itself off" },
-            { "value": "jw-feature-weight.jpg", "label": "360 g, cordless" },
-            { "value": "jw-feature-joints.jpg", "label": "Knee, shoulder or elbow" },
-            { "value": "jw-wrap-mug.jpg", "label": "Wrap and mug" }
+            {
+              "value": "jw-feature-heat.jpg",
+              "label": "Five heat levels"
+            },
+            {
+              "value": "jw-feature-massage.jpg",
+              "label": "Three massage strengths"
+            },
+            {
+              "value": "jw-feature-timer.jpg",
+              "label": "Switches itself off"
+            },
+            {
+              "value": "jw-feature-weight.jpg",
+              "label": "360 g, cordless"
+            },
+            {
+              "value": "jw-feature-joints.jpg",
+              "label": "Knee, shoulder or elbow"
+            },
+            {
+              "value": "jw-wrap-mug.jpg",
+              "label": "Wrap and mug"
+            },
+            {
+              "value": "jw-photo-kettle.jpg",
+              "label": "At the kettle"
+            },
+            {
+              "value": "jw-photo-armchair.jpg",
+              "label": "Armchair with a book"
+            },
+            {
+              "value": "jw-photo-garden-window.jpg",
+              "label": "Garden window"
+            },
+            {
+              "value": "jw-photo-radiator.jpg",
+              "label": "Armchair by the radiator"
+            }
           ],
           "default": "jw-feature-heat.jpg"
         }
@@ -146,9 +227,30 @@
     {
       "name": "JW4 Mechanism",
       "blocks": [
-        { "type": "step", "settings": { "title": "Warmth, held at the level you set", "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole half hour, instead of starting hot and fading like a wheat bag.", "stock": "jw-feature-heat.jpg" } },
-        { "type": "step", "settings": { "title": "Gentle massage, running alongside", "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.", "stock": "jw-feature-massage.jpg" } },
-        { "type": "step", "settings": { "title": "Strapped on, cordless, off by itself", "text": "It stays where you put it while you walk to the kettle. No wire. At 30 minutes it switches itself off, so it cannot be left running.", "stock": "jw-feature-timer.jpg" } }
+        {
+          "type": "step",
+          "settings": {
+            "title": "Warmth, held at the level you set",
+            "text": "Five levels from 45°C to 65°C. Pick one and it stays there for the whole half hour, instead of starting hot and fading like a wheat bag.",
+            "stock": "jw-feature-heat.jpg"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Gentle massage, running alongside",
+            "text": "Three strengths, or none. It runs at the same time as the warmth, so you are not holding anything or rubbing anything in.",
+            "stock": "jw-feature-massage.jpg"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Strapped on, cordless, off by itself",
+            "text": "It stays where you put it while you walk to the kettle. No wire. At 30 minutes it switches itself off, so it cannot be left running.",
+            "stock": "jw-feature-timer.jpg"
+          }
+        }
       ]
     }
   ]

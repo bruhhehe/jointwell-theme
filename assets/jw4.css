@@ -303,3 +303,42 @@ body { background: var(--jw-bg); }
    ones off centre. Put the auto side margins back. */
 .jw4__center .jw-lead, .jw5-subhead .jw-lead, .jw-chart .jw-lead, .jw-authority .jw-lead,
 .jw-doorways .jw-lead, .jw-offerblock .jw-lead, .jw-faq .jw-lead { margin-left: auto; margin-right: auto; }
+
+/* ===== v6 ===== */
+.jw4-hero__second { font-size: var(--jw-fs-body); margin: 0 0 20px; color: var(--jw-text); }
+.jw4-hero__rating { margin: 8px 0 0; font-size: 17px; font-weight: 700; }
+.jw4-hero__rating .jw-stars { color: var(--jw-star); letter-spacing: 1px; }
+.jw4-hero__inset { position: absolute; right: 12px; bottom: 12px; width: 34%; max-width: 190px; background: #fff; border-radius: 14px; padding: 6px; box-shadow: 0 6px 18px rgba(74,42,28,0.18); }
+.jw4-hero__inset img { display: block; width: 100%; height: auto; border-radius: 10px; }
+
+.jw4-mech__panel { margin: 32px 0 0; }
+.jw4-mech__panel figcaption { margin-top: 14px; text-align: center; font-size: var(--jw-fs-large); line-height: 1.4; max-width: 760px; margin-left: auto; margin-right: auto; }
+
+/* Comparison table */
+.jw5-compare__scroll { overflow-x: auto; margin-top: 8px; -webkit-overflow-scrolling: touch; }
+.jw5-compare__table { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; border-radius: var(--jw-radius); overflow: hidden; }
+.jw5-compare__table th, .jw5-compare__table td { padding: 14px 12px; text-align: center; border-bottom: 1px solid var(--jw-border); font-size: 17px; }
+.jw5-compare__table thead th { font-size: 16px; font-weight: 800; line-height: 1.2; background: var(--jw-bg-alt); }
+.jw5-compare__table tbody th { text-align: left; font-weight: 700; }
+.jw5-compare__table tr:last-child th, .jw5-compare__table tr:last-child td { border-bottom: 0; }
+.jw5-compare__ours { background: var(--jw-accent-soft); }
+.jw5-compare__table thead th.jw5-compare__ours { background: var(--jw-accent); color: #fff; }
+.jw5-compare__yes { color: var(--jw-good); font-size: 24px; font-weight: 900; }
+.jw5-compare__no { color: #b0a79d; font-size: 22px; }
+.jw5-compare__part { color: var(--jw-muted); font-size: 16px; }
+
+/* What Paula spent first */
+.jw-spend { margin: 28px 0 0; padding: 20px 22px; border-radius: var(--jw-radius); background: var(--jw-bg-alt); }
+.jw-spend__title { margin: 0 0 8px; font-size: var(--jw-fs-h3); font-weight: 800; }
+.jw-spend p { margin: 0 0 4px; font-size: 17px; color: var(--jw-muted); }
+.jw-spend__total { font-weight: 800; color: var(--jw-text) !important; font-size: 19px !important; margin-top: 10px !important; }
+
+.jw-offerblock__note { font-size: 16px; color: var(--jw-muted); margin: 12px 0 0; line-height: 1.45; }
+.jw-offerblock__phone { margin: 14px 0 0; font-size: 17px; font-weight: 700; }
+
+.jw4-guar__closing { margin: 28px auto 0; max-width: 720px; font-size: var(--jw-fs-large); font-weight: 700; }
+.jw4-guar__sig { margin: 10px 0 0; font-size: 17px; opacity: 0.85; }
+
+.jw-sticky__thumb { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; flex: 0 0 auto; }
+@media (min-width: 750px) { .jw-sticky__thumb { display: none; } }
+@media (max-width: 749px) { .jw-sticky__text { display: none; } .jw-sticky__btn { flex: 1; } }

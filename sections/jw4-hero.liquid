@@ -27,14 +27,27 @@
       {%- else -%}
         <div class="jw5-ph jw5-ph--hero" role="img" aria-label="{{ section.settings.ba_caption | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ section.settings.ba_caption | escape }}</span></div>
       {%- endif -%}
+      {%- if section.settings.inset_stock != blank or section.settings.inset_image != blank -%}
+        <div class="jw4-hero__inset">
+          {%- if section.settings.inset_image != blank -%}
+            {{ section.settings.inset_image | image_url: width: 500 | image_tag: loading: 'lazy', alt: 'The Jointwell wrap' }}
+          {%- else -%}
+            <img src="{{ section.settings.inset_stock | asset_url }}" width="500" height="500" loading="lazy" alt="The Jointwell wrap">
+          {%- endif -%}
+        </div>
+      {%- endif -%}
     </div>
     <div class="jw4-hero__copy">
       {%- if section.settings.eyebrow != blank -%}<p class="jw4__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
       <h1 class="jw-h1">{{ section.settings.heading | escape }}</h1>
       <p class="jw-lead">{{ section.settings.subline | escape }}</p>
+      {%- if section.settings.subline_2 != blank -%}<p class="jw4-hero__second">{{ section.settings.subline_2 | escape }}</p>{%- endif -%}
       <div class="jw4-hero__cta">
         <a class="jw-btn jw-btn--primary" href="{{ cta }}">{{ section.settings.cta_label | escape }}</a>
         <p class="jw4-hero__proof">{{ section.settings.proof_line | escape }}</p>
+        {%- if section.settings.rating_line != blank -%}
+          <p class="jw4-hero__rating"><span class="jw-stars" aria-hidden="true">★★★★★</span> {{ section.settings.rating_line | escape }}</p>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -87,6 +100,47 @@
       "id": "subline",
       "label": "One line under it",
       "default": "Paula, 65, was going up the stairs on her hands and knees. Thirty minutes a day, and now she doesn't think about them."
+    },
+    {
+      "type": "textarea",
+      "id": "subline_2",
+      "label": "Second line",
+      "default": "A cordless wrap that holds warmth on the joint for a full half hour. £49. Ninety days to decide, on your own knee."
+    },
+    {
+      "type": "text",
+      "id": "rating_line",
+      "label": "Rating line",
+      "info": "Only when Judge.me shows it, for example: 4.8 from 312 UK customers. Blank hides the stars."
+    },
+    {
+      "type": "image_picker",
+      "id": "inset_image",
+      "label": "Small inset: the wrap on its own"
+    },
+    {
+      "type": "select",
+      "id": "inset_stock",
+      "label": "Built-in inset",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "jw-feature-weight.jpg",
+          "label": "Wrap on a plain table"
+        },
+        {
+          "value": "jw-wrap-mug.jpg",
+          "label": "Wrap beside a mug"
+        },
+        {
+          "value": "jw-strap.jpg",
+          "label": "Wrap and strap"
+        }
+      ],
+      "default": "jw-feature-weight.jpg"
     },
     {
       "type": "text",
@@ -154,7 +208,7 @@
       "type": "text",
       "id": "proof_line",
       "label": "Line under the button",
-      "default": "90-day guarantee · Free UK delivery · UK support · 2-year warranty",
+      "default": "90-Morning Guarantee · Free tracked UK delivery · UK support · 2-year warranty",
       "info": "Only numbers you can show. Change these to the real Judge.me figures."
     },
     {
@@ -219,11 +273,26 @@
       "id": "stock",
       "label": "Built-in photo",
       "options": [
-        { "value": "jw-photo-garden-window.jpg", "label": "Garden window, smiling" },
-        { "value": "jw-photo-armchair.jpg", "label": "Armchair with a book" },
-        { "value": "jw-photo-kettle.jpg", "label": "At the kettle" },
-        { "value": "jw-photo-breakfast.jpg", "label": "Breakfast table" },
-        { "value": "jw-hero.jpg", "label": "Kitchen, red jumper" }
+        {
+          "value": "jw-photo-garden-window.jpg",
+          "label": "Garden window, smiling"
+        },
+        {
+          "value": "jw-photo-armchair.jpg",
+          "label": "Armchair with a book"
+        },
+        {
+          "value": "jw-photo-kettle.jpg",
+          "label": "At the kettle"
+        },
+        {
+          "value": "jw-photo-breakfast.jpg",
+          "label": "Breakfast table"
+        },
+        {
+          "value": "jw-hero.jpg",
+          "label": "Kitchen, red jumper"
+        }
       ],
       "default": "jw-photo-garden-window.jpg"
     },
@@ -254,12 +323,30 @@
       "id": "review_stock",
       "label": "Their photo",
       "options": [
-        { "value": "", "label": "None" },
-        { "value": "jw-review-sarah.jpg", "label": "Sarah" },
-        { "value": "jw-review-margaret.jpg", "label": "Margaret" },
-        { "value": "jw-review-linda.jpg", "label": "Linda" },
-        { "value": "jw-review-brenda.jpg", "label": "Brenda" },
-        { "value": "jw-review-susan.jpg", "label": "Susan" }
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "jw-review-sarah.jpg",
+          "label": "Sarah"
+        },
+        {
+          "value": "jw-review-margaret.jpg",
+          "label": "Margaret"
+        },
+        {
+          "value": "jw-review-linda.jpg",
+          "label": "Linda"
+        },
+        {
+          "value": "jw-review-brenda.jpg",
+          "label": "Brenda"
+        },
+        {
+          "value": "jw-review-susan.jpg",
+          "label": "Susan"
+        }
       ],
       "default": "jw-review-sarah.jpg"
     }

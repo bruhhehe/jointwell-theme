@@ -47,24 +47,84 @@
   "tag": "section",
   "class": "jw-section-product-stack",
   "settings": [
-    { "type": "text", "id": "title", "label": "Title", "default": "What you get" },
-    { "type": "text", "id": "total_label", "label": "Total row label", "default": "Total" },
-    { "type": "text", "id": "total_worth", "label": "Total worth", "default": "£88.95" },
-    { "type": "checkbox", "id": "use_product_price", "label": "Use the product's price for 'you pay'", "default": true },
-    { "type": "text", "id": "total_pay", "label": "Total you pay (if not using product price)", "default": "£49" },
-    { "type": "text", "id": "note", "label": "Note", "default": "Values are what each item costs bought separately." },
-    { "type": "text", "id": "trust_1", "label": "Trust line 1", "default": "90-day trial, we pay return postage" },
-    { "type": "text", "id": "trust_2", "label": "Trust line 2", "default": "2-year UK warranty" },
-    { "type": "text", "id": "trust_3", "label": "Trust line 3", "default": "Free tracked delivery" }
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What you get"
+    },
+    {
+      "type": "text",
+      "id": "total_label",
+      "label": "Total row label",
+      "default": "Total"
+    },
+    {
+      "type": "text",
+      "id": "total_worth",
+      "label": "Total worth",
+      "default": "£88.95"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_product_price",
+      "label": "Use the product's price for 'you pay'",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "total_pay",
+      "label": "Total you pay (if not using product price)",
+      "default": "£49"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "Values are what each item costs bought separately."
+    },
+    {
+      "type": "text",
+      "id": "trust_1",
+      "label": "Trust line 1",
+      "default": "90-day trial, we pay return postage"
+    },
+    {
+      "type": "text",
+      "id": "trust_2",
+      "label": "Trust line 2",
+      "default": "2-year UK warranty"
+    },
+    {
+      "type": "text",
+      "id": "trust_3",
+      "label": "Trust line 3",
+      "default": "Free tracked delivery"
+    }
   ],
   "blocks": [
     {
       "type": "line",
       "name": "Stack line",
       "settings": [
-        { "type": "text", "id": "item", "label": "Item", "default": "Extension strap (shoulder and elbow)" },
-        { "type": "text", "id": "worth", "label": "Worth", "default": "£9" },
-        { "type": "text", "id": "pay", "label": "You pay", "default": "Free" }
+        {
+          "type": "text",
+          "id": "item",
+          "label": "Item",
+          "default": "Extension strap (shoulder and elbow)"
+        },
+        {
+          "type": "text",
+          "id": "worth",
+          "label": "Worth",
+          "default": "£9"
+        },
+        {
+          "type": "text",
+          "id": "pay",
+          "label": "You pay",
+          "default": "Free"
+        }
       ]
     }
   ],
@@ -72,13 +132,62 @@
     {
       "name": "JW Product offer stack",
       "blocks": [
-        { "type": "line", "settings": { "item": "Jointwell heated joint wrap", "worth": "£65", "pay": "£49" } },
-        { "type": "line", "settings": { "item": "Extension strap (shoulder and elbow)", "worth": "£9", "pay": "Free" } },
-        { "type": "line", "settings": { "item": "USB-C charging cable", "worth": "£6", "pay": "Free" } },
-        { "type": "line", "settings": { "item": "Mugwort warming sachet", "worth": "£4", "pay": "Free" } },
-        { "type": "line", "settings": { "item": "Tracked UK delivery", "worth": "£4.95", "pay": "Free" } },
-        { "type": "line", "settings": { "item": "90-day trial, return postage paid", "worth": "", "pay": "Free" } },
-        { "type": "line", "settings": { "item": "2-year warranty, UK support", "worth": "", "pay": "Included" } }
+        {
+          "type": "line",
+          "settings": {
+            "item": "Jointwell heated joint wrap",
+            "worth": "£65",
+            "pay": "£49"
+          }
+        },
+        {
+          "type": "line",
+          "settings": {
+            "item": "Extension strap (shoulder and elbow)",
+            "worth": "£9",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "line",
+          "settings": {
+            "item": "USB-C charging cable",
+            "worth": "£6",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "line",
+          "settings": {
+            "item": "Mugwort warming sachet",
+            "worth": "£4",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "line",
+          "settings": {
+            "item": "Tracked UK delivery",
+            "worth": "£4.95",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "line",
+          "settings": {
+            "item": "90-day trial, return postage paid",
+            "worth": "",
+            "pay": "Free"
+          }
+        },
+        {
+          "type": "line",
+          "settings": {
+            "item": "2-year warranty, UK support",
+            "worth": "",
+            "pay": "Included"
+          }
+        }
       ]
     }
   ]

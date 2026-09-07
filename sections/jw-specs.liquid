@@ -35,28 +35,126 @@
   "tag": "section",
   "class": "jw-section-specs",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Heading", "default": "The specifics" },
-    { "type": "text", "id": "intro", "label": "Intro", "default": "Specifics are the trust. Here is everything we can measure." },
-    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" }
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The specifics"
+    },
+    {
+      "type": "text",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Specifics are the trust. Here is everything we can measure."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Try it for 90 days"
+    }
   ],
   "blocks": [
-    { "type": "spec", "name": "Specification", "settings": [
-      { "type": "text", "id": "label", "label": "Label", "default": "Weight" },
-      { "type": "text", "id": "value", "label": "Value", "default": "360 g", "info": "Leave blank to hide the line." },
-      { "type": "url", "id": "link", "label": "Link (optional)" },
-      { "type": "text", "id": "link_text", "label": "Link text" }
-    ] }
+    {
+      "type": "spec",
+      "name": "Specification",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Weight"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "360 g",
+          "info": "Leave blank to hide the line."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text"
+        }
+      ]
+    }
   ],
-  "presets": [{ "name": "JW Specifications", "blocks": [
-    { "type": "spec", "settings": { "label": "Size", "value": "46 cm across, 30 cm tall, 55 cm strap span. One size, either side of the body." } },
-    { "type": "spec", "settings": { "label": "Weight", "value": "360 g, about a full mug of tea" } },
-    { "type": "spec", "settings": { "label": "Heat", "value": "Five levels: 45, 50, 55, 60, 65°C, held for the full session" } },
-    { "type": "spec", "settings": { "label": "Massage", "value": "Three vibration strengths: gentle, comfortable, strong" } },
-    { "type": "spec", "settings": { "label": "Session", "value": "30 minutes, then it switches itself off. Cannot be overridden. Screen lock on the panel." } },
-    { "type": "spec", "settings": { "label": "Battery", "value": "3000 mAh, USB-C. Customers tell us about four 30-minute sessions per charge." } },
-    { "type": "spec", "settings": { "label": "Layers", "value": "Windproof outer, infrared heating middle, non-slip inner" } },
-    { "type": "spec", "settings": { "label": "In the box", "value": "Wrap, extension strap, USB-C cable, mugwort sachet" } },
-    { "type": "spec", "settings": { "label": "Where it is made", "value": "", "link_text": "" } }
-  ] }]
+  "presets": [
+    {
+      "name": "JW Specifications",
+      "blocks": [
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Size",
+            "value": "46 cm across, 30 cm tall, 55 cm strap span. One size, either side of the body."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Weight",
+            "value": "360 g, about a full mug of tea"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Heat",
+            "value": "Five levels: 45, 50, 55, 60, 65°C, held for the full session"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Massage",
+            "value": "Three vibration strengths: gentle, comfortable, strong"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Session",
+            "value": "30 minutes, then it switches itself off. Cannot be overridden. Screen lock on the panel."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Battery",
+            "value": "3000 mAh, USB-C. Customers tell us about four 30-minute sessions per charge."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Layers",
+            "value": "Windproof outer, infrared heating middle, non-slip inner"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "In the box",
+            "value": "Wrap, extension strap, USB-C cable, mugwort sachet"
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "label": "Where it is made",
+            "value": "",
+            "link_text": ""
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

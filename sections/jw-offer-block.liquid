@@ -32,7 +32,7 @@
         <ul class="jw-stacklist{% if any_valued %} jw-stacklist--valued{% endif %}" role="list">
           {%- for block in section.blocks -%}
             {%- if block.type != 'item' -%}{%- continue -%}{%- endif -%}
-            <li {{ block.shopify_attributes }} data-jw-row{% if forloop.first %} data-jw-main{% endif %}>
+            <li {{ block.shopify_attributes }} data-jw-row{% if forloop.first %} data-jw-main{% endif %}{% if block.settings.no_scale %} data-jw-noscale{% endif %}>
               <span class="jw-stacklist__item"><strong>{{ block.settings.item | escape }}<span data-jw-qty></span></strong>{% if block.settings.note != blank %} <span class="jw-muted">{{ block.settings.note | escape }}</span>{% endif %}</span>
               {%- if block.settings.value != blank -%}<span class="jw-stacklist__value" data-jw-val data-base="{{ block.settings.value | escape }}">{{ block.settings.value | escape }}</span>{%- endif -%}
               <span class="jw-stacklist__pay" data-jw-pay data-base="{{ block.settings.pay | default: 'Included' | escape }}">{{ block.settings.pay | default: 'Included' | escape }}</span>
@@ -43,6 +43,15 @@
           <div class="jw-stacklist__totals">
             <div class="jw-stacklist__tot"><span>Total value</span><strong data-jw-total-value data-base="{{ section.settings.total_value | escape }}">{{ section.settings.total_value | escape }}</strong></div>
             <div class="jw-stacklist__tot jw-stacklist__tot--pay"><span>You pay</span><strong data-jw-total-pay>{% if product != blank %}{{ product.variants.first.price | money_without_trailing_zeros }}{% else %}{{ section.settings.total_pay | escape }}{% endif %}</strong></div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.spend_lines != blank -%}
+          <div class="jw-spend">
+            <h4 class="jw-spend__title">{{ section.settings.spend_title | escape }}</h4>
+            {%- assign sl = section.settings.spend_lines | escape | newline_to_br | replace: '<br>', '<br />' | split: '<br />' -%}
+            {%- for l in sl -%}{%- assign t = l | strip -%}{%- if t != blank -%}<p>{{ t }}</p>{%- endif -%}{%- endfor -%}
+            {%- if section.settings.spend_total != blank -%}<p class="jw-spend__total">{{ section.settings.spend_total | escape }}</p>{%- endif -%}
           </div>
         {%- endif -%}
 
@@ -88,6 +97,7 @@
                       assign badge = section.settings.badge_4
                     endif
                     assign saving = single | times: units | minus: v.price
+                    assign extra = v.price | minus: product.variants.first.price
                   -%}
                   <label class="jw-tier2{% if badge != blank %} jw-tier2--badged{% endif %}">
                     <input type="radio" name="id" value="{{ v.id }}" data-units="{{ units }}" data-price="{{ v.price | money_without_trailing_zeros }}" data-was="{% if v.compare_at_price > v.price %}{{ v.compare_at_price | money_without_trailing_zeros }}{% endif %}" {% if forloop.index == section.settings.preselect %}checked{% endif %}>
@@ -95,7 +105,7 @@
                       {%- if badge != blank -%}<span class="jw-tier2__badge{% if units == 4 %} jw-tier2__badge--alt{% endif %}">{{ badge | escape }}</span>{%- endif -%}
                       <span class="jw-tier2__main">
                         <span class="jw-tier2__name">{{ v.title | escape }}</span>
-                        <span class="jw-tier2__sub">{{ sub | escape }}{% if units > 1 %} <strong>Save {{ saving | money_without_trailing_zeros }} against {{ units }} at {{ single | money_without_trailing_zeros }}.</strong>{% endif %}</span>
+                        <span class="jw-tier2__sub">{{ sub | escape }}{% if units == 2 %} <strong>Add a second wrap for {{ extra | money_without_trailing_zeros }}.</strong>{% elsif units > 2 %} <strong>Save {{ saving | money_without_trailing_zeros }} against {{ units }} at {{ single | money_without_trailing_zeros }}.</strong>{% endif %}</span>
                       </span>
                       <span class="jw-tier2__price">
                         <span class="jw-price__now">{{ v.price | money_without_trailing_zeros }}</span>
@@ -112,7 +122,13 @@
           <a class="jw-btn jw-btn--primary jw-btn--block" href="{{ section.settings.fallback_link | default: '#jw-buy' }}">{{ section.settings.cta_label | escape }}</a>
         {%- endif -%}
         {%- if section.settings.price_note != blank -%}
-          <p class="jw-caption jw-offerblock__note">{{ section.settings.price_note | escape }}</p>
+          <p class="jw-offerblock__note">{{ section.settings.price_note | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.pdf_line != blank -%}
+          <p class="jw-offerblock__note">{{ section.settings.pdf_line | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.phone_line != blank -%}
+          <p class="jw-offerblock__phone">{{ section.settings.phone_line | escape }}</p>
         {%- endif -%}
         <ul class="jw-terms" role="list">
           <li><strong>You pay to send it back:</strong> nothing. We pay the return postage.</li>
@@ -142,14 +158,19 @@
       var v = parseFloat(m[1].replace(/,/g, '')) * n;
       return '£' + (v % 1 ? v.toFixed(2) : v);
     }
+    function amount(s) { var m = String(s).match(/^£\s*([\d.,]+)$/); return m ? parseFloat(m[1].replace(/,/g, '')) : 0; }
     function scaleBox(n, price) {
+      var total = 0;
       document.querySelectorAll('[data-jw-row]').forEach(function (row) {
-        var q = row.querySelector('[data-jw-qty]'); if (q) q.textContent = n > 1 ? ' \u00d7' + n : '';
-        var val = row.querySelector('[data-jw-val]'); if (val) val.textContent = money(val.getAttribute('data-base'), n);
+        var mult = row.hasAttribute('data-jw-noscale') ? 1 : n;
+        var q = row.querySelector('[data-jw-qty]'); if (q) q.textContent = mult > 1 ? ' \u00d7' + mult : '';
+        var val = row.querySelector('[data-jw-val]');
+        if (val) { var t = money(val.getAttribute('data-base'), mult); val.textContent = t; total += amount(t); }
         var pay = row.querySelector('[data-jw-pay]');
         if (pay) pay.textContent = row.hasAttribute('data-jw-main') ? price : pay.getAttribute('data-base');
       });
-      var tv = document.querySelector('[data-jw-total-value]'); if (tv) tv.textContent = money(tv.getAttribute('data-base'), n);
+      var tv = document.querySelector('[data-jw-total-value]');
+      if (tv && total > 0) tv.textContent = '£' + (total % 1 ? total.toFixed(2) : total);
       var tp = document.querySelector('[data-jw-total-pay]'); if (tp) tp.textContent = price;
     }
     function setAll(value) {
@@ -232,6 +253,32 @@
       "id": "total_pay",
       "label": "You pay, if no product is set",
       "default": "£49"
+    },
+    {
+      "type": "text",
+      "id": "spend_title",
+      "label": "Title above the what-she-spent list",
+      "default": "What Paula spent first"
+    },
+    {
+      "type": "textarea",
+      "id": "spend_lines",
+      "label": "What she spent, one per line"
+    },
+    {
+      "type": "text",
+      "id": "spend_total",
+      "label": "The total line"
+    },
+    {
+      "type": "textarea",
+      "id": "pdf_line",
+      "label": "Second line under the button"
+    },
+    {
+      "type": "text",
+      "id": "phone_line",
+      "label": "Phone line under the button"
     },
     {
       "type": "text",
@@ -338,6 +385,12 @@
           "id": "pay",
           "label": "You pay",
           "default": "Included"
+        },
+        {
+          "type": "checkbox",
+          "id": "no_scale",
+          "label": "Do not multiply this line for 2 or 4 wraps",
+          "default": false
         }
       ]
     },

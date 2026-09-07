@@ -82,18 +82,72 @@
   "tag": "section",
   "class": "jw-section-chart",
   "settings": [
-    { "type": "header", "content": "Kitchen test photos (all three needed to show)" },
-    { "type": "image_picker", "id": "photo_0", "label": "0 minutes" },
-    { "type": "image_picker", "id": "photo_15", "label": "15 minutes" },
-    { "type": "image_picker", "id": "photo_30", "label": "30 minutes" },
-    { "type": "text", "id": "evidence_caption", "label": "Caption", "default": "Our own kitchen test: a hot water bottle and a Jointwell wrap, same thermometer, photographed at 0, 15 and 30 minutes." },
-    { "type": "checkbox", "id": "show_tiles", "label": "Show the four feature tiles", "default": false },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Your wheat bag lasts ten minutes. Your knee hurts all day." },
-    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Anything you heat in a microwave is hottest the moment you pick it up and cooler every minute after. Jointwell holds the level you choose, from 45°C to 65°C, for a full thirty minutes, then switches itself off." },
-    { "type": "text", "id": "caption", "label": "Chart caption", "default": "The shape of the difference: one line holds, one falls." },
-    { "type": "textarea", "id": "body", "label": "Body under the chart", "default": "Five heat levels. Three massage strengths. 360 g, so it does not drag on the knee. Charged over USB-C with the same cable as your phone. A 30-minute timer, so it cannot be left running." },
-    { "type": "text", "id": "cta_label", "label": "Button text", "default": "Try it for 90 days" },
-    { "type": "url", "id": "cta_link", "label": "Button link" }
+    {
+      "type": "header",
+      "content": "Kitchen test photos (all three needed to show)"
+    },
+    {
+      "type": "image_picker",
+      "id": "photo_0",
+      "label": "0 minutes"
+    },
+    {
+      "type": "image_picker",
+      "id": "photo_15",
+      "label": "15 minutes"
+    },
+    {
+      "type": "image_picker",
+      "id": "photo_30",
+      "label": "30 minutes"
+    },
+    {
+      "type": "text",
+      "id": "evidence_caption",
+      "label": "Caption",
+      "default": "Our own kitchen test: a hot water bottle and a Jointwell wrap, same thermometer, photographed at 0, 15 and 30 minutes."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tiles",
+      "label": "Show the four feature tiles",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your wheat bag lasts ten minutes. Your knee hurts all day."
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro",
+      "default": "Anything you heat in a microwave is hottest the moment you pick it up and cooler every minute after. Jointwell holds the level you choose, from 45°C to 65°C, for a full thirty minutes, then switches itself off."
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Chart caption",
+      "default": "The shape of the difference: one line holds, one falls."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body under the chart",
+      "default": "Five heat levels. Three massage strengths. 360 g, so it doesn't drag on the knee. Charged over USB-C with the same cable as your phone. A 30-minute timer, so it can't be left running."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button text",
+      "default": "Try it for 90 days"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    }
   ],
   "blocks": [
     {
@@ -101,25 +155,64 @@
       "name": "Feature tile",
       "limit": 4,
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Photo (square)", "info": "Leave empty to use a built-in photo." },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo (square)",
+          "info": "Leave empty to use a built-in photo."
+        },
         {
           "type": "select",
           "id": "stock",
           "label": "Built-in photo",
           "default": "jw-feature-heat.jpg",
           "options": [
-            { "value": "jw-feature-heat.jpg", "label": "Five heat levels" },
-            { "value": "jw-feature-massage.jpg", "label": "Three massage strengths" },
-            { "value": "jw-feature-timer.jpg", "label": "Switches off at 30 minutes" },
-            { "value": "jw-feature-joints.jpg", "label": "Knee, shoulder or elbow" },
-            { "value": "jw-feature-weight.jpg", "label": "360 g, cordless (text top-left, use with 1:1 crop)" },
-            { "value": "jw-wrap-mug.jpg", "label": "360 g, cordless" },
-            { "value": "jw-strap.jpg", "label": "Adjustable strap" },
-            { "value": "none", "label": "No photo" }
+            {
+              "value": "jw-feature-heat.jpg",
+              "label": "Five heat levels"
+            },
+            {
+              "value": "jw-feature-massage.jpg",
+              "label": "Three massage strengths"
+            },
+            {
+              "value": "jw-feature-timer.jpg",
+              "label": "Switches off at 30 minutes"
+            },
+            {
+              "value": "jw-feature-joints.jpg",
+              "label": "Knee, shoulder or elbow"
+            },
+            {
+              "value": "jw-feature-weight.jpg",
+              "label": "360 g, cordless (text top-left, use with 1:1 crop)"
+            },
+            {
+              "value": "jw-wrap-mug.jpg",
+              "label": "360 g, cordless"
+            },
+            {
+              "value": "jw-strap.jpg",
+              "label": "Adjustable strap"
+            },
+            {
+              "value": "none",
+              "label": "No photo"
+            }
           ]
         },
-        { "type": "text", "id": "title", "label": "Title", "default": "Five heat levels, held" },
-        { "type": "text", "id": "text", "label": "One line", "default": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes." }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Five heat levels, held"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "One line",
+          "default": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes."
+        }
       ]
     }
   ],
@@ -127,10 +220,38 @@
     {
       "name": "JW Heat chart",
       "blocks": [
-        { "type": "feature", "settings": { "stock": "jw-feature-heat.jpg", "title": "Five heat levels, held", "text": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes." } },
-        { "type": "feature", "settings": { "stock": "jw-feature-massage.jpg", "title": "Three massage strengths", "text": "Gentle, comfortable or strong. Chosen on a lit panel you can read without glasses." } },
-        { "type": "feature", "settings": { "stock": "jw-feature-timer.jpg", "title": "Switches itself off at 30 minutes", "text": "Every time. Start at 45°C and work up." } },
-        { "type": "feature", "settings": { "stock": "jw-feature-joints.jpg", "title": "Knee, shoulder or elbow", "text": "One wrap, one size. The extension strap in the box takes it round a shoulder." } }
+        {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-heat.jpg",
+            "title": "Five heat levels, held",
+            "text": "45°C to 65°C. Pick a level and it stays there for the full 30 minutes."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-massage.jpg",
+            "title": "Three massage strengths",
+            "text": "Gentle, comfortable or strong. Chosen on a lit panel you can read without glasses."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-timer.jpg",
+            "title": "Switches itself off at 30 minutes",
+            "text": "Every time. Start at 45°C and work up."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "stock": "jw-feature-joints.jpg",
+            "title": "Knee, shoulder or elbow",
+            "text": "One wrap, one size. The extension strap in the box takes it round a shoulder."
+          }
+        }
       ]
     }
   ]
