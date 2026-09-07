@@ -1,0 +1,67 @@
+{% comment %}
+  Scroll reveal for the JW sections. The hidden state lives in a class this script
+  adds, so if JS is off, blocked or errors, every block renders normally.
+  Skips the hero and the sticky bar (both must be visible immediately) and the
+  timeline, which has its own reveal. Honours prefers-reduced-motion.
+{% endcomment %}
+<script>
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var SELECTORS = [
+      '.jw4 .jw4__center', '.jw4 > .jw-wrap > .jw-h2', '.jw4 > .jw-wrap > .jw-lead',
+      '.jw5-beat', '.jw5-text', '.jw5-handoff', '.jw5-subhead',
+      '.jw4-mech__row', '.jw4-mech__panel', '.jw4-enemy__grid > *', '.jw4-enemy__belieftext',
+      '.jw5-quote__fig', '.jw5-compare__scroll', '.jw5-words__body',
+      '.jw-quotes > *', '.jw-evidence',
+      '.jw4-reviews__grid > *', '.jw-doorways__grid > *', '.jw-door',
+      '.jw-offerblock__inner', '.jw-tier', '.jw-faq__item',
+      '.jw4-guar__card', '.jw4-guar__terms', '.jw-chart', '.jw-cta-strip'
+    ].join(',');
+
+    var SKIP = '#jw-hero, .jw-sticky, .jw5-tl';
+    var nodes = [];
+    Array.prototype.forEach.call(document.querySelectorAll(SELECTORS), function (el) {
+      if (el.closest(SKIP)) return;
+      // don't reveal a block that sits inside another block already revealing
+      if (el.parentElement && el.parentElement.closest('.jw-reveal')) return;
+      nodes.push(el);
+    });
+    if (!nodes.length) return;
+
+    // stagger siblings so a row of cards arrives one after another
+    var seen = {};
+    nodes.forEach(function (el, i) {
+      el.classList.add('jw-reveal');
+      var p = el.parentElement;
+      if (!p) return;
+      if (!p.__jwKey) { p.__jwKey = 'p' + i; }
+      var n = (seen[p.__jwKey] = (seen[p.__jwKey] || 0) + 1);
+      if (n > 1 && n <= 4) el.classList.add('jw-reveal--d' + (n - 1));
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    nodes.forEach(function (el) { io.observe(el); });
+
+    // anything already on screen at load reveals straight away
+    requestAnimationFrame(function () {
+      nodes.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('is-in'); io.unobserve(el); }
+      });
+    });
+
+    // safety net: never leave anything invisible
+    setTimeout(function () {
+      nodes.forEach(function (el) { el.classList.add('is-in'); });
+    }, 6000);
+  })();
+</script>
