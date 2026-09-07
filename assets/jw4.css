@@ -311,7 +311,7 @@ body { background: var(--jw-bg); }
 .jw4-hero__second { font-size: var(--jw-fs-body); margin: 0 0 20px; color: var(--jw-text); }
 .jw4-hero__rating { margin: 8px 0 0; font-size: 17px; font-weight: 700; }
 .jw4-hero__rating .jw-stars { color: var(--jw-star); letter-spacing: 1px; }
-.jw4-hero__inset { position: absolute; right: 12px; bottom: 12px; width: 34%; max-width: 190px; background: #fff; border-radius: 14px; padding: 6px; box-shadow: 0 6px 18px rgba(74,42,28,0.18); }
+.jw4-hero__inset { position: absolute; right: 12px; top: 12px; width: 34%; max-width: 190px; background: #fff; border-radius: 14px; padding: 6px; box-shadow: 0 6px 18px rgba(74,42,28,0.18); }
 .jw4-hero__inset img { display: block; width: 100%; height: auto; border-radius: 10px; }
 
 .jw4-mech__panel { margin: 32px 0 0; }
