@@ -28,7 +28,7 @@
         {%- comment -%} Built-in photo, so the hero shows a real picture without an
         upload in the editor. An image_picker upload still wins if one is set. {%- endcomment -%}
         <img class="jw4__img jw4-hero__img" src="{{ section.settings.ba_stock | asset_url }}"
-             width="1024" height="559" loading="eager" fetchpriority="high"
+             width="1200" height="1262" loading="eager" fetchpriority="high"
              alt="{{ section.settings.ba_caption | escape }}">
       {%- else -%}
         <div class="jw5-ph jw5-ph--hero" role="img" aria-label="{{ section.settings.ba_caption | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ section.settings.ba_caption | escape }}</span></div>
