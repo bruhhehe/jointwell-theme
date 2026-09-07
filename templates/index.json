@@ -859,7 +859,8 @@
       "type": "jw5-quote",
       "settings": {
         "quote": "I found it in a Facebook group for osteoarthritis. At first I was sceptical. Was it really going to do anything? I had already tried the lot. Then I saw the 90-day guarantee, a 90-day trial they called it: if it doesn't work, send it back. So I thought, go on then, what is there to lose.",
-        "hide_cta": true
+        "hide_cta": true,
+        "stock": "jw-paula-face.jpg"
       }
     },
     "jw5_experience": {

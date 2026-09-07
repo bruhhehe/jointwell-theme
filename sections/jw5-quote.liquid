@@ -6,6 +6,10 @@
     <figure class="jw5-quote__fig">
       {%- if section.settings.photo != blank -%}
         {{ section.settings.photo | image_url: width: 240 | image_tag: loading: 'lazy', class: 'jw5-quote__photo', alt: section.settings.name }}
+      {%- elsif section.settings.stock != blank -%}
+        {%- comment -%} Built-in photo from assets. An upload above still wins. {%- endcomment -%}
+        <img class="jw5-quote__photo" src="{{ section.settings.stock | asset_url }}"
+             width="360" height="360" loading="lazy" alt="{{ section.settings.name | escape }}">
       {%- elsif section.settings.show_ph -%}
         <div class="jw5-ph jw5-ph--round" role="img" aria-label="{{ section.settings.name | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span></div>
       {%- endif -%}
@@ -50,6 +54,12 @@
       "type": "image_picker",
       "id": "photo",
       "label": "Their photo"
+    },
+    {
+      "type": "text",
+      "id": "stock",
+      "label": "Built-in photo filename (used when no photo is uploaded above)",
+      "info": "A file already in the theme's assets, e.g. jw-paula-face.jpg"
     },
     {
       "type": "checkbox",
