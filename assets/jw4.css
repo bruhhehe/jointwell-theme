@@ -371,3 +371,16 @@ body { background: var(--jw-bg); }
   .jw-btn, .jw-card, .jw-door { transition: background-color 0.15s ease; }
   .jw-btn:hover, .jw-card:hover, .jw-door:hover { transform: none; }
 }
+
+/* ── Scrollbars ──────────────────────────────────────────────────────────
+   The comparison table is the one thing on the page that scrolls sideways.
+   A default OS scrollbar sits under it as a grey slab; this makes it a thin
+   brand-coloured bar that fades in on hover, with the track kept visible so
+   it stays obvious the table scrolls. Firefox uses scrollbar-width/color. */
+.jw5-compare__scroll { scrollbar-width: thin; scrollbar-color: var(--jw-accent-soft) transparent; scroll-behavior: smooth; padding-bottom: 4px; }
+.jw5-compare__scroll::-webkit-scrollbar { height: 8px; }
+.jw5-compare__scroll::-webkit-scrollbar-track { background: transparent; border-radius: 999px; }
+.jw5-compare__scroll::-webkit-scrollbar-thumb { background: var(--jw-accent-soft); border-radius: 999px; transition: background-color 0.2s ease; }
+.jw5-compare__scroll:hover { scrollbar-color: var(--jw-accent) transparent; }
+.jw5-compare__scroll:hover::-webkit-scrollbar-thumb { background: var(--jw-accent); }
+@media (prefers-reduced-motion: reduce) { .jw5-compare__scroll { scroll-behavior: auto; } }
