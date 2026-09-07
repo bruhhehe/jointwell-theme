@@ -757,21 +757,24 @@
           "type": "beat",
           "settings": {
             "shot": "GP waiting room. Row of chairs, the ticket screen, a poster about flu jabs.",
-            "lines": "You put it off. It's only a knee.\nWhen you finally go, you get eight minutes."
+            "lines": "You put it off. It's only a knee.\nWhen you finally go, you get eight minutes.",
+            "stock": "jw-decline-gp.jpg"
           }
         },
         "b7": {
           "type": "beat",
           "settings": {
             "shot": "A hand pressing on a knee. Clinical, close, cropped.",
-            "lines": "Wear and tear, they say.\nVery common.\nParacetamol, keep it moving, lose a bit if you can."
+            "lines": "Wear and tear, they say.\nVery common.\nParacetamol, keep it moving, lose a bit if you can.",
+            "stock": "jw-decline-knee.jpg"
           }
         },
         "b8": {
           "type": "beat",
           "settings": {
             "shot": "A brown NHS envelope on a doormat.",
-            "lines": "The physio letter takes ten weeks.\nSix sessions.\nA sheet of exercises for the landing carpet."
+            "lines": "The physio letter takes ten weeks.\nSix sessions.\nA sheet of exercises for the landing carpet.",
+            "stock": "jw-decline-letter.jpg"
           }
         },
         "b9": {
