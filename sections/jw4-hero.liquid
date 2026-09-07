@@ -49,10 +49,13 @@
       <p class="jw-lead">{{ section.settings.subline | escape }}</p>
       {%- if section.settings.subline_2 != blank -%}<p class="jw4-hero__second">{{ section.settings.subline_2 | escape }}</p>{%- endif -%}
       <div class="jw4-hero__cta">
-        <a class="jw-btn jw-btn--primary" href="{{ cta }}">{{ section.settings.cta_label | escape }}</a>
-        <p class="jw4-hero__proof">{{ section.settings.proof_line | escape }}</p>
         {%- if section.settings.rating_line != blank -%}
-          <p class="jw4-hero__rating"><span class="jw-stars" aria-hidden="true">★★★★★</span> {{ section.settings.rating_line | escape }}</p>
+          <p class="jw4-hero__rating"><span class="jw-stars" aria-hidden="true">{{ section.settings.rating_stars | default: '★★★★★' }}</span> {{ section.settings.rating_line | escape }}</p>
+        {%- endif -%}
+        <a class="jw-btn jw-btn--primary" href="{{ cta }}">{{ section.settings.cta_label | escape }}{%- if section.settings.cta_show_price and price_text != blank %} <span class="jw4-hero__btnprice">&mdash; from {{ price_text }}</span>{% endif -%}</a>
+        <p class="jw4-hero__proof">{{ section.settings.proof_line | escape }}</p>
+        {%- if section.settings.scroll_label != blank -%}
+          <a class="jw4-hero__scroll" href="{{ section.settings.scroll_link | default: '#jw-discovery' }}">{{ section.settings.scroll_label | escape }}</a>
         {%- endif -%}
       </div>
     </div>
@@ -117,7 +120,31 @@
       "type": "text",
       "id": "rating_line",
       "label": "Rating line",
-      "info": "Only when Judge.me shows it, for example: 4.8 from 312 UK customers. Blank hides the stars."
+      "info": "Only when Judge.me shows it, for example: 4.8 from 312 UK customers. Blank hides the stars. Every figure here must be evidenced."
+    },
+    {
+      "type": "text",
+      "id": "rating_stars",
+      "label": "Stars shown beside the rating line",
+      "default": "★★★★★",
+      "info": "Match the score, e.g. ★★★★☆ for 4.6."
+    },
+    {
+      "type": "checkbox",
+      "id": "cta_show_price",
+      "label": "Show the price on the button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "scroll_label",
+      "label": "Link under the button",
+      "info": "For example: ↓ Read Paula's story. Blank hides it."
+    },
+    {
+      "type": "url",
+      "id": "scroll_link",
+      "label": "Where that link goes (blank jumps to Paula's discovery)"
     },
     {
       "type": "image_picker",

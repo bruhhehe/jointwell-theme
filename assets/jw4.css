@@ -384,3 +384,8 @@ body { background: var(--jw-bg); }
 .jw5-compare__scroll:hover { scrollbar-color: var(--jw-accent) transparent; }
 .jw5-compare__scroll:hover::-webkit-scrollbar-thumb { background: var(--jw-accent); }
 @media (prefers-reduced-motion: reduce) { .jw5-compare__scroll { scroll-behavior: auto; } }
+
+/* Hero rating line, button price and the jump link under the button */
+.jw4-hero__btnprice { font-weight: 700; white-space: nowrap; }
+.jw4-hero__scroll { display: inline-block; margin: 2px 0 0; font-size: 17px; font-weight: 700; color: var(--jw-accent-dark); text-decoration: none; border-bottom: 2px solid var(--jw-accent-soft); padding-bottom: 2px; transition: border-color 0.2s ease, color 0.2s ease; }
+.jw4-hero__scroll:hover, .jw4-hero__scroll:focus-visible { color: var(--jw-accent); border-bottom-color: var(--jw-accent); }
