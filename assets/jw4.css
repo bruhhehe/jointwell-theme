@@ -277,7 +277,10 @@ body { background: var(--jw-bg); }
 .jw4-enemy__grid, .jw5-decline__beats, .jw4-reviews__grid, .jw5-tl, .jw4-guar__terms, .jw5-quote__fig { margin-top: 0; }
 .jw4-enemy__belieftext, .jw4-mech__only, .jw5-words__body { margin-top: 24px; }
 .jw-cta-strip { margin-top: 40px; }
-.jw5-beat, .jw5-text, .jw5-handoff { margin: 0; }
+.jw5-beat { margin: 0; }
+/* zero the vertical margins only: these blocks are narrower than the beats grid
+   and need their auto side margins to stay centred */
+.jw5-text, .jw5-handoff { margin: 0 auto; }
 .jw5-decline__beats { gap: 44px; }
 .jw5-subhead { padding-top: 24px; }
 /* Hairline between sections. Not above the first, and softened on the dark band. */
