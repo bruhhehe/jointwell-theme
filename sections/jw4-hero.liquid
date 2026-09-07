@@ -24,6 +24,12 @@
     <div class="jw4-hero__media">
       {%- if section.settings.ba_image != blank -%}
         {{ section.settings.ba_image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1400', sizes: '(min-width: 900px) 50vw, 100vw', class: 'jw4__img jw4-hero__img', alt: section.settings.ba_caption }}
+      {%- elsif section.settings.ba_stock != blank -%}
+        {%- comment -%} Built-in photo, so the hero shows a real picture without an
+        upload in the editor. An image_picker upload still wins if one is set. {%- endcomment -%}
+        <img class="jw4__img jw4-hero__img" src="{{ section.settings.ba_stock | asset_url }}"
+             width="1024" height="559" loading="eager" fetchpriority="high"
+             alt="{{ section.settings.ba_caption | escape }}">
       {%- else -%}
         <div class="jw5-ph jw5-ph--hero" role="img" aria-label="{{ section.settings.ba_caption | escape }}"><span class="jw5-ph__icon" aria-hidden="true">&#128247;</span><span class="jw5-ph__text">{{ section.settings.ba_caption | escape }}</span></div>
       {%- endif -%}
@@ -225,6 +231,30 @@
       "type": "image_picker",
       "id": "ba_image",
       "label": "Before and after picture"
+    },
+    {
+      "type": "select",
+      "id": "ba_stock",
+      "label": "Built-in hero photo (used when no picture is uploaded above)",
+      "options": [
+        {
+          "value": "jw-hero-stairs.jpg",
+          "label": "Paula on the stairs with the washing"
+        },
+        {
+          "value": "jw-hero.jpg",
+          "label": "Kitchen, red jumper"
+        },
+        {
+          "value": "jw-photo-garden-window.jpg",
+          "label": "Garden window, smiling"
+        },
+        {
+          "value": "",
+          "label": "None (show the placeholder)"
+        }
+      ],
+      "default": "jw-hero-stairs.jpg"
     },
     {
       "type": "text",
