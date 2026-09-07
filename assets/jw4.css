@@ -298,3 +298,8 @@ body { background: var(--jw-bg); }
   .jw-doors__tabs { grid-template-columns: 1fr; gap: 8px; }
   .jw-doors__tab { justify-content: flex-start; text-align: left; padding: 14px 18px; }
 }
+
+/* The spacing pass reset margins on every lead line, which knocked the 760px-wide
+   ones off centre. Put the auto side margins back. */
+.jw4__center .jw-lead, .jw5-subhead .jw-lead, .jw-chart .jw-lead, .jw-authority .jw-lead,
+.jw-doorways .jw-lead, .jw-offerblock .jw-lead, .jw-faq .jw-lead { margin-left: auto; margin-right: auto; }
