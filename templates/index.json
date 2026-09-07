@@ -781,21 +781,24 @@
           "type": "beat",
           "settings": {
             "shot": "Printed exercise sheet, folded, on a kitchen table. Coffee ring on it.",
-            "lines": "The physio is lovely.\nThe exercises hurt.\nBy session four you've stopped, and neither of you mentions it."
+            "lines": "The physio is lovely.\nThe exercises hurt.\nBy session four you've stopped, and neither of you mentions it.",
+            "stock": "jw-decline-exercises.jpg"
           }
         },
         "b10": {
           "type": "beat",
           "settings": {
             "shot": "A syringe on a tray, out of focus.",
-            "lines": "So it's the injection.\nAnd it works. Properly works.\nFor about ten weeks."
+            "lines": "So it's the injection.\nAnd it works. Properly works.\nFor about ten weeks.",
+            "stock": "jw-decline-injection.jpg"
           }
         },
         "b11": {
           "type": "beat",
           "settings": {
             "shot": "A calendar page with a date circled.",
-            "lines": "Then one morning it's back.\n\"We can only do that a few times a year.\"\n\"Have you thought about a replacement?\""
+            "lines": "Then one morning it's back.\n\"We can only do that a few times a year.\"\n\"Have you thought about a replacement?\"",
+            "stock": "jw-decline-calendar.jpg"
           }
         },
         "t2": {
@@ -808,7 +811,8 @@
           "type": "beat",
           "settings": {
             "shot": "Three boxes on a bedside table. Co-codamol, naproxen, paracetamol. Labels visible.",
-            "lines": "One leaves you foggy.\nOne upsets your stomach.\nOne is fine. It's just not enough any more."
+            "lines": "One leaves you foggy.\nOne upsets your stomach.\nOne is fine. It's just not enough any more.",
+            "stock": "jw-decline-pills.jpg"
           }
         },
         "t3": {
